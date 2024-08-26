@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Preface",
+    "section": "",
+    "text": "These are the assignments for STAT 385: Statistics Programming Methods, offered in the Fall of 2024 at UIUC. If you have any comments/suggestions/concerns about the notes please contact me at wjia@illinois.edu."
+  },
+  {
+    "objectID": "Quiz1/Quiz1.html",
+    "href": "Quiz1/Quiz1.html",
+    "title": "",
+    "section": "",
+    "text": "Please complete the following questions and submit a file named Quiz1.R to Gradescope.\nRemember:\n\nDo not rename external data files or edit them in any way. In other words, don’t modify data.csv. Your code won’t work properly on modified version of the data set.\nDo not use global paths in you script. Instead, use setwd() interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope’s virtual machines.\nDo not destroy or overwrite any variables in your program. The autograder checks them only after it has run your entire program from start to finish.\nCheck to make sure you do not have any syntax errors. Code that doesn’t run will get a very bad grade.\nMake sure to name your submission Quiz1.R\n\nTip: before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs."
+  },
+  {
+    "objectID": "Quiz1/Quiz1.html#quiz-1-instructions",
+    "href": "Quiz1/Quiz1.html#quiz-1-instructions",
+    "title": "",
+    "section": "",
+    "text": "Please complete the following questions and submit a file named Quiz1.R to Gradescope.\nRemember:\n\nDo not rename external data files or edit them in any way. In other words, don’t modify data.csv. Your code won’t work properly on modified version of the data set.\nDo not use global paths in you script. Instead, use setwd() interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope’s virtual machines.\nDo not destroy or overwrite any variables in your program. The autograder checks them only after it has run your entire program from start to finish.\nCheck to make sure you do not have any syntax errors. Code that doesn’t run will get a very bad grade.\nMake sure to name your submission Quiz1.R\n\nTip: before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs."
+  },
+  {
+    "objectID": "Quiz1/Quiz1.html#question-1.",
+    "href": "Quiz1/Quiz1.html#question-1.",
+    "title": "",
+    "section": "Question 1.",
+    "text": "Question 1.\nMake a vector called myVector and have it store the integers \\(1,2,3\\)"
+  },
+  {
+    "objectID": "Quiz1/Quiz1.html#question-2.",
+    "href": "Quiz1/Quiz1.html#question-2.",
+    "title": "",
+    "section": "Question 2.",
+    "text": "Question 2.\nMake a string called myString and have it store “Hello STAT 385!”."
+  },
+  {
+    "objectID": "Quiz1/Quiz1.html#question-3.",
+    "href": "Quiz1/Quiz1.html#question-3.",
+    "title": "",
+    "section": "Question 3.",
+    "text": "Question 3.\nRead in the data set called data.csv and store the data frame as myDataFrame."
+  }
+]

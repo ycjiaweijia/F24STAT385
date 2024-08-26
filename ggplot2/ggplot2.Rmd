@@ -1,0 +1,515 @@
+---
+title: "Data Visualization with ggplot2"
+output: slidy_presentation
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data Visualization in R
+
+R is nowadays equipped with two independent (incompatible, yet coexisting) systems for graphics generation:
+
+
+* *Traditional System* -- base graphics
+  + Built-in functionality for creating charts and graphs in R.
+  + Easier to learn and use.
+  + Discussed before.
+  
+  
+* *Newer System* -- grid
+  + **ggplot2** -- an open-source data visualization package.
+  + Very flexible and gaining popularity rapidly nowadays.
+  + **Very brief introduction to ggplot in this lecture**.
+  + R Graph Gallery 
+<https://r-graph-gallery.com/>
+  + ggplot Cheatsheet
+<https://rstudio.github.io/cheatsheets/html/data-visualization.html>
+  
+  
+
+
+## Five Basic Graphs
+
+Visualization using **ggplot2** will be introduced and compared with Base R Graphics.
+
+  * scatterplot
+  * linegraph
+  * histogram
+  * boxplot
+  * barplot
+
+  
+
+## Recall: Base R Graphics
+### Scatterplot Example
+
+Example: Draw scatterplot of wind vs pressure of the data set **storms** (in the tidyverse package).
+
+```{r, warning=FALSE, message=FALSE, echo = FALSE}
+# Data preparation
+library(tidyverse)
+data(storms) # data frame in tidyverse package
+
+storms[6923, "category"]=0 #Fixed one error value
+storms$category = as.factor(storms$category)
+```
+
+```{r, eval=TRUE}
+# Plot scatter plot with x = pressure, y = wind
+plot(storms$pressure, storms$wind, col = "blue", 
+     main = "Scatterplot of Wind vs Pressure")
+```
+
+
+### Scatterplot Matrices Example
+
+
+Example: Draw scatterplot matrix of first 4 variables of the data frame **iris** (in the datasets package).
+
+
+```{r, eval=TRUE, echo=FALSE}
+library(datasets)
+data(iris)
+head(iris)
+```
+
+
+```{r}
+# pch = 19 stands for points symbols type 19,
+# which is solid circle
+pairs(iris[,1:4], pch=19)
+```
+
+
+### Linegraph Example -- Draw a linegraph of the Data Science search counts vs Month.
+
+
+```{r, echo=FALSE}
+ds = read.csv("GoogleTrendDataScience.csv")
+
+head(ds)
+```
+
+```{r}
+par(mfrow=c(1,2)) # 1 row, 2 columns (row-wise filling)
+plot(ds$Month_Since_2004, ds$DataScience, type="l",
+     main = "Line Plot for Data Science",
+     xlab = "Number of Months Since 2004",
+     ylab = "Data Science Search Counts") # type="l" represents lines
+
+### Plot with points and line
+plot(ds$Month_Since_2004, ds$DataScience, type="b", # type="b" represents both
+     main = "Line and Point Plot for Data Science",
+     xlab = "Number of Months Since 2004",
+     ylab = "Data Science Search Counts") 
+
+par(mfrow=c(1,1)) # reset to default
+
+```
+
+
+### Multiple linegraphs Example
+
+
+Example: We could place multiple linegraphs on one plot. Draw two linegraphs (DataScience vs Month_Since_2004, MachineLearning vs Month_Since_2004) on a single plot.
+
+```{r, echo=TRUE}
+plot(ds$Month_Since_2004, ds$DataScience, type="l", col="red")
+lines(ds$Month_Since_2004, ds$MachineLearning, col="blue")
+```
+
+
+
+
+
+### Histogram Example
+
+Example: Draw histogram of variable `Sepal.Width` in the data frame `iris` (in the datasets package).
+
+```{r}
+data(iris)
+hist(iris$Sepal.Width)
+```
+
+
+### Histogram Matrices Example
+
+
+```{r, warning=FALSE, message=FALSE}
+library(Hmisc)
+hist.data.frame(iris[,1:4])
+```
+
+
+
+### Boxplot Example
+
+
+Example: 
+
+(a) Draw a boxplot of the variable `wind` in the data frame `storms` (in the tidyverse package).
+
+(b) Draw a boxplot of `wind` vs `category` of the data frame `storms`.
+
+
+```{r, fig.dim=c(12,9)}
+par(mfrow=c(2,2)) # Arrange the plots in 2*2 graphical matrix
+
+### (a) boxplot of wind
+boxplot(storms$wind, main = "(a) Vertical")
+boxplot(storms$wind, horizontal = TRUE, main = "(a) Horizontal")
+### (b) boxplot of wind over levels of category
+### vertical boxplot by default
+boxplot(wind ~ category, data = storms, main = "(b) Vertical")
+
+### horizontal boxplot
+boxplot(wind ~ category, data = storms, horizontal = TRUE, main = "(b) Horizontal")
+
+par(mfrow=c(1,1))
+```
+
+
+### Barplot Example
+
+Example: In the `storms` dataset,
+
+(a) Draw a barplot of variable `status`.
+
+(b) Draw a barplot of variable of `status` and `category`.
+
+```{r}
+### (a) Barplot
+counts = table(storms$status)
+barplot(counts)
+
+counts
+
+# Horizontal barplot
+barplot(counts, horiz=TRUE)
+
+### (b) Barplot of two variables
+counts = table(storms$category, storms$status)
+counts
+
+barplot(counts, col= c("steelblue", "firebrick", "lightblue", "mistyrose", "lightcyan",
+  "lavender", "cornsilk"), besid=TRUE, legend = rownames(counts),
+  args.legend=list(title="Category"))
+```
+
+
+* `category` variable in `storms` represents the Saffir-Simpson storm category (range from 1 to 5), which the scale based only on a hurricane's maximum sustained wind speed.
+
+
+
+
+
+## ggplot2
+
+## Why ggplot
+
+1. Looks good!
+
+  + `library(ggplot2)` is used by fivethirtyeight, Financial Times, BBC, the Urban Institute, and more.
+
+2. Flexible and expressive
+
+  + Constructing a visualization using `library(ggplot2)` is
+  like playing a set of building blocks (it's fun!)
+  + Add different layers of component parts to the plot.
+
+3. Reproducible and scalable
+
+  + Once you have the plot-building-pipelines built, feed the data, select the code, Ctrl + Enter, then all done!
+  + It's almost as easy to make the 100th chart as it is to make the 2nd chart.
+
+4. Essential in analysis workflow
+
+## ggplot2-- five important graphs -- Summary
+
+Assume we have the variables **xvar, yvar** in the data frame **df**.
+
+
+ 
+```{r, eval=FALSE}
+### scatterplot
+ggplot(data=df, mapping=aes(x=xvar, y=yvar)) +
+  geom_point()
+
+### linegraph
+ggplot(data=df, mapping=aes(x=xvar, y=yvar)) +
+  geom_line()
+
+  #linegraph with dots
+  ggplot(data=df, mapping=aes(x=xvar, y=yvar)) +
+    geom_line() +
+    geom_point()
+
+### histogram
+ggplot(data=df, mapping=aes(x=xvar)) +
+  geom_histogram()
+
+### boxplot
+  # boxplot of one variable yvar
+  ggplot(data=df, mapping=aes(y=yvar)) +
+    geom_boxplot()
+  # boxplot of the yvar vs xvar
+  ggplot(data=df, mapping=aes(x=xvar, y=yvar)) +
+    geom_boxplot()
+
+### barplot of variable x
+  # If not pre-counted, use geom_bar()
+  ggplot(data=df, mapping=aes(x=xvar))+
+   geom_bar()
+  # If precounted, use geom_col()
+  ggplot(data=df_counted, mapping=aes(x=xvar,y=counts))+
+    geom_col()
+```
+
+
+## ggplot2 -- scatterplot -- Example
+
+**Function: geom_point(x,y)**
+
+Example: Draw scatterplot of wind vs pressure of the data set `storms` (in the tidyverse package).
+
+```{r, warning=FALSE, message=FALSE}
+# Data preparation
+library(tidyverse)
+data(storms) # data frame in tidyverse package
+
+storms[6923, "category"]=0 #Fixed one error value
+storms$category = as.factor(storms$category)
+```
+
+```{r}
+# load the data set storms (in the tidyverse package)
+ggplot(data = storms, mapping = aes(x=pressure, y=wind))+
+  geom_point()
+```
+
+
+* Take a quick peek on dealing with overplotting
+
+```{r}
+ # Changing the transparency
+ggplot(storms, mapping = aes(x=pressure, y=wind)) + 
+  geom_jitter(alpha=0.2)
+```
+
+
+
+## ggplot2 -- scatterplot matrices -- Example
+
+
+**Function: ggpairs(df)**
+
+Example: Draw scatterplot matrix of first 4 variables of the data frame `iris` (in the datasets package).
+
+
+```{r}
+data(iris)
+
+library(GGally)
+ggpairs(iris[,1:4])
+```
+
+
+
+## ggplot2 -- linegraph -- Example
+
+**Function: geom_line()**
+
+Example: From <https://trends.google.com/>, we downloaded the time series data set **GoogleTrendDataScience.csv** with three variables `Month_Since_2004`, `DataScience`, `MachineLearning`.
+
+(a) Draw a linegraph of the Data Science search counts vs Month.
+
+(b) Draw a linegraph with points.
+
+
+```{r, warning=FALSE, message=FALSE, fig.dim=c(12,6)}
+ds = read.csv("GoogleTrendDataScience.csv")
+
+### Plot with line only
+p1 = ggplot(ds, aes(x = Month_Since_2004, y = DataScience)) +
+  geom_line()
+
+### Plot with points and line
+p2= ggplot(ds, aes(x = Month_Since_2004, y = DataScience)) +
+  geom_line() +
+  geom_point(size=1.5)
+
+library(gridExtra)
+grid.arrange(p1, p2, nrow = 1, ncol = 2)
+```
+
+## ggplot2 -- Multiple linegraphs -- Example
+
+**Function: geom_line()**
+
+Example: We could place multiple linegraphs on one plot. Draw two linegraphs (DataScience vs Month_Since_2004, MachineLearning vs Month_Since_2004) on one plot.
+
+
+```{r, warning=FALSE, message=FALSE}
+ggplot(ds) +
+  geom_line(aes(x=Month_Since_2004, y=DataScience), col = "tomato3", size = 1.5) +
+  geom_line(aes(x=Month_Since_2004, y=MachineLearning), col="steelblue", size = 1.5)
+
+```
+
+
+
+
+
+## ggplot2 -- histogram -- Example
+**Function: geom_histogram()**
+
+Example: Draw histogram of variable `Sepal.Width` in the data frame `iris` (in the datasets package).
+
+```{r}
+## Illini orange and blue!
+ggplot(iris, aes(x=Sepal.Width)) +
+  geom_histogram(binwidth=0.2, color="#13294B", fill="#FF5F05")
+
+```
+
+
+
+## ggplot2 -- boxplot -- Example
+
+**Functions: geom_boxplot()**
+
+
+Example:
+
+(a) Draw a boxplot of the variable `wind` in the data frame `storms` (in the tidyverse package).
+
+(b) Draw a boxplot of `wind` vs `category` of the data frame `storms` .
+
+
+```{r, fig.dim = c(12,9)}
+
+### (a) boxplot of wind
+p1 = ggplot(storms, aes(y=wind))+
+  geom_boxplot()
+
+
+
+### (b) boxplot of wind over levels of category
+### vertical boxplot by default
+p2 = ggplot(storms, aes(x = category, y = wind))+
+  geom_boxplot()
+
+### horizontal boxplot
+p3 = ggplot(storms, aes(y = category, x = wind))+
+  geom_boxplot()
+# Or
+p4 = ggplot(storms, aes(x = category, y = wind))+
+  geom_boxplot()+
+  coord_flip()
+
+grid.arrange(p1, p2, p3, p4, nrow = 2, ncol = 2)
+```
+
+
+
+## ggplot2 -- barplot -- Example
+
+**Functions: geom_bar(), geom_col()**
+
+Example: In the `storms` dataset,
+
+(a) Draw a barplot of variable `status`.
+
+(b) Draw a barplot of variable of `status` and `category`
+
+
+```{r}
+### Barplot
+    # If not pre-counted, use geom_bar()
+    ggplot(storms, aes(x = status))+
+      geom_bar()+
+      scale_x_discrete(guide = guide_axis(angle = 45)) ### Rotate the x axis label
+
+    # If precounted, use geom_col()
+    storms %>% 
+      group_by(status) %>%
+      summarise(count = n())%>%
+      ggplot(aes(x = status, y = count)) +
+      geom_col()+
+      scale_x_discrete(guide = guide_axis(angle = 45)) ### Rotate the x axis label
+
+# Horizontal barplot
+ggplot(storms, aes(y=status))+
+  geom_bar()
+
+### Barplot of two variables
+ggplot(storms, aes(x = status, fill = factor(category)))+
+  geom_bar(position = "dodge")+
+  scale_x_discrete(guide = guide_axis(angle = 45)) ### Rotate the x axis label
+
+
+```
+
+
+* `category` variable in `storms` represents the Saffir-Simpson storm category (range from 1 to 5), which the scale based only on a hurricane's maximum sustained wind speed.
+
+
+```{r}
+### Barplot
+p1 = ggplot(storms, aes(x = status))+
+  geom_bar()+
+  scale_x_discrete(guide = guide_axis(angle = 45)) ### Rotate the x axis label
+
+# Horizontal barplot
+p2 = ggplot(storms, aes(y = status))+
+  geom_bar()
+
+### Barplot of two variables
+p3 = ggplot(storms, aes(x = status, fill = factor(category))) +
+  geom_bar(position = "dodge")+
+  scale_x_discrete(guide = guide_axis(angle = 45)) ### Rotate the x axis label
+
+grid.arrange(p1, p2, p3, layout_matrix = rbind(c(1,2), c(3,3)))
+```
+
+
+## Want to save your ggplot?
+
+```{r, eval = FALSE}
+ggplot(storms, aes(x = status, fill = factor(category))) +
+  geom_bar(position = "dodge")+
+  scale_x_discrete(guide = guide_axis(angle = 45))
+
+ggsave("The Barplots.png") ### Save the last plot
+ggsave("p1.png", plot = p1) ### Save the plot specified
+```
+
+
+
+## Comments
+
+
+* If a graph could be done with ggplot2, it could probably be done with base R graphics, and vice versa.
+
+* To take a quick look at the data, the one-line base R graphics functions are quick and easy.
+
+* For data visualization, ggplot2 is much easier to code and with a much better output.
+
+
+
+## Resources
+
+* R Graph Gallery 
+<https://r-graph-gallery.com/>
+
+* Rstudio Cheatsheets 
+<https://www.rstudio.com/resources/cheatsheets/>
+
+* Reference Books (Free online books with excellent material)
+  + R for Data Science: https://r4ds.had.co.nz/index.html
+  + Hands-on Programming with R: https://rstudio-education.github.io/hopr/
+  + R Graphics Cookbook: https://r-graphics.org/

@@ -1,0 +1,131 @@
+## Quiz 11 Instructions
+
+Please complete the following questions and submit a file named **Quiz11.R**.
+
+**Remember:**
+
+-   Do not rename external data files or edit them in any way. In other words, don't modify *CLEANDATA.txt*, etc. unless specifically requested and instructed below. Your code won't work properly on my version of that data set, if you do.
+
+-   Do not use global paths in you script. Instead, use *setwd()* interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope's virtual machines.
+
+-   Do not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.
+
+-   Check to make sure you do not have any syntax errors. Code that doesn't run will get a very bad grade.
+
+-   Make sure to name your submission **Quiz11.R**
+
+**Tip:** before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.
+
+::: {style="height:30px;"}
+:::
+
+## Data Preparation -- Practice converting XLSX file to CSV 
+
+
+
+Please review the instructions on "How to convert Excel file to CSV" at <https://www.ablebits.com/office-addins-blog/convert-excel-csv/>. Then, save the "BLACKFRIDAY" and "COFFEE" spreadsheets from "Datasets.xlsx" as two separate CSV files named **"BLACKFRIDAY.csv"** and **"COFFEE.csv"**.
+
+**After this step, we will disregard "Datasets.xlsx" and only use the two newly created CSV files for the following questions.**
+
+::: {style="height:30px;"}
+:::
+
+## Question 1
+
+(a) **[1pt]** Import the first 4 columns of "COFFEE.csv" and save the data frame as `COFFEE.PART1`. \[Hint: You may use `nrows` for this task.\]
+
+The imported data frame should be
+
+```{r}
+#| echo = FALSE
+
+COFFEE.PART1<- read.csv("COFFEE.csv", 
+                header = TRUE, 
+                nrows = 8,
+                colClasses = c("numeric", "numeric", "numeric", 
+                               "numeric", "NULL", "NULL", "NULL")
+                )
+COFFEE.PART1
+```
+
+(b) **[2pts]** Export the regression analysis results to file "REGRESSION_COFFEE_PART1.txt".
+
+\[Hint: You may use `cat()` and `sink()` for this task; You may use the following R codes.
+
+```{r}
+#| eval = FALSE
+lmod <- lm(PRICE ~ DEMAND, data = COFFEE.PART1)
+summary(lmod)
+anova(lmod)
+```
+
+\].
+
+The final TXT file "REGRESSION_COFFEE_PART1.txt" should look like:
+
+![](Q2(b)%20TXT%20file.png){fig-align="center"}
+
+(c) **[1pt]** Import the last 3 columns of "COFFEE.csv" and save the data frame as `COFFEE.PART2`. Then rename the second column name as `inverseP`.
+
+The imported data frame should be: (Below we only show the first and last 3 rows to save space)
+
+```{r}
+#| echo = FALSE
+
+COFFEE.PART2 <- read.csv("COFFEE.csv", 
+                header = TRUE, 
+                colClasses = c("NULL", "NULL", "NULL", 
+                               "NULL", "numeric", "numeric", "numeric")
+                )
+names(COFFEE.PART2)[2] <- "inverseP"
+```
+
+```{r}
+head(COFFEE.PART2, 3)
+tail(COFFEE.PART2, 3)
+```
+
+(d) **[1pt]** Use `plot(COFFEE.PART2$P, COFFEE.PART2$inverseP)` to draw the scatterplot and save the plot as "PLOT_COFFEE_PART2.png", make sure you use `bg = "transparent"` to set the background to transparent.
+
+::: {style="height:30px;"}
+:::
+
+## Question 2
+
+**[2pts]** Import "BLACKFRIDAY.csv" and save the data frame as `BLACKFRIDAY`. Filter the data frame with YEARS greater than 10, and save the result as `BLACKFRIDAY_gt10`. Export data frame `BLACKFRIDAY_gt10` to CSV file "BLACKFRIDAY_gt10.csv". Make sure you use `row.names = FALSE` to avoid writing the row names.
+
+::: {style="height:30px;"}
+:::
+
+## Question 3
+
+Use "CLEANDATA.txt" for this question. Complete the following parts.
+
+(a) **[2pts]**
+
+Step 1: Skip the first five rows (consider the column names as Row 1) and import "CLEANDATA.txt". Save the data frame as `CLEANDATA`.
+
+Step 2: Scan the column names from "CLEANDATA.txt" as `header`. Then assemble the data frame `CLEANDATA` and `header`.
+
+The data frame `CLEANDATA` should be:
+
+```{r}
+#| echo = FALSE
+
+# Solution
+CLEANDATA <- read.table(
+  file = "CLEANDATA.txt", 
+  skip = 5,
+  header = FALSE)
+
+
+header = scan(
+  file = "CLEANDATA.txt", 
+  what = list("", "", ""), 
+  nmax = 1)
+names(CLEANDATA) <- header
+
+CLEANDATA
+```
+
+(b) **[1pt]** Write the `CLEANDATA$AUTOMATI`, one element per line, to the file "AUTOMATI.txt".

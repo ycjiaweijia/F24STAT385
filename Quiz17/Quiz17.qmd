@@ -1,0 +1,155 @@
+## Quiz 17 Instructions
+
+Please complete the following questions and submit a file named **Quiz17.R**.
+
+**Remember:**
+
+<!-- -   Do not rename external data files or edit them in any way. In other words, don't modify *data.csv*. Your code won't work properly on my version of that data set, if you do. -->
+
+-   Do not use global paths in you script. Instead, use *setwd()* interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope's virtual machines.
+-   Do not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.
+-   Check to make sure you do not have any syntax errors. Code that doesn't run will get a very bad grade.
+-   Make sure to name your submission **Quiz17.R**
+- <span style="font-size: 22px;"> **Don't forget to use `library(tidyverse)`at the beginning of Quiz17.R.**</span>
+
+
+**Tip:** before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.
+
+::: {style="height:30px;"}
+:::
+
+**Please download the CSV data [survey_visual_device](survey_visual_device.csv) for this quiz.**
+
+## Question 1
+
+(a) **\[2 pts\]** Use `fct_relevel()` to reorder the levels of `Visual.acuity` to `c("Very Poor", "Poor", "Average", "Good", "Excellent")`. Find and save the count summary table of `Visual.acuity` as `visual_acuity_count`. The table should look like:
+
+```{r, warning = FALSE, message = FALSE, echo = FALSE}
+# Solution
+library(tidyverse)
+
+survey_visual_device <- read_csv("survey_visual_device.csv")
+
+visual_acuity_count <- survey_visual_device %>% 
+  mutate(Visual.acuity = fct_relevel(Visual.acuity,
+                                     c("Very Poor", "Poor", "Average", 
+                                       "Good", "Excellent"))) %>% 
+  count(Visual.acuity)
+
+survey_visual_device %>% 
+  mutate(Visual.acuity = fct_relevel(Visual.acuity,
+                                     c("Very Poor", "Poor", "Average", 
+                                       "Good", "Excellent"))) %>% 
+  count(Visual.acuity)
+
+```
+
+(b) **\[2 pts\]** Use `fct_rev()` to reverse the order of the levels of `Visual.acuity` from (a). Find and save the count summary table as `visual_acuity_rev_count`.
+
+```{r, echo = FALSE, eval = FALSE}
+# Solution
+
+visual_acuity_rev_count <- survey_visual_device %>% 
+  mutate(Visual.acuity = Visual.acuity %>% 
+           fct_relevel(., c("Very Poor", "Poor", "Average", 
+                                                         "Good", "Excellent")) %>% 
+           fct_rev()
+  ) %>% 
+  count(Visual.acuity)
+
+
+
+
+
+```
+
+::: {style="height:30px;"}
+:::
+
+## Question 2
+
+On the [Reaction Time Statistics](https://humanbenchmark.com/tests/reactiontime/statistics) page, it suggests: mobile device "taps" tend to be a bit slower than "clicks". Is it true according to `survey_visual_device` data?
+
+(a) **\[2 pts\]** Use `fct_collapse()` to combine the "Touch screen" and "Trackpad" categories into "tap", and merge the remaining three categories ("Mouse", "Keyboard", "Game controller") into "click". Name the new variable as `tapclick`.
+
+```{r, echo = FALSE, eval = FALSE}
+
+# Solution
+
+survey_visual_device <- survey_visual_device %>% 
+  mutate(tapclick = fct_collapse(Input.device,
+                                 tap = c("Trackpad", "Touch screen"),
+                                 click = c("Mouse", "Keyboard", "Game controller")))
+
+
+
+```
+
+(b) **\[2 pts\]** Use `ggplot` to create a box-plot with `tapclick` on the x-axis, and `Reaction.time` on the y-axis. Label the $x$-axis as `Input Device` and the $y$-axis as `Reaction Time`. Save the plot as `tapclick_boxplot.png` using `ggsave(...,  width = 10, height = 8, dpi = 300)`.
+
+```{r, echo = FALSE, eval = FALSE}
+# Solution
+
+survey_visual_device %>% 
+  ggplot(aes(x = tapclick, y = Reaction.time)) +
+  geom_boxplot() +
+  labs(
+    x = "Input Device",
+    y = "Reaction Time"
+  )
+
+
+ggsave("tapclick_boxplot.png",  width = 10, height = 8, dpi = 300)
+
+```
+
+::: {style="height:30px;"}
+:::
+
+## Question 3
+
+(a) **\[2 pts\]** Draw a bar chart of the frequency of different `Device.OS` values, ensuring the bars are arranged in descending order. You may use `fct_infreq()` to achieve this. Label the $x$-axis as `Device OS` and the $y$-axis as `Count`. Save the plot as `device_barchart.png` using `ggsave(...,  width = 10, height = 8, dpi = 300)`.
+
+```{r, echo = FALSE, eval = FALSE}
+# Solution
+
+survey_visual_device %>% 
+  ggplot(aes(x = fct_infreq(Device.OS))) +
+  geom_bar()+
+  labs(
+    x = "Device OS",
+    y = "Count"
+  )
+
+
+ggsave("device_barchart.png",  width = 10, height = 8, dpi = 300)
+```
+
+(b) **\[2 pts\]** From the bar chart in (a), we can see several small counts. Please use `fct_lump_min()` to lumps levels appear fewer than 10 times as "Other". Save the new variable as `device_lump` and count the frequency of each category. Save the summary table as `device_lump_count`.
+
+```{r, echo = FALSE, eval = FALSE}
+
+## Q3(b)
+survey_visual_device %>% 
+  mutate(device_lump = fct_lump_min(Device.OS, 10)) %>% 
+  count(device_lump)
+
+
+```
+
+(c) **\[2 pts\]** Draw a bar chart of the frequency of different `device_lump` values, ensuring the bars are in descending order. Label the $x$-axis as `Device OS` and the $y$-axis as `Count`. Save the plot as `device_lump_barchart.png` using `ggsave(...,  width = 10, height = 8, dpi = 300)`
+
+```{r, echo = FALSE, eval = FALSE}
+## Q3(c)
+
+survey_visual_device %>% 
+  mutate(device_lump = fct_lump_min(Device.OS, 10)) %>% 
+  ggplot(aes(x = fct_infreq(device_lump))) +
+  geom_bar()+
+  labs(
+    x = "Device OS",
+    y = "Count"
+  )
+
+ggsave("device_lump_barchart.png",  width = 10, height = 8, dpi = 300)
+```

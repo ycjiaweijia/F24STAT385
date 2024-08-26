@@ -1,0 +1,17 @@
+﻿Name,Gender,Email,Department,Info_source,Status,Program,Related_courses,Prog_LNG,Willingness_presenter,DS_YOE
+Dwayne Johnson,M,Djohnson@atu.edu,Mathematics,Email,Undergraduate,Applied Stats - Data Science,"STAT 2163, MATH 2924","R, SAS, Matlab",Y,1
+Rihanna,F,Rihanna@atu.edu,Economics and Finance,OneTech,Graduate,BDA,"BDA 3053, STAT 3113","Python, SAS",N,1
+Ellen DeGeneres,F,Edegeneres@atu.edu,Biological Sciences,Email,Undergraduate,Fisheries and Wildlife,STAT 2163,"R, Python",N,0
+Will Smith,M,Wsmith@atu.edu,Electrical Engineering,Email,Undergraduate,Electrical Engineering,"MATH 2914, MATH 2924","R, Python, SQL",Y,0
+Angelina Jolie,F,Ajolie@atu.edu,Computer and Information Science,Class,Undergraduate,Computer Science,"MATH 1914, COMS 1403, COMS 1411, COMS 2104 ","Python, SAS",Y,1
+Cristiano Ronaldo,M,Cronaldo@atu.edu,Economics and Finance,Friends/Colleagues,Faculty and staff,,,,,
+Leonardo DiCaprio,M,Ldicaprio@atu.edu,Economics and Finance,Email,Undergraduate,Business Data Analytics,"BDA 3033, STAT 3113, STAT 3153","Java, C++, HTML, Matlab",N,2
+Tom Cruise,M,Tcruise@atu.edu,Mathematics,Class,Undergraduate,Mathematics,"MATH 4003, STAT 2163, STAT 3153",Matlab,N,0.5
+Robert Downey Jr.,M,RDowneyJr@atu.edu,Mechanical Engineering,OneTech,Undergraduate,Mechanical Engineering,"MATH 2924, STAT 3153","Matlab, Python",Y,0.5
+Celine Dion,F,Cdion@atu.edu,Computer and Information Science,Friends/Colleagues,Faculty and staff,,,,,
+Adele,F,Adele@atu.edu,Mathematics,Class,Undergraduate,Applied Stats,"MATH 2924, STAT 3113, STAT 3153","R, Python, Matlab",Y,1
+Serena Williams,F,Swilliams@atu.edu,Computer and Information Science,Email,Undergraduate,Computer Science,"COMS 2203, COMS 3233","R, Python",Y,0.5
+Lionel Messi,M,Lmessi@atu.edu,Biological Sciences,Professor,Graduate,Biology,"MATH 5173, FW 6002, FW 6012","C++, JAVA",N,2
+Taylor Swift,F,Tswift@atu.edu,Biological Sciences,OneTech,Undergraduate,Fisheries and wildlife,"MATH 5173, STAT 3113",Python,Y,0
+J. K. Rowling,F,JKRowling@atu.edu,Economics and Finance,Email,Undergraduate,Finance,"BDA 3033, BDA 3053","R, Hadoop, SAS",N,1.5
+LeBron James,M,Ljames@atu.edu,Electrical Engineering,Flyer,Undergraduate,EE,"MATH 4003, STAT 3153",Matlab,N,0.5

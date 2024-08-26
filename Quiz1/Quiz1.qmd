@@ -1,0 +1,38 @@
+## Quiz 1 Instructions
+
+Please complete the following questions and submit a file named **Quiz1.R** to [Gradescope](https://www.gradescope.com/login).
+
+**Remember:**
+
+-   Do not rename external data files or edit them in any way. In other words, don't modify *data.csv*. Your code won't work properly on modified version of the data set.
+
+-   Do not use global paths in you script. Instead, use *setwd()* interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope's virtual machines.
+
+-   Do not destroy or overwrite any variables in your program. The autograder checks them only after it has run your entire program from start to finish.
+
+-   Check to make sure you do not have any syntax errors. Code that doesn't run will get a very bad grade.
+
+-   Make sure to name your submission **Quiz1.R**
+
+**Tip:** before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.
+
+::: {style="height:30px;"}
+:::
+
+## Question 1.
+
+Make a vector called `myVector` and have it store the integers $1,2,3$
+
+::: {style="height:30px;"}
+:::
+
+## Question 2.
+
+Make a string called `myString` and have it store "Hello STAT 385!".
+
+::: {style="height:30px;"}
+:::
+
+## Question 3.
+
+Read in the data set called `data.csv` and store the data frame as `myDataFrame`.

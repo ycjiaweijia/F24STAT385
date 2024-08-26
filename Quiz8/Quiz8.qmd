@@ -1,0 +1,59 @@
+## Quiz 8 Instructions
+
+Please complete the following questions and submit a file named **Quiz8.R**.
+
+**Remember:**
+
+<!-- -   Do not rename external data files or edit them in any way. In other words, don't modify *data.csv*. Your code won't work properly on my version of that data set, if you do. -->
+
+-   Do not use global paths in you script. Instead, use *setwd()* interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope's virtual machines.
+-   Do not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.
+-   Check to make sure you do not have any syntax errors. Code that doesn't run will get a very bad grade.
+-   Make sure to name your submission **Quiz8.R**
+
+**Tip:** before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.
+
+## Question 1
+
+**\[2pts\]** Create a function to show welcome information.
+
+-   Function Name: `welcome`
+-   Function Input: Any string, like `John Doe`
+-   Function Output: "Welcome to STAT 385, " and the input string, then the exclamation point. Example: "Welcome to STAT 385, John Doe!"
+
+\[Hint: You may use `paste0()` function. Please make sure the number of spaces is correct, such as having a space after the comma.\]
+
+::: {style="height:30px;"}
+:::
+
+## Question 2
+
+**\[2pts\]** Create a function to calculate the $t$-statistic for a given random sample $x$ and the specified `mu` (defaulting to 0). Recall that $t = \frac{\bar{x} - \mu}{s/\sqrt n}$, where $\bar x$ is the sample mean, $s$ is the sample standard deviation of $x$, and $n$ is the sample size.
+
+-   Function Name: `t.statistic`
+-   Function Input: `x`, `mu`. Please set `mu = 0` as the default value.
+-   Function Output: The t-statistic value.
+
+::: {style="height:30px;"}
+:::
+
+## Question 3
+
+**\[2pts\]** Create a function to calculate the squared sum of a vector.
+
+-   Function Name: `squared_sum`
+-   Function Input: Any numeric vector (may contains missing values).
+-   Function Output: The squared sum of the input vector excluding the missing values.
+
+\[Hint: You may use `na.rm = TRUE` within `sum()` to remove the missing values from calculation.\]
+
+::: {style="height:30px;"}
+:::
+
+## Question 4
+
+**\[4pts\]** Create a function to return the list of summary statistics: the input vector itself `vector`, vector length `n`, vector mean `mean`, vector median value `median`, standard deviation `sd`, minimum `min`, maximum `max`, first quartile `Q1`, third quartile `Q3`, the squared sum `sq.sum` (please use the function defined in Question 3), the number of missing values `num.missing`.
+
+-   Function Name: `summary_stats`
+-   Function Input: Any numeric vector (may contains missing values).
+-   Function Output: A list with values `vector`, `n`, `mean`, `median`, `sd`, `min`, `max`, `Q1`, `Q3`, `sq.sum`, `num.missing`. Please make sure the statistics follows the order specified.

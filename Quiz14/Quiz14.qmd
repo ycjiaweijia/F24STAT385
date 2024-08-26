@@ -1,0 +1,68 @@
+## Quiz 14 Instructions
+
+Please complete the following questions and submit a file named **Quiz14.R**.
+
+**Remember:**
+
+-   Do not rename external data files or edit them in any way. In other words, don't modify *BLACKFRIDAY.csv*. Your code won't work properly on my version of that data set, if you do.
+-   Do not use global paths in you script. Instead, use *setwd()* interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope's virtual machines.
+-   Do not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.
+-   Check to make sure you do not have any syntax errors. Code that doesn't run will get a very bad grade.
+-   Make sure to name your submission **Quiz14.R**
+
+**Tip:** before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.
+
+```{r, warning=FALSE, message=FALSE, echo = FALSE}
+library(tidyverse)
+```
+
+## Question 1
+
+(a) **\[1 pt\]** Load the `cats` data frame from the *MASS* package. Save it as a tibble named `tbl_cats`.
+
+(b) **\[1 pt\]** Try the codes below to identify another difference between a data frame and a tibble:
+
+> Tibbles are also stricter with \$. Tibbles never do partial matching, and will throw a warning and return NULL if the column does not exist.
+
+> In this case, Sex is a variable name, but S is not. Data frame does the partial matching and print the Sex column. But tibble gives a warning.
+
+> Instruction: Please just try the codes below. Before submitting Quiz14.R, please comment out `tbl_cats$S` to ensure there are no bugs. 
+
+
+```{r, eval = FALSE}
+cats$S
+tbl_cats$S
+```
+
+::: {style="height:30px;"}
+:::
+
+## Question 2
+
+(a) **\[1 pt\]** Please import the CSV data BLACKFRIDAY as a tibble named `BlackFriday`.
+
+(b) **\[1 pt\]** First, check if `BlackFriday` is a data frame. Second, use `is_tibble()` to check if `BlackFriday` is a tibble.
+
+**Note that:** As tibble is a modern take on the classic data frame in R, and it inherits from the data frame class. Therefore, for a tibble, if you use `is.data.frame` function to check, it returns `TRUE` because a `tibble` is a specialized form of a data frame with additional features.
+
+::: {style="height:30px;"}
+:::
+
+## Question 3
+
+Create the `annoying` tibble as follows:
+
+```{r}
+annoying <- tibble(
+`1` = c(8, 5, 3, 9, 6, 7, 10, 7, 10, 4),
+`2` = `1` * 2 + rnorm(length(`1`))
+)
+```
+
+(a) **\[2 pt\]** Extract the column with the variable name **1** as a **tibble**. Denote it as `tbl_1`.
+
+(b) **\[2 pt\]** Extract the column with the variable name **1** as **an (atomic) vector** (not a list). Denote it as `vec_1`.
+
+(c) **\[1 pt\]** Create a new column called 3, which is column 2 divided by column 1.
+
+(d) **\[1 pt\]** Please rename the columns to "one", "two", and "three". [Hint: After renaming, be sure to save the new tibble to `annoying` to replace the original tibble. ]

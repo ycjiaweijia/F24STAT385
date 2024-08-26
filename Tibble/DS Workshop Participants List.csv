@@ -1,0 +1,17 @@
+Name,Gender,Email Address,Department,Info Source,Class Year,Major,Related Courses Taken,Programming Language Known,Willingness to be the Presenter,DS Years of Experience
+Dwayne Johnson,M,Djohnson@illinois.edu,Statistics,Email,Undergraduate,Statistics,"STAT 207, MATH 220","R, SAS, Matlab",Y,1
+Rihanna,F,Rihanna@illinois.edu,Economics,Class,Graduate,ECON,"BUS 201, MATH 426","Python, SAS",N,1
+Ellen DeGeneres,F,Edegeneres@illinois.edu,Biology,Email,Undergraduate,Biology,STAT 207,"R, Python",N,0
+Will Smith,M,Wsmith@illinois.edu,Electrical and Computer Engineering,Email,Undergraduate,Electrical Engineering,"MATH 221, MATH 220","R, Python, SQL",Y,0
+Angelina Jolie,F,Ajolie@illinois.edu,Computer Science,Class,Undergraduate,Computer Science,"CS 173, CS 411, CS 210 ","Python, SAS",Y,1
+Cristiano Ronaldo,M,Cronaldo@illinois.edu,Economics,Friends/Colleagues,Faculty and staff,NA,NA,NA,NA,NA
+Leonardo DiCaprio,M,Ldicaprio@illinois.edu,Economics,Email,Undergraduate,Economics,"BUS 201, MATH 426, STAT 425","Java, C++, HTML, Matlab",N,2
+Tom Cruise,M,Tcruise@illinois.edu,Mathematics,Class,Undergraduate,Mathematics,"MATH 227, STAT 207, STAT 425",Matlab,N,0.5
+Robert Downey Jr.,M,RDowneyJr@illinois.edu,mechanical Science and Engineering,Class,Undergraduate,Mechanical Engineering,"MATH 220, STAT 425","Matlab, Python",Y,0.5
+Celine Dion,F,Cdion@illinois.edu,Biology,Friends/Colleagues,Faculty and staff,NA,NA,NA,NA,NA
+Adele,F,Adele@illinois.edu,Statistics,Class,Undergraduate,Statistics,"MATH 220, MATH 426, STAT 425","R, Python, Matlab",Y,1
+Serena Williams,F,Swilliams@illinois.edu,Computer Science,Email,Undergraduate,Computer Science,"CS 225, CS 173","R, Python",Y,0.5
+Lionel Messi,M,Lmessi@illinois.edu,Biology,Professor,Graduate,Biology,MATH 257,"C++, JAVA",N,2
+Taylor Swift,F,Tswift@illinois.edu,BIology,Flyer,Undergraduate,Biology,"MATH 257, MATH 426",Python,Y,0
+J. K. Rowling,F,JKRowling@illinois.edu,Finance,Email,Undergraduate,Finance,"BUS 302, BUS 201","R, Hadoop, SAS",N,1.5
+LeBron James,M,Ljames@illinois.edu,Electrical and Computer Engineering,Flyer,Undergraduate,EE,"MATH 227, STAT 425",Matlab,N,0.5

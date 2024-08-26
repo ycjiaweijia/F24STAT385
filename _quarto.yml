@@ -1,0 +1,84 @@
+project:
+  type: website
+  output-dir: docs
+# 
+toc: true
+# number-sections: true
+# top-level-division: part
+# toc-depth: 3
+# number-depth: 4
+
+
+crossref:
+  labels: arabic        # (default is arabic)
+  subref-labels: roman i # (default is alpha a)
+
+
+execute:
+  freeze: auto
+
+knitr:
+  opts_chunk:
+    comment: "#>"
+    collapse: true
+
+jupyter: ds24
+
+format:
+  html:
+    theme: united
+    code-block-bg: true
+    code-block-border-left: true #"#31BAE9"
+    # code-line-numbers: true
+    highlight-style: atom-one
+    page-layout: article
+
+book:
+  title: "STAT 385 Assignments"
+  author: "Weijia Jia"
+  date: last-modified
+  chapters: 
+    - index.qmd
+    # - Quiz1/Quiz1.qmd
+    # - Quiz2/Quiz2.qmd
+    # - Quiz3/Quiz3.qmd
+    # - Quiz4/Quiz4.qmd
+    # - Quiz5/Quiz5.qmd
+    # - Quiz7/Quiz7.qmd
+    # - Quiz8/Quiz8.qmd
+    # - Quiz9/Quiz9.qmd
+    # - Quiz11/Quiz11.qmd
+    # - Quiz12/Quiz12.qmd
+    # - Lab6HelpDoc/Lab6HelpDoc.Rmd
+    # - Lab6/Lab6.Rmd
+    # - Lab5HelpDoc/Lab5HelpDoc.Rmd
+    # - Lab5/Lab5.Rmd
+    # - Quiz14/Quiz14.qmd
+    # - Quiz15/Quiz15.qmd
+    # - Tibble/Tibble.Rmd
+    # - ggplot2/ggplot2.Rmd
+    # - dplyr/dplyr.Rmd
+    # - Lab7/Lab7.Rmd
+    # - Quiz16/Quiz16.qmd
+    # - Transformation/Transformation.Rmd
+    # - Lab8/Lab8.Rmd
+    # - Quiz17/Quiz17.qmd
+    # - Quiz18/Quiz18.qmd
+    # - Quiz19/Quiz19.qmd
+  sidebar: false
+  #   style: floating
+  #   pinned: true
+  #   align: center
+  #   border: true
+  #   search: true
+  #   collapse-level: 1
+  #   alignment: "center"
+  navbar:
+    subtitle: "Fall 2024"
+  # page-navigation: true
+
+
+    
+
+
+

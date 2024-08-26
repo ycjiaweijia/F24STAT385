@@ -1,0 +1,91 @@
+
+## Lab 5 -- S3 for Workshop Participants Instruction
+
+* Please ensure you review the document  *Illustrate S3 System – U of I Women’s Basketball Team example* on Canvas under Week 5 Module or visit the weblink <https://ycjiaweijia.github.io/STAT-385-Assignments/Lab5HelpDoc/Lab5HelpDoc> for helpful guidance on this lab.
+* Please complete the following questions and submit your Lab 5 to Gradescope. 
+
+
+
+## Background
+
+Suppose a university is hosting a campus-wide data science workshop with undergraduate and graduate student participants, along with many faculty members showing interest in the series of workshops. Develop S3 classes for students, faculty, etc., incorporating validators and necessary helper functions. 
+
+## Question 1
+
+(a) **[10 pts]** Create the constructor function `new_student()` to generate objects of the "student" class. Student participants provide the following information: `name`, `major`, `department`, `classYear` (Freshman, Sophomore, Junior, Senior, or Graduate), `UofI_email`, and `dsExperience` which represents years of experience in data science.  
+
+(b) **[10 pts]** Create the validator function `validate_student()`. Below is a list of validations to include.
+
+Validations:
+
+* If any of the information required above is missing, print a warning message. 
+* If `dsExperience` is not numeric, or the length is not 1, or the years is lower than 0 or greater than 20, print warning message that: The data science experience years information is not valid. Please use `||` for "or". 
+* If `classYear` doesn't belong in one of the five categories, print the warning message that: The student's class information is invalid.
+* If `UofI_email`provided is not character type, print the warning message: The student's email information is invalid.
+
+
+(c) **[10 pts]** Define a helper function to fill in or complete an email address. This is necessary because some students might only provide their NetID instead of a full email address. The `completeEmail()` function should take `UofI_email` as input and add `@illinois.edu` if needed. The output of `completeEmail()` function is saved as `Complete_UofI_email`.
+
+[Hint: 
+
+1. Consider using an if-else statement to decide whether to append the domain.
+2. The regular expression `grepl("@illinois\\.edu", UofI_email)`, checking if `UofI_email` contains `@illinois.edu`, might be helpful.
+] 
+
+
+
+
+## Question 2
+
+(a) **[10 pts]** Create the constructor function `new_faculty()` to generate objects of the "faculty" class. Faculty participants have the following information: `name` and `department`. 
+
+(b) **[10 pts]** Create the constructor function `new_other()` to generate objects of the "Other" class. Other participants have the following information: `name`. 
+
+::: {style="height:10px;"}
+:::
+
+
+## Question 3
+
+**[30 pts]** Define generic and methods using the constructors from Question 1 and 2 to create classes for student, faculty, and other participants. Implement a `participantInfo()` function that prints specific information based on the class of the object.
+
+For example,
+
+```{r, eval = FALSE}
+Swift <- new_student(x = list(
+  name = "Taylor Swift",
+  major = "Fisheries and Wildlife",
+  department = "Biological Sciences",
+  classYear = "Junior", 
+  UofI_email = "Tswift",
+  dsExperience = 1.5))
+participantInfo(Swift)
+
+
+Ronaldo <- new_faculty(x = list(
+  name = "Cristiano Ronaldo", 
+  department = "Applied Health Science"
+  )
+)
+participantInfo(Ronaldo)
+
+
+Someone <- new_other(x = list(
+  name = "Someone Else"
+  )
+)
+participantInfo(Someone)
+
+
+```
+
+should show the following:
+
+* For student
+  + Example: "Taylor Swift is a Fisheries And Wildlife major. The email address is Tswift@illinois.edu. The student has 1.5 years of experience in data science."
+* For faculty
+  + Example: "Cristiano Ronaldo is from the Applied Health Science Department."
+* For other people
+  + Example: "Someone Else is neither a faculty member nor a student."
+  
+

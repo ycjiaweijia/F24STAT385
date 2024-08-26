@@ -1,0 +1,252 @@
+```{r, warning = FALSE, message = FALSE}
+library(tidyverse) # stringr package is part of the tidyverse collection.
+```
+
+
+## Illustrate S3 System -- U of I Women's Basketball Team example
+
+* Ensure you’ve read the following section before watching this video.
+  + <https://adv-r.hadley.nz/s3.html#s3-classes>
+* The main components of S3: **classes, generics, and methods**
+* Three functions used in most classes: **constructor, helper, validator**.
+* Generics, methods, and dispatch
+
+## U of I Women's Basketball Team
+
+<https://fightingillini.com/sports/womens-basketball/roster>
+
+### Objective: Display the profile information according to roles
+
+* For player, print the profile information like
+  + Adalia Mckenzie is a player on the U of I Women's Basketball Team. Her jersey number is 24. Adalia is a student in her Senior year. She is 5-10 tall (177.8 cm). Her position is Guard.
+* For staff, print the profile information like
+  + Shauna Green is **the Head Coach** of the U of I Women's Basketball Team.
+  + Maya Solomon is **a staff member** of the U of I Women's Basketball Team.
+* For all other people, like the spectator, print the information like
+  + Weijia Jia is neither a player nor a staff member.
+  
+  
+
+
+## Create Player Class
+
+### Constructor Function
+
+```{r}
+new_player = function(x){
+  validate_player(x) # Validator, defined below
+  structure(
+    list(firstname = str_to_title(x$firstname), # str_to_title() is from stringr
+         lastname = str_to_title(x$lastname), # str_to_title() converts to title case
+         jersey = as.character(x$jersey),
+         height_inches = x$height,
+         position = str_to_title(x$position),
+         studentclass = str_to_title(x$class), 
+         heightcm = convertHeightToCm(x$height) # Helper function, defined below
+         ),
+    class = "player"
+  )
+}
+```
+
+
+### Helper Function
+
+Convert the height from the "feet-inches" pattern to centimeters. 
+
+```{r}
+convertHeightToCm <- function(height) {
+    # Split the input string by the dash
+    parts <- str_split(height, "-")[[1]] # str_split() is from stringr package
+    
+    # Extract feet and inches as numeric values
+    feet <- as.numeric(parts[1])
+    inches <- as.numeric(parts[2])
+    
+    # Convert feet to inches and then total inches to centimeters
+    height_inches <- (feet * 12) + inches
+    height_cm <- height_inches * 2.54
+    
+    return(height_cm)
+}
+
+```
+
+### Validator Function
+
+* If any information is missing, print '... is missing'.
+* If the pattern of height doesn't follow the "feet-inches" pattern, print a warning message.
+* If the position is not one of the three categories (Guard, Forward, Center), print a warning message.
+* If the class is not one of the five categories (Freshman, Sophomore, Junior, Senior, Fifth), print a warning message. 
+
+```{r}
+validate_player <- function(x){
+  if(is.na(x$firstname)) print("The player's first name is missing.")
+  if(is.na(x$lastname)) print("The player's last name is missing.")
+  if(is.na(x$jersey)) print("The player's jersey information is missing.")
+  if(is.na(x$height)) print("The player's height information is missing.")
+  if(is.na(x$position)) print("The player's position information is missing.")
+  if(is.na(x$class)) print("The player's class information is missing.")
+  
+  
+  if(!grepl("^\\d+-\\d+$", x$height)) # grepl() is searching for matches
+    print("The player's height does not follow the 'feet-inches' pattern.")
+  if(!str_to_title(x$position) %in% c("Guard", "Forward", "Center")) 
+    print("The player's position information is invalid.")
+  if(!str_to_title(x$class) %in% c("Freshman", "Sophomore", "Junior", "Senior", "Fifth")) 
+    print("The player's class information is invalid.")
+}
+```
+
+
+
+## Create Staff Class
+
+### Constructor Function
+
+```{r}
+
+new_staff = function(x){
+  validate_staff(x)
+  structure(
+    list(name = x$name,
+         role = x$role,
+         role_with_article = article_selector(x$role) 
+         ),
+    class = "staff"
+  )
+}
+
+```
+
+### Helper Function
+
+Choose appropriate article for the role information. 
+
+```{r}
+article_selector <- function(role) {
+ title <- switch(
+   role,
+   "head coach" = "the Head Coach",
+   "associate head coach" = "the Associate Head Coach",
+   "assistant coach" = "an Assistant Coach",
+   "a staff member"
+  )
+ return(title)
+}
+
+```
+
+
+### Validator Function
+
+* if name or role is missing or not character type, print warning message. 
+
+```{r}
+validate_staff <- function(x){
+  if(is.na(x$name) || !is.character(x$name)) 
+    print("The staff's name is not valid")
+  if(is.na(x$role)|| !is.character(x$role)) 
+    print("The staff's role information is not valid")
+}
+```
+
+
+## Create Spectator Class
+
+
+```{r}
+
+new_spectator = function(x){
+  structure(
+    list(name = x$name),
+    class = "spectator"
+  )
+}
+
+```
+
+## Generic and Methods
+
+* Define the generic `print_profile` and the methods.
+
+```{r}
+print_profile = function(x){
+  UseMethod("print_profile")
+}
+
+print_profile.player = function(x){
+  print(paste0(x$firstname, " ", x$lastname, " is a player on the U of I Women's Basketball Team. Her jersey number is ", x$jersey, ". ",  x$firstname, " is a student in her ", x$studentclass, " year. She is ", x$height_inches, " tall (", x$heightcm," cm). Her position is ", x$position, "." 
+               )
+        )
+}
+
+print_profile.staff = function(x){
+  print(paste0(x$name, " is ", x$role_with_article, 
+               " of the U of I Women's Basketball Team." ))
+}
+
+print_profile.default = function(x){
+  print(paste0(x$name, " is neither a player nor a staff member."))
+}
+```
+
+
+## Test
+
+```{r, error=TRUE}
+# Player
+
+Mckenzie <- new_player(x = list(
+  firstname = "Adalia",
+  lastname = "Mckenzie",
+  jersey = "24",
+  height = "5-10",
+  position = "guard",
+  class = "senior"
+)
+)
+
+### Incorrect Usage
+Bryant <- new_player(x = list(
+  firstname = "Genesis",
+  lastname = "Bryant",
+  jersey = "1",
+  height = "5'6''", 
+  position = "guard",
+  class = "fifth"))
+# Corrected
+Bryant <- new_player(x = list(
+  firstname = "Genesis",
+  lastname = "Bryant",
+  jersey = "1",
+  height = "5-6", 
+  position = "guard",
+  class = "fifth"))
+
+
+# Staff
+
+Green <- new_staff(x = list(
+  name = "Shauna Green", 
+  role = "head coach"
+  )
+)
+
+Solomon <- new_staff(x = list(
+  name = "Maya Solomon", 
+  role = "director of basketball operations"
+  )
+)
+
+# Spectator
+
+Jia <- new_spectator(x = list(
+  name = "Weijia Jia"
+  ))
+print_profile(Mckenzie)
+print_profile(Bryant)
+print_profile(Green)
+print_profile(Solomon)
+print_profile(Jia)
+```

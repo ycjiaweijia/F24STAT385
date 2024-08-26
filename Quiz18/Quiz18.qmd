@@ -1,0 +1,188 @@
+
+## Quiz 18 Instructions
+
+Please complete the following questions and submit a file named **Quiz18.R**.
+
+**Remember:**
+
+-   Do not rename external data files or edit them in any way. In other words, don't modify *Urbana Police Incidents Data (2020-2023).csv*. Your code won't work properly on my version of that data set, if you do.
+
+-   Do not use global paths in you script. Instead, use *setwd()* interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope's virtual machines.
+
+-   Do not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.
+
+-   Check to make sure you do not have any syntax errors. Code that doesn't run will get a very bad grade.
+
+-   Make sure to name your submission **Quiz18.R**
+
+- <span style="font-size: 22px;"> **Don't forget to use `library(tidyverse)`at the beginning of Quiz18.R.**</span>
+
+**Tip:** before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.
+
+## Data Source:
+
+The Urbana Open Data website [Urbana Police Incidents Dataset Link](https://data.urbanaillinois.us/Police/Police-Incidents-from-1988-Feb-2023/uj4k-8xe8/about_data) contains police incident data from 1988 up until February 2023, which is when the Urbana Police began using a new computer system.
+
+<!-- Records before 1988 are incomplete - and could be data entry errors.  -->
+
+**In this quiz, we use data exclusively from 2020 to 2023 [Urbana Police Incidents Data (2020-2023).csv](Urbana%20Police%20Incidents%20Data%20(2020-2023).csv) and concentrate only on the columns related to date and time.**
+
+## Question 1
+
+(a) **\[1 pt\]** Read in the CSV data as tibble `incidents` and select the columns from `DATE.OCCURRED` to `TIME.ARRIVED` only (8 columns).
+
+<!-- ```{r, message = FALSE, warning = FALSE} -->
+
+<!-- # Solution -->
+
+<!-- library(tidyverse) -->
+
+<!-- incidents <- read_csv("Urbana Police Incidents Data (2020-2023).csv") -->
+
+<!-- incidents <- incidents %>% select(DATE.OCCURRED:TIME.ARRIVED) -->
+
+<!-- ``` -->
+
+(b) **\[2 pts\]** Select the appropriate `lubridate` function to convert the variables `DATE.OCCURRED`, `DATE.REPORTED`, and `DATE.ARRIVED` from **character** to **date** type.
+
+<!-- ```{r} -->
+
+<!-- incidents <- incidents %>%  -->
+
+<!--   mutate(DATE.OCCURRED = mdy(DATE.OCCURRED), -->
+
+<!--          DATE.REPORTED = mdy(DATE.REPORTED), -->
+
+<!--          DATE.ARRIVED = mdy(DATE.ARRIVED) -->
+
+<!--   )  -->
+
+<!-- ``` -->
+
+(c) **\[2 pts\]** Parse the day of the month the incidents occurred. Save the result as a vector named `DAY`.
+
+<!-- ```{r} -->
+
+<!-- DAY <- day(incidents$DATE.OCCURRED) -->
+
+<!-- ``` -->
+
+::: {style="height:30px;"}
+:::
+
+## Question 2
+
+**\[3 pts\]** Please
+
+-   combine the `DATE.OCCURRED` and `TIME.OCCURRED` as `DATETIME.OCCURRED`;
+-   combine the `DATE.REPORTED` and `TIME.REPORTED` as `DATETIME.REPORTED`;
+-   combine the `DATE.ARRIVED` and `TIME.ARRIVED` as `DATETIME.ARRIVED`.
+
+\[Hint: We can combine the date "2022-01-04" and time "16:00:00" in the following way:
+
+`ymd_hms(paste("2022-01-04", "16:00:00"), tz = "America/Chicago")` \]
+
+<!-- ```{r} -->
+
+<!-- incidents <- incidents %>%  -->
+
+<!--   mutate(DATETIME.OCCURRED = ymd_hms(paste(DATE.OCCURRED, TIME.OCCURRED), tz = "America/Chicago"), -->
+
+<!--          DATETIME.REPORTED = ymd_hms(paste(DATE.REPORTED, TIME.REPORTED), tz = "America/Chicago"), -->
+
+<!--          DATETIME.ARRIVED = ymd_hms(paste(DATE.ARRIVED, TIME.ARRIVED), tz = "America/Chicago") -->
+
+<!--          )  -->
+
+<!-- ``` -->
+
+::: {style="height:30px;"}
+:::
+
+## Question 3
+
+(a) **\[2 pts\]** Identify the top 5 incidents with the largest time difference between the *time reported* and the *time occurred* (i.e. `DATETIME.REPORTED - DATETIME.OCCURRED` or `diff(DATETIME.REPORTED, DATETIME.OCCURRED)`). Please make sure to use `as.duration()` to convert the `difftime()` object to a `Duration` object for easier interpretation. Name this difference variable `report_occur_diff`, and save the subset as a tibble named `top5_rodiff`.
+
+\[Hint: You may use `arrange()` and `head()` or `slice_head()` functions.\]
+
+<!-- ```{r} -->
+
+<!-- top5_rodiff <- incidents %>%  -->
+
+<!--   mutate(report_occur_diff = -->
+
+<!--            as.duration(DATETIME.REPORTED - DATETIME.OCCURRED)) %>%  -->
+
+<!--   arrange(desc(report_occur_diff)) %>%  -->
+
+<!--   slice_head(., n = 5) -->
+
+<!-- ``` -->
+
+(b) **\[2 pts\]** Identify the top 5 incidents with the largest time difference between the *time arrived* and the *time reported* (i.e. `DATETIME.ARRIVED - DATETIME.REPORTED` or `diff(DATETIME.ARRIVED, DATETIME.REPORTED)`). Name this difference variable `arrive_report_diff`, and save the subset as a tibble named `top5_ardiff`.
+
+<!-- ```{r} -->
+
+<!-- top5_ardiff <- incidents %>%  -->
+
+<!--   mutate(arrive_report_diff =  -->
+
+<!--            as.duration(DATETIME.ARRIVED - DATETIME.REPORTED)) %>%  -->
+
+<!--   arrange(desc(arrive_report_diff)) %>%  -->
+
+<!--   slice_head(., n = 5)  -->
+
+<!-- ``` -->
+
+<!-- ```{r, echo = FALSE, eval = FALSE} -->
+
+<!-- # incidents %>%  -->
+
+<!-- #   mutate(occur_report_diff = -->
+
+<!-- #            as.duration(difftime(DATETIME.REPORTED,DATETIME.OCCURRED)), -->
+
+<!-- #          report_arrive_diff =  -->
+
+<!-- #            as.duration(difftime(DATETIME.ARRIVED,DATETIME.REPORTED))) %>%  -->
+
+<!-- #   arrange(occur_report_diff) %>%  -->
+
+<!-- #   head(., n=10) -->
+
+<!-- #  -->
+
+<!-- # incidents %>%  -->
+
+<!-- #   mutate(occur_report_diff = -->
+
+<!-- #            as.duration(difftime(DATETIME.REPORTED,DATETIME.OCCURRED)), -->
+
+<!-- #          report_arrive_diff =  -->
+
+<!-- #            as.duration(difftime(DATETIME.ARRIVED,DATETIME.REPORTED))) %>%  -->
+
+<!-- #   arrange(report_arrive_diff) %>%  -->
+
+<!-- #   head(., n=10)%>% print(width = Inf) -->
+
+<!-- ``` -->
+
+<!-- ## Question 4 -->
+
+<!-- ```{r} -->
+
+<!-- incidents %>%  -->
+
+<!--   mutate(occur_report_diff = -->
+
+<!--            as.duration(difftime(DATETIME.REPORTED, DATETIME.OCCURRED)), -->
+
+<!--          report_arrive_diff =  -->
+
+<!--            as.duration(difftime(DATETIME.ARRIVED,DATETIME.REPORTED))) %>% ggplot(aes(x=report_arrive_diff))+ -->
+
+<!--   geom_histogram() -->
+
+<!-- ``` -->

@@ -1,0 +1,73 @@
+## Lab 6 Instruction
+
+* Please ensure you review the document  *STAT 385 Lab 6 Help Document -- Kronecker Product Illustration* on Canvas under Week 5 Module or visit the weblink <https://ycjiaweijia.github.io/STAT-385-Assignments/Lab6HelpDoc/Lab6HelpDoc> for helpful guidance on this lab.
+* Please complete the following questions and submit your Lab 6 to Gradescope. 
+
+
+
+## Mathemetical Definition of Kronecker Product
+
+In mathematics, the Kronecker product, sometimes denoted by $\bigotimes$, is an operation on two matrices of arbitrary size resulting a block matrix. It is a specialization of the tensor product (which is denoted by the same symbol) from vectors to matrices and gives the matrix of the tensor product linear map with respect to a standard choice of basis. The Kronecker product is to be distinguished from the usual matrix multiplication, which is an entirely different operation. The Kronecker product is also sometimes called **matrix direct product**. 
+
+* You can find more information about Kronecker Product on Wikipedia <https://en.wikipedia.org/wiki/Kronecker_product>.
+
+
+
+
+If $\mathbf{A}$ is an $m \times n$ matrix and $\mathbf{B}$ is a $p \times q$ matrix, then the Kronecker product $\mathbf{A}\bigotimes \mathbf{B}$ is the $pm \times qn$ block matrix:
+
+
+$$\mathbf{A}\bigotimes \mathbf{B} = \begin{bmatrix}
+a_{11}\mathbf{B}\quad  \cdots \quad a_{1n}\mathbf{B}\\
+\vdots\quad  \ddots\quad  \vdots\\
+a_{m1}\mathbf{B}\quad  \cdots \quad a_{mn}\mathbf{B}
+\end{bmatrix},$$
+
+more explicitly,
+
+$$\mathbf{A}\bigotimes \mathbf{B} =\left[\begin{array}{cccccccccc}
+a_{11}b_{11}&  a_{11}b_{12} & \cdots & a_{11}b_{1q}& \cdots& \cdots& a_{1n}b_{11}&  a_{1n}b_{12} & \cdots & a_{1n}b_{1q} \\
+a_{11}b_{21}&  a_{11}b_{22} & \cdots & a_{11}b_{2q}& \cdots& \cdots& a_{1n}b_{21}&  a_{1n}b_{22} & \cdots & a_{1n}b_{2q} \\
+\vdots& \vdots&  \ddots&  \vdots & & & \vdots& \vdots&  \ddots&  \vdots \\
+a_{11}b_{p1}&  a_{11}b_{p2} & \cdots & a_{11}b_{pq}& \cdots& \cdots& a_{1n}b_{p1}&  a_{1n}b_{p2} & \cdots & a_{1n}b_{pq} \\
+\vdots& \vdots&  &  \vdots & \ddots& & \vdots  & \vdots& & \vdots \\
+\vdots& \vdots&  &  \vdots & &\ddots & \vdots  & \vdots& & \vdots \\
+a_{m1}b_{11}&  a_{m1}b_{12} & \cdots & a_{m1}b_{1q}& \cdots& \cdots& a_{mn}b_{11}&  a_{mn}b_{12} & \cdots & a_{mn}b_{1q} \\
+a_{m1}b_{21}&  a_{m1}b_{22} & \cdots & a_{m1}b_{2q}& \cdots& \cdots& a_{mn}b_{21}&  a_{mn}b_{22} & \cdots & a_{mn}b_{2q} \\
+\vdots& \vdots&  \ddots&  \vdots & & & \vdots& \vdots&  \ddots&  \vdots \\
+a_{m1}b_{p1}&  a_{m1}b_{p2} & \cdots & a_{m1}b_{pq}& \cdots& \cdots& a_{mn}b_{p1}&  a_{mn}b_{p2} & \cdots & a_{mn}b_{pq}
+\end{array}\right],$$
+
+## Question 1 
+
+**[20 pts]** Please define the function `forloop_kronecker()`, using for loop, to calculate the Kronecker product of matrices A and B with *arbitrary* dimensions.
+
+::: {style="height:30px;"}
+:::
+
+## Question 2
+
+**[20 pts]** Please define the function `vectorization_kronecker()`, using vectorization, to calculate the Kronecker product of matrices A and B with *arbitrary* dimensions.
+
+::: {style="height:30px;"}
+:::
+
+## Question 3
+
+**[20 pts]** Compare the CPU times for three Kronecker product calculation methods below for matrices `A1` and `B1`, `A2` and `B2`, and other pairs of matrices you choose to test. Use `times = 10000L` for each calculation. Discuss the computational efficiency of the three methods based on your findings. 
+
+* `vectorization_kronecker()`
+* `kronecker()`
+* `forloop_kronecker()`
+
+```{r}
+(A1 <- matrix(1:16, nrow = 4, ncol = 4))
+(B1 <- matrix(1:20, nrow = 4, ncol = 5))
+
+(A2 <- matrix(1:40, nrow = 5, ncol = 8))
+(B2 <- matrix(1:50, nrow = 10, ncol = 5))
+```
+
+
+
+

@@ -1,0 +1,104 @@
+## Quiz 12 Instructions
+
+Please complete the following questions **using Base R Graphics. Do not use ggplot.** And submit a file named **Quiz12.R**.
+
+**Remember:**
+
+<!-- -   Do not rename external data files or edit them in any way. In other words, don't modify *data.csv*. Your code won't work properly on my version of that data set, if you do. -->
+
+-   Do not use global paths in you script. Instead, use *setwd()* interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope's virtual machines.
+-   Do not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.
+-   Check to make sure you do not have any syntax errors. Code that doesn't run will get a very bad grade.
+-   Make sure to name your submission **Quiz12.R**
+
+**Tip:** before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.
+
+## Data Preparation
+
+In this quiz, we will use the data frames *flights* and *weather* from the package *nycflights13*. This data frame contains info of on-time data for all flights that departed NYC (i.e. JFK, LGA or EWR) in 2013. The description of the variables:
+
+-   year, month, day -- Date of departure.
+-   dep_time, arr_time -- Actual departure and arrival times (format HHMM or HMM), local tz.
+-   sched_dep_time, sched_arr_time -- Scheduled departure and arrival times (format HHMM or HMM), local tz.
+-   dep_delay, arr_delay -- Departure and arrival delays, in minutes. Negative times represent early departures/arrivals.
+-   carrier -- Two letter carrier abbreviation. See airlines to get name.
+-   flight -- Flight number.
+-   tailnum -- Plane tail number. See planes for additional metadata.
+-   origin, dest -- Origin and destination. See airports for additional metadata.
+-   air_time -- Amount of time spent in the air, in minutes.
+-   distance -- Distance between airports, in miles.
+-   hour, minute -- Time of scheduled departure broken into hour and minutes.
+-   time_hour -- Scheduled date and hour of the flight as a POSIXct date. Along with origin, can be used to join flights data to weather data.
+
+Please install and load the package `nycflights13` beforehand. Then load the data frames *flights* and *weather*. Additionally, we could filter the data and create two new data frames, `alaska_flights` and `early_january_weather`, which will be used in the subsequent question.
+
+**Please make sure you copy and paste the code chunk below, for data preparation, at the beginning of your Quiz12.R script.**
+
+```{r, warning = FALSE, message = FALSE}
+if(!require("nycflights13", character.only = TRUE)) install.packages("nycflights13")
+library(nycflights13)
+data(flights)
+data(weather)
+
+# Define new data frame alaska_flights
+alaska_flights <- flights[flights$carrier == "AS",]
+
+### Define new data frame early_january_weather
+early_january_weather <- weather[weather$origin == "EWR" & weather$month == 1 & weather$day <= 15,]
+```
+
+
+## Question 1
+
+(a) **\[2 pts\]** Draw a scatter plot to visualize the relationship between the variables `dep_delay` and `arr_delay` in the `alaska_flights` data frame (defined above). Change the label for the x-axis as `Departure Delay`, the label for y-axis as `Arrival Delay`, and the plot title as `Relationship between Departure and Arrival Delay`. 
+
+**Save the generated plot as `PlotQ1a.png`.** Recall that, you can do so using the way below.
+
+```{r, eval = FALSE}
+
+png("PlotQ1a.png")
+
+# [Code to generate the plot here]
+
+dev.off()
+```
+
+
+::: {style="height:30px;"}
+:::
+
+(b) **\[2 pts\]** Draw a **scatterplot matrices** of variables *dep_time, sched_dep_time, dep_delay, arr_time, sched_arr_time, arr_delay* in the data frame `alaska_flights`. Save the created plot as `PlotQ1b.png`.
+
+::: {style="height:30px;"}
+:::
+
+## Question 2
+
+**\[2 pts\]** Create a time series plot (line graph) of the hourly temperature (variable `temp`) vs the time `time_hour` saved in the `early_january_weather` data frame (defined above). Change the label for the x-axis as `Date and Hour`, the label for y-axis as `Temperature`, and the plot title as `Line Graph of Temperature vs Date and Hour`. Save the created plot as `PlotQ2.png`.
+
+
+::: {style="height:30px;"}
+:::
+
+## Question 3
+
+**\[2 pts\]** Draw histogram of temperature (variable `temp`) in the data frame `weather`. Change the bar color to `blue`. What's more, use `border = "white"` to change the border color to white. Save the created plot as `PlotQ3.png`.
+
+::: {style="height:30px;"}
+:::
+
+## Question 4
+
+**\[2 pts\]** Draw the two plot side by side (i.e. 1 row and 2 columns).
+
+-   Plot 1: Draw a boxplot of the variable `temp` in the data frame `weather`.
+-   Plot 2: Draw a boxplot of `temp` vs `month` of the data frame `weather`.
+
+Save the created plot as `PlotQ4.png`.
+
+::: {style="height:30px;"}
+:::
+
+## Question 5
+
+**\[2 pts\]** Draw a bar plot of `carrier` from the dataset `flights`. Save the created plot as `PlotQ5.png`.

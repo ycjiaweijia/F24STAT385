@@ -1,0 +1,69 @@
+## Quiz 7 Instructions
+
+Please complete the following questions and submit a file named **Quiz7.R**.
+
+**Remember:**
+
+<!-- -   Do not rename external data files or edit them in any way. In other words, don't modify *data.csv*. Your code won't work properly on my version of that data set, if you do. -->
+
+-   Do not use global paths in you script. Instead, use *setwd()* interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope's virtual machines.
+-   Do not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.
+-   Check to make sure you do not have any syntax errors. Code that doesn't run will get a very bad grade.
+-   Make sure to name your submission **Quiz7.R**
+
+**Tip:** before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.
+
+::: {style="height:30px;"}
+:::
+
+## Question 1
+
+We will use `iris` data frame, which is a data frame in the R package `datasets`. Please use `?iris` to find more information.
+
+(a) **\[1pt\]** Please find the number of columns of `iris` and store the value to object `ncol.iris`.
+
+(b) **\[1pt\]** Please show the **last three rows** of iris and save it as `Last.3`.
+
+(c) **\[1pt\]** Save the data where the species is "setosa" to the object named `Setosa`.
+
+(d) **\[1pt\]** Find the column names of `iris` and save the result to `colnames.iris`.
+
+(e) **\[3pts\]** Find the mean `Sepal.Length` of each `Species`. Save the results as `mean.setosa`, `mean.versicolor`, and `mean.virginica`.
+
+::: {style="height:30px;"}
+:::
+
+## Question 2
+
+(a) **\[1pt\]** Create a data frame named `df_abcd` as follows
+
+```{r}
+#| echo = FALSE
+
+df_abcd <- data.frame(
+  a = 5.5:1.5,
+  b = rep(c("a", "b"), times = c(2, 3)),
+  c = c(TRUE, FALSE, TRUE, FALSE, TRUE),
+  d = c(1.1, 1.2, 1.3, 1.4, 1.5)
+)
+df_abcd
+```
+
+(b) **\[1pt\]** Write a command that would give you the following data from `df_abcd` and save the result as `df_ac`.
+
+```{r}
+#| echo = FALSE
+
+df_ac <- df_abcd[, c(1, 3)]
+df_ac
+```
+
+(c) **\[1pt\]** Add a new_column `e <- c(1, 1, 1, 1, 1)` to `df_abcd` and save the new data frame as `df_new`. (Please note that, do not overwrite `df_abcd`.)
+
+```{r}
+#| echo = FALSE
+
+e <- c(1, 1, 1, 1, 1)
+df_new <- cbind(df_abcd, e)
+df_new
+```

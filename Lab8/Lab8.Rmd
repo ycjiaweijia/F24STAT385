@@ -1,0 +1,223 @@
+---
+title: "Lab 8 Reaction Time Project"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+### About the Data and Survey
+
+In Spring 2024 STAT 425 class, we collected data on `Reaction Time` from around 150 students. Please find the survey used to collect this data [Reaction Time Survey Questions.pdf](Reaction Time Survey Questions.pdf). There are two datasets for Lab 8:
+
+* The real data -- "Reaction Time Survey.csv"
+* The mock data -- "Mock Student Information.csv"
+
+
+In this lab, please clean and explore the datasets. 
+
+### Lab 8 Instruction
+
+* It is strongly recommended to follow the method demonstrated in the lecture video "Projects in R Video -- Female Life Expectancy Project" to create an R project and complete this lab. 
+* As usual, you are only required to submit the PDF file generated to Gradescope.
+
+
+
+### Load Packages and Read Data 
+
+Please load the packages you need and import the two data sets:
+
+* Import "Reaction Time survey.csv" as `survey`.
+* Import "Mock Student Information.csv" as `student`.
+
+
+```{r, echo = FALSE}
+library(tidyverse)
+survey <- read_csv("Reaction Time survey.csv")
+student <- read_csv("Mock Student Information.csv")
+```
+
+### Question I: Data Cleaning
+
+**[40 pts]** Please perform the data cleaning for `survey`. Some hints are:
+
+1. You may rename the variables as 
+
+
+```{r, eval = FALSE}
+c("mockID", "Reaction.time", "Class", "Age", "Avg.sleep.time",
+  "last.night.sleep.time", "Awake.hours", "Fatigue.level",
+  "Stress.level", "Distraction", "Noise.level", "Temp.level",
+  "Game.freq", "Sport.freq", "Avg.hours.exercise",
+  "Caffein.intake", "Alcohol.intake", "Visual.acuity",
+  "Primary.hand", "Use.primary.hand", "Cautious.level",
+  "Input.device", "Device.OS", "WiFi.stable")
+```
+
+2. Technically, it's impossible to have a Reaction Time less than or equal to 100 milliseconds. Remove the observations with `Reaction.time` less than or equal to 100. [*Notes: In reality, we contacted the students to confirm or update their submissions.*]
+
+
+3. You may use `separate_wider_delim()` to clean up the `Visual.acuity` so that the variable becomes a **factor** with the following levels: "Very Poor", "Poor", "Average", "Good", "Excellent". 
+
+(Use `levels = c("Very Poor", "Poor", "Average", "Good", "Excellent")`)
+
+
+4. You may use `separate_wider_delim` **twice** to clean up the `Device.OS` so that the variable is a **character ** variable with the possible values: "Desktop computer", "Laptop",  "iPhone", "iPad",  "Smartphone", "Tablet", "Chromebook". Please use `help(separate_wider_delim)` to find solutions for the issue where "Chromebook" does not have "-" or "(" as a delimiter.
+
+
+5. Please clean up the columns `Avg.sleep.time`, `last.night.sleep.time`, `Awake.hours`, `Noise.level`, and `Avg.hours.exercise` so that they become numeric variables. **Be cautious of using `as.numeric()` directly, as it may introduce NAs due to coercion.** Instead, handle edge cases like "7h4min", "7:30", "1~3" first, then use `str_remove_all(..., "[[:alpha:][:space:]]")` to remove any characters and empty spaces from the responses. Finally, convert the cleaned columns to numeric variables.
+
+
+6. Convert the `Class`, `Fatigue.level`, `Stress.level`, `Temp.level`, `Game.freq`, `Sport.freq`, `Cautious.level` as **factors** with levels as follows:
+
+```{r, eval = FALSE}
+classlevel =  c("Freshman", "Sophomore", "Junior", "Senior", "Graduate") 
+# Even if there are no freshmen in the data.
+fatiguelevel = c("Not fatigued at all", "Slightly Fatigued", 
+                 "Moderately fatigued", "Very fatigued", "Extremely fatigued")
+stresslevel = c("Very Low", "Low", "Moderate", "High" , "Very High")
+templevel = c("Very Cold", "Cold", "Neutral", "Warm", "Very Warm")
+gamefreqlevel = c("Daily", "Several times a week", 
+                  "Once a week", "Several times a month", "Rarely", "Never")
+sportfreqlevel =  c("Daily", "Several times a week", "Once a week", 
+                    "Several times a month", "Rarely", "Never")
+cautiouslevel = c("Not cautious at all", "Slightly cautious", 
+                  "Moderately cautious", "Very cautious", "Extremely cautious")
+
+```
+
+
+7. Perform any additional data cleaning you find necessary.
+
+
+```{r, echo=FALSE}
+# Solution:
+
+names(survey) <- c("mockID", "Reaction.time", "Class", "Age", "Avg.sleep.time",
+                   "last.night.sleep.time", "Awake.hours", "Fatigue.level",
+                   "Stress.level", "Distraction", "Noise.level", "Temp.level",
+                   "Game.freq", "Sport.freq", "Avg.hours.exercise",
+                   "Caffein.intake", "Alcohol.intake", "Visual.acuity",
+                   "Primary.hand", "Use.primary.hand", "Cautious.level",
+                   "Input.device", "Device.OS", "WiFi.stable")
+
+survey <- survey %>% 
+  filter(Reaction.time > 100) %>% 
+  separate_wider_delim(Visual.acuity, delim = " (", 
+                       names = c("Visual.acuity", NA))%>% 
+  mutate(Visual.acuity = factor(Visual.acuity, 
+                                   levels = c("Very Poor", "Poor", "Average", 
+                                              "Good", "Excellent"))) %>% 
+  separate_wider_delim(Device.OS, delim = " - ", 
+                       names = c("Device.OS", NA), 
+                       too_few = "align_start") %>% 
+  separate_wider_delim(Device.OS, delim = " (", 
+                       names = c("Device.OS", NA), 
+                       too_few = "align_start")
+
+
+survey[survey == "7:30"]<-"7.5"
+survey[survey == "7h4min"]<-"7.1"
+survey[survey == "1~3"] <- "2"
+
+survey <- survey %>% 
+  mutate(
+  Avg.sleep.time = str_remove_all(Avg.sleep.time,
+                                  "[[:alpha:][:space:]]"),
+  last.night.sleep.time = str_remove_all(last.night.sleep.time,
+                                         "[[:alpha:][:space:]]"),
+  Noise.level =  str_remove_all(Noise.level,
+                                "[[:alpha:][:space:]]"),
+  Awake.hours = str_remove_all(Awake.hours,
+                               "[[:alpha:][:space:]]"),
+  Avg.hours.exercise = str_remove_all(Avg.hours.exercise,
+                                      "[[:alpha:][:space:]]")) %>% 
+  mutate(across(c(Avg.sleep.time, last.night.sleep.time, Noise.level, 
+                  Awake.hours, Avg.hours.exercise), as.numeric)) %>% 
+  mutate(Class = factor(Class, 
+                        levels = c("Freshman", "Sophomore", "Junior", "Senior", "Graduate")),
+         Fatigue.level = factor(Fatigue.level, 
+                                levels = c("Not fatigued at all", 
+                                           "Slightly Fatigued", 
+                                           "Moderately fatigued", 
+                                           "Very fatigued", 
+                                           "Extremely fatigued")),
+         Stress.level = factor(Stress.level, 
+                               levels = c("Very Low", "Low", 
+                                          "Moderate", "High" , "Very High")),
+         Temp.level = factor(Temp.level, 
+                             levels = c("Very Cold", "Cold", "Neutral", 
+                                        "Warm", "Very Warm")),
+         Game.freq = factor(Game.freq, 
+                            levels = c("Daily", "Several times a week", 
+                                       "Once a week", "Several times a month",
+                                       "Rarely", "Never")),
+         Sport.freq = factor(Sport.freq,
+                             levels = c("Daily", "Several times a week", 
+                                        "Once a week", "Several times a month",
+                                        "Rarely", "Never")),
+         Cautious.level = factor(Cautious.level, 
+                                 levels = c("Not cautious at all", 
+                                            "Slightly cautious", 
+                                            "Moderately cautious", "Very cautious",
+                                            "Extremely cautious"))
+         )
+
+```
+
+After the data cleaning procedure, `glimpse(survey)` should show something like
+
+```{r}
+glimpse(survey)
+```
+
+### Question II: Join Two tables
+
+1. **[10 pts]** Join the two tables and list the students who did not respond to the survey. [Hint: You may use `anti_join()` for this task. Look up information about `anti_join()` online if needed.]
+
+
+2. **[10 pts]** Several students have submitted the survey more than once. To handle this, we should remove the duplicate submissions by keeping only the last submission (assuming the `survey` is in time order). Follow the steps:
+
+* Arrange the observations in reverse-time order using `desc(row_number())`.
+* Apply `distinct(mockID, .keep_all = TRUE)`. [You can use `?distinct()` to understand why this approach works.]
+
+3. **[10 pts]** Join the two tables and keep all information from `survey`, use `mockID` as the key. Save the new tibble as `survey_student` (or a name of your choice).
+
+
+```{r, echo = FALSE, eval = FALSE}
+# Solution
+student %>% anti_join(survey)
+
+survey <- survey %>% 
+  arrange(desc(row_number())) %>%
+  distinct(mockID, .keep_all = TRUE)
+
+survey_student = survey %>% 
+  left_join(student, by = "mockID")
+
+```
+
+
+### Question III: Explore the Data `survey_student`
+
+**[30 pts]** Create data visualizations or tables to uncover interesting insights from the data. Please list at least three notable findings.
+
+Hint: You may find it's helpful to combine some categories into fewer, more concise categories. Here is one example,
+
+```{r, eval = FALSE}
+survey_student %>%
+  mutate(Fatigue.3 = case_when(
+    Fatigue.level %in% c("Extremely fatigued", "Very fatigued")~ "H.Fatigue",
+    Fatigue.level %in% c("Moderately fatigued") ~ "M.Fatigue",
+    Fatigue.level %in% c("Not fatigued at all", "Slightly Fatigued")~ "L.Fatigue"
+    ),
+    Fatigue.3 = factor(Fatigue.3, levels = c("H.Fatigue", "M.Fatigue", "L.Fatigue"))
+  )
+
+```
+
+
+

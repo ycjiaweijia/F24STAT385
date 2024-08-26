@@ -1,0 +1,9 @@
+# Preface {.unnumbered}
+These are the assignments for STAT 385: Statistics Programming Methods, offered in the Fall of 2024 at UIUC. If you have any comments/suggestions/concerns about the notes please contact me at <wjia@illinois.edu>.
+
+
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

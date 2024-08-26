@@ -1,0 +1,47 @@
+## Quiz 9 Instructions
+
+Please complete the following questions and submit a file named **Quiz9.R**.
+
+**Remember:**
+
+<!-- -   Do not rename external data files or edit them in any way. In other words, don't modify *data.csv*. Your code won't work properly on my version of that data set, if you do. -->
+
+-   Do not use global paths in you script. Instead, use *setwd()* interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope's virtual machines.
+-   Do not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.
+-   Check to make sure you do not have any syntax errors. Code that doesn't run will get a very bad grade.
+-   Make sure to name your submission **Quiz9.R**
+
+**Tip:** before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.
+
+## Question 1
+
+**\[2pts\]** Write an `if-else` statements within the function `is_multiple_of_3` to return `TRUE` if a number is a multiple of 3, `FALSE` if not, for any given numeric value. Run the function use `x1 = 77`. Find `y1 = is_multiple_of_3(x1)`.
+
+::: {style="height:30px;"}
+:::
+
+## Question 2
+
+**\[2pts\]** Given`x2 = 1:100`, write a for loop to create `y2` where each value is `TRUE` if the corresponding value in `x2` is a multiple of 3, and `FALSE` otherwise, using `is_multiple_of_3()` function in the previous question.
+
+::: {style="height:30px;"}
+:::
+
+## Question 3
+
+**\[2pts\]** Use `ifelse()` to achieve the same objective as the previous question. Creating `y3` where each value is `TRUE` if the corresponding value in `x3 = 100:200` is a multiple of 3, and `FALSE` otherwise.
+
+::: {style="height:30px;"}
+:::
+
+## Question 4
+
+(a) **\[2pts\]** Given the letter grades vector `L.Grades` below. Write a function `Grade.Value()` that converts "A" to 4, "B" to 3, "C" to 2, "D" to 1, and "F" to 0.
+
+```{r}
+L.Grades <- c("B", "C", "A", "C", "C", "B", "F", "A", 
+              "B", "A", "B", "B", "A", "A", "A", "B", 
+              "D", "B", "B", "A")
+```
+
+(b) **\[2pts\]** Use `sapply()` to convert `L.Grades` to grade values vector `G.values`.
