@@ -150,7 +150,6 @@ window.Quarto = {
   <li><a href="#download-and-install-r-and-rstudio" id="toc-download-and-install-r-and-rstudio" class="nav-link" data-scroll-target="#download-and-install-r-and-rstudio">Download and Install R and RStudio</a></li>
   <li><a href="#r-vs-rstudio" id="toc-r-vs-rstudio" class="nav-link" data-scroll-target="#r-vs-rstudio">R vs RStudio</a></li>
   <li><a href="#popular-r-packages-for-data-science" id="toc-popular-r-packages-for-data-science" class="nav-link" data-scroll-target="#popular-r-packages-for-data-science">Popular R packages for data science</a></li>
-  <li><a href="#popular-r-packages-for-data-science-1" id="toc-popular-r-packages-for-data-science-1" class="nav-link" data-scroll-target="#popular-r-packages-for-data-science-1">Popular R packages for data science</a></li>
   <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages">R Packages</a></li>
   <li><a href="#install-and-preload-packages-in-r-example" id="toc-install-and-preload-packages-in-r-example" class="nav-link" data-scroll-target="#install-and-preload-packages-in-r-example">Install and Preload Packages in R – Example</a>
   <ul class="collapse">
@@ -158,10 +157,10 @@ window.Quarto = {
   <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load Packages</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul></li>
-  <li><a href="#create-an-r-markdown-file" id="toc-create-an-r-markdown-file" class="nav-link" data-scroll-target="#create-an-r-markdown-file">Create an R Markdown File</a>
+  <li><a href="#creat-.r-and-.rmd-file" id="toc-creat-.r-and-.rmd-file" class="nav-link" data-scroll-target="#creat-.r-and-.rmd-file">Creat .R and .Rmd file</a></li>
+  <li><a href="#r-markdown-file" id="toc-r-markdown-file" class="nav-link" data-scroll-target="#r-markdown-file">R Markdown File</a>
   <ul class="collapse">
   <li><a href="#install-tinytex-for-pdf-output" id="toc-install-tinytex-for-pdf-output" class="nav-link" data-scroll-target="#install-tinytex-for-pdf-output">Install TinyTex for PDF output</a></li>
-  <li><a href="#creat-.r-and-.rmd-file" id="toc-creat-.r-and-.rmd-file" class="nav-link" data-scroll-target="#creat-.r-and-.rmd-file">Creat .R and .Rmd file</a></li>
   </ul></li>
   <li><a href="#some-useful-tips" id="toc-some-useful-tips" class="nav-link" data-scroll-target="#some-useful-tips">Some Useful Tips</a></li>
   </ul></li>
@@ -222,12 +221,6 @@ window.Quarto = {
 <section id="popular-r-packages-for-data-science" class="level2">
 <h2 class="anchored" data-anchor-id="popular-r-packages-for-data-science">Popular R packages for data science</h2>
 <ul>
-<li>R is a powerful tools because</li>
-</ul>
-</section>
-<section id="popular-r-packages-for-data-science-1" class="level2">
-<h2 class="anchored" data-anchor-id="popular-r-packages-for-data-science-1">Popular R packages for data science</h2>
-<ul>
 <li>R is a powerful tools because <strong>tons of R packages are used to extend the capabilities of base R.</strong></li>
 </ul>
 </section>
@@ -276,9 +269,9 @@ window.Quarto = {
 </section>
 <section id="example" class="level3">
 <h3 class="anchored" data-anchor-id="example">Example</h3>
-<p>Try the following code in the R console.</p>
+<p>Try the following codes in the R console.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cheddar <span class="co"># data set cannot be found as the package "faraway" is not installed and/or loaded.</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cheddar <span class="co"># The data set cannot be found, as the package "faraway" is not installed and/or loaded.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("faraway") # Install the package</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(faraway) <span class="co"># Load the package</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>cheddar <span class="co"># Now you can use the dataset</span></span>
@@ -288,8 +281,15 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="create-an-r-markdown-file" class="level2">
-<h2 class="anchored" data-anchor-id="create-an-r-markdown-file">Create an R Markdown File</h2>
+<section id="creat-.r-and-.rmd-file" class="level2">
+<h2 class="anchored" data-anchor-id="creat-.r-and-.rmd-file">Creat .R and .Rmd file</h2>
+<ul>
+<li><p>Create an R script file (with extension .R) by clicking <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>New File</code> <span class="math inline">\(\rightarrow\)</span> <code>R Script</code>. (Shortcut is <code>Ctrl + Shift + C</code> (windows), <code>command + shift + N</code> (Mac))</p></li>
+<li><p>Create an R Markdown file (with extension .Rmd) by clicking <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>New File</code> <span class="math inline">\(\rightarrow\)</span> <code>R Markdown</code>.</p></li>
+</ul>
+</section>
+<section id="r-markdown-file" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-file">R Markdown File</h2>
 <p>The following workflow is from <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">R Markdown Cheat Sheet</a></p>
 <p><img src="Rmarkdown Workflow.png" class="img-fluid" width="700"></p>
 <section id="install-tinytex-for-pdf-output" class="level3">
@@ -299,13 +299,6 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'tinytex'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()  <span class="co"># install TinyTeX</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="creat-.r-and-.rmd-file" class="level3">
-<h3 class="anchored" data-anchor-id="creat-.r-and-.rmd-file">Creat .R and .Rmd file</h3>
-<ul>
-<li><p>Create an R script file (with extension .R) by clicking <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>New File</code> <span class="math inline">\(\rightarrow\)</span> <code>R Script</code>. (Shortcut is <code>Ctrl + Shift + C</code> (windows), <code>command + shift + N</code> (Mac))</p></li>
-<li><p>Create an R Markdown file (with extension .Rmd) by clicking <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>New File</code> <span class="math inline">\(\rightarrow\)</span> <code>R Markdown</code>.</p></li>
-</ul>
 </section>
 </section>
 <section id="some-useful-tips" class="level2">
