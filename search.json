@@ -819,6 +819,69 @@
     "text": "Example 11.5\nGet a list of grouped summary statistics (min, Q1, median, Q3, max, mean, std. dev., missing) by transmission type (without sub group) and class type.\n\n\ndispl_summary &lt;- mpg_transtype %&gt;%\n  group_by(trans_type, class)%&gt;%\n  dplyr::summarize(\n    min = min(displ, na.rm = TRUE),\n    q1 = quantile(displ, 0.25, na.rm = TRUE),\n    median = quantile(displ, 0.5, na.rm = TRUE),\n    q3 = quantile(displ, 0.75, na.rm = TRUE),\n    max = max(displ, na.rm = TRUE),\n    mean = mean(displ, na.rm = TRUE),\n    sd = sd(displ, na.rm = TRUE),\n    missing = sum(is.na(displ))\n  )\n\ndispl_summary\n#&gt; # A tibble: 13 × 10\n#&gt; # Groups:   trans_type [2]\n#&gt;    trans_type class        min    q1 median    q3   max  mean    sd missing\n#&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;int&gt;\n#&gt;  1 auto       2seater      5.7  5.82   5.95  6.08   6.2  5.95 0.354       0\n#&gt;  2 auto       compact      1.8  2      2.3   2.8    3.3  2.35 0.485       0\n#&gt;  3 auto       midsize      1.8  2.4    3.1   3.5    5.3  3.08 0.750       0\n#&gt;  4 auto       minivan      2.4  3.3    3.3   3.8    4    3.39 0.453       0\n#&gt;  5 auto       pickup       2.7  4.15   4.7   5.2    5.9  4.61 0.789       0\n#&gt;  6 auto       subcompact   1.6  1.87   2.1   2.98   4.6  2.6  1.05        0\n#&gt;  7 auto       suv          2.5  4      4.7   5.4    6.5  4.64 0.964       0\n#&gt;  8 manual     2seater      5.7  5.95   6.2   6.6    7    6.3  0.656       0\n#&gt;  9 manual     compact      1.8  2      2.2   2.65   3.1  2.3  0.425       0\n#&gt; 10 manual     midsize      1.8  2.35   2.45  2.85   3.5  2.54 0.470       0\n#&gt; 11 manual     pickup       2.7  3.7    4.2   4.7    5.2  4.13 0.835       0\n#&gt; 12 manual     subcompact   1.6  1.95   2.2   3.25   5.4  2.71 1.17        0\n#&gt; 13 manual     suv          2.5  2.5    2.7   3.35   4    2.99 0.590       0"
   },
   {
+    "objectID": "1-Intro/1-Intro.html",
+    "href": "1-Intro/1-Intro.html",
+    "title": "R, RStudio, and R Packages",
+    "section": "",
+    "text": "Visit the website, download and install R and RStudio (selecting the appropriate version for your OS)\n\nhttps://posit.co/download/rstudio-desktop/\n\nAlternatively, you may use Posit Cloud: https://posit.cloud/ to try all the functions introduced below.\n\n\n\n\n\nR is a programming language and open source software environment for predictive analytics and data visualization.\nRStudio is the premier IDE for R.\nR may be used without RStudio, but Rstudio may not be used with R.\nLaunch RStudio program, just as you would open any program, by clicking on its icon or by typing ``RStudio’’ at the Windows Run prompt.\n\n\nFour primary panes of RStudio User interface - from https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html\n\n\n\n\nR is a powerful tools because\n\n\n\n\n\nR is a powerful tools because tons of R packages are used to extend the capabilities of base R.\n\n\n\n\n\nExtensive collection of packages designed for statistical analysis.\nDynamic and reproducible documents with R Markdown.\nTidyverse \\(\\leftarrow\\) A collection of R packages designed for data science\n\nData visualization with ggplot2\nData transformation with dplyr\nData tidying with tidyr\nData import with readr, readxl\nManipulate lists with purr\nString manipulation with stringr\n\nInteractive web apps with Shiny\n\\(\\cdots\\)\n\n\n\n\n\n\n\nRun Install.packages(\"the-package-name\")\n\nExample Install package tidyverse.\n\ninstall.packages(\"tidyverse\")\n\nNote that, R Markdown is automatically installed and loaded in RStudio IDE. So you don’t need to explicitly install rmarkdown package if using R Studio.\n\nClick Tools \\(\\rightarrow\\) Install Packages \\(\\rightarrow\\) Type in package name and install.\nRefer to the pane that has the tabs Files, Plots, Packages. Click on the tab Packages, and then click on the button Install to install the package needed.\n\n\n\n\nExample After installation, load package tidyverse.\n\nlibrary(tidyverse)\n\nYou only need to install a package once (like buying a tool from the hardware store and adding it to your toolbox), but you need to reload it every time you start a new session (like grabbing the specific tool you need for the task at hand).\n\n\n\nTry the following code in the R console.\n\ncheddar # data set cannot be found as the package \"faraway\" is not installed and/or loaded.\n# install.packages(\"faraway\") # Install the package\nlibrary(faraway) # Load the package\ncheddar # Now you can use the dataset\n\n### You may specify a dataset from a package by using\nfaraway::cheddar\n\n\n\n\n\nThe following workflow is from R Markdown Cheat Sheet\n\n\n\nIf you want to generate PDF output, you will need to install TinyTex. Please run the following codes in the R Console.\n\ninstall.packages('tinytex')\ntinytex::install_tinytex()  # install TinyTeX\n\n\n\n\n\nCreate an R script file (with extension .R) by clicking File \\(\\rightarrow\\) New File \\(\\rightarrow\\) R Script. (Shortcut is Ctrl + Shift + C (windows), command + shift + N (Mac))\nCreate an R Markdown file (with extension .Rmd) by clicking File \\(\\rightarrow\\) New File \\(\\rightarrow\\) R Markdown.\n\n\n\n\n\n\nUse Ctrl + L to clear Console (windows), Cmd + L (Mac)\nDefault comment/uncomment codes selection is Ctrl + Shift + C (windows), Command + Shift + C (Mac). You may change the shortcut to Ctrl + /.\n\n(You can do so by clicking Tools \\(\\rightarrow\\) Modify Keyboard Shortcuts \\(\\rightarrow\\) Search “comment” \\(\\rightarrow\\) Change the shortcut \\(\\rightarrow\\) Apply.)"
+  },
+  {
+    "objectID": "1-Intro/1-Intro.html#download-and-install-r-and-rstudio",
+    "href": "1-Intro/1-Intro.html#download-and-install-r-and-rstudio",
+    "title": "R, RStudio, and R Packages",
+    "section": "",
+    "text": "Visit the website, download and install R and RStudio (selecting the appropriate version for your OS)\n\nhttps://posit.co/download/rstudio-desktop/\n\nAlternatively, you may use Posit Cloud: https://posit.cloud/ to try all the functions introduced below."
+  },
+  {
+    "objectID": "1-Intro/1-Intro.html#r-vs-rstudio",
+    "href": "1-Intro/1-Intro.html#r-vs-rstudio",
+    "title": "R, RStudio, and R Packages",
+    "section": "",
+    "text": "R is a programming language and open source software environment for predictive analytics and data visualization.\nRStudio is the premier IDE for R.\nR may be used without RStudio, but Rstudio may not be used with R.\nLaunch RStudio program, just as you would open any program, by clicking on its icon or by typing ``RStudio’’ at the Windows Run prompt.\n\n\nFour primary panes of RStudio User interface - from https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html"
+  },
+  {
+    "objectID": "1-Intro/1-Intro.html#popular-r-packages-for-data-science",
+    "href": "1-Intro/1-Intro.html#popular-r-packages-for-data-science",
+    "title": "R, RStudio, and R Packages",
+    "section": "",
+    "text": "R is a powerful tools because"
+  },
+  {
+    "objectID": "1-Intro/1-Intro.html#popular-r-packages-for-data-science-1",
+    "href": "1-Intro/1-Intro.html#popular-r-packages-for-data-science-1",
+    "title": "R, RStudio, and R Packages",
+    "section": "",
+    "text": "R is a powerful tools because tons of R packages are used to extend the capabilities of base R."
+  },
+  {
+    "objectID": "1-Intro/1-Intro.html#r-packages",
+    "href": "1-Intro/1-Intro.html#r-packages",
+    "title": "R, RStudio, and R Packages",
+    "section": "",
+    "text": "Extensive collection of packages designed for statistical analysis.\nDynamic and reproducible documents with R Markdown.\nTidyverse \\(\\leftarrow\\) A collection of R packages designed for data science\n\nData visualization with ggplot2\nData transformation with dplyr\nData tidying with tidyr\nData import with readr, readxl\nManipulate lists with purr\nString manipulation with stringr\n\nInteractive web apps with Shiny\n\\(\\cdots\\)"
+  },
+  {
+    "objectID": "1-Intro/1-Intro.html#install-and-preload-packages-in-r-example",
+    "href": "1-Intro/1-Intro.html#install-and-preload-packages-in-r-example",
+    "title": "R, RStudio, and R Packages",
+    "section": "",
+    "text": "Run Install.packages(\"the-package-name\")\n\nExample Install package tidyverse.\n\ninstall.packages(\"tidyverse\")\n\nNote that, R Markdown is automatically installed and loaded in RStudio IDE. So you don’t need to explicitly install rmarkdown package if using R Studio.\n\nClick Tools \\(\\rightarrow\\) Install Packages \\(\\rightarrow\\) Type in package name and install.\nRefer to the pane that has the tabs Files, Plots, Packages. Click on the tab Packages, and then click on the button Install to install the package needed.\n\n\n\n\nExample After installation, load package tidyverse.\n\nlibrary(tidyverse)\n\nYou only need to install a package once (like buying a tool from the hardware store and adding it to your toolbox), but you need to reload it every time you start a new session (like grabbing the specific tool you need for the task at hand).\n\n\n\nTry the following code in the R console.\n\ncheddar # data set cannot be found as the package \"faraway\" is not installed and/or loaded.\n# install.packages(\"faraway\") # Install the package\nlibrary(faraway) # Load the package\ncheddar # Now you can use the dataset\n\n### You may specify a dataset from a package by using\nfaraway::cheddar"
+  },
+  {
+    "objectID": "1-Intro/1-Intro.html#create-an-r-markdown-file",
+    "href": "1-Intro/1-Intro.html#create-an-r-markdown-file",
+    "title": "R, RStudio, and R Packages",
+    "section": "",
+    "text": "The following workflow is from R Markdown Cheat Sheet\n\n\n\nIf you want to generate PDF output, you will need to install TinyTex. Please run the following codes in the R Console.\n\ninstall.packages('tinytex')\ntinytex::install_tinytex()  # install TinyTeX\n\n\n\n\n\nCreate an R script file (with extension .R) by clicking File \\(\\rightarrow\\) New File \\(\\rightarrow\\) R Script. (Shortcut is Ctrl + Shift + C (windows), command + shift + N (Mac))\nCreate an R Markdown file (with extension .Rmd) by clicking File \\(\\rightarrow\\) New File \\(\\rightarrow\\) R Markdown."
+  },
+  {
+    "objectID": "1-Intro/1-Intro.html#some-useful-tips",
+    "href": "1-Intro/1-Intro.html#some-useful-tips",
+    "title": "R, RStudio, and R Packages",
+    "section": "",
+    "text": "Use Ctrl + L to clear Console (windows), Cmd + L (Mac)\nDefault comment/uncomment codes selection is Ctrl + Shift + C (windows), Command + Shift + C (Mac). You may change the shortcut to Ctrl + /.\n\n(You can do so by clicking Tools \\(\\rightarrow\\) Modify Keyboard Shortcuts \\(\\rightarrow\\) Search “comment” \\(\\rightarrow\\) Change the shortcut \\(\\rightarrow\\) Apply.)"
+  },
+  {
     "objectID": "ggplot2/ggplot2.html",
     "href": "ggplot2/ggplot2.html",
     "title": "Data Visualization with ggplot2",
