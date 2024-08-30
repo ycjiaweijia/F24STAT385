@@ -882,6 +882,55 @@
     "text": "Use Ctrl + L to clear Console (windows), Cmd + L (Mac)\nDefault comment/uncomment codes selection is Ctrl + Shift + C (windows), Command + Shift + C (Mac). You may change the shortcut to Ctrl + /.\n\n(You can do so by clicking Tools \\(\\rightarrow\\) Modify Keyboard Shortcuts \\(\\rightarrow\\) Search “comment” \\(\\rightarrow\\) Change the shortcut \\(\\rightarrow\\) Apply.)"
   },
   {
+    "objectID": "3-MoreVectors/3-MoreVectors.html",
+    "href": "3-MoreVectors/3-MoreVectors.html",
+    "title": "3. Slides - More About Vectors",
+    "section": "",
+    "text": "Please make sue you’ve read the following sections in the textbook: R Coding Basics, https://www.gastonsanchez.com/R-coding-basics/\n\nSection 3. Creating Vectors\nSection 4. More About Vectors"
+  },
+  {
+    "objectID": "3-MoreVectors/3-MoreVectors.html#reading-assignments",
+    "href": "3-MoreVectors/3-MoreVectors.html#reading-assignments",
+    "title": "3. Slides - More About Vectors",
+    "section": "",
+    "text": "Please make sue you’ve read the following sections in the textbook: R Coding Basics, https://www.gastonsanchez.com/R-coding-basics/\n\nSection 3. Creating Vectors\nSection 4. More About Vectors"
+  },
+  {
+    "objectID": "3-MoreVectors/3-MoreVectors.html#the-colon-operator-seq-rep",
+    "href": "3-MoreVectors/3-MoreVectors.html#the-colon-operator-seq-rep",
+    "title": "3. Slides - More About Vectors",
+    "section": "The colon operator “:”, seq(), rep()",
+    "text": "The colon operator “:”, seq(), rep()\n\nColon operator “:”\n\nGenerate integer vector, if starting and ending values are whole numbers\n\n\nints = 1:5 # integer vector\nints\n#&gt; [1] 1 2 3 4 5\ntypeof(ints)\n#&gt; [1] \"integer\"\n\n\n\n\n\n\n\nGenerate double vector, if starting value is not whole number\n\n\ndbls = 5.2:1.2 # descending order; double vector\ndbls\n#&gt; [1] 5.2 4.2 3.2 2.2 1.2\ntypeof(dbls)\n#&gt; [1] \"double\"\n\n\none-unit step\n\n\n1.1:5\n#&gt; [1] 1.1 2.1 3.1 4.1\n\n\n\nseq() function\n\nBelow are equivalent\n\nseq(from = 1, to = 5)\nseq(from = 1, to = 5, by = 1)\nseq(1, 5)\nseq(1, 5, 1)\n1:5\n\nOdd numbers between 1 to 10\n\n\nseq(from = 1, to = 10, by = 2) \n#&gt; [1] 1 3 5 7 9\n\n\nThe first 10 odd numbers\n\n\nseq(from = 1, by = 2, length.out = 10) # Total length of the vector is 10\n#&gt;  [1]  1  3  5  7  9 11 13 15 17 19\n\n\n\nrep() function\n\ntimes vs each\n\n\nrep(c(1,2), times = 3) # Repeat the entire vector 3 times\n#&gt; [1] 1 2 1 2 1 2\n\nrep(c(1,2), each = 2) # Each element repeated twice\n#&gt; [1] 1 1 2 2\n\n\nlength.out – set the total length\n\n\nrep(c(1,2), length.out = 5) # Repeat the vector until reaching the total length\n#&gt; [1] 1 2 1 2 1\n\n\nIf times & each are both specified\n\n\nrep(c(3,2,1), times = 3, each = 2) # \"each\" is performed first.\n#&gt;  [1] 3 3 2 2 1 1 3 3 2 2 1 1 3 3 2 2 1 1"
+  },
+  {
+    "objectID": "3-MoreVectors/3-MoreVectors.html#vector-coercion",
+    "href": "3-MoreVectors/3-MoreVectors.html#vector-coercion",
+    "title": "3. Slides - More About Vectors",
+    "section": "Vector Coercion",
+    "text": "Vector Coercion\nHierarchy Rule: \ncharacter &gt; double &gt; integer &gt; logical\n\ncharacters have priority over other data types: as long as one element is a character, all other elements are coerced into characters\n\n\nmixed &lt;- c(TRUE, 1L, 2.0, \"three\")\nmixed\n#&gt; [1] \"TRUE\"  \"1\"     \"2\"     \"three\"\n\n\nRecall v1 – v4 from Lecture 2\n\n# v1 is a logical vector\nv1 &lt;- c(FALSE, TRUE)\ntypeof(v1)\n#&gt; [1] \"logical\"\n# v2 is an integer vector\nv2 &lt;- c(0L, 1L)\ntypeof(v2)\n#&gt; [1] \"integer\"\n# v3 is a double vector\nv3 &lt;- c(0, 1)\ntypeof(v3)\n#&gt; [1] \"double\"\n# v4 is a character vector\nv4 &lt;- c('0', '1') # Equivalently, v4 &lt;- c(\"0\", \"1\")\ntypeof(v4)\n#&gt; [1] \"character\"\n\n\n\nCoercion Examples\n\nv5 &lt;- c(v1, v2)\ntypeof(v5)\n#&gt; [1] \"integer\"\n\nv6 &lt;- c(v5, v3)\ntypeof(v6)\n#&gt; [1] \"double\"\n\nv7 &lt;- c(v6, v4)\ntypeof(v7)\n#&gt; [1] \"character\""
+  },
+  {
+    "objectID": "3-MoreVectors/3-MoreVectors.html#vectorization",
+    "href": "3-MoreVectors/3-MoreVectors.html#vectorization",
+    "title": "3. Slides - More About Vectors",
+    "section": "Vectorization",
+    "text": "Vectorization\n\nVectorization is essential in R. Many operations in R are vectorized.\nVectorized operations are essentially operations that are performed in an element by element fashion.\n\n\nx = c(1, 2, 3, 4, 5)\ny = c(5, 4, 3, 2, 1)\nx + y\n#&gt; [1] 6 6 6 6 6\n\n\nc(1 + 5, 2 + 4, 3 + 3, 4 + 2, 5 + 1)\n\n\nVectorization vs for loop\nIn other languages (e.g. C, python), vectorization is not typically a native feature.\n\n\nExample 4.2\n\ndeposit &lt;- 1000\nrate &lt;- 0.02\nyears &lt;- 1:10  # vector of years\namounts &lt;- deposit * (1 + rate)^years\n\nInput: years Output: amounts Function: deposit * (1 + rate)^years \\(\\leftarrow\\) the code is vectorized\n\nyears\n#&gt;  [1]  1  2  3  4  5  6  7  8  9 10\namounts \n#&gt;  [1] 1020.000 1040.400 1061.208 1082.432 1104.081 1126.162 1148.686 1171.659\n#&gt;  [9] 1195.093 1218.994\n\n\n\nOther examples of vectorized operator\n\nsqrt(amounts)\n#&gt;  [1] 31.93744 32.25523 32.57619 32.90034 33.22771 33.55834 33.89227 34.22951\n#&gt;  [9] 34.57011 34.91410\nlog(amounts)\n#&gt;  [1] 6.927558 6.947361 6.967163 6.986966 7.006768 7.026571 7.046374 7.066176\n#&gt;  [9] 7.085979 7.105782\n\n\n\nExamples of not-vectorized operator\n\nmax(amounts)\n#&gt; [1] 1218.994\nmean(amounts)\n#&gt; [1] 1116.872\nlength(amounts)\n#&gt; [1] 10"
+  },
+  {
+    "objectID": "3-MoreVectors/3-MoreVectors.html#recycling",
+    "href": "3-MoreVectors/3-MoreVectors.html#recycling",
+    "title": "3. Slides - More About Vectors",
+    "section": "Recycling",
+    "text": "Recycling\nTakes the short vector, recycles its content to matches the longer vector.\n\nc(1, 1, 2, 2, 3, 3) + c(0.5, 0.1)\n#&gt; [1] 1.5 1.1 2.5 2.1 3.5 3.1\n\nc(1, 2, 3) + c(0.5, 0.1) # Warning Message!\n#&gt; [1] 1.5 2.1 3.5"
+  },
+  {
+    "objectID": "3-MoreVectors/3-MoreVectors.html#subsetting",
+    "href": "3-MoreVectors/3-MoreVectors.html#subsetting",
+    "title": "3. Slides - More About Vectors",
+    "section": "Subsetting",
+    "text": "Subsetting\n\nCreating the vector\n\n# Example from Exercise 2.7\nrates &lt;- c(0.02, 0.03, 0.04)\nnames(rates) &lt;- c(\"savings\", \"market\", \"certif\")\n\n# Equivalently\nrates &lt;- c(\n  \"savings\" = 0.02,\n  \"market\" = 0.03,\n  \"certif\" = 0.04\n)\n\n\n\nSubsetting\nBracket Notation: []\nUse (square) brackets [ ] to get access to the elements of a vector.\n\nrates[2] # The second element\n#&gt; market \n#&gt;   0.03\nrates[2:3] # The second to third elements\n#&gt; market certif \n#&gt;   0.03   0.04\nrates[-3] # All elements except the 3rd element\n#&gt; savings  market \n#&gt;    0.02    0.03\nrates[c(1,2)] # The 1st and 2nd elements\n#&gt; savings  market \n#&gt;    0.02    0.03\nrates[\"certif\"] # The element with name \"certif\"\n#&gt; certif \n#&gt;   0.04\nrates[c(\"savings\", \"certif\")]\n#&gt; savings  certif \n#&gt;    0.02    0.04\nrates[rates &gt; 0.02] # All elements greater than 0.02\n#&gt; market certif \n#&gt;   0.03   0.04\nrates[rates &lt;= 0.03] # All elements less than or equal to 0.03\n#&gt; savings  market \n#&gt;    0.02    0.03\nrates[rates != 0.04] # All elements not equal to 0.04\n#&gt; savings  market \n#&gt;    0.02    0.03"
+  },
+  {
     "objectID": "ggplot2/ggplot2.html",
     "href": "ggplot2/ggplot2.html",
     "title": "Data Visualization with ggplot2",
