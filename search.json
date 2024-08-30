@@ -819,6 +819,55 @@
     "text": "Example 11.5\nGet a list of grouped summary statistics (min, Q1, median, Q3, max, mean, std. dev., missing) by transmission type (without sub group) and class type.\n\n\ndispl_summary &lt;- mpg_transtype %&gt;%\n  group_by(trans_type, class)%&gt;%\n  dplyr::summarize(\n    min = min(displ, na.rm = TRUE),\n    q1 = quantile(displ, 0.25, na.rm = TRUE),\n    median = quantile(displ, 0.5, na.rm = TRUE),\n    q3 = quantile(displ, 0.75, na.rm = TRUE),\n    max = max(displ, na.rm = TRUE),\n    mean = mean(displ, na.rm = TRUE),\n    sd = sd(displ, na.rm = TRUE),\n    missing = sum(is.na(displ))\n  )\n\ndispl_summary\n#&gt; # A tibble: 13 × 10\n#&gt; # Groups:   trans_type [2]\n#&gt;    trans_type class        min    q1 median    q3   max  mean    sd missing\n#&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;int&gt;\n#&gt;  1 auto       2seater      5.7  5.82   5.95  6.08   6.2  5.95 0.354       0\n#&gt;  2 auto       compact      1.8  2      2.3   2.8    3.3  2.35 0.485       0\n#&gt;  3 auto       midsize      1.8  2.4    3.1   3.5    5.3  3.08 0.750       0\n#&gt;  4 auto       minivan      2.4  3.3    3.3   3.8    4    3.39 0.453       0\n#&gt;  5 auto       pickup       2.7  4.15   4.7   5.2    5.9  4.61 0.789       0\n#&gt;  6 auto       subcompact   1.6  1.87   2.1   2.98   4.6  2.6  1.05        0\n#&gt;  7 auto       suv          2.5  4      4.7   5.4    6.5  4.64 0.964       0\n#&gt;  8 manual     2seater      5.7  5.95   6.2   6.6    7    6.3  0.656       0\n#&gt;  9 manual     compact      1.8  2      2.2   2.65   3.1  2.3  0.425       0\n#&gt; 10 manual     midsize      1.8  2.35   2.45  2.85   3.5  2.54 0.470       0\n#&gt; 11 manual     pickup       2.7  3.7    4.2   4.7    5.2  4.13 0.835       0\n#&gt; 12 manual     subcompact   1.6  1.95   2.2   3.25   5.4  2.71 1.17        0\n#&gt; 13 manual     suv          2.5  2.5    2.7   3.35   4    2.99 0.590       0"
   },
   {
+    "objectID": "3-MoreVectors/3-MoreVectors.html",
+    "href": "3-MoreVectors/3-MoreVectors.html",
+    "title": "3. Slides - More About Vectors",
+    "section": "",
+    "text": "Please make sue you’ve read the following sections in the textbook: R Coding Basics, https://www.gastonsanchez.com/R-coding-basics/\n\nSection 3. Creating Vectors\nSection 4. More About Vectors"
+  },
+  {
+    "objectID": "3-MoreVectors/3-MoreVectors.html#reading-assignments",
+    "href": "3-MoreVectors/3-MoreVectors.html#reading-assignments",
+    "title": "3. Slides - More About Vectors",
+    "section": "",
+    "text": "Please make sue you’ve read the following sections in the textbook: R Coding Basics, https://www.gastonsanchez.com/R-coding-basics/\n\nSection 3. Creating Vectors\nSection 4. More About Vectors"
+  },
+  {
+    "objectID": "3-MoreVectors/3-MoreVectors.html#the-colon-operator-seq-rep",
+    "href": "3-MoreVectors/3-MoreVectors.html#the-colon-operator-seq-rep",
+    "title": "3. Slides - More About Vectors",
+    "section": "The colon operator “:”, seq(), rep()",
+    "text": "The colon operator “:”, seq(), rep()\n\nColon operator “:”\n\nGenerate integer vector, if starting and ending values are whole numbers\n\n\nints = 1:5 # integer vector\nints\n#&gt; [1] 1 2 3 4 5\ntypeof(ints)\n#&gt; [1] \"integer\"\n\n\n\n\n\n\n\nGenerate double vector, if starting value is not whole number\n\n\ndbls = 5.2:1.2 # descending order; double vector\ndbls\n#&gt; [1] 5.2 4.2 3.2 2.2 1.2\ntypeof(dbls)\n#&gt; [1] \"double\"\n\n\none-unit step\n\n\n1.1:5\n#&gt; [1] 1.1 2.1 3.1 4.1\n\n\n\nseq() function\n\nBelow are equivalent\n\nseq(from = 1, to = 5)\nseq(from = 1, to = 5, by = 1)\nseq(1, 5)\nseq(1, 5, 1)\n1:5\n\nOdd numbers between 1 to 10\n\n\nseq(from = 1, to = 10, by = 2) \n#&gt; [1] 1 3 5 7 9\n\n\nThe first 10 odd numbers\n\n\nseq(from = 1, by = 2, length.out = 10) # Total length of the vector is 10\n#&gt;  [1]  1  3  5  7  9 11 13 15 17 19\n\n\n\nrep() function\n\ntimes vs each\n\n\nrep(c(1,2), times = 3) # Repeat the entire vector 3 times\n#&gt; [1] 1 2 1 2 1 2\n\nrep(c(1,2), each = 2) # Each element repeated twice\n#&gt; [1] 1 1 2 2\n\n\nlength.out – set the total length\n\n\nrep(c(1,2), length.out = 5) # Repeat the vector until reaching the total length\n#&gt; [1] 1 2 1 2 1\n\n\nIf times & each are both specified\n\n\nrep(c(3,2,1), times = 3, each = 2) # \"each\" is performed first.\n#&gt;  [1] 3 3 2 2 1 1 3 3 2 2 1 1 3 3 2 2 1 1"
+  },
+  {
+    "objectID": "3-MoreVectors/3-MoreVectors.html#vector-coercion",
+    "href": "3-MoreVectors/3-MoreVectors.html#vector-coercion",
+    "title": "3. Slides - More About Vectors",
+    "section": "Vector Coercion",
+    "text": "Vector Coercion\nHierarchy Rule: \ncharacter &gt; double &gt; integer &gt; logical\n\ncharacters have priority over other data types: as long as one element is a character, all other elements are coerced into characters\n\n\nmixed &lt;- c(TRUE, 1L, 2.0, \"three\")\nmixed\n#&gt; [1] \"TRUE\"  \"1\"     \"2\"     \"three\"\n\n\nRecall v1 – v4 from Lecture 2\n\n# v1 is a logical vector\nv1 &lt;- c(FALSE, TRUE)\ntypeof(v1)\n#&gt; [1] \"logical\"\n# v2 is an integer vector\nv2 &lt;- c(0L, 1L)\ntypeof(v2)\n#&gt; [1] \"integer\"\n# v3 is a double vector\nv3 &lt;- c(0, 1)\ntypeof(v3)\n#&gt; [1] \"double\"\n# v4 is a character vector\nv4 &lt;- c('0', '1') # Equivalently, v4 &lt;- c(\"0\", \"1\")\ntypeof(v4)\n#&gt; [1] \"character\"\n\n\n\nCoercion Examples\n\nv5 &lt;- c(v1, v2)\ntypeof(v5)\n#&gt; [1] \"integer\"\n\nv6 &lt;- c(v5, v3)\ntypeof(v6)\n#&gt; [1] \"double\"\n\nv7 &lt;- c(v6, v4)\ntypeof(v7)\n#&gt; [1] \"character\""
+  },
+  {
+    "objectID": "3-MoreVectors/3-MoreVectors.html#vectorization",
+    "href": "3-MoreVectors/3-MoreVectors.html#vectorization",
+    "title": "3. Slides - More About Vectors",
+    "section": "Vectorization",
+    "text": "Vectorization\n\nVectorization is essential in R. Many operations in R are vectorized.\nVectorized operations are essentially operations that are performed in an element by element fashion.\n\n\nx = c(1, 2, 3, 4, 5)\ny = c(5, 4, 3, 2, 1)\nx + y\n#&gt; [1] 6 6 6 6 6\n\n\nc(1 + 5, 2 + 4, 3 + 3, 4 + 2, 5 + 1)\n\n\nVectorization vs for loop\nIn other languages (e.g. C, python), vectorization is not typically a native feature.\n\n\nExample 4.2\n\ndeposit &lt;- 1000\nrate &lt;- 0.02\nyears &lt;- 1:10  # vector of years\namounts &lt;- deposit * (1 + rate)^years\n\nInput: years Output: amounts Function: deposit * (1 + rate)^years \\(\\leftarrow\\) the code is vectorized\n\nyears\n#&gt;  [1]  1  2  3  4  5  6  7  8  9 10\namounts \n#&gt;  [1] 1020.000 1040.400 1061.208 1082.432 1104.081 1126.162 1148.686 1171.659\n#&gt;  [9] 1195.093 1218.994\n\n\n\nOther examples of vectorized operator\n\nsqrt(amounts)\n#&gt;  [1] 31.93744 32.25523 32.57619 32.90034 33.22771 33.55834 33.89227 34.22951\n#&gt;  [9] 34.57011 34.91410\nlog(amounts)\n#&gt;  [1] 6.927558 6.947361 6.967163 6.986966 7.006768 7.026571 7.046374 7.066176\n#&gt;  [9] 7.085979 7.105782\n\n\n\nExamples of not-vectorized operator\n\nmax(amounts)\n#&gt; [1] 1218.994\nmean(amounts)\n#&gt; [1] 1116.872\nlength(amounts)\n#&gt; [1] 10"
+  },
+  {
+    "objectID": "3-MoreVectors/3-MoreVectors.html#recycling",
+    "href": "3-MoreVectors/3-MoreVectors.html#recycling",
+    "title": "3. Slides - More About Vectors",
+    "section": "Recycling",
+    "text": "Recycling\nTakes the short vector, recycles its content to matches the longer vector.\n\nc(1, 1, 2, 2, 3, 3) + c(0.5, 0.1)\n#&gt; [1] 1.5 1.1 2.5 2.1 3.5 3.1\n\nc(1, 2, 3) + c(0.5, 0.1) # Warning Message!\n#&gt; [1] 1.5 2.1 3.5"
+  },
+  {
+    "objectID": "3-MoreVectors/3-MoreVectors.html#subsetting",
+    "href": "3-MoreVectors/3-MoreVectors.html#subsetting",
+    "title": "3. Slides - More About Vectors",
+    "section": "Subsetting",
+    "text": "Subsetting\n\nCreating the vector\n\n# Example from Exercise 2.7\nrates &lt;- c(0.02, 0.03, 0.04)\nnames(rates) &lt;- c(\"savings\", \"market\", \"certif\")\n\n# Equivalently\nrates &lt;- c(\n  \"savings\" = 0.02,\n  \"market\" = 0.03,\n  \"certif\" = 0.04\n)\n\n\n\nSubsetting\nBracket Notation: []\nUse (square) brackets [ ] to get access to the elements of a vector.\n\nrates[2] # The second element\n#&gt; market \n#&gt;   0.03\nrates[2:3] # The second to third elements\n#&gt; market certif \n#&gt;   0.03   0.04\nrates[-3] # All elements except the 3rd element\n#&gt; savings  market \n#&gt;    0.02    0.03\nrates[c(1,2)] # The 1st and 2nd elements\n#&gt; savings  market \n#&gt;    0.02    0.03\nrates[\"certif\"] # The element with name \"certif\"\n#&gt; certif \n#&gt;   0.04\nrates[c(\"savings\", \"certif\")]\n#&gt; savings  certif \n#&gt;    0.02    0.04\nrates[rates &gt; 0.02] # All elements greater than 0.02\n#&gt; market certif \n#&gt;   0.03   0.04\nrates[rates &lt;= 0.03] # All elements less than or equal to 0.03\n#&gt; savings  market \n#&gt;    0.02    0.03\nrates[rates != 0.04] # All elements not equal to 0.04\n#&gt; savings  market \n#&gt;    0.02    0.03"
+  },
+  {
     "objectID": "1-Intro/1-Intro.html",
     "href": "1-Intro/1-Intro.html",
     "title": "R, RStudio, and R Packages",
@@ -882,53 +931,46 @@
     "text": "Use Ctrl + L to clear Console (windows), Cmd + L (Mac)\nDefault comment/uncomment codes selection is Ctrl + Shift + C (windows), Command + Shift + C (Mac). You may change the shortcut to Ctrl + /.\n\n(You can do so by clicking Tools \\(\\rightarrow\\) Modify Keyboard Shortcuts \\(\\rightarrow\\) Search “comment” \\(\\rightarrow\\) Change the shortcut \\(\\rightarrow\\) Apply.)"
   },
   {
-    "objectID": "3-MoreVectors/3-MoreVectors.html",
-    "href": "3-MoreVectors/3-MoreVectors.html",
-    "title": "3. Slides - More About Vectors",
+    "objectID": "4-Factors/4-Factors.html",
+    "href": "4-Factors/4-Factors.html",
+    "title": "4. Factors",
     "section": "",
-    "text": "Please make sue you’ve read the following sections in the textbook: R Coding Basics, https://www.gastonsanchez.com/R-coding-basics/\n\nSection 3. Creating Vectors\nSection 4. More About Vectors"
+    "text": "Please make sue you’ve read the following sections in the textbook: R Coding Basics, https://www.gastonsanchez.com/R-coding-basics/\n\nSection 5 Factors"
   },
   {
-    "objectID": "3-MoreVectors/3-MoreVectors.html#reading-assignments",
-    "href": "3-MoreVectors/3-MoreVectors.html#reading-assignments",
-    "title": "3. Slides - More About Vectors",
+    "objectID": "4-Factors/4-Factors.html#reading-assignments",
+    "href": "4-Factors/4-Factors.html#reading-assignments",
+    "title": "4. Factors",
     "section": "",
-    "text": "Please make sue you’ve read the following sections in the textbook: R Coding Basics, https://www.gastonsanchez.com/R-coding-basics/\n\nSection 3. Creating Vectors\nSection 4. More About Vectors"
+    "text": "Please make sue you’ve read the following sections in the textbook: R Coding Basics, https://www.gastonsanchez.com/R-coding-basics/\n\nSection 5 Factors"
   },
   {
-    "objectID": "3-MoreVectors/3-MoreVectors.html#the-colon-operator-seq-rep",
-    "href": "3-MoreVectors/3-MoreVectors.html#the-colon-operator-seq-rep",
-    "title": "3. Slides - More About Vectors",
-    "section": "The colon operator “:”, seq(), rep()",
-    "text": "The colon operator “:”, seq(), rep()\n\nColon operator “:”\n\nGenerate integer vector, if starting and ending values are whole numbers\n\n\nints = 1:5 # integer vector\nints\n#&gt; [1] 1 2 3 4 5\ntypeof(ints)\n#&gt; [1] \"integer\"\n\n\n\n\n\n\n\nGenerate double vector, if starting value is not whole number\n\n\ndbls = 5.2:1.2 # descending order; double vector\ndbls\n#&gt; [1] 5.2 4.2 3.2 2.2 1.2\ntypeof(dbls)\n#&gt; [1] \"double\"\n\n\none-unit step\n\n\n1.1:5\n#&gt; [1] 1.1 2.1 3.1 4.1\n\n\n\nseq() function\n\nBelow are equivalent\n\nseq(from = 1, to = 5)\nseq(from = 1, to = 5, by = 1)\nseq(1, 5)\nseq(1, 5, 1)\n1:5\n\nOdd numbers between 1 to 10\n\n\nseq(from = 1, to = 10, by = 2) \n#&gt; [1] 1 3 5 7 9\n\n\nThe first 10 odd numbers\n\n\nseq(from = 1, by = 2, length.out = 10) # Total length of the vector is 10\n#&gt;  [1]  1  3  5  7  9 11 13 15 17 19\n\n\n\nrep() function\n\ntimes vs each\n\n\nrep(c(1,2), times = 3) # Repeat the entire vector 3 times\n#&gt; [1] 1 2 1 2 1 2\n\nrep(c(1,2), each = 2) # Each element repeated twice\n#&gt; [1] 1 1 2 2\n\n\nlength.out – set the total length\n\n\nrep(c(1,2), length.out = 5) # Repeat the vector until reaching the total length\n#&gt; [1] 1 2 1 2 1\n\n\nIf times & each are both specified\n\n\nrep(c(3,2,1), times = 3, each = 2) # \"each\" is performed first.\n#&gt;  [1] 3 3 2 2 1 1 3 3 2 2 1 1 3 3 2 2 1 1"
+    "objectID": "4-Factors/4-Factors.html#creating-factors",
+    "href": "4-Factors/4-Factors.html#creating-factors",
+    "title": "4. Factors",
+    "section": "Creating Factors",
+    "text": "Creating Factors\nfactor() can convert a vector (numerical, character, or logical) to a factor\nExamples:\n\nnum_vector &lt;- c(1, 2, 3, 1, 2, 3, 2)\nfactor(num_vector)\n#&gt; [1] 1 2 3 1 2 3 2\n#&gt; Levels: 1 2 3\n\nstr_vector &lt;- c('a', 'b', 'c', 'b', 'c', 'a', 'c', 'b')\nfactor(str_vector)\n#&gt; [1] a b c b c a c b\n#&gt; Levels: a b c\n\nlog_vector &lt;- c(TRUE, FALSE, TRUE, TRUE, FALSE)\nfactor(log_vector)\n#&gt; [1] TRUE  FALSE TRUE  TRUE  FALSE\n#&gt; Levels: FALSE TRUE"
   },
   {
-    "objectID": "3-MoreVectors/3-MoreVectors.html#vector-coercion",
-    "href": "3-MoreVectors/3-MoreVectors.html#vector-coercion",
-    "title": "3. Slides - More About Vectors",
-    "section": "Vector Coercion",
-    "text": "Vector Coercion\nHierarchy Rule: \ncharacter &gt; double &gt; integer &gt; logical\n\ncharacters have priority over other data types: as long as one element is a character, all other elements are coerced into characters\n\n\nmixed &lt;- c(TRUE, 1L, 2.0, \"three\")\nmixed\n#&gt; [1] \"TRUE\"  \"1\"     \"2\"     \"three\"\n\n\nRecall v1 – v4 from Lecture 2\n\n# v1 is a logical vector\nv1 &lt;- c(FALSE, TRUE)\ntypeof(v1)\n#&gt; [1] \"logical\"\n# v2 is an integer vector\nv2 &lt;- c(0L, 1L)\ntypeof(v2)\n#&gt; [1] \"integer\"\n# v3 is a double vector\nv3 &lt;- c(0, 1)\ntypeof(v3)\n#&gt; [1] \"double\"\n# v4 is a character vector\nv4 &lt;- c('0', '1') # Equivalently, v4 &lt;- c(\"0\", \"1\")\ntypeof(v4)\n#&gt; [1] \"character\"\n\n\n\nCoercion Examples\n\nv5 &lt;- c(v1, v2)\ntypeof(v5)\n#&gt; [1] \"integer\"\n\nv6 &lt;- c(v5, v3)\ntypeof(v6)\n#&gt; [1] \"double\"\n\nv7 &lt;- c(v6, v4)\ntypeof(v7)\n#&gt; [1] \"character\""
+    "objectID": "4-Factors/4-Factors.html#why-factors",
+    "href": "4-Factors/4-Factors.html#why-factors",
+    "title": "4. Factors",
+    "section": "Why factors?",
+    "text": "Why factors?\nFactors are used to handle categorical data\nFactors vs Character\n\nFactors have levels; Character doesn’t have levels\n\nUse factors when your data represents categories or groups with a limited set of values (e.g., “red,” “green,” “blue” for colors).\nUse character vectors if your data consists of plain strings without specific meaning (e.g., names, labels, or arbitrary text).\n\nAs factors have predefined levels, factors are particularly useful in the following cases.\nCase 1: You get error message (and NA generated) when adding a new value not in the predefined levels (help prevent typos)\n\n\nfirst_factor &lt;- factor(num_vector)\nfirst_factor\n#&gt; [1] 1 2 3 1 2 3 2\n#&gt; Levels: 1 2 3\nfirst_factor[1] &lt;- 6\n#&gt; Warning in `[&lt;-.factor`(`*tmp*`, 1, value = 6): invalid factor level, NA\n#&gt; generated\nfirst_factor\n#&gt; [1] &lt;NA&gt; 2    3    1    2    3    2   \n#&gt; Levels: 1 2 3\n\nCase 2: when you tabulate a factor you’ll get counts of all categories, even unobserved ones.\n\nsex_char &lt;- c(\"m\", \"m\", \"m\")\nsex_factor &lt;- factor(sex_char, levels = c(\"m\", \"f\"))\n\ntable(sex_char)\n#&gt; sex_char\n#&gt; m \n#&gt; 3\ntable(sex_factor)\n#&gt; sex_factor\n#&gt; m f \n#&gt; 3 0\n\nCase 3: Compare to character, factors allow for efficient memory storage\nWhy? The way R stores factors is as vectors of integer values.\n\nsecond_factor &lt;- factor(str_vector)\nsecond_factor\n#&gt; [1] a b c b c a c b\n#&gt; Levels: a b c\ntypeof(second_factor)\n#&gt; [1] \"integer\"\nunclass(second_factor)\n#&gt; [1] 1 2 3 2 3 1 3 2\n#&gt; attr(,\"levels\")\n#&gt; [1] \"a\" \"b\" \"c\"\n\nunclass() is equivalent to as.numeric() or as.integer()."
   },
   {
-    "objectID": "3-MoreVectors/3-MoreVectors.html#vectorization",
-    "href": "3-MoreVectors/3-MoreVectors.html#vectorization",
-    "title": "3. Slides - More About Vectors",
-    "section": "Vectorization",
-    "text": "Vectorization\n\nVectorization is essential in R. Many operations in R are vectorized.\nVectorized operations are essentially operations that are performed in an element by element fashion.\n\n\nx = c(1, 2, 3, 4, 5)\ny = c(5, 4, 3, 2, 1)\nx + y\n#&gt; [1] 6 6 6 6 6\n\n\nc(1 + 5, 2 + 4, 3 + 3, 4 + 2, 5 + 1)\n\n\nVectorization vs for loop\nIn other languages (e.g. C, python), vectorization is not typically a native feature.\n\n\nExample 4.2\n\ndeposit &lt;- 1000\nrate &lt;- 0.02\nyears &lt;- 1:10  # vector of years\namounts &lt;- deposit * (1 + rate)^years\n\nInput: years Output: amounts Function: deposit * (1 + rate)^years \\(\\leftarrow\\) the code is vectorized\n\nyears\n#&gt;  [1]  1  2  3  4  5  6  7  8  9 10\namounts \n#&gt;  [1] 1020.000 1040.400 1061.208 1082.432 1104.081 1126.162 1148.686 1171.659\n#&gt;  [9] 1195.093 1218.994\n\n\n\nOther examples of vectorized operator\n\nsqrt(amounts)\n#&gt;  [1] 31.93744 32.25523 32.57619 32.90034 33.22771 33.55834 33.89227 34.22951\n#&gt;  [9] 34.57011 34.91410\nlog(amounts)\n#&gt;  [1] 6.927558 6.947361 6.967163 6.986966 7.006768 7.026571 7.046374 7.066176\n#&gt;  [9] 7.085979 7.105782\n\n\n\nExamples of not-vectorized operator\n\nmax(amounts)\n#&gt; [1] 1218.994\nmean(amounts)\n#&gt; [1] 1116.872\nlength(amounts)\n#&gt; [1] 10"
+    "objectID": "4-Factors/4-Factors.html#how-r-treats-factors",
+    "href": "4-Factors/4-Factors.html#how-r-treats-factors",
+    "title": "4. Factors",
+    "section": "How R treats factors",
+    "text": "How R treats factors\nFactors are built on top of an integer vector with two attributes:\n\nclass, “factor”, which makes it behave differently from regular integer vectors\nlevels, which defines the set of allowed values.\n\n\n# Recall second_factor defined above\nsecond_factor\n#&gt; [1] a b c b c a c b\n#&gt; Levels: a b c\nattributes(second_factor)\n#&gt; $levels\n#&gt; [1] \"a\" \"b\" \"c\"\n#&gt; \n#&gt; $class\n#&gt; [1] \"factor\"\ntypeof(second_factor)\n#&gt; [1] \"integer\""
   },
   {
-    "objectID": "3-MoreVectors/3-MoreVectors.html#recycling",
-    "href": "3-MoreVectors/3-MoreVectors.html#recycling",
-    "title": "3. Slides - More About Vectors",
-    "section": "Recycling",
-    "text": "Recycling\nTakes the short vector, recycles its content to matches the longer vector.\n\nc(1, 1, 2, 2, 3, 3) + c(0.5, 0.1)\n#&gt; [1] 1.5 1.1 2.5 2.1 3.5 3.1\n\nc(1, 2, 3) + c(0.5, 0.1) # Warning Message!\n#&gt; [1] 1.5 2.1 3.5"
-  },
-  {
-    "objectID": "3-MoreVectors/3-MoreVectors.html#subsetting",
-    "href": "3-MoreVectors/3-MoreVectors.html#subsetting",
-    "title": "3. Slides - More About Vectors",
-    "section": "Subsetting",
-    "text": "Subsetting\n\nCreating the vector\n\n# Example from Exercise 2.7\nrates &lt;- c(0.02, 0.03, 0.04)\nnames(rates) &lt;- c(\"savings\", \"market\", \"certif\")\n\n# Equivalently\nrates &lt;- c(\n  \"savings\" = 0.02,\n  \"market\" = 0.03,\n  \"certif\" = 0.04\n)\n\n\n\nSubsetting\nBracket Notation: []\nUse (square) brackets [ ] to get access to the elements of a vector.\n\nrates[2] # The second element\n#&gt; market \n#&gt;   0.03\nrates[2:3] # The second to third elements\n#&gt; market certif \n#&gt;   0.03   0.04\nrates[-3] # All elements except the 3rd element\n#&gt; savings  market \n#&gt;    0.02    0.03\nrates[c(1,2)] # The 1st and 2nd elements\n#&gt; savings  market \n#&gt;    0.02    0.03\nrates[\"certif\"] # The element with name \"certif\"\n#&gt; certif \n#&gt;   0.04\nrates[c(\"savings\", \"certif\")]\n#&gt; savings  certif \n#&gt;    0.02    0.04\nrates[rates &gt; 0.02] # All elements greater than 0.02\n#&gt; market certif \n#&gt;   0.03   0.04\nrates[rates &lt;= 0.03] # All elements less than or equal to 0.03\n#&gt; savings  market \n#&gt;    0.02    0.03\nrates[rates != 0.04] # All elements not equal to 0.04\n#&gt; savings  market \n#&gt;    0.02    0.03"
+    "objectID": "4-Factors/4-Factors.html#ordinal-factor",
+    "href": "4-Factors/4-Factors.html#ordinal-factor",
+    "title": "4. Factors",
+    "section": "Ordinal Factor",
+    "text": "Ordinal Factor\n\nOrdinal factors are a minor variation of factors.\nOrdinal factors behave like regular factors, but the order of the levels is meaningful (low, medium, high) (a property that is automatically leveraged by some modelling and visualization functions)\n\n\n\nConvert to Ordinal Factor\nTwo equivalent ways below to convert vectors (numerical, character, logical) or unordered factors to ordinal factors\n\n# Two equivalent ways to get Ordinal factors\nfactor(num_vector, ordered = TRUE)\n#&gt; [1] 1 2 3 1 2 3 2\n#&gt; Levels: 1 &lt; 2 &lt; 3\nordered(num_vector)\n#&gt; [1] 1 2 3 1 2 3 2\n#&gt; Levels: 1 &lt; 2 &lt; 3\n\n\n\nNominal Factor vs Ordinal Factor\n\n# Nominal factor or Unordered factor\nfirst_factor &lt;- factor(num_vector)\nfirst_factor\n#&gt; [1] 1 2 3 1 2 3 2\n#&gt; Levels: 1 2 3\n\n# Ordinal factor\nfirst_factor_o &lt;- factor(num_vector, ordered = TRUE)\nfirst_factor_o\n#&gt; [1] 1 2 3 1 2 3 2\n#&gt; Levels: 1 &lt; 2 &lt; 3\n\n\n\nOrdinal Factor or not? – is.ordered()\n\nis.ordered(num_vector) # Recall num_vector is a numerical vector\n#&gt; [1] FALSE\nis.ordered(first_factor) # first_factor is an unordered factor\n#&gt; [1] FALSE\nis.ordered(first_factor_o) # first_factor_o is an ordinal factor\n#&gt; [1] TRUE"
   },
   {
     "objectID": "ggplot2/ggplot2.html",
