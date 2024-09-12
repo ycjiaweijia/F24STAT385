@@ -159,6 +159,10 @@ window.Quarto = {
   <li><a href="#deleting-a-column-andor-row" id="toc-deleting-a-column-andor-row" class="nav-link" data-scroll-target="#deleting-a-column-andor-row">Deleting a column and/or row</a></li>
   <li><a href="#moving-a-column-andor-row" id="toc-moving-a-column-andor-row" class="nav-link" data-scroll-target="#moving-a-column-andor-row">Moving a column and/or row</a></li>
   </ul></li>
+  <li><a href="#matrix-calculation" id="toc-matrix-calculation" class="nav-link" data-scroll-target="#matrix-calculation">Matrix Calculation</a>
+  <ul class="collapse">
+  <li><a href="#matrix-calculation-1" id="toc-matrix-calculation-1" class="nav-link" data-scroll-target="#matrix-calculation-1">Matrix Calculation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -529,8 +533,493 @@ window.Quarto = {
 <span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 1020.000 1025.000    1030.000    1</span></span>
 <span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1000.000 1000.000    1000.000    0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+</section>
+<section id="matrix-calculation" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-calculation">Matrix Calculation</h2>
+<section id="matrix-addition" class="level4">
+<h4 class="anchored" data-anchor-id="matrix-addition">Matrix Addition</h4>
+<p>Examples:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">A =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, <span class="at">nrow =</span> <span class="dv">4</span>))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    5    9   13</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    2    6   10   14</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    3    7   11   15</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    4    8   12   16</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>(<span class="at">B =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">byrow =</span> T))</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    2    3    4</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    5    6    7    8</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    9   10   11   12</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   13   14   15   16</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>C <span class="ot">=</span> A <span class="sc">+</span> B</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>C</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    2    7   12   17</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    7   12   17   22</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   12   17   22   27</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   17   22   27   32</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="matrix-multiplication" class="level4">
+<h4 class="anchored" data-anchor-id="matrix-multiplication">Matrix Multiplication</h4>
+<p>Examples:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">D =</span> A <span class="sc">%*%</span> B)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]  276  304  332  360</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]  304  336  368  400</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]  332  368  404  440</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]  360  400  440  480</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="element-wise-multiplication" class="level4">
+<h4 class="anchored" data-anchor-id="element-wise-multiplication">Element-wise Multiplication</h4>
+<p>Examples:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">E =</span> A <span class="sc">*</span> B)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1   10   27   52</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   10   36   70  112</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   27   70  121  180</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   52  112  180  256</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="outper-product" class="level4">
+<h4 class="anchored" data-anchor-id="outper-product">Outper Product</h4>
+<p>Examples:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(A, B)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 1, 1</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    5    9   13</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    2    6   10   14</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    3    7   11   15</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    4    8   12   16</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 2, 1</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    5   25   45   65</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   10   30   50   70</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   15   35   55   75</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   20   40   60   80</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 3, 1</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    9   45   81  117</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   18   54   90  126</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   27   63   99  135</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   36   72  108  144</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 4, 1</span></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   13   65  117  169</span></span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   26   78  130  182</span></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   39   91  143  195</span></span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   52  104  156  208</span></span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 1, 2</span></span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    2   10   18   26</span></span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    4   12   20   28</span></span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    6   14   22   30</span></span>
+<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    8   16   24   32</span></span>
+<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 2, 2</span></span>
+<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    6   30   54   78</span></span>
+<span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   12   36   60   84</span></span>
+<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   18   42   66   90</span></span>
+<span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   24   48   72   96</span></span>
+<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-50"><a href="#cb25-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 3, 2</span></span>
+<span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-53"><a href="#cb25-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   10   50   90  130</span></span>
+<span id="cb25-54"><a href="#cb25-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   20   60  100  140</span></span>
+<span id="cb25-55"><a href="#cb25-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   30   70  110  150</span></span>
+<span id="cb25-56"><a href="#cb25-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   40   80  120  160</span></span>
+<span id="cb25-57"><a href="#cb25-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-58"><a href="#cb25-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 4, 2</span></span>
+<span id="cb25-59"><a href="#cb25-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-60"><a href="#cb25-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-61"><a href="#cb25-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   14   70  126  182</span></span>
+<span id="cb25-62"><a href="#cb25-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   28   84  140  196</span></span>
+<span id="cb25-63"><a href="#cb25-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   42   98  154  210</span></span>
+<span id="cb25-64"><a href="#cb25-64" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   56  112  168  224</span></span>
+<span id="cb25-65"><a href="#cb25-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-66"><a href="#cb25-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 1, 3</span></span>
+<span id="cb25-67"><a href="#cb25-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-68"><a href="#cb25-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-69"><a href="#cb25-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    3   15   27   39</span></span>
+<span id="cb25-70"><a href="#cb25-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    6   18   30   42</span></span>
+<span id="cb25-71"><a href="#cb25-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    9   21   33   45</span></span>
+<span id="cb25-72"><a href="#cb25-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   12   24   36   48</span></span>
+<span id="cb25-73"><a href="#cb25-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-74"><a href="#cb25-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 2, 3</span></span>
+<span id="cb25-75"><a href="#cb25-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-76"><a href="#cb25-76" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-77"><a href="#cb25-77" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    7   35   63   91</span></span>
+<span id="cb25-78"><a href="#cb25-78" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   14   42   70   98</span></span>
+<span id="cb25-79"><a href="#cb25-79" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   21   49   77  105</span></span>
+<span id="cb25-80"><a href="#cb25-80" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   28   56   84  112</span></span>
+<span id="cb25-81"><a href="#cb25-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-82"><a href="#cb25-82" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 3, 3</span></span>
+<span id="cb25-83"><a href="#cb25-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-84"><a href="#cb25-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-85"><a href="#cb25-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   11   55   99  143</span></span>
+<span id="cb25-86"><a href="#cb25-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   22   66  110  154</span></span>
+<span id="cb25-87"><a href="#cb25-87" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   33   77  121  165</span></span>
+<span id="cb25-88"><a href="#cb25-88" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   44   88  132  176</span></span>
+<span id="cb25-89"><a href="#cb25-89" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-90"><a href="#cb25-90" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 4, 3</span></span>
+<span id="cb25-91"><a href="#cb25-91" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-92"><a href="#cb25-92" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-93"><a href="#cb25-93" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   15   75  135  195</span></span>
+<span id="cb25-94"><a href="#cb25-94" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   30   90  150  210</span></span>
+<span id="cb25-95"><a href="#cb25-95" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   45  105  165  225</span></span>
+<span id="cb25-96"><a href="#cb25-96" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   60  120  180  240</span></span>
+<span id="cb25-97"><a href="#cb25-97" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-98"><a href="#cb25-98" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 1, 4</span></span>
+<span id="cb25-99"><a href="#cb25-99" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-100"><a href="#cb25-100" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-101"><a href="#cb25-101" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    4   20   36   52</span></span>
+<span id="cb25-102"><a href="#cb25-102" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    8   24   40   56</span></span>
+<span id="cb25-103"><a href="#cb25-103" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   12   28   44   60</span></span>
+<span id="cb25-104"><a href="#cb25-104" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   16   32   48   64</span></span>
+<span id="cb25-105"><a href="#cb25-105" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-106"><a href="#cb25-106" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 2, 4</span></span>
+<span id="cb25-107"><a href="#cb25-107" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-108"><a href="#cb25-108" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-109"><a href="#cb25-109" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    8   40   72  104</span></span>
+<span id="cb25-110"><a href="#cb25-110" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   16   48   80  112</span></span>
+<span id="cb25-111"><a href="#cb25-111" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   24   56   88  120</span></span>
+<span id="cb25-112"><a href="#cb25-112" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   32   64   96  128</span></span>
+<span id="cb25-113"><a href="#cb25-113" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-114"><a href="#cb25-114" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 3, 4</span></span>
+<span id="cb25-115"><a href="#cb25-115" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-116"><a href="#cb25-116" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-117"><a href="#cb25-117" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   12   60  108  156</span></span>
+<span id="cb25-118"><a href="#cb25-118" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   24   72  120  168</span></span>
+<span id="cb25-119"><a href="#cb25-119" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   36   84  132  180</span></span>
+<span id="cb25-120"><a href="#cb25-120" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   48   96  144  192</span></span>
+<span id="cb25-121"><a href="#cb25-121" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-122"><a href="#cb25-122" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 4, 4</span></span>
+<span id="cb25-123"><a href="#cb25-123" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb25-124"><a href="#cb25-124" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb25-125"><a href="#cb25-125" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   16   80  144  208</span></span>
+<span id="cb25-126"><a href="#cb25-126" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   32   96  160  224</span></span>
+<span id="cb25-127"><a href="#cb25-127" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   48  112  176  240</span></span>
+<span id="cb25-128"><a href="#cb25-128" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   64  128  192  256</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Let <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> be <span class="math inline">\(n\)</span>-dim vectors, we can use <code>x %*% y</code> or <code>corssprod(x, y)</code> to calculate the inner product; we can use <code>%o%</code> or <code>outer(x, y)</code> to calculate outer product.</li>
+</ul>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3 4 5</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>(<span class="at">y =</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>))</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  2  4  6  8 10</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># inner product</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%*%</span> y</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]  110</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(x) <span class="sc">%*%</span> y</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]  110</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="fu">crossprod</span>(x, y)</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]  110</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="co"># outer product</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%o%</span> y</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    2    4    6    8   10</span></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    4    8   12   16   20</span></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    6   12   18   24   30</span></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    8   16   24   32   40</span></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5,]   10   20   30   40   50</span></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%*%</span> <span class="fu">t</span>(y)</span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    2    4    6    8   10</span></span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    4    8   12   16   20</span></span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    6   12   18   24   30</span></span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    8   16   24   32   40</span></span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5,]   10   20   30   40   50</span></span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(x, y)</span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    2    4    6    8   10</span></span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    4    8   12   16   20</span></span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    6   12   18   24   30</span></span>
+<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    8   16   24   32   40</span></span>
+<span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5,]   10   20   30   40   50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="matrix-calculation-1" class="level3">
+<h3 class="anchored" data-anchor-id="matrix-calculation-1">Matrix Calculation</h3>
+<section id="matrix-addition-1" class="level4">
+<h4 class="anchored" data-anchor-id="matrix-addition-1">Matrix Addition</h4>
+<p>Examples:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">A =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, <span class="at">nrow =</span> <span class="dv">4</span>))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    5    9   13</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    2    6   10   14</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    3    7   11   15</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    4    8   12   16</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>(<span class="at">B =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">byrow =</span> T))</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    2    3    4</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    5    6    7    8</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    9   10   11   12</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   13   14   15   16</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>C <span class="ot">=</span> A <span class="sc">+</span> B</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>C</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    2    7   12   17</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    7   12   17   22</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   12   17   22   27</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   17   22   27   32</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="matrix-multiplication-1" class="level4">
+<h4 class="anchored" data-anchor-id="matrix-multiplication-1">Matrix Multiplication</h4>
+<p>Examples:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">D =</span> A <span class="sc">%*%</span> B)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]  276  304  332  360</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]  304  336  368  400</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]  332  368  404  440</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]  360  400  440  480</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="element-wise-multiplication-1" class="level4">
+<h4 class="anchored" data-anchor-id="element-wise-multiplication-1">Element-wise Multiplication</h4>
+<p>Examples:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">E =</span> A <span class="sc">*</span> B)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1   10   27   52</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   10   36   70  112</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   27   70  121  180</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   52  112  180  256</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="outper-product-1" class="level4">
+<h4 class="anchored" data-anchor-id="outper-product-1">Outper Product</h4>
+<p>Examples:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(A, B)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 1, 1</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    5    9   13</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    2    6   10   14</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    3    7   11   15</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    4    8   12   16</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 2, 1</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    5   25   45   65</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   10   30   50   70</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   15   35   55   75</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   20   40   60   80</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 3, 1</span></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    9   45   81  117</span></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   18   54   90  126</span></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   27   63   99  135</span></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   36   72  108  144</span></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 4, 1</span></span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   13   65  117  169</span></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   26   78  130  182</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   39   91  143  195</span></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   52  104  156  208</span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 1, 2</span></span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    2   10   18   26</span></span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    4   12   20   28</span></span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    6   14   22   30</span></span>
+<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    8   16   24   32</span></span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 2, 2</span></span>
+<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    6   30   54   78</span></span>
+<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   12   36   60   84</span></span>
+<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   18   42   66   90</span></span>
+<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   24   48   72   96</span></span>
+<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 3, 2</span></span>
+<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   10   50   90  130</span></span>
+<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   20   60  100  140</span></span>
+<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   30   70  110  150</span></span>
+<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   40   80  120  160</span></span>
+<span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 4, 2</span></span>
+<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   14   70  126  182</span></span>
+<span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   28   84  140  196</span></span>
+<span id="cb30-63"><a href="#cb30-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   42   98  154  210</span></span>
+<span id="cb30-64"><a href="#cb30-64" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   56  112  168  224</span></span>
+<span id="cb30-65"><a href="#cb30-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-66"><a href="#cb30-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 1, 3</span></span>
+<span id="cb30-67"><a href="#cb30-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-68"><a href="#cb30-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-69"><a href="#cb30-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    3   15   27   39</span></span>
+<span id="cb30-70"><a href="#cb30-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    6   18   30   42</span></span>
+<span id="cb30-71"><a href="#cb30-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    9   21   33   45</span></span>
+<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   12   24   36   48</span></span>
+<span id="cb30-73"><a href="#cb30-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 2, 3</span></span>
+<span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-76"><a href="#cb30-76" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    7   35   63   91</span></span>
+<span id="cb30-78"><a href="#cb30-78" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   14   42   70   98</span></span>
+<span id="cb30-79"><a href="#cb30-79" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   21   49   77  105</span></span>
+<span id="cb30-80"><a href="#cb30-80" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   28   56   84  112</span></span>
+<span id="cb30-81"><a href="#cb30-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-82"><a href="#cb30-82" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 3, 3</span></span>
+<span id="cb30-83"><a href="#cb30-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   11   55   99  143</span></span>
+<span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   22   66  110  154</span></span>
+<span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   33   77  121  165</span></span>
+<span id="cb30-88"><a href="#cb30-88" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   44   88  132  176</span></span>
+<span id="cb30-89"><a href="#cb30-89" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-90"><a href="#cb30-90" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 4, 3</span></span>
+<span id="cb30-91"><a href="#cb30-91" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-92"><a href="#cb30-92" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-93"><a href="#cb30-93" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   15   75  135  195</span></span>
+<span id="cb30-94"><a href="#cb30-94" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   30   90  150  210</span></span>
+<span id="cb30-95"><a href="#cb30-95" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   45  105  165  225</span></span>
+<span id="cb30-96"><a href="#cb30-96" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   60  120  180  240</span></span>
+<span id="cb30-97"><a href="#cb30-97" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-98"><a href="#cb30-98" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 1, 4</span></span>
+<span id="cb30-99"><a href="#cb30-99" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-101"><a href="#cb30-101" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    4   20   36   52</span></span>
+<span id="cb30-102"><a href="#cb30-102" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    8   24   40   56</span></span>
+<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   12   28   44   60</span></span>
+<span id="cb30-104"><a href="#cb30-104" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   16   32   48   64</span></span>
+<span id="cb30-105"><a href="#cb30-105" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-106"><a href="#cb30-106" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 2, 4</span></span>
+<span id="cb30-107"><a href="#cb30-107" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    8   40   72  104</span></span>
+<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   16   48   80  112</span></span>
+<span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   24   56   88  120</span></span>
+<span id="cb30-112"><a href="#cb30-112" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   32   64   96  128</span></span>
+<span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-114"><a href="#cb30-114" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 3, 4</span></span>
+<span id="cb30-115"><a href="#cb30-115" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-116"><a href="#cb30-116" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   12   60  108  156</span></span>
+<span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   24   72  120  168</span></span>
+<span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   36   84  132  180</span></span>
+<span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   48   96  144  192</span></span>
+<span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-122"><a href="#cb30-122" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; , , 4, 4</span></span>
+<span id="cb30-123"><a href="#cb30-123" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb30-124"><a href="#cb30-124" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb30-125"><a href="#cb30-125" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]   16   80  144  208</span></span>
+<span id="cb30-126"><a href="#cb30-126" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]   32   96  160  224</span></span>
+<span id="cb30-127"><a href="#cb30-127" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]   48  112  176  240</span></span>
+<span id="cb30-128"><a href="#cb30-128" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   64  128  192  256</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Let <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> be <span class="math inline">\(n\)</span>-dim vectors, we can use <code>x %*% y</code> or <code>corssprod(x, y)</code> to calculate the inner product; we can use <code>%o%</code> or <code>outer(x, y)</code> to calculate outer product.</li>
+</ul>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1 2 3 4 5</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>(<span class="at">y =</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>))</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1]  2  4  6  8 10</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># inner product</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%*%</span> y</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]  110</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(x) <span class="sc">%*%</span> y</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]  110</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="fu">crossprod</span>(x, y)</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]  110</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="co"># outer product</span></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%o%</span> y</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    2    4    6    8   10</span></span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    4    8   12   16   20</span></span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    6   12   18   24   30</span></span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    8   16   24   32   40</span></span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5,]   10   20   30   40   50</span></span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%*%</span> <span class="fu">t</span>(y)</span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    2    4    6    8   10</span></span>
+<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    4    8   12   16   20</span></span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    6   12   18   24   30</span></span>
+<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    8   16   24   32   40</span></span>
+<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5,]   10   20   30   40   50</span></span>
+<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(x, y)</span>
+<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    2    4    6    8   10</span></span>
+<span id="cb31-40"><a href="#cb31-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    4    8   12   16   20</span></span>
+<span id="cb31-41"><a href="#cb31-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    6   12   18   24   30</span></span>
+<span id="cb31-42"><a href="#cb31-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    8   16   24   32   40</span></span>
+<span id="cb31-43"><a href="#cb31-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5,]   10   20   30   40   50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="inverse-of-matrix" class="level4">
+<h4 class="anchored" data-anchor-id="inverse-of-matrix">Inverse of Matrix</h4>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">10</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> T)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(M)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            [,1]      [,2] [,3]</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,] -0.6666667 -1.333333    1</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,] -0.6666667  3.666667   -2</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]  1.0000000 -2.000000    1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 </section>
 </section>
 
