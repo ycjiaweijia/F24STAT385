@@ -966,6 +966,62 @@
     "text": "Ordinal Factor\n\nOrdinal factors are a minor variation of factors.\nOrdinal factors behave like regular factors, but the order of the levels is meaningful (low, medium, high) (a property that is automatically leveraged by some modelling and visualization functions)\n\n\n\nConvert to Ordinal Factor\nTwo equivalent ways below to convert vectors (numerical, character, logical) or unordered factors to ordinal factors\n\n# Two equivalent ways to get Ordinal factors\nfactor(num_vector, ordered = TRUE)\n#&gt; [1] 1 2 3 1 2 3 2\n#&gt; Levels: 1 &lt; 2 &lt; 3\nordered(num_vector)\n#&gt; [1] 1 2 3 1 2 3 2\n#&gt; Levels: 1 &lt; 2 &lt; 3\n\n\n\nNominal Factor vs Ordinal Factor\n\n# Nominal factor or Unordered factor\nfirst_factor &lt;- factor(num_vector)\nfirst_factor\n#&gt; [1] 1 2 3 1 2 3 2\n#&gt; Levels: 1 2 3\n\n# Ordinal factor\nfirst_factor_o &lt;- factor(num_vector, ordered = TRUE)\nfirst_factor_o\n#&gt; [1] 1 2 3 1 2 3 2\n#&gt; Levels: 1 &lt; 2 &lt; 3\n\n\n\nOrdinal Factor or not? – is.ordered()\n\nis.ordered(num_vector) # Recall num_vector is a numerical vector\n#&gt; [1] FALSE\nis.ordered(first_factor) # first_factor is an unordered factor\n#&gt; [1] FALSE\nis.ordered(first_factor_o) # first_factor_o is an ordinal factor\n#&gt; [1] TRUE"
   },
   {
+    "objectID": "10-whileloop/10-whileloop.html",
+    "href": "10-whileloop/10-whileloop.html",
+    "title": "While Loop and More about Functions",
+    "section": "",
+    "text": "Please make sure you’ve read the following sections in the textbook: R Coding Basics, https://www.gastonsanchez.com/R-coding-basics/\n\nSection 14. Iterations: While Loop\nSection 6.1.4. sprintf\nSection 15. More About Functions\nLexical scoping"
+  },
+  {
+    "objectID": "10-whileloop/10-whileloop.html#reading-assignments",
+    "href": "10-whileloop/10-whileloop.html#reading-assignments",
+    "title": "While Loop and More about Functions",
+    "section": "",
+    "text": "Please make sure you’ve read the following sections in the textbook: R Coding Basics, https://www.gastonsanchez.com/R-coding-basics/\n\nSection 14. Iterations: While Loop\nSection 6.1.4. sprintf\nSection 15. More About Functions\nLexical scoping"
+  },
+  {
+    "objectID": "10-whileloop/10-whileloop.html#while-loop",
+    "href": "10-whileloop/10-whileloop.html#while-loop",
+    "title": "While Loop and More about Functions",
+    "section": "While Loop",
+    "text": "While Loop\n\nUse for loop – when you know how many times a given computation needs to be repeated.\nUse while loop – repeat a process without necessarily knowing how many times this repetition will take place\n\n\n\n\nThe generic syntax of while loop is:\n\niterator &lt;- initial\n\nwhile (condition) {\n  do_something\n  iterator &lt;- iterator + 1\n}\n\nExample:\n\ni &lt;- 1\nwhile (i &lt;= 3) {\n    cat(sprintf(\"%d, \", i))\n    i &lt;- i + 1\n}\n#&gt; 1, 2, 3,\n\n# For comparison\ni &lt;- 1\nwhile (i &lt;= 3) {\n    print(i)\n    i &lt;- i + 1\n}\n#&gt; [1] 1\n#&gt; [1] 2\n#&gt; [1] 3\n\n\ncat vs print\n\nprint(\"I will not buy this record.\\n It is scratched.\\n\")\n#&gt; [1] \"I will not buy this record.\\n It is scratched.\\n\"\ncat(\"I will not buy this record.\\n It is scratched.\\n\")\n#&gt; I will not buy this record.\n#&gt;  It is scratched.\n\n\n\nsprintf\n\nx = letters[3:1]\n\nfor(i in 1:3){\n  cat(sprintf(\"Obs %d is %s.\", i, x[i]), \"\\n\")\n}\n#&gt; Obs 1 is c. \n#&gt; Obs 2 is b. \n#&gt; Obs 3 is a.\n\nPlease find more information about sprintf in Section 6.1.4 at https://deepr.gagolewski.com/chapter/160-character.html or help(sprintf)\nExample 14.3\n\nset.seed(234)  # for replication purposes\n\n# vector of 10 random integers between 1 and 100\nrandom_numbers = sample.int(n = 100, size = 10, replace = FALSE)\nrandom_numbers = sort(random_numbers)\nrandom_numbers\n#&gt;  [1]  1 18 31 34 46 56 68 92 97 98\n\n\n# initialize object of cumulative sum\ntotal_sum = 0\n\n# declare iterator\npos = 0\n\n# repetitive steps\nwhile (total_sum &lt;= 100) {\n  pos = pos + 1\n  total_sum = total_sum + random_numbers[pos]\n}\n\n# what is the value of the cumulative sum?\ntotal_sum\n#&gt; [1] 130\n# how many iterations were necessary?\npos\n#&gt; [1] 5\n\n\n\nThe next and break statements\n\nnext – skipping certain iterations\nbreak – stop a loop from iterating"
+  },
+  {
+    "objectID": "10-whileloop/10-whileloop.html#loop-using-repeat",
+    "href": "10-whileloop/10-whileloop.html#loop-using-repeat",
+    "title": "While Loop and More about Functions",
+    "section": "Loop using repeat",
+    "text": "Loop using repeat\nExample of using repeat and break:\n\nx = 42\n\nrepeat {\n  print(x)\n  if (x &lt; 1) {\n    break\n  }\n  x = sqrt(x) - 1\n}\n#&gt; [1] 42\n#&gt; [1] 5.480741\n#&gt; [1] 1.341098\n#&gt; [1] 0.1580579\n\n\n# Equivalently,\n\nx = 42\n\nwhile (x &gt;=1){\n  if(x==42) print(x)\n  x = sqrt(x) - 1\n  print(x)\n}\n#&gt; [1] 42\n#&gt; [1] 5.480741\n#&gt; [1] 1.341098\n#&gt; [1] 0.1580579"
+  },
+  {
+    "objectID": "10-whileloop/10-whileloop.html#more-about-functions-nested-functions",
+    "href": "10-whileloop/10-whileloop.html#more-about-functions-nested-functions",
+    "title": "While Loop and More about Functions",
+    "section": "More About Functions: Nested Functions",
+    "text": "More About Functions: Nested Functions\nExample 15.1.2\n\ngetmax = function(a) {\n  # nested function\n  maxpos &lt;- function(u){\n    which.max(u)  \n  }\n  \n  # output\n  list(position = maxpos(a),\n       value = max(a))\n}\ngetmax(c(2, -4, 6, 10, pi))\n#&gt; $position\n#&gt; [1] 4\n#&gt; \n#&gt; $value\n#&gt; [1] 10"
+  },
+  {
+    "objectID": "10-whileloop/10-whileloop.html#more-about-functions-lexical-scoping",
+    "href": "10-whileloop/10-whileloop.html#more-about-functions-lexical-scoping",
+    "title": "While Loop and More about Functions",
+    "section": "More About Functions: Lexical Scoping",
+    "text": "More About Functions: Lexical Scoping\nR’s lexical scoping follows four primary rules:\n\nName masking\nFunctions versus variables\nA fresh start\nDynamic lookup\n\n\nName Masking\n\nName defined inside a function mask names defined outside a function.\n\n\nx &lt;- 10\ny &lt;- 20\n\ng02 &lt;- function() {\n  x &lt;- 1\n  y &lt;- 2\n  c(x, y)\n}\n\ng02()\n#&gt; [1] 1 2\n\n\nx &lt;- 2\ng03 &lt;- function() {\n  y &lt;- 1\n  c(x, y)\n}\ng03()\n#&gt; [1] 2 1\n\nx\n#&gt; [1] 2\ny\n#&gt; [1] 20\n\n\n\nFunctions versus variables\n\nFunction_names defined inside a function mask function_names defined outside a function.\n\n\ng07 &lt;- function(x) x + 1\ng08 &lt;- function() {\n  g07 &lt;- function(x) x + 100\n  g07(10)\n}\ng08()\n#&gt; [1] 110\n\n\nWhen a function and a non-function share the same name, R ignores non-function objects when looking for that value.\n\n\ng09 &lt;- function(x) x + 100\ng10 &lt;- function() {\n  g09 &lt;- 10\n  g09(g09)\n}\ng10()\n#&gt; [1] 110\n\n\n\nA fresh start\n\ng11 &lt;- function() {\n  if (!exists(\"a\")) {\n    a &lt;- 1\n  } else {\n    a &lt;- a + 1\n  }\n  a\n}\n\ng11()\n#&gt; [1] 1\ng11()\n#&gt; [1] 1\n\n\n\nDynamic lookup\n\ng12 &lt;- function() x + 1\nx &lt;- 15\ng12()\n#&gt; [1] 16\n#&gt; [1] 16\n\nx &lt;- 20\ng12()\n#&gt; [1] 21\n#&gt; [1] 21"
+  },
+  {
+    "objectID": "10-whileloop/10-whileloop.html#more-about-functions-signalling-conditions",
+    "href": "10-whileloop/10-whileloop.html#more-about-functions-signalling-conditions",
+    "title": "While Loop and More about Functions",
+    "section": "More About Functions: Signalling Conditions",
+    "text": "More About Functions: Signalling Conditions\n\nis_even_or_odd &lt;- function(x){\n  if (!is.integer(x)){\n    stop(\"Not a whole number\")\n    } else if (x %% 2 == 0){\n      return(\"even\")\n      } else {\n        return(\"odd\")\n      }\n}\n\n\nis_even_or_odd(5.5)\n#&gt; Error in is_even_or_odd(5.5): Not a whole number\n\n\nstop() can also be used in for loops.\n\nExample:\n\nfor(i in 1:10){\n  if(i %% 5 == 0){\n    stop(\"A multiple of 5\") # break & error message\n  }\n  print(i)\n}\n#&gt; [1] 1\n#&gt; [1] 2\n#&gt; [1] 3\n#&gt; [1] 4\n#&gt; Error in eval(expr, envir, enclos): A multiple of 5\n\n\n# For comparison purpose\n\nfor(i in 1:10){\n  if(i %% 5 == 0){\n    break\n  }\n  print(i)\n}\n#&gt; [1] 1\n#&gt; [1] 2\n#&gt; [1] 3\n#&gt; [1] 4\n\n\nMore on signalling conditions\n\nThere are three conditions that you can signal in code: errors, warnings, and messages.\n\nErrors are the most severe. Severe issue \\(\\Rightarrow\\) the execution of the program should stop immediately.\nWarnings fall somewhat in between errors and message. Condition is not critical, the program will continue to run, but the user should be alerted about potential issues.\nMessages are the mildest.  For informational purposes, the flow of the program is not interfered.\n\nPlease find more information at https://adv-r.hadley.nz/conditions.html?q=while#signalling-conditions\nWarning\n\n\nfor(i in 1:10){\n  if(i %% 5 == 0){\n    warning(\"A multiple of 5\")\n  }\n  print(i)\n}\n#&gt; [1] 1\n#&gt; [1] 2\n#&gt; [1] 3\n#&gt; [1] 4\n#&gt; Warning: A multiple of 5\n#&gt; [1] 5\n#&gt; [1] 6\n#&gt; [1] 7\n#&gt; [1] 8\n#&gt; [1] 9\n#&gt; Warning: A multiple of 5\n#&gt; [1] 10\n\n\nMessage\n\n\nfor(i in 1:10){\n  if(i %% 5 == 0){\n    message(\"A multiple of 5\")\n  }\n  print(i)\n}\n#&gt; [1] 1\n#&gt; [1] 2\n#&gt; [1] 3\n#&gt; [1] 4\n#&gt; A multiple of 5\n#&gt; [1] 5\n#&gt; [1] 6\n#&gt; [1] 7\n#&gt; [1] 8\n#&gt; [1] 9\n#&gt; A multiple of 5\n#&gt; [1] 10"
+  },
+  {
+    "objectID": "10-whileloop/10-whileloop.html#more-about-functions-for-readable-codes",
+    "href": "10-whileloop/10-whileloop.html#more-about-functions-for-readable-codes",
+    "title": "While Loop and More about Functions",
+    "section": "More About Functions: For Readable Codes",
+    "text": "More About Functions: For Readable Codes\n\nWhite Spaces\nExample:\n\nif (!is.vector(x)) {\n  stop('x must be a vector')\n} else {\n  if (any(is.na(x))) {\n    x &lt;- x[!is.na(x)]\n  }\n  total &lt;- length(x)\n  x_sum &lt;- 0\n  for (i in seq_along(x)) {\n    x_sum &lt;- x_sum + x[i]\n  }\n  x_sum / total\n}\n\nLeft parenthesis should start immediately after a function name\n\n# NOT Recommended \nread.table ('data.csv', header = TRUE, row.names = 1)\n\n# Recommended \nread.table('data.csv', header = TRUE, row.names = 1)\n\n\n\nIndention\nExample:\n\n# better with indentation\nif (!is.vector(x)) {\n  stop('x must be a vector')\n} else {\n  if (any(is.na(x))) {\n    x &lt;- x[!is.na(x)]\n  }\n  total &lt;- length(x)\n  x_sum &lt;- 0\n  for (i in seq_along(x)) {\n    x_sum &lt;- x_sum + x[i]\n  }\n  x_sum / total\n}\n\nSection 15.3.1 Meaningful Names https://www.gastonsanchez.com/R-coding-basics/5-06-more-functions.html#meaningful-names\nSection 15.3.2 Syntax: Parentheses https://www.gastonsanchez.com/R-coding-basics/5-06-more-functions.html#syntax-parentheses"
+  },
+  {
     "objectID": "1-Intro/1-Intro.html",
     "href": "1-Intro/1-Intro.html",
     "title": "R, RStudio, and R Packages",
