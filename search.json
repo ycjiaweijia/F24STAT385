@@ -214,7 +214,7 @@
     "href": "Quiz9/Quiz9.html#question-4",
     "title": "",
     "section": "Question 4",
-    "text": "Question 4\n\n[2pts] Given the letter grades vector L.Grades below. Write a function Grade.Value() that converts “A” to 4, “B” to 3, “C” to 2, “D” to 1, and “F” to 0.\n\n\nL.Grades &lt;- c(\"B\", \"C\", \"A\", \"C\", \"C\", \"B\", \"F\", \"A\", \n              \"B\", \"A\", \"B\", \"B\", \"A\", \"A\", \"A\", \"B\", \n              \"D\", \"B\", \"B\", \"A\")\n\n\n[2pts] Use sapply() to convert L.Grades to grade values vector G.values, by using the Grade.Value() function created in part (a)."
+    "text": "Question 4\n\n[2pts] Given the letter grades vector L.Grades below. Write a function Grade.Value() that converts “A” to 4, “B” to 3, “C” to 2, “D” to 1, and “F” to 0. (Hint: swith statement)\n\n\nL.Grades &lt;- c(\"B\", \"C\", \"A\", \"C\", \"C\", \"B\", \"F\", \"A\", \n              \"B\", \"A\", \"B\", \"B\", \"A\", \"A\", \"A\", \"B\", \n              \"D\", \"B\", \"B\", \"A\")\n\n\n[2pts] Use sapply() to convert L.Grades to grade values vector G.values, by using the Grade.Value() function created in part (a)."
   },
   {
     "objectID": "Quiz7/Quiz7.html",
