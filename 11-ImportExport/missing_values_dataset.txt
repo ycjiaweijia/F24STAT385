@@ -1,0 +1,6 @@
+Name	Age	Height	Score
+Alice	25	165	80
+NA	30	175	9999
+Charlie	NaN	NA	75
+David	22	NULL	NULL
+NULL	-99	180	60

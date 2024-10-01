@@ -1,0 +1,6 @@
+account bank rate balance
+savings bricknmor 0.020 1000
+monmarket online 0.025 2000
+certificate bricknmor 0.030 3000
+brokerage online 0.070 5000
+retirement online 0.050 9000
