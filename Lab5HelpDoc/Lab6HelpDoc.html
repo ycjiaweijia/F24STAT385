@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>lab5helpdoc</title>
+<title>lab6helpdoc</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -144,7 +144,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#stat-385-lab-5-vectorization-help-document" id="toc-stat-385-lab-5-vectorization-help-document" class="nav-link active" data-scroll-target="#stat-385-lab-5-vectorization-help-document">STAT 385 Lab 5 Vectorization Help Document</a></li>
+  <li><a href="#stat-385-lab-6-vectorization-help-document" id="toc-stat-385-lab-6-vectorization-help-document" class="nav-link active" data-scroll-target="#stat-385-lab-6-vectorization-help-document">STAT 385 Lab 6 Vectorization Help Document</a></li>
   <li><a href="#why-vectorization" id="toc-why-vectorization" class="nav-link" data-scroll-target="#why-vectorization">Why Vectorization?</a></li>
   <li><a href="#kronecker-product" id="toc-kronecker-product" class="nav-link" data-scroll-target="#kronecker-product">Kronecker Product</a></li>
   <li><a href="#mathemetical-definition-of-kronecker-product" id="toc-mathemetical-definition-of-kronecker-product" class="nav-link" data-scroll-target="#mathemetical-definition-of-kronecker-product">Mathemetical Definition of Kronecker Product</a></li>
@@ -171,8 +171,8 @@ window.Quarto = {
 
 
 
-<section id="stat-385-lab-5-vectorization-help-document" class="level2">
-<h2 class="anchored" data-anchor-id="stat-385-lab-5-vectorization-help-document">STAT 385 Lab 5 Vectorization Help Document</h2>
+<section id="stat-385-lab-6-vectorization-help-document" class="level2">
+<h2 class="anchored" data-anchor-id="stat-385-lab-6-vectorization-help-document">STAT 385 Lab 6 Vectorization Help Document</h2>
 </section>
 <section id="why-vectorization" class="level2">
 <h2 class="anchored" data-anchor-id="why-vectorization">Why Vectorization?</h2>
@@ -412,15 +412,15 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Unit: microseconds</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                           expr  min   lq     mean median   uq    max neval</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  vectorization_kronecker(A, B)  1.6  1.7  2.13267    1.8  2.0 1529.2 10000</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                kronecker(A, B) 13.0 13.5 14.83488   13.8 14.1 1851.8 10000</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        forloop_kronecker(A, B)  2.6  2.9  3.42294    3.0  3.1 1089.3 10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  vectorization_kronecker(A, B)  2.6  3.0  5.14123    3.2  5.7 2390.8 10000</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                kronecker(A, B) 21.0 22.4 36.33861   23.2 47.2 4108.7 10000</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        forloop_kronecker(A, B)  4.4  4.8  8.21632    5.2 10.1 1774.9 10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="what-if-a-and-b-are-not-2-times-2-matrices" class="level2">
 <h2 class="anchored" data-anchor-id="what-if-a-and-b-are-not-2-times-2-matrices">What if A and B are not <span class="math inline">\(2 \times 2\)</span> matrices?</h2>
-<p>With the assistance of this instructional document, please proceed with Lab 5.</p>
-<p>In Lab 5, you will update the <code>forloop_kronecker()</code> and <code>vectorization_kronecker()</code> functions to make them suitable for calculating matrices A and B with arbitrary dimensions. And find result similar to the following.</p>
+<p>With the assistance of this instructional document, please proceed with Lab 6.</p>
+<p>In Lab 6, you will update the <code>forloop_kronecker()</code> and <code>vectorization_kronecker()</code> functions to make them suitable for calculating matrices A and B with arbitrary dimensions. And find result similar to the following.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>A1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>B1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
@@ -440,10 +440,10 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">times=</span><span class="dv">10000</span>L</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Unit: microseconds</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                             expr  min   lq     mean median   uq    max neval</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  vectorization_kronecker(A1, B1)  4.6  5.0  7.19271    5.2  5.6 2886.1 10000</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                kronecker(A1, B1) 14.1 15.0 20.32112   15.5 16.7 3078.7 10000</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        forloop_kronecker(A1, B1) 21.3 22.6 28.31769   23.1 24.6 6007.3 10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                             expr  min   lq     mean median   uq     max neval</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  vectorization_kronecker(A1, B1)  7.3  8.4 12.94427    9.0 15.1  3193.5 10000</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                kronecker(A1, B1) 22.7 25.2 41.53308   27.3 53.0  3208.0 10000</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        forloop_kronecker(A1, B1) 34.0 37.3 55.62946   39.0 68.8 15171.0 10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Compare the CPU Times that Expressions Used for <code>A2</code> and <code>B2</code></li>
@@ -458,10 +458,10 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">times=</span><span class="dv">10000</span>L</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Unit: microseconds</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                             expr  min   lq     mean median   uq    max neval</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  vectorization_kronecker(A2, B2)  9.6 10.5 12.92770   10.9 11.6 3163.3 10000</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                kronecker(A2, B2) 19.6 24.2 31.80210   26.9 29.7 3245.6 10000</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        forloop_kronecker(A2, B2) 53.6 56.3 70.64404   57.8 61.1 4751.6 10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                             expr  min   lq      mean median    uq    max neval</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  vectorization_kronecker(A2, B2) 14.9 18.3  29.24107   22.4  34.9 3557.1 10000</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                kronecker(A2, B2) 31.2 44.2  75.22282   66.0  91.5 7000.3 10000</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        forloop_kronecker(A2, B2) 82.7 95.7 162.31237  112.2 184.3 9632.3 10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -560,7 +560,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/ycjiaweijia\.github\.io\/F24STAT385\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

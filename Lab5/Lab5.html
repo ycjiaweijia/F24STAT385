@@ -100,6 +100,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -115,8 +144,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lab-5-s3-for-workshop-participants-instruction" id="toc-lab-5-s3-for-workshop-participants-instruction" class="nav-link active" data-scroll-target="#lab-5-s3-for-workshop-participants-instruction">Lab 5 – S3 for Workshop Participants Instruction</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#lab-5-instruction" id="toc-lab-5-instruction" class="nav-link active" data-scroll-target="#lab-5-instruction">Lab 5 Instruction</a></li>
+  <li><a href="#mathemetical-definition-of-kronecker-product" id="toc-mathemetical-definition-of-kronecker-product" class="nav-link" data-scroll-target="#mathemetical-definition-of-kronecker-product">Mathemetical Definition of Kronecker Product</a></li>
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
   <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
@@ -129,93 +158,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="lab-5-s3-for-workshop-participants-instruction" class="level2">
-<h2 class="anchored" data-anchor-id="lab-5-s3-for-workshop-participants-instruction">Lab 5 – S3 for Workshop Participants Instruction</h2>
+<section id="lab-5-instruction" class="level2">
+<h2 class="anchored" data-anchor-id="lab-5-instruction">Lab 5 Instruction</h2>
 <ul>
-<li>Please ensure you review the document <em>Illustrate S3 System – U of I Women’s Basketball Team example</em> on Canvas under Week 5 Module or visit the weblink <a href="https://ycjiaweijia.github.io/STAT-385-Assignments/Lab5HelpDoc/Lab5HelpDoc" class="uri">https://ycjiaweijia.github.io/STAT-385-Assignments/Lab5HelpDoc/Lab5HelpDoc</a> for helpful guidance on this lab.</li>
+<li>Please ensure you review the document <em>STAT 385 Lab 5 Help Document – Kronecker Product Illustration</em> on Canvas or visit the weblink &lt;&gt; for helpful guidance on this lab.</li>
 <li>Please complete the following questions and submit your Lab 5 to Gradescope.</li>
 </ul>
 </section>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>Suppose a university is hosting a campus-wide data science workshop with undergraduate and graduate student participants, along with many faculty members showing interest in the series of workshops. Develop S3 classes for students, faculty, etc., incorporating validators and necessary helper functions.</p>
+<section id="mathemetical-definition-of-kronecker-product" class="level2">
+<h2 class="anchored" data-anchor-id="mathemetical-definition-of-kronecker-product">Mathemetical Definition of Kronecker Product</h2>
+<p>In mathematics, the Kronecker product, sometimes denoted by <span class="math inline">\(\bigotimes\)</span>, is an operation on two matrices of arbitrary size resulting a block matrix. It is a specialization of the tensor product (which is denoted by the same symbol) from vectors to matrices and gives the matrix of the tensor product linear map with respect to a standard choice of basis. The Kronecker product is to be distinguished from the usual matrix multiplication, which is an entirely different operation. The Kronecker product is also sometimes called <strong>matrix direct product</strong>.</p>
+<ul>
+<li>You can find more information about Kronecker Product on Wikipedia <a href="https://en.wikipedia.org/wiki/Kronecker_product" class="uri">https://en.wikipedia.org/wiki/Kronecker_product</a>.</li>
+</ul>
+<p>If <span class="math inline">\(\mathbf{A}\)</span> is an <span class="math inline">\(m \times n\)</span> matrix and <span class="math inline">\(\mathbf{B}\)</span> is a <span class="math inline">\(p \times q\)</span> matrix, then the Kronecker product <span class="math inline">\(\mathbf{A}\bigotimes \mathbf{B}\)</span> is the <span class="math inline">\(pm \times qn\)</span> block matrix:</p>
+<p><span class="math display">\[\mathbf{A}\bigotimes \mathbf{B} = \begin{bmatrix}
+a_{11}\mathbf{B}\quad  \cdots \quad a_{1n}\mathbf{B}\\
+\vdots\quad  \ddots\quad  \vdots\\
+a_{m1}\mathbf{B}\quad  \cdots \quad a_{mn}\mathbf{B}
+\end{bmatrix},\]</span></p>
+<p>more explicitly,</p>
+<p><span class="math display">\[\mathbf{A}\bigotimes \mathbf{B} =\left[\begin{array}{cccccccccc}
+a_{11}b_{11}&amp;  a_{11}b_{12} &amp; \cdots &amp; a_{11}b_{1q}&amp; \cdots&amp; \cdots&amp; a_{1n}b_{11}&amp;  a_{1n}b_{12} &amp; \cdots &amp; a_{1n}b_{1q} \\
+a_{11}b_{21}&amp;  a_{11}b_{22} &amp; \cdots &amp; a_{11}b_{2q}&amp; \cdots&amp; \cdots&amp; a_{1n}b_{21}&amp;  a_{1n}b_{22} &amp; \cdots &amp; a_{1n}b_{2q} \\
+\vdots&amp; \vdots&amp;  \ddots&amp;  \vdots &amp; &amp; &amp; \vdots&amp; \vdots&amp;  \ddots&amp;  \vdots \\
+a_{11}b_{p1}&amp;  a_{11}b_{p2} &amp; \cdots &amp; a_{11}b_{pq}&amp; \cdots&amp; \cdots&amp; a_{1n}b_{p1}&amp;  a_{1n}b_{p2} &amp; \cdots &amp; a_{1n}b_{pq} \\
+\vdots&amp; \vdots&amp;  &amp;  \vdots &amp; \ddots&amp; &amp; \vdots  &amp; \vdots&amp; &amp; \vdots \\
+\vdots&amp; \vdots&amp;  &amp;  \vdots &amp; &amp;\ddots &amp; \vdots  &amp; \vdots&amp; &amp; \vdots \\
+a_{m1}b_{11}&amp;  a_{m1}b_{12} &amp; \cdots &amp; a_{m1}b_{1q}&amp; \cdots&amp; \cdots&amp; a_{mn}b_{11}&amp;  a_{mn}b_{12} &amp; \cdots &amp; a_{mn}b_{1q} \\
+a_{m1}b_{21}&amp;  a_{m1}b_{22} &amp; \cdots &amp; a_{m1}b_{2q}&amp; \cdots&amp; \cdots&amp; a_{mn}b_{21}&amp;  a_{mn}b_{22} &amp; \cdots &amp; a_{mn}b_{2q} \\
+\vdots&amp; \vdots&amp;  \ddots&amp;  \vdots &amp; &amp; &amp; \vdots&amp; \vdots&amp;  \ddots&amp;  \vdots \\
+a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp; \cdots&amp; a_{mn}b_{p1}&amp;  a_{mn}b_{p2} &amp; \cdots &amp; a_{mn}b_{pq}
+\end{array}\right],\]</span></p>
 </section>
 <section id="question-1" class="level2">
 <h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
-<ol type="a">
-<li><p><strong>[10 pts]</strong> Create the constructor function <code>new_student()</code> to generate objects of the “student” class. Student participants provide the following information: <code>name</code>, <code>major</code>, <code>department</code>, <code>classYear</code> (Freshman, Sophomore, Junior, Senior, or Graduate), <code>UofI_email</code>, and <code>dsExperience</code> which represents years of experience in data science.</p></li>
-<li><p><strong>[10 pts]</strong> Create the validator function <code>validate_student()</code>. Below is a list of validations to include.</p></li>
-</ol>
-<p>Validations:</p>
-<ul>
-<li>If any of the information required above is missing, print a warning message.</li>
-<li>If <code>dsExperience</code> is not numeric, or the length is not 1, or the years is lower than 0 or greater than 20, print warning message that: The data science experience years information is not valid. Please use <code>||</code> for “or”.</li>
-<li>If <code>classYear</code> doesn’t belong in one of the five categories, print the warning message that: The student’s class information is invalid.</li>
-<li>If <code>UofI_email</code>provided is not character type, print the warning message: The student’s email information is invalid.</li>
-</ul>
-<ol start="3" type="a">
-<li><strong>[10 pts]</strong> Define a helper function to fill in or complete an email address. This is necessary because some students might only provide their NetID instead of a full email address. The <code>completeEmail()</code> function should take <code>UofI_email</code> as input and add <code>@illinois.edu</code> if needed. The output of <code>completeEmail()</code> function is saved as <code>Complete_UofI_email</code>.</li>
-</ol>
-<p>[Hint:</p>
-<ol type="1">
-<li>Consider using an if-else statement to decide whether to append the domain.</li>
-<li>The regular expression <code>grepl("@illinois\\.edu", UofI_email)</code>, checking if <code>UofI_email</code> contains <code>@illinois.edu</code>, might be helpful. ]</li>
-</ol>
+<p><strong>[20 pts]</strong> Please define the function <code>forloop_kronecker()</code>, using for loop, to calculate the Kronecker product of matrices A and B with <em>arbitrary</em> dimensions.</p>
+<div style="height:30px;">
+
+</div>
 </section>
 <section id="question-2" class="level2">
 <h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
-<ol type="a">
-<li><p><strong>[10 pts]</strong> Create the constructor function <code>new_faculty()</code> to generate objects of the “faculty” class. Faculty participants have the following information: <code>name</code> and <code>department</code>.</p></li>
-<li><p><strong>[10 pts]</strong> Create the constructor function <code>new_other()</code> to generate objects of the “Other” class. Other participants have the following information: <code>name</code>.</p></li>
-</ol>
-<div style="height:10px;">
+<p><strong>[20 pts]</strong> Please define the function <code>vectorization_kronecker()</code>, using vectorization, to calculate the Kronecker product of matrices A and B with <em>arbitrary</em> dimensions.</p>
+<div style="height:30px;">
 
 </div>
 </section>
 <section id="question-3" class="level2">
 <h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
-<p><strong>[30 pts]</strong> Define generic and methods using the constructors from Question 1 and 2 to create classes for student, faculty, and other participants. Implement a <code>participantInfo()</code> function that prints specific information based on the class of the object.</p>
-<p>For example,</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Swift <span class="ot">&lt;-</span> <span class="fu">new_student</span>(<span class="at">x =</span> <span class="fu">list</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"Taylor Swift"</span>,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">major =</span> <span class="st">"Fisheries and Wildlife"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">department =</span> <span class="st">"Biological Sciences"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">classYear =</span> <span class="st">"Junior"</span>, </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">UofI_email =</span> <span class="st">"Tswift"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">dsExperience =</span> <span class="fl">1.5</span>))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">participantInfo</span>(Swift)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Ronaldo <span class="ot">&lt;-</span> <span class="fu">new_faculty</span>(<span class="at">x =</span> <span class="fu">list</span>(</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"Cristiano Ronaldo"</span>, </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">department =</span> <span class="st">"Applied Health Science"</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">participantInfo</span>(Ronaldo)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Someone <span class="ot">&lt;-</span> <span class="fu">new_other</span>(<span class="at">x =</span> <span class="fu">list</span>(</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"Someone Else"</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">participantInfo</span>(Someone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>should show the following:</p>
+<p><strong>[20 pts]</strong> Compare the CPU times for three Kronecker product calculation methods below for matrices <code>A1</code> and <code>B1</code>, <code>A2</code> and <code>B2</code>, and other pairs of matrices you choose to test. Use <code>times = 10000L</code> for each calculation. Discuss the computational efficiency of the three methods based on your findings.</p>
 <ul>
-<li>For student
-<ul>
-<li>Example: “Taylor Swift is a Fisheries And Wildlife major. The email address is Tswift@illinois.edu. The student has 1.5 years of experience in data science.”</li>
-</ul></li>
-<li>For faculty
-<ul>
-<li>Example: “Cristiano Ronaldo is from the Applied Health Science Department.”</li>
-</ul></li>
-<li>For other people
-<ul>
-<li>Example: “Someone Else is neither a faculty member nor a student.”</li>
-</ul></li>
+<li><code>vectorization_kronecker()</code></li>
+<li><code>kronecker()</code></li>
+<li><code>forloop_kronecker()</code></li>
 </ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(A1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">4</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    5    9   13</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    2    6   10   14</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    3    7   11   15</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    4    8   12   16</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>(B1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">5</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    5    9   13   17</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    2    6   10   14   18</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    3    7   11   15   19</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    4    8   12   16   20</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>(A2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">40</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">8</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1,]    1    6   11   16   21   26   31   36</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    2    7   12   17   22   27   32   37</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    3    8   13   18   23   28   33   38</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    4    9   14   19   24   29   34   39</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5,]    5   10   15   20   25   30   35   40</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>(B2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, <span class="at">nrow =</span> <span class="dv">10</span>, <span class="at">ncol =</span> <span class="dv">5</span>))</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1,]    1   11   21   31   41</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [2,]    2   12   22   32   42</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [3,]    3   13   23   33   43</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [4,]    4   14   24   34   44</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [5,]    5   15   25   35   45</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6,]    6   16   26   36   46</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7,]    7   17   27   37   47</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [8,]    8   18   28   38   48</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [9,]    9   19   29   39   49</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [10,]   10   20   30   40   50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
