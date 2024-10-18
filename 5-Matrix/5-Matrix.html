@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; Matrices and Arrays – STAT 385 Statistical Programming Methods</title>
+<title>matrix</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,13 +58,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Quiz5/Quiz5.html" rel="next">
-<link href="../Quiz4/Quiz4.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -134,305 +133,79 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">STAT 385 Statistical Programming Methods</span>
-    </a>
-  </div>
-        <div class="quarto-navbar-tools tools-end">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part1.html"> 
+<span class="menu-text">Part I: R Basic Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part2.html"> 
+<span class="menu-text">Part II: R Tidyverse Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part3.html"> 
+<span class="menu-text">Part III: R Shiny Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../quizlist.html"> 
+<span class="menu-text">Quizzes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../lablist.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
-          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1-Intro/1-Intro.html">Part I: R Basic</a></li><li class="breadcrumb-item"><a href="../5-Matrix/5-Matrix.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrices and Arrays</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Part I: R Basic</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../1-Intro/1-Intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R, RStudio, and R Packages</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab0/Lab0.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lab 0 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz1/Quiz1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quiz 1 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../2-Vector/2-Vector.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vector Basics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz2/Quiz2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quiz 2 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../3-MoreVectors/3-MoreVectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">More About Vectors</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz3/Quiz3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quiz 3 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab1/Lab1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab 1</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../4-Factors/4-Factors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz4/Quiz4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quiz 4 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../5-Matrix/5-Matrix.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrices and Arrays</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz5/Quiz5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quiz 5 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab2/Lab2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Lab 2</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../6-Lists/6-Lists.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../7-Dataframes/7-Dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Frames</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz7/Quiz7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quiz 7 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab3/Lab3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lab 3</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../8-Functions_Expressions/8-Functions_Expressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functions and Expressions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz8/Quiz8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quiz 8 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../9-Conditions_and_For_Loop/9-Conditions_and_For_Loop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Conditions and For Loop</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz9/Quiz9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quiz 9 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../10-whileloop/10-whileloop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">While Loop and More about Functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab4/Lab4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lab 4</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../11-ImportExport/11-ImportExport.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Import and Export</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz11/Quiz11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Quiz 11 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../12-BaseRGraphics/12-BaseRGraphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Functions for Base R Graphics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz12/Quiz12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Quiz 12 Instructions</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Part II: R Tidyverse</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab5HelpDoc/Lab5HelpDoc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Vectorization Help Document</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab5/Lab5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Lab 5</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab6HelpDoc/Lab6HelpDoc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Help Document: Illustrate S3 System – U of I Women’s Basketball Team example</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab6/Lab6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Lab 6 – S3 for Workshop Participants Instruction</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Tibble/Tibble.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Introduction to Tidyverse and Tibbles</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz14/Quiz14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Quiz 14 Instructions</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Part III: R Shiny</span></span>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#reading-assignments" id="toc-reading-assignments" class="nav-link active" data-scroll-target="#reading-assignments"><span class="header-section-number">11.1</span> Reading Assignments</a></li>
-  <li><a href="#why-we-need-matrix" id="toc-why-we-need-matrix" class="nav-link" data-scroll-target="#why-we-need-matrix"><span class="header-section-number">11.2</span> Why we need matrix?</a>
+  <li><a href="#matrices-and-arrays" id="toc-matrices-and-arrays" class="nav-link active" data-scroll-target="#matrices-and-arrays">Matrices and Arrays</a>
   <ul class="collapse">
-  <li><a href="#lets-discuss-vector-vs-matrix-vs-array" id="toc-lets-discuss-vector-vs-matrix-vs-array" class="nav-link" data-scroll-target="#lets-discuss-vector-vs-matrix-vs-array"><span class="header-section-number">11.2.1</span> Let’s discuss Vector vs Matrix vs Array</a></li>
+  <li><a href="#reading-assignments" id="toc-reading-assignments" class="nav-link" data-scroll-target="#reading-assignments">Reading Assignments</a></li>
+  <li><a href="#why-we-need-matrix" id="toc-why-we-need-matrix" class="nav-link" data-scroll-target="#why-we-need-matrix">Why we need matrix?</a>
+  <ul class="collapse">
+  <li><a href="#lets-discuss-vector-vs-matrix-vs-array" id="toc-lets-discuss-vector-vs-matrix-vs-array" class="nav-link" data-scroll-target="#lets-discuss-vector-vs-matrix-vs-array">Let’s discuss Vector vs Matrix vs Array</a></li>
   </ul></li>
-  <li><a href="#create-a-matrix" id="toc-create-a-matrix" class="nav-link" data-scroll-target="#create-a-matrix"><span class="header-section-number">11.3</span> Create a Matrix</a></li>
-  <li><a href="#working-with-dim" id="toc-working-with-dim" class="nav-link" data-scroll-target="#working-with-dim"><span class="header-section-number">11.4</span> Working with <code>dim()</code></a></li>
-  <li><a href="#give-names-to-rows-and-columns" id="toc-give-names-to-rows-and-columns" class="nav-link" data-scroll-target="#give-names-to-rows-and-columns"><span class="header-section-number">11.5</span> Give Names to Rows and Columns</a></li>
-  <li><a href="#basic-operations-with-matrices" id="toc-basic-operations-with-matrices" class="nav-link" data-scroll-target="#basic-operations-with-matrices"><span class="header-section-number">11.6</span> Basic Operations with Matrices</a>
+  <li><a href="#create-a-matrix" id="toc-create-a-matrix" class="nav-link" data-scroll-target="#create-a-matrix">Create a Matrix</a></li>
+  <li><a href="#working-with-dim" id="toc-working-with-dim" class="nav-link" data-scroll-target="#working-with-dim">Working with <code>dim()</code></a></li>
+  <li><a href="#give-names-to-rows-and-columns" id="toc-give-names-to-rows-and-columns" class="nav-link" data-scroll-target="#give-names-to-rows-and-columns">Give Names to Rows and Columns</a></li>
+  <li><a href="#basic-operations-with-matrices" id="toc-basic-operations-with-matrices" class="nav-link" data-scroll-target="#basic-operations-with-matrices">Basic Operations with Matrices</a>
   <ul class="collapse">
-  <li><a href="#selecting-elements" id="toc-selecting-elements" class="nav-link" data-scroll-target="#selecting-elements"><span class="header-section-number">11.6.1</span> Selecting elements</a></li>
-  <li><a href="#adding-a-new-column-using-cbind-or-row-using-rbind" id="toc-adding-a-new-column-using-cbind-or-row-using-rbind" class="nav-link" data-scroll-target="#adding-a-new-column-using-cbind-or-row-using-rbind"><span class="header-section-number">11.6.2</span> Adding a new column using <code>cbind()</code> or row using <code>rbind()</code></a></li>
-  <li><a href="#deleting-a-column-andor-row" id="toc-deleting-a-column-andor-row" class="nav-link" data-scroll-target="#deleting-a-column-andor-row"><span class="header-section-number">11.6.3</span> Deleting a column and/or row</a></li>
-  <li><a href="#moving-a-column-andor-row" id="toc-moving-a-column-andor-row" class="nav-link" data-scroll-target="#moving-a-column-andor-row"><span class="header-section-number">11.6.4</span> Moving a column and/or row</a></li>
+  <li><a href="#selecting-elements" id="toc-selecting-elements" class="nav-link" data-scroll-target="#selecting-elements">Selecting elements</a></li>
+  <li><a href="#adding-a-new-column-using-cbind-or-row-using-rbind" id="toc-adding-a-new-column-using-cbind-or-row-using-rbind" class="nav-link" data-scroll-target="#adding-a-new-column-using-cbind-or-row-using-rbind">Adding a new column using <code>cbind()</code> or row using <code>rbind()</code></a></li>
+  <li><a href="#deleting-a-column-andor-row" id="toc-deleting-a-column-andor-row" class="nav-link" data-scroll-target="#deleting-a-column-andor-row">Deleting a column and/or row</a></li>
+  <li><a href="#moving-a-column-andor-row" id="toc-moving-a-column-andor-row" class="nav-link" data-scroll-target="#moving-a-column-andor-row">Moving a column and/or row</a></li>
   </ul></li>
-  <li><a href="#matrix-calculation" id="toc-matrix-calculation" class="nav-link" data-scroll-target="#matrix-calculation"><span class="header-section-number">11.7</span> Matrix Calculation</a>
+  <li><a href="#matrix-calculation" id="toc-matrix-calculation" class="nav-link" data-scroll-target="#matrix-calculation">Matrix Calculation</a>
   <ul class="collapse">
-  <li><a href="#matrix-calculation-1" id="toc-matrix-calculation-1" class="nav-link" data-scroll-target="#matrix-calculation-1"><span class="header-section-number">11.7.1</span> Matrix Calculation</a></li>
+  <li><a href="#matrix-calculation-1" id="toc-matrix-calculation-1" class="nav-link" data-scroll-target="#matrix-calculation-1">Matrix Calculation</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -440,27 +213,13 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1-Intro/1-Intro.html">Part I: R Basic</a></li><li class="breadcrumb-item"><a href="../5-Matrix/5-Matrix.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrices and Arrays</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrices and Arrays</span></h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="reading-assignments" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="reading-assignments"><span class="header-section-number">11.1</span> Reading Assignments</h2>
+<section id="matrices-and-arrays" class="level1">
+<h1>Matrices and Arrays</h1>
+<section id="reading-assignments" class="level2">
+<h2 class="anchored" data-anchor-id="reading-assignments">Reading Assignments</h2>
 <ul>
 <li><p>Please make sure you’ve read the following sections in the textbook: R Coding Basics, <a href="https://www.gastonsanchez.com/R-coding-basics/" class="uri">https://www.gastonsanchez.com/R-coding-basics/</a></p>
 <ul>
@@ -469,10 +228,10 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="why-we-need-matrix" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="why-we-need-matrix"><span class="header-section-number">11.2</span> Why we need matrix?</h2>
-<section id="lets-discuss-vector-vs-matrix-vs-array" class="level3" data-number="11.2.1">
-<h3 data-number="11.2.1" class="anchored" data-anchor-id="lets-discuss-vector-vs-matrix-vs-array"><span class="header-section-number">11.2.1</span> Let’s discuss Vector vs Matrix vs Array</h3>
+<section id="why-we-need-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="why-we-need-matrix">Why we need matrix?</h2>
+<section id="lets-discuss-vector-vs-matrix-vs-array" class="level3">
+<h3 class="anchored" data-anchor-id="lets-discuss-vector-vs-matrix-vs-array">Let’s discuss Vector vs Matrix vs Array</h3>
 <ul>
 <li>Dimensions</li>
 </ul>
@@ -510,8 +269,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="create-a-matrix" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="create-a-matrix"><span class="header-section-number">11.3</span> Create a Matrix</h2>
+<section id="create-a-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-matrix">Create a Matrix</h2>
 <ul>
 <li><code>cbind()</code></li>
 </ul>
@@ -547,8 +306,8 @@ window.Quarto = {
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    2    5    8   11</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3,]    3    6    9   12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="equivalently" class="level4" data-number="11.3.0.1">
-<h4 data-number="11.3.0.1" class="anchored" data-anchor-id="equivalently"><span class="header-section-number">11.3.0.1</span> Equivalently,</h4>
+<section id="equivalently" class="level4">
+<h4 class="anchored" data-anchor-id="equivalently">Equivalently,</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
@@ -566,18 +325,18 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="working-with-dim" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="working-with-dim"><span class="header-section-number">11.4</span> Working with <code>dim()</code></h2>
-<section id="dim-get-the-dimension-of-the-matrix" class="level4" data-number="11.4.0.1">
-<h4 data-number="11.4.0.1" class="anchored" data-anchor-id="dim-get-the-dimension-of-the-matrix"><span class="header-section-number">11.4.0.1</span> <code>dim()</code> – get the dimension of the matrix</h4>
+<section id="working-with-dim" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-dim">Working with <code>dim()</code></h2>
+<section id="dim-get-the-dimension-of-the-matrix" class="level4">
+<h4 class="anchored" data-anchor-id="dim-get-the-dimension-of-the-matrix"><code>dim()</code> – get the dimension of the matrix</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(M)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="get-the-row--or-col--dimension-only" class="level4" data-number="11.4.0.2">
-<h4 data-number="11.4.0.2" class="anchored" data-anchor-id="get-the-row--or-col--dimension-only"><span class="header-section-number">11.4.0.2</span> Get the row- or col- dimension only</h4>
+<section id="get-the-row--or-col--dimension-only" class="level4">
+<h4 class="anchored" data-anchor-id="get-the-row--or-col--dimension-only">Get the row- or col- dimension only</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(M)[<span class="dv">1</span>] <span class="co"># row dimension</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span>
@@ -585,8 +344,8 @@ window.Quarto = {
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="use-dim-to-create-a-matrix" class="level4" data-number="11.4.0.3">
-<h4 data-number="11.4.0.3" class="anchored" data-anchor-id="use-dim-to-create-a-matrix"><span class="header-section-number">11.4.0.3</span> Use <code>dim()</code> to create a matrix</h4>
+<section id="use-dim-to-create-a-matrix" class="level4">
+<h4 class="anchored" data-anchor-id="use-dim-to-create-a-matrix">Use <code>dim()</code> to create a matrix</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span> <span class="co"># vector; one-dim</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>)</span>
@@ -598,8 +357,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="give-names-to-rows-and-columns" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="give-names-to-rows-and-columns"><span class="header-section-number">11.5</span> Give Names to Rows and Columns</h2>
+<section id="give-names-to-rows-and-columns" class="level2">
+<h2 class="anchored" data-anchor-id="give-names-to-rows-and-columns">Give Names to Rows and Columns</h2>
 <ul>
 <li>Method 1</li>
 </ul>
@@ -626,8 +385,8 @@ window.Quarto = {
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Row3    3    6    9   12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="basic-operations-with-matrices" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="basic-operations-with-matrices"><span class="header-section-number">11.6</span> Basic Operations with Matrices</h2>
+<section id="basic-operations-with-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="basic-operations-with-matrices">Basic Operations with Matrices</h2>
 <p>We use Example 7.1 as follows</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inputs</span></span>
@@ -658,8 +417,8 @@ window.Quarto = {
 <span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    4 1082.432 1103.813    1125.509</span></span>
 <span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    5 1104.081 1131.408    1159.274</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="selecting-elements" class="level3" data-number="11.6.1">
-<h3 data-number="11.6.1" class="anchored" data-anchor-id="selecting-elements"><span class="header-section-number">11.6.1</span> Selecting elements</h3>
+<section id="selecting-elements" class="level3">
+<h3 class="anchored" data-anchor-id="selecting-elements">Selecting elements</h3>
 <p><code>mat[RowIndex, ColIndex]</code></p>
 <p>Examples:</p>
 <div class="cell">
@@ -720,8 +479,8 @@ window.Quarto = {
 <span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    5 1104.081    1159.274</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="adding-a-new-column-using-cbind-or-row-using-rbind" class="level3" data-number="11.6.2">
-<h3 data-number="11.6.2" class="anchored" data-anchor-id="adding-a-new-column-using-cbind-or-row-using-rbind"><span class="header-section-number">11.6.2</span> Adding a new column using <code>cbind()</code> or row using <code>rbind()</code></h3>
+<section id="adding-a-new-column-using-cbind-or-row-using-rbind" class="level3">
+<h3 class="anchored" data-anchor-id="adding-a-new-column-using-cbind-or-row-using-rbind">Adding a new column using <code>cbind()</code> or row using <code>rbind()</code></h3>
 <p>Examples:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new column</span></span>
@@ -755,8 +514,8 @@ window.Quarto = {
 <span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; row_vec  2.5 1051.353 1064.623    1078.068   7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="deleting-a-column-andor-row" class="level3" data-number="11.6.3">
-<h3 data-number="11.6.3" class="anchored" data-anchor-id="deleting-a-column-andor-row"><span class="header-section-number">11.6.3</span> Deleting a column and/or row</h3>
+<section id="deleting-a-column-andor-row" class="level3">
+<h3 class="anchored" data-anchor-id="deleting-a-column-andor-row">Deleting a column and/or row</h3>
 <p>Examples:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> mat[, <span class="sc">-</span><span class="dv">5</span>] <span class="co"># Remove column</span></span>
@@ -780,8 +539,8 @@ window.Quarto = {
 <span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    5 1104.081 1131.408    1159.274</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="moving-a-column-andor-row" class="level3" data-number="11.6.4">
-<h3 data-number="11.6.4" class="anchored" data-anchor-id="moving-a-column-andor-row"><span class="header-section-number">11.6.4</span> Moving a column and/or row</h3>
+<section id="moving-a-column-andor-row" class="level3">
+<h3 class="anchored" data-anchor-id="moving-a-column-andor-row">Moving a column and/or row</h3>
 <p>Examples:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> mat[, <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">1</span>)] <span class="co"># moving columns</span></span>
@@ -806,10 +565,10 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="matrix-calculation" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="matrix-calculation"><span class="header-section-number">11.7</span> Matrix Calculation</h2>
-<section id="matrix-addition" class="level4" data-number="11.7.0.1">
-<h4 data-number="11.7.0.1" class="anchored" data-anchor-id="matrix-addition"><span class="header-section-number">11.7.0.1</span> Matrix Addition</h4>
+<section id="matrix-calculation" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-calculation">Matrix Calculation</h2>
+<section id="matrix-addition" class="level4">
+<h4 class="anchored" data-anchor-id="matrix-addition">Matrix Addition</h4>
 <p>Examples:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">A =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, <span class="at">nrow =</span> <span class="dv">4</span>))</span>
@@ -834,8 +593,8 @@ window.Quarto = {
 <span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   17   22   27   32</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="matrix-multiplication" class="level4" data-number="11.7.0.2">
-<h4 data-number="11.7.0.2" class="anchored" data-anchor-id="matrix-multiplication"><span class="header-section-number">11.7.0.2</span> Matrix Multiplication</h4>
+<section id="matrix-multiplication" class="level4">
+<h4 class="anchored" data-anchor-id="matrix-multiplication">Matrix Multiplication</h4>
 <p>Examples:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">D =</span> A <span class="sc">%*%</span> B)</span>
@@ -846,8 +605,8 @@ window.Quarto = {
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]  360  400  440  480</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="element-wise-multiplication" class="level4" data-number="11.7.0.3">
-<h4 data-number="11.7.0.3" class="anchored" data-anchor-id="element-wise-multiplication"><span class="header-section-number">11.7.0.3</span> Element-wise Multiplication</h4>
+<section id="element-wise-multiplication" class="level4">
+<h4 class="anchored" data-anchor-id="element-wise-multiplication">Element-wise Multiplication</h4>
 <p>Examples:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">E =</span> A <span class="sc">*</span> B)</span>
@@ -858,8 +617,8 @@ window.Quarto = {
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   52  112  180  256</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="outper-product" class="level4" data-number="11.7.0.4">
-<h4 data-number="11.7.0.4" class="anchored" data-anchor-id="outper-product"><span class="header-section-number">11.7.0.4</span> Outper Product</h4>
+<section id="outper-product" class="level4">
+<h4 class="anchored" data-anchor-id="outper-product">Outper Product</h4>
 <p>Examples:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(A, B)</span>
@@ -1041,10 +800,10 @@ window.Quarto = {
 <span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5,]   10   20   30   40   50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="matrix-calculation-1" class="level3" data-number="11.7.1">
-<h3 data-number="11.7.1" class="anchored" data-anchor-id="matrix-calculation-1"><span class="header-section-number">11.7.1</span> Matrix Calculation</h3>
-<section id="matrix-addition-1" class="level4" data-number="11.7.1.1">
-<h4 data-number="11.7.1.1" class="anchored" data-anchor-id="matrix-addition-1"><span class="header-section-number">11.7.1.1</span> Matrix Addition</h4>
+<section id="matrix-calculation-1" class="level3">
+<h3 class="anchored" data-anchor-id="matrix-calculation-1">Matrix Calculation</h3>
+<section id="matrix-addition-1" class="level4">
+<h4 class="anchored" data-anchor-id="matrix-addition-1">Matrix Addition</h4>
 <p>Examples:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">A =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, <span class="at">nrow =</span> <span class="dv">4</span>))</span>
@@ -1069,8 +828,8 @@ window.Quarto = {
 <span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   17   22   27   32</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="matrix-multiplication-1" class="level4" data-number="11.7.1.2">
-<h4 data-number="11.7.1.2" class="anchored" data-anchor-id="matrix-multiplication-1"><span class="header-section-number">11.7.1.2</span> Matrix Multiplication</h4>
+<section id="matrix-multiplication-1" class="level4">
+<h4 class="anchored" data-anchor-id="matrix-multiplication-1">Matrix Multiplication</h4>
 <p>Examples:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">D =</span> A <span class="sc">%*%</span> B)</span>
@@ -1081,8 +840,8 @@ window.Quarto = {
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]  360  400  440  480</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="element-wise-multiplication-1" class="level4" data-number="11.7.1.3">
-<h4 data-number="11.7.1.3" class="anchored" data-anchor-id="element-wise-multiplication-1"><span class="header-section-number">11.7.1.3</span> Element-wise Multiplication</h4>
+<section id="element-wise-multiplication-1" class="level4">
+<h4 class="anchored" data-anchor-id="element-wise-multiplication-1">Element-wise Multiplication</h4>
 <p>Examples:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">E =</span> A <span class="sc">*</span> B)</span>
@@ -1093,8 +852,8 @@ window.Quarto = {
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   52  112  180  256</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="outper-product-1" class="level4" data-number="11.7.1.4">
-<h4 data-number="11.7.1.4" class="anchored" data-anchor-id="outper-product-1"><span class="header-section-number">11.7.1.4</span> Outper Product</h4>
+<section id="outper-product-1" class="level4">
+<h4 class="anchored" data-anchor-id="outper-product-1">Outper Product</h4>
 <p>Examples:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outer</span>(A, B)</span>
@@ -1276,8 +1035,8 @@ window.Quarto = {
 <span id="cb31-43"><a href="#cb31-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5,]   10   20   30   40   50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="inverse-of-matrix" class="level4" data-number="11.7.1.5">
-<h4 data-number="11.7.1.5" class="anchored" data-anchor-id="inverse-of-matrix"><span class="header-section-number">11.7.1.5</span> Inverse of Matrix</h4>
+<section id="inverse-of-matrix" class="level4">
+<h4 class="anchored" data-anchor-id="inverse-of-matrix">Inverse of Matrix</h4>
 <p>Example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">10</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> T)</span>
@@ -1290,6 +1049,7 @@ window.Quarto = {
 </div>
 
 
+</section>
 </section>
 </section>
 </section>
@@ -1387,7 +1147,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/ycjiaweijia\.github\.io\/F24STAT385\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1715,18 +1475,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../Quiz4/Quiz4.html" class="pagination-link" aria-label="Quiz 4 Instructions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quiz 4 Instructions</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../Quiz5/Quiz5.html" class="pagination-link" aria-label="Quiz 5 Instructions">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quiz 5 Instructions</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

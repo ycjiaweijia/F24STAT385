@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>28&nbsp; STAT 385 Lab 5 Vectorization Help Document – STAT 385 Statistical Programming Methods</title>
+<title>lab5helpdoc</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,13 +58,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Lab5/Lab5.html" rel="next">
-<link href="../Quiz12/Quiz12.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -134,345 +133,105 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">STAT 385 Statistical Programming Methods</span>
-    </a>
-  </div>
-        <div class="quarto-navbar-tools tools-end">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part1.html"> 
+<span class="menu-text">Part I: R Basic Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part2.html"> 
+<span class="menu-text">Part II: R Tidyverse Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part3.html"> 
+<span class="menu-text">Part III: R Shiny Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../quizlist.html"> 
+<span class="menu-text">Quizzes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../lablist.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
-          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Lab5HelpDoc/Lab5HelpDoc.html">Part II: R Tidyverse</a></li><li class="breadcrumb-item"><a href="../Lab5HelpDoc/Lab5HelpDoc.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Vectorization Help Document</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Part I: R Basic</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../1-Intro/1-Intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R, RStudio, and R Packages</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab0/Lab0.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lab 0 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz1/Quiz1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quiz 1 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../2-Vector/2-Vector.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vector Basics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz2/Quiz2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quiz 2 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../3-MoreVectors/3-MoreVectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">More About Vectors</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz3/Quiz3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quiz 3 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab1/Lab1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab 1</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../4-Factors/4-Factors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz4/Quiz4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quiz 4 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../5-Matrix/5-Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrices and Arrays</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz5/Quiz5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quiz 5 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab2/Lab2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Lab 2</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../6-Lists/6-Lists.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../7-Dataframes/7-Dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Frames</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz7/Quiz7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quiz 7 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab3/Lab3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lab 3</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../8-Functions_Expressions/8-Functions_Expressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functions and Expressions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz8/Quiz8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quiz 8 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../9-Conditions_and_For_Loop/9-Conditions_and_For_Loop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Conditions and For Loop</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz9/Quiz9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quiz 9 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../10-whileloop/10-whileloop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">While Loop and More about Functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab4/Lab4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lab 4</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../11-ImportExport/11-ImportExport.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Import and Export</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz11/Quiz11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Quiz 11 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../12-BaseRGraphics/12-BaseRGraphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Functions for Base R Graphics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz12/Quiz12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Quiz 12 Instructions</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Part II: R Tidyverse</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab5HelpDoc/Lab5HelpDoc.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Vectorization Help Document</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab5/Lab5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Lab 5</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab6HelpDoc/Lab6HelpDoc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Help Document: Illustrate S3 System – U of I Women’s Basketball Team example</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab6/Lab6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Lab 6 – S3 for Workshop Participants Instruction</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Tibble/Tibble.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Introduction to Tidyverse and Tibbles</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz14/Quiz14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Quiz 14 Instructions</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Part III: R Shiny</span></span>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-vectorization" id="toc-why-vectorization" class="nav-link active" data-scroll-target="#why-vectorization"><span class="header-section-number">28.1</span> Why Vectorization?</a></li>
-  <li><a href="#kronecker-product" id="toc-kronecker-product" class="nav-link" data-scroll-target="#kronecker-product"><span class="header-section-number">28.2</span> Kronecker Product</a></li>
-  <li><a href="#mathemetical-definition-of-kronecker-product" id="toc-mathemetical-definition-of-kronecker-product" class="nav-link" data-scroll-target="#mathemetical-definition-of-kronecker-product"><span class="header-section-number">28.3</span> Mathemetical Definition of Kronecker Product</a></li>
-  <li><a href="#kronecker-product-example" id="toc-kronecker-product-example" class="nav-link" data-scroll-target="#kronecker-product-example"><span class="header-section-number">28.4</span> Kronecker Product Example</a></li>
-  <li><a href="#calculate-kronecker-product-in-r" id="toc-calculate-kronecker-product-in-r" class="nav-link" data-scroll-target="#calculate-kronecker-product-in-r"><span class="header-section-number">28.5</span> Calculate Kronecker Product in R</a></li>
-  <li><a href="#method-i-the-kronecker-function" id="toc-method-i-the-kronecker-function" class="nav-link" data-scroll-target="#method-i-the-kronecker-function"><span class="header-section-number">28.6</span> Method I: The <code>kronecker()</code> Function</a></li>
-  <li><a href="#method-ii-for-loop" id="toc-method-ii-for-loop" class="nav-link" data-scroll-target="#method-ii-for-loop"><span class="header-section-number">28.7</span> Method II: For Loop</a></li>
-  <li><a href="#method-iii-vectorization-recommended" id="toc-method-iii-vectorization-recommended" class="nav-link" data-scroll-target="#method-iii-vectorization-recommended"><span class="header-section-number">28.8</span> Method III: Vectorization [Recommended]</a>
+  <li><a href="#stat-385-lab-5-vectorization-help-document" id="toc-stat-385-lab-5-vectorization-help-document" class="nav-link active" data-scroll-target="#stat-385-lab-5-vectorization-help-document">STAT 385 Lab 5 Vectorization Help Document</a>
   <ul class="collapse">
-  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective"><span class="header-section-number">28.8.1</span> Objective</a></li>
-  <li><a href="#deal-with-a" id="toc-deal-with-a" class="nav-link" data-scroll-target="#deal-with-a"><span class="header-section-number">28.8.2</span> Deal with A</a></li>
-  <li><a href="#deal-with-b" id="toc-deal-with-b" class="nav-link" data-scroll-target="#deal-with-b"><span class="header-section-number">28.8.3</span> Deal with B</a></li>
-  <li><a href="#put-everything-together" id="toc-put-everything-together" class="nav-link" data-scroll-target="#put-everything-together"><span class="header-section-number">28.8.4</span> Put Everything Together</a></li>
-  <li><a href="#wrap-the-calculation-into-a-function-for-2-times-2-matrices" id="toc-wrap-the-calculation-into-a-function-for-2-times-2-matrices" class="nav-link" data-scroll-target="#wrap-the-calculation-into-a-function-for-2-times-2-matrices"><span class="header-section-number">28.8.5</span> Wrap the Calculation into a Function (for <span class="math inline">\(2 \times 2\)</span> matrices)</a></li>
+  <li><a href="#why-vectorization" id="toc-why-vectorization" class="nav-link" data-scroll-target="#why-vectorization">Why Vectorization?</a></li>
+  <li><a href="#kronecker-product" id="toc-kronecker-product" class="nav-link" data-scroll-target="#kronecker-product">Kronecker Product</a></li>
+  <li><a href="#mathemetical-definition-of-kronecker-product" id="toc-mathemetical-definition-of-kronecker-product" class="nav-link" data-scroll-target="#mathemetical-definition-of-kronecker-product">Mathemetical Definition of Kronecker Product</a></li>
+  <li><a href="#kronecker-product-example" id="toc-kronecker-product-example" class="nav-link" data-scroll-target="#kronecker-product-example">Kronecker Product Example</a></li>
+  <li><a href="#calculate-kronecker-product-in-r" id="toc-calculate-kronecker-product-in-r" class="nav-link" data-scroll-target="#calculate-kronecker-product-in-r">Calculate Kronecker Product in R</a></li>
+  <li><a href="#method-i-the-kronecker-function" id="toc-method-i-the-kronecker-function" class="nav-link" data-scroll-target="#method-i-the-kronecker-function">Method I: The <code>kronecker()</code> Function</a></li>
+  <li><a href="#method-ii-for-loop" id="toc-method-ii-for-loop" class="nav-link" data-scroll-target="#method-ii-for-loop">Method II: For Loop</a></li>
+  <li><a href="#method-iii-vectorization-recommended" id="toc-method-iii-vectorization-recommended" class="nav-link" data-scroll-target="#method-iii-vectorization-recommended">Method III: Vectorization [Recommended]</a>
+  <ul class="collapse">
+  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective">Objective</a></li>
+  <li><a href="#deal-with-a" id="toc-deal-with-a" class="nav-link" data-scroll-target="#deal-with-a">Deal with A</a></li>
+  <li><a href="#deal-with-b" id="toc-deal-with-b" class="nav-link" data-scroll-target="#deal-with-b">Deal with B</a></li>
+  <li><a href="#put-everything-together" id="toc-put-everything-together" class="nav-link" data-scroll-target="#put-everything-together">Put Everything Together</a></li>
+  <li><a href="#wrap-the-calculation-into-a-function-for-2-times-2-matrices" id="toc-wrap-the-calculation-into-a-function-for-2-times-2-matrices" class="nav-link" data-scroll-target="#wrap-the-calculation-into-a-function-for-2-times-2-matrices">Wrap the Calculation into a Function (for <span class="math inline">\(2 \times 2\)</span> matrices)</a></li>
   </ul></li>
-  <li><a href="#compare-the-cpu-times-that-expressions-used" id="toc-compare-the-cpu-times-that-expressions-used" class="nav-link" data-scroll-target="#compare-the-cpu-times-that-expressions-used"><span class="header-section-number">28.9</span> Compare the CPU Times that Expressions Used</a></li>
-  <li><a href="#what-if-a-and-b-are-not-2-times-2-matrices" id="toc-what-if-a-and-b-are-not-2-times-2-matrices" class="nav-link" data-scroll-target="#what-if-a-and-b-are-not-2-times-2-matrices"><span class="header-section-number">28.10</span> What if A and B are not <span class="math inline">\(2 \times 2\)</span> matrices?</a></li>
+  <li><a href="#compare-the-cpu-times-that-expressions-used" id="toc-compare-the-cpu-times-that-expressions-used" class="nav-link" data-scroll-target="#compare-the-cpu-times-that-expressions-used">Compare the CPU Times that Expressions Used</a></li>
+  <li><a href="#what-if-a-and-b-are-not-2-times-2-matrices" id="toc-what-if-a-and-b-are-not-2-times-2-matrices" class="nav-link" data-scroll-target="#what-if-a-and-b-are-not-2-times-2-matrices">What if A and B are not <span class="math inline">\(2 \times 2\)</span> matrices?</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Lab5HelpDoc/Lab5HelpDoc.html">Part II: R Tidyverse</a></li><li class="breadcrumb-item"><a href="../Lab5HelpDoc/Lab5HelpDoc.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Vectorization Help Document</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Vectorization Help Document</span></h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="why-vectorization" class="level2" data-number="28.1">
-<h2 data-number="28.1" class="anchored" data-anchor-id="why-vectorization"><span class="header-section-number">28.1</span> Why Vectorization?</h2>
+<section id="stat-385-lab-5-vectorization-help-document" class="level1">
+<h1>STAT 385 Lab 5 Vectorization Help Document</h1>
+<section id="why-vectorization" class="level2">
+<h2 class="anchored" data-anchor-id="why-vectorization">Why Vectorization?</h2>
 <ul>
 <li>Avoid using for loops in R when possible.</li>
 <li>Use vectorization whenever you can.</li>
 </ul>
 </section>
-<section id="kronecker-product" class="level2" data-number="28.2">
-<h2 data-number="28.2" class="anchored" data-anchor-id="kronecker-product"><span class="header-section-number">28.2</span> Kronecker Product</h2>
+<section id="kronecker-product" class="level2">
+<h2 class="anchored" data-anchor-id="kronecker-product">Kronecker Product</h2>
 <p>In mathematics, the Kronecker product, sometimes denoted by <span class="math inline">\(\bigotimes\)</span>, is an operation on two matrices of arbitrary size resulting a block matrix. It is a specialization of the tensor product (which is denoted by the same symbol) from vectors to matrices and gives the matrix of the tensor product linear map with respect to a standard choice of basis. The Kronecker product is to be distinguished from the usual matrix multiplication, which is an entirely different operation. The Kronecker product is also sometimes called <strong>matrix direct product</strong>.</p>
 <ul>
 <li>You can find more information about Kronecker Product on Wikipedia <a href="https://en.wikipedia.org/wiki/Kronecker_product" class="uri">https://en.wikipedia.org/wiki/Kronecker_product</a>.</li>
 </ul>
 </section>
-<section id="mathemetical-definition-of-kronecker-product" class="level2" data-number="28.3">
-<h2 data-number="28.3" class="anchored" data-anchor-id="mathemetical-definition-of-kronecker-product"><span class="header-section-number">28.3</span> Mathemetical Definition of Kronecker Product</h2>
+<section id="mathemetical-definition-of-kronecker-product" class="level2">
+<h2 class="anchored" data-anchor-id="mathemetical-definition-of-kronecker-product">Mathemetical Definition of Kronecker Product</h2>
 <p>If <span class="math inline">\(\mathbf{A}\)</span> is an <span class="math inline">\(m \times n\)</span> matrix and <span class="math inline">\(\mathbf{B}\)</span> is a <span class="math inline">\(p \times q\)</span> matrix, then the Kronecker product <span class="math inline">\(\mathbf{A}\bigotimes \mathbf{B}\)</span> is the <span class="math inline">\(pm \times qn\)</span> block matrix:</p>
 <p><span class="math display">\[\mathbf{A}\bigotimes \mathbf{B} = \begin{bmatrix}
 a_{11}\mathbf{B}\quad  \cdots \quad a_{1n}\mathbf{B}\\
@@ -493,8 +252,8 @@ a_{m1}b_{21}&amp;  a_{m1}b_{22} &amp; \cdots &amp; a_{m1}b_{2q}&amp; \cdots&amp;
 a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp; \cdots&amp; a_{mn}b_{p1}&amp;  a_{mn}b_{p2} &amp; \cdots &amp; a_{mn}b_{pq}
 \end{array}\right],\]</span></p>
 </section>
-<section id="kronecker-product-example" class="level2" data-number="28.4">
-<h2 data-number="28.4" class="anchored" data-anchor-id="kronecker-product-example"><span class="header-section-number">28.4</span> Kronecker Product Example</h2>
+<section id="kronecker-product-example" class="level2">
+<h2 class="anchored" data-anchor-id="kronecker-product-example">Kronecker Product Example</h2>
 <p><span class="math display">\[A = \begin{bmatrix}
 1 \quad 3 \\
 2 \quad 4
@@ -517,8 +276,8 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 12 &amp; 14 &amp; 24 &amp; 28
 \end{array}\right].\]</span></p>
 </section>
-<section id="calculate-kronecker-product-in-r" class="level2" data-number="28.5">
-<h2 data-number="28.5" class="anchored" data-anchor-id="calculate-kronecker-product-in-r"><span class="header-section-number">28.5</span> Calculate Kronecker Product in R</h2>
+<section id="calculate-kronecker-product-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-kronecker-product-in-r">Calculate Kronecker Product in R</h2>
 <p>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be <span class="math inline">\(2 \times 2\)</span> matrices as follows:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow =</span> <span class="dv">2</span>))</span>
@@ -531,8 +290,8 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2,]    6    7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="method-i-the-kronecker-function" class="level2" data-number="28.6">
-<h2 data-number="28.6" class="anchored" data-anchor-id="method-i-the-kronecker-function"><span class="header-section-number">28.6</span> Method I: The <code>kronecker()</code> Function</h2>
+<section id="method-i-the-kronecker-function" class="level2">
+<h2 class="anchored" data-anchor-id="method-i-the-kronecker-function">Method I: The <code>kronecker()</code> Function</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>A</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2]</span></span>
@@ -550,8 +309,8 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   12   14   24   28</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="method-ii-for-loop" class="level2" data-number="28.7">
-<h2 data-number="28.7" class="anchored" data-anchor-id="method-ii-for-loop"><span class="header-section-number">28.7</span> Method II: For Loop</h2>
+<section id="method-ii-for-loop" class="level2">
+<h2 class="anchored" data-anchor-id="method-ii-for-loop">Method II: For Loop</h2>
 <p><span class="math display">\[\mathbf{A}\bigotimes \mathbf{B} = \left[\begin{array}{cccc}
 1\times 0 &amp; 1\times 5 &amp; 3\times 0 &amp; 3\times 5\\
 1\times 6 &amp; 1\times 7 &amp; 3\times 6 &amp; 3\times 7\\
@@ -594,18 +353,18 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   12   14   24   28</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="method-iii-vectorization-recommended" class="level2" data-number="28.8">
-<h2 data-number="28.8" class="anchored" data-anchor-id="method-iii-vectorization-recommended"><span class="header-section-number">28.8</span> Method III: Vectorization [Recommended]</h2>
-<section id="objective" class="level3" data-number="28.8.1">
-<h3 data-number="28.8.1" class="anchored" data-anchor-id="objective"><span class="header-section-number">28.8.1</span> Objective</h3>
+<section id="method-iii-vectorization-recommended" class="level2">
+<h2 class="anchored" data-anchor-id="method-iii-vectorization-recommended">Method III: Vectorization [Recommended]</h2>
+<section id="objective" class="level3">
+<h3 class="anchored" data-anchor-id="objective">Objective</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="objective for A and B.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
 </figure>
 </div>
 </section>
-<section id="deal-with-a" class="level3" data-number="28.8.2">
-<h3 data-number="28.8.2" class="anchored" data-anchor-id="deal-with-a"><span class="header-section-number">28.8.2</span> Deal with A</h3>
+<section id="deal-with-a" class="level3">
+<h3 class="anchored" data-anchor-id="deal-with-a">Deal with A</h3>
 <!-- ```{r, echo = FALSE} -->
 <!-- A -->
 <!-- A[rep(1:2, each = 2), rep(1:2, each = 2)] -->
@@ -629,8 +388,8 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    2    2    4    4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="deal-with-b" class="level3" data-number="28.8.3">
-<h3 data-number="28.8.3" class="anchored" data-anchor-id="deal-with-b"><span class="header-section-number">28.8.3</span> Deal with B</h3>
+<section id="deal-with-b" class="level3">
+<h3 class="anchored" data-anchor-id="deal-with-b">Deal with B</h3>
 <!-- ```{r, echo = FALSE} -->
 <!-- B -->
 <!-- B[rep(1:2, times = 2), rep(1:2, times = 2)] -->
@@ -653,8 +412,8 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]    6    7    6    7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="put-everything-together" class="level3" data-number="28.8.4">
-<h3 data-number="28.8.4" class="anchored" data-anchor-id="put-everything-together"><span class="header-section-number">28.8.4</span> Put Everything Together</h3>
+<section id="put-everything-together" class="level3">
+<h3 class="anchored" data-anchor-id="put-everything-together">Put Everything Together</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>repeated_A <span class="ot">&lt;-</span> A[<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="dv">2</span>), <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="dv">2</span>)]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>repeated_B <span class="ot">&lt;-</span> B[<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">times =</span> <span class="dv">2</span>), <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">times =</span> <span class="dv">2</span>)]</span>
@@ -666,8 +425,8 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4,]   12   14   24   28</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="wrap-the-calculation-into-a-function-for-2-times-2-matrices" class="level3" data-number="28.8.5">
-<h3 data-number="28.8.5" class="anchored" data-anchor-id="wrap-the-calculation-into-a-function-for-2-times-2-matrices"><span class="header-section-number">28.8.5</span> Wrap the Calculation into a Function (for <span class="math inline">\(2 \times 2\)</span> matrices)</h3>
+<section id="wrap-the-calculation-into-a-function-for-2-times-2-matrices" class="level3">
+<h3 class="anchored" data-anchor-id="wrap-the-calculation-into-a-function-for-2-times-2-matrices">Wrap the Calculation into a Function (for <span class="math inline">\(2 \times 2\)</span> matrices)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>vectorization_kronecker <span class="ot">&lt;-</span> <span class="cf">function</span>(A, B){</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  repeated_A <span class="ot">&lt;-</span> A[<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="dv">2</span>), <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="dv">2</span>)]</span>
@@ -684,8 +443,8 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 </div>
 </section>
 </section>
-<section id="compare-the-cpu-times-that-expressions-used" class="level2" data-number="28.9">
-<h2 data-number="28.9" class="anchored" data-anchor-id="compare-the-cpu-times-that-expressions-used"><span class="header-section-number">28.9</span> Compare the CPU Times that Expressions Used</h2>
+<section id="compare-the-cpu-times-that-expressions-used" class="level2">
+<h2 class="anchored" data-anchor-id="compare-the-cpu-times-that-expressions-used">Compare the CPU Times that Expressions Used</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vectorization_kronecker</span>(A,B),</span>
@@ -704,8 +463,8 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="what-if-a-and-b-are-not-2-times-2-matrices" class="level2" data-number="28.10">
-<h2 data-number="28.10" class="anchored" data-anchor-id="what-if-a-and-b-are-not-2-times-2-matrices"><span class="header-section-number">28.10</span> What if A and B are not <span class="math inline">\(2 \times 2\)</span> matrices?</h2>
+<section id="what-if-a-and-b-are-not-2-times-2-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="what-if-a-and-b-are-not-2-times-2-matrices">What if A and B are not <span class="math inline">\(2 \times 2\)</span> matrices?</h2>
 <p>With the assistance of this instructional document, please proceed with Lab 5.</p>
 <p>In Lab 5, you will update the <code>forloop_kronecker()</code> and <code>vectorization_kronecker()</code> functions to make them suitable for calculating matrices A and B with arbitrary dimensions. And find result similar to the following.</p>
 <div class="cell">
@@ -760,6 +519,7 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -855,7 +615,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/ycjiaweijia\.github\.io\/F24STAT385\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1183,18 +943,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../Quiz12/Quiz12.html" class="pagination-link" aria-label="Quiz 12 Instructions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Quiz 12 Instructions</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../Lab5/Lab5.html" class="pagination-link" aria-label="Lab 5">
-        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Lab 5</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 8 Reaction Time Project</title>
+<title>lab8</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -73,11 +74,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -103,11 +104,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body>
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part1.html"> 
+<span class="menu-text">Part I: R Basic Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part2.html"> 
+<span class="menu-text">Part II: R Tidyverse Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part3.html"> 
+<span class="menu-text">Part III: R Shiny Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../quizlist.html"> 
+<span class="menu-text">Quizzes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../lablist.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -115,39 +156,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about-the-data-and-survey" id="toc-about-the-data-and-survey" class="nav-link active" data-scroll-target="#about-the-data-and-survey">About the Data and Survey</a></li>
+  <li><a href="#lab-8-reaction-time-project" id="toc-lab-8-reaction-time-project" class="nav-link active" data-scroll-target="#lab-8-reaction-time-project">Lab 8 Reaction Time Project</a>
+  <ul class="collapse">
+  <li><a href="#about-the-data-and-survey" id="toc-about-the-data-and-survey" class="nav-link" data-scroll-target="#about-the-data-and-survey">About the Data and Survey</a></li>
   <li><a href="#lab-8-instruction" id="toc-lab-8-instruction" class="nav-link" data-scroll-target="#lab-8-instruction">Lab 8 Instruction</a></li>
   <li><a href="#load-packages-and-read-data" id="toc-load-packages-and-read-data" class="nav-link" data-scroll-target="#load-packages-and-read-data">Load Packages and Read Data</a></li>
   <li><a href="#question-i-data-cleaning" id="toc-question-i-data-cleaning" class="nav-link" data-scroll-target="#question-i-data-cleaning">Question I: Data Cleaning</a></li>
   <li><a href="#question-ii-join-two-tables" id="toc-question-ii-join-two-tables" class="nav-link" data-scroll-target="#question-ii-join-two-tables">Question II: Join Two tables</a></li>
   <li><a href="#question-iii-explore-the-data-survey_student" id="toc-question-iii-explore-the-data-survey_student" class="nav-link" data-scroll-target="#question-iii-explore-the-data-survey_student">Question III: Explore the Data <code>survey_student</code></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Lab 8 Reaction Time Project</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="about-the-data-and-survey" class="level3">
-<h3 class="anchored" data-anchor-id="about-the-data-and-survey">About the Data and Survey</h3>
+<section id="lab-8-reaction-time-project" class="level1">
+<h1>Lab 8 Reaction Time Project</h1>
+<section id="about-the-data-and-survey" class="level2">
+<h2 class="anchored" data-anchor-id="about-the-data-and-survey">About the Data and Survey</h2>
 <p>In Spring 2024 STAT 425 class, we collected data on <code>Reaction Time</code> from around 150 students. Please find the survey used to collect this data <a href="Reaction Time Survey Questions.pdf">Reaction Time Survey Questions.pdf</a>. There are two datasets for Lab 8:</p>
 <ul>
 <li>The real data – “Reaction Time Survey.csv”</li>
@@ -155,23 +185,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>In this lab, please clean and explore the datasets.</p>
 </section>
-<section id="lab-8-instruction" class="level3">
-<h3 class="anchored" data-anchor-id="lab-8-instruction">Lab 8 Instruction</h3>
+<section id="lab-8-instruction" class="level2">
+<h2 class="anchored" data-anchor-id="lab-8-instruction">Lab 8 Instruction</h2>
 <ul>
 <li>It is strongly recommended to follow the method demonstrated in the lecture video “Projects in R Video – Female Life Expectancy Project” to create an R project and complete this lab.</li>
 <li>As usual, you are only required to submit the PDF file generated to Gradescope.</li>
 </ul>
 </section>
-<section id="load-packages-and-read-data" class="level3">
-<h3 class="anchored" data-anchor-id="load-packages-and-read-data">Load Packages and Read Data</h3>
+<section id="load-packages-and-read-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-packages-and-read-data">Load Packages and Read Data</h2>
 <p>Please load the packages you need and import the two data sets:</p>
 <ul>
 <li>Import “Reaction Time survey.csv” as <code>survey</code>.</li>
 <li>Import “Mock Student Information.csv” as <code>student</code>.</li>
 </ul>
 </section>
-<section id="question-i-data-cleaning" class="level3">
-<h3 class="anchored" data-anchor-id="question-i-data-cleaning">Question I: Data Cleaning</h3>
+<section id="question-i-data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="question-i-data-cleaning">Question I: Data Cleaning</h2>
 <p><strong>[40 pts]</strong> Please perform the data cleaning for <code>survey</code>. Some hints are:</p>
 <ol type="1">
 <li>You may rename the variables as</li>
@@ -243,8 +273,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ WiFi.stable           &lt;chr&gt; "Stable", "Stable", "Stable", "Stable", "Stable"…</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="question-ii-join-two-tables" class="level3">
-<h3 class="anchored" data-anchor-id="question-ii-join-two-tables">Question II: Join Two tables</h3>
+<section id="question-ii-join-two-tables" class="level2">
+<h2 class="anchored" data-anchor-id="question-ii-join-two-tables">Question II: Join Two tables</h2>
 <ol type="1">
 <li><p><strong>[10 pts]</strong> Join the two tables and list the students who did not respond to the survey. [Hint: You may use <code>anti_join()</code> for this task. Look up information about <code>anti_join()</code> online if needed.]</p></li>
 <li><p><strong>[10 pts]</strong> Several students have submitted the survey more than once. To handle this, we should remove the duplicate submissions by keeping only the last submission (assuming the <code>survey</code> is in time order). Follow the steps:</p></li>
@@ -257,8 +287,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>[10 pts]</strong> Join the two tables and keep all information from <code>survey</code>, use <code>mockID</code> as the key. Save the new tibble as <code>survey_student</code> (or a name of your choice).</li>
 </ol>
 </section>
-<section id="question-iii-explore-the-data-survey_student" class="level3">
-<h3 class="anchored" data-anchor-id="question-iii-explore-the-data-survey_student">Question III: Explore the Data <code>survey_student</code></h3>
+<section id="question-iii-explore-the-data-survey_student" class="level2">
+<h2 class="anchored" data-anchor-id="question-iii-explore-the-data-survey_student">Question III: Explore the Data <code>survey_student</code></h2>
 <p><strong>[30 pts]</strong> Create data visualizations or tables to uncover interesting insights from the data. Please list at least three notable findings.</p>
 <p>Hint: You may find it’s helpful to combine some categories into fewer, more concise categories. Here is one example,</p>
 <div class="cell">
@@ -273,6 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

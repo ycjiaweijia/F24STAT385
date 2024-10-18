@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; R, RStudio, and R Packages – STAT 385 Statistical Programming Methods</title>
+<title>intro</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,13 +58,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Lab0/Lab0.html" rel="next">
-<link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -134,330 +133,90 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">STAT 385 Statistical Programming Methods</span>
-    </a>
-  </div>
-        <div class="quarto-navbar-tools tools-end">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part1.html"> 
+<span class="menu-text">Part I: R Basic Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part2.html"> 
+<span class="menu-text">Part II: R Tidyverse Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part3.html"> 
+<span class="menu-text">Part III: R Shiny Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../quizlist.html"> 
+<span class="menu-text">Quizzes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../lablist.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
-          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1-Intro/1-Intro.html">Part I: R Basic</a></li><li class="breadcrumb-item"><a href="../1-Intro/1-Intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R, RStudio, and R Packages</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Part I: R Basic</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../1-Intro/1-Intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R, RStudio, and R Packages</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab0/Lab0.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lab 0 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz1/Quiz1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quiz 1 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../2-Vector/2-Vector.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vector Basics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz2/Quiz2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quiz 2 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../3-MoreVectors/3-MoreVectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">More About Vectors</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz3/Quiz3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quiz 3 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab1/Lab1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab 1</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../4-Factors/4-Factors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz4/Quiz4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quiz 4 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../5-Matrix/5-Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrices and Arrays</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz5/Quiz5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quiz 5 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab2/Lab2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Lab 2</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../6-Lists/6-Lists.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../7-Dataframes/7-Dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Frames</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz7/Quiz7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quiz 7 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab3/Lab3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lab 3</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../8-Functions_Expressions/8-Functions_Expressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functions and Expressions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz8/Quiz8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quiz 8 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../9-Conditions_and_For_Loop/9-Conditions_and_For_Loop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Conditions and For Loop</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz9/Quiz9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quiz 9 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../10-whileloop/10-whileloop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">While Loop and More about Functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab4/Lab4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lab 4</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../11-ImportExport/11-ImportExport.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Import and Export</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz11/Quiz11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Quiz 11 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../12-BaseRGraphics/12-BaseRGraphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Functions for Base R Graphics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz12/Quiz12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Quiz 12 Instructions</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Part II: R Tidyverse</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab5HelpDoc/Lab5HelpDoc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Vectorization Help Document</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab5/Lab5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Lab 5</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab6HelpDoc/Lab6HelpDoc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Help Document: Illustrate S3 System – U of I Women’s Basketball Team example</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab6/Lab6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Lab 6 – S3 for Workshop Participants Instruction</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Tibble/Tibble.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Introduction to Tidyverse and Tibbles</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz14/Quiz14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Quiz 14 Instructions</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Part III: R Shiny</span></span>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#download-and-install-r-and-rstudio" id="toc-download-and-install-r-and-rstudio" class="nav-link active" data-scroll-target="#download-and-install-r-and-rstudio"><span class="header-section-number">1.1</span> Download and Install R and RStudio</a></li>
-  <li><a href="#r-vs-rstudio" id="toc-r-vs-rstudio" class="nav-link" data-scroll-target="#r-vs-rstudio"><span class="header-section-number">1.2</span> R vs RStudio</a></li>
-  <li><a href="#popular-r-packages-for-data-science" id="toc-popular-r-packages-for-data-science" class="nav-link" data-scroll-target="#popular-r-packages-for-data-science"><span class="header-section-number">1.3</span> Popular R packages for data science</a></li>
-  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages"><span class="header-section-number">1.4</span> R Packages</a></li>
-  <li><a href="#install-and-preload-packages-in-r-example" id="toc-install-and-preload-packages-in-r-example" class="nav-link" data-scroll-target="#install-and-preload-packages-in-r-example"><span class="header-section-number">1.5</span> Install and Preload Packages in R – Example</a>
+  <li><a href="#r-rstudio-and-r-packages" id="toc-r-rstudio-and-r-packages" class="nav-link active" data-scroll-target="#r-rstudio-and-r-packages">R, RStudio, and R Packages</a>
   <ul class="collapse">
-  <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages"><span class="header-section-number">1.5.1</span> Install Packages</a></li>
-  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages"><span class="header-section-number">1.5.2</span> Load Packages</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">1.5.3</span> Example</a></li>
-  </ul></li>
-  <li><a href="#creat-.r-and-.rmd-file" id="toc-creat-.r-and-.rmd-file" class="nav-link" data-scroll-target="#creat-.r-and-.rmd-file"><span class="header-section-number">1.6</span> Creat .R and .Rmd file</a></li>
-  <li><a href="#r-markdown-file" id="toc-r-markdown-file" class="nav-link" data-scroll-target="#r-markdown-file"><span class="header-section-number">1.7</span> R Markdown File</a>
+  <li><a href="#download-and-install-r-and-rstudio" id="toc-download-and-install-r-and-rstudio" class="nav-link" data-scroll-target="#download-and-install-r-and-rstudio">Download and Install R and RStudio</a></li>
+  <li><a href="#r-vs-rstudio" id="toc-r-vs-rstudio" class="nav-link" data-scroll-target="#r-vs-rstudio">R vs RStudio</a></li>
+  <li><a href="#popular-r-packages-for-data-science" id="toc-popular-r-packages-for-data-science" class="nav-link" data-scroll-target="#popular-r-packages-for-data-science">Popular R packages for data science</a></li>
+  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages">R Packages</a></li>
+  <li><a href="#install-and-preload-packages-in-r-example" id="toc-install-and-preload-packages-in-r-example" class="nav-link" data-scroll-target="#install-and-preload-packages-in-r-example">Install and Preload Packages in R – Example</a>
   <ul class="collapse">
-  <li><a href="#install-tinytex-for-pdf-output" id="toc-install-tinytex-for-pdf-output" class="nav-link" data-scroll-target="#install-tinytex-for-pdf-output"><span class="header-section-number">1.7.1</span> Install TinyTex for PDF output</a></li>
+  <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages">Install Packages</a></li>
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load Packages</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul></li>
-  <li><a href="#some-useful-tips" id="toc-some-useful-tips" class="nav-link" data-scroll-target="#some-useful-tips"><span class="header-section-number">1.8</span> Some Useful Tips</a></li>
+  <li><a href="#creat-.r-and-.rmd-file" id="toc-creat-.r-and-.rmd-file" class="nav-link" data-scroll-target="#creat-.r-and-.rmd-file">Creat .R and .Rmd file</a></li>
+  <li><a href="#r-markdown-file" id="toc-r-markdown-file" class="nav-link" data-scroll-target="#r-markdown-file">R Markdown File</a>
+  <ul class="collapse">
+  <li><a href="#install-tinytex-for-pdf-output" id="toc-install-tinytex-for-pdf-output" class="nav-link" data-scroll-target="#install-tinytex-for-pdf-output">Install TinyTex for PDF output</a></li>
+  </ul></li>
+  <li><a href="#some-useful-tips" id="toc-some-useful-tips" class="nav-link" data-scroll-target="#some-useful-tips">Some Useful Tips</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1-Intro/1-Intro.html">Part I: R Basic</a></li><li class="breadcrumb-item"><a href="../1-Intro/1-Intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R, RStudio, and R Packages</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R, RStudio, and R Packages</span></h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="download-and-install-r-and-rstudio" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="download-and-install-r-and-rstudio"><span class="header-section-number">1.1</span> Download and Install R and RStudio</h2>
+<section id="r-rstudio-and-r-packages" class="level1">
+<h1>R, RStudio, and R Packages</h1>
+<section id="download-and-install-r-and-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="download-and-install-r-and-rstudio">Download and Install R and RStudio</h2>
 <ul>
 <li>Visit the website, download and install R and RStudio (selecting the appropriate version for your OS)</li>
 </ul>
@@ -466,8 +225,8 @@ window.Quarto = {
 <li>Alternatively, you may use <strong>Posit Cloud</strong>: <a href="https://posit.cloud/" class="uri">https://posit.cloud/</a> to try all the functions introduced below.</li>
 </ul>
 </section>
-<section id="r-vs-rstudio" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="r-vs-rstudio"><span class="header-section-number">1.2</span> R vs RStudio</h2>
+<section id="r-vs-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="r-vs-rstudio">R vs RStudio</h2>
 <ul>
 <li><p>R is a programming language and <em>open source</em> software environment for predictive analytics and data visualization.</p></li>
 <li><p>RStudio is the premier IDE for R.</p></li>
@@ -477,14 +236,14 @@ window.Quarto = {
 <p><img src="Rstudio Panes.jpg" class="img-fluid" width="700"></p>
 <p>Four primary panes of RStudio User interface - from <a href="https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html" class="uri">https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html</a></p>
 </section>
-<section id="popular-r-packages-for-data-science" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="popular-r-packages-for-data-science"><span class="header-section-number">1.3</span> Popular R packages for data science</h2>
+<section id="popular-r-packages-for-data-science" class="level2">
+<h2 class="anchored" data-anchor-id="popular-r-packages-for-data-science">Popular R packages for data science</h2>
 <ul>
 <li>R is a powerful tools because <strong>tons of R packages are used to extend the capabilities of base R.</strong></li>
 </ul>
 </section>
-<section id="r-packages" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">1.4</span> R Packages</h2>
+<section id="r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="r-packages">R Packages</h2>
 <ul>
 <li><p>Extensive collection of packages designed for statistical analysis.</p></li>
 <li><p>Dynamic and reproducible documents with <strong>R Markdown</strong>.</p></li>
@@ -501,10 +260,10 @@ window.Quarto = {
 <li><p><span class="math inline">\(\cdots\)</span></p></li>
 </ul>
 </section>
-<section id="install-and-preload-packages-in-r-example" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="install-and-preload-packages-in-r-example"><span class="header-section-number">1.5</span> Install and Preload Packages in R – Example</h2>
-<section id="install-packages" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="install-packages"><span class="header-section-number">1.5.1</span> Install Packages</h3>
+<section id="install-and-preload-packages-in-r-example" class="level2">
+<h2 class="anchored" data-anchor-id="install-and-preload-packages-in-r-example">Install and Preload Packages in R – Example</h2>
+<section id="install-packages" class="level3">
+<h3 class="anchored" data-anchor-id="install-packages">Install Packages</h3>
 <ol type="1">
 <li>Run <code>Install.packages("the-package-name")</code></li>
 </ol>
@@ -518,16 +277,16 @@ window.Quarto = {
 <li>Refer to the pane that has the tabs <code>Files, Plots, Packages</code>. Click on the tab <code>Packages</code>, and then click on the button <strong>Install</strong> to install the package needed.</li>
 </ol>
 </section>
-<section id="load-packages" class="level3" data-number="1.5.2">
-<h3 data-number="1.5.2" class="anchored" data-anchor-id="load-packages"><span class="header-section-number">1.5.2</span> Load Packages</h3>
+<section id="load-packages" class="level3">
+<h3 class="anchored" data-anchor-id="load-packages">Load Packages</h3>
 <p><span style="     color: rgba(22, 150, 210, 255) !important;">Example</span> After installation, load package <strong>tidyverse</strong>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>You only need to install a package once (like buying a tool from the hardware store and adding it to your toolbox), but you need to reload it every time you start a new session (like grabbing the specific tool you need for the task at hand).</strong></p>
 </section>
-<section id="example" class="level3" data-number="1.5.3">
-<h3 data-number="1.5.3" class="anchored" data-anchor-id="example"><span class="header-section-number">1.5.3</span> Example</h3>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
 <p>Try the following codes in the R console.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cheddar <span class="co"># The data set cannot be found, as the package "faraway" is not installed and/or loaded.</span></span>
@@ -540,19 +299,19 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="creat-.r-and-.rmd-file" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="creat-.r-and-.rmd-file"><span class="header-section-number">1.6</span> Creat .R and .Rmd file</h2>
+<section id="creat-.r-and-.rmd-file" class="level2">
+<h2 class="anchored" data-anchor-id="creat-.r-and-.rmd-file">Creat .R and .Rmd file</h2>
 <ul>
 <li><p>Create an R script file (with extension .R) by clicking <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>New File</code> <span class="math inline">\(\rightarrow\)</span> <code>R Script</code>. (Shortcut is <code>Ctrl + Shift + C</code> (windows), <code>command + shift + N</code> (Mac))</p></li>
 <li><p>Create an R Markdown file (with extension .Rmd) by clicking <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>New File</code> <span class="math inline">\(\rightarrow\)</span> <code>R Markdown</code>.</p></li>
 </ul>
 </section>
-<section id="r-markdown-file" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="r-markdown-file"><span class="header-section-number">1.7</span> R Markdown File</h2>
+<section id="r-markdown-file" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-file">R Markdown File</h2>
 <p>The following workflow is from <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">R Markdown Cheat Sheet</a></p>
 <p><img src="Rmarkdown Workflow.png" class="img-fluid" width="700"></p>
-<section id="install-tinytex-for-pdf-output" class="level3" data-number="1.7.1">
-<h3 data-number="1.7.1" class="anchored" data-anchor-id="install-tinytex-for-pdf-output"><span class="header-section-number">1.7.1</span> Install TinyTex for PDF output</h3>
+<section id="install-tinytex-for-pdf-output" class="level3">
+<h3 class="anchored" data-anchor-id="install-tinytex-for-pdf-output">Install TinyTex for PDF output</h3>
 <p>If you want to generate PDF output, you will need to install TinyTex. Please run the following codes in the R Console.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'tinytex'</span>)</span>
@@ -560,8 +319,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="some-useful-tips" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="some-useful-tips"><span class="header-section-number">1.8</span> Some Useful Tips</h2>
+<section id="some-useful-tips" class="level2">
+<h2 class="anchored" data-anchor-id="some-useful-tips">Some Useful Tips</h2>
 <ul>
 <li>Use <code>Ctrl + L</code> to clear Console (windows), <code>Cmd + L</code> (Mac)</li>
 <li>Default comment/uncomment codes selection is <code>Ctrl + Shift + C</code> (windows), <code>Command + Shift + C</code> (Mac). You may change the shortcut to <code>Ctrl + /</code>.</li>
@@ -569,6 +328,7 @@ window.Quarto = {
 <p>(You can do so by clicking <code>Tools</code> <span class="math inline">\(\rightarrow\)</span> <code>Modify Keyboard Shortcuts</code> <span class="math inline">\(\rightarrow\)</span> Search “comment” <span class="math inline">\(\rightarrow\)</span> Change the shortcut <span class="math inline">\(\rightarrow\)</span> Apply.)</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -664,7 +424,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/ycjiaweijia\.github\.io\/F24STAT385\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -992,18 +752,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../Lab0/Lab0.html" class="pagination-link" aria-label="Lab 0 Instructions">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lab 0 Instructions</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

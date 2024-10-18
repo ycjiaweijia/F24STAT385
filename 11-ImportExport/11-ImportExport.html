@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>24&nbsp; Import and Export – STAT 385 Statistical Programming Methods</title>
+<title>importexport</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,13 +58,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../Quiz11/Quiz11.html" rel="next">
-<link href="../Lab4/Lab4.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -105,329 +104,89 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">STAT 385 Statistical Programming Methods</span>
-    </a>
-  </div>
-        <div class="quarto-navbar-tools tools-end">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part1.html"> 
+<span class="menu-text">Part I: R Basic Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part2.html"> 
+<span class="menu-text">Part II: R Tidyverse Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../part3.html"> 
+<span class="menu-text">Part III: R Shiny Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../quizlist.html"> 
+<span class="menu-text">Quizzes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../lablist.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
-          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1-Intro/1-Intro.html">Part I: R Basic</a></li><li class="breadcrumb-item"><a href="../11-ImportExport/11-ImportExport.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Import and Export</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Part I: R Basic</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../1-Intro/1-Intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R, RStudio, and R Packages</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab0/Lab0.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lab 0 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz1/Quiz1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quiz 1 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../2-Vector/2-Vector.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vector Basics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz2/Quiz2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quiz 2 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../3-MoreVectors/3-MoreVectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">More About Vectors</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz3/Quiz3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quiz 3 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab1/Lab1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab 1</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../4-Factors/4-Factors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz4/Quiz4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quiz 4 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../5-Matrix/5-Matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrices and Arrays</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz5/Quiz5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quiz 5 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab2/Lab2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Lab 2</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../6-Lists/6-Lists.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../7-Dataframes/7-Dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Frames</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz7/Quiz7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quiz 7 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab3/Lab3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lab 3</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../8-Functions_Expressions/8-Functions_Expressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functions and Expressions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz8/Quiz8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quiz 8 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../9-Conditions_and_For_Loop/9-Conditions_and_For_Loop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Conditions and For Loop</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz9/Quiz9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quiz 9 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../10-whileloop/10-whileloop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">While Loop and More about Functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab4/Lab4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lab 4</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../11-ImportExport/11-ImportExport.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Import and Export</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz11/Quiz11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Quiz 11 Instructions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../12-BaseRGraphics/12-BaseRGraphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Functions for Base R Graphics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz12/Quiz12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Quiz 12 Instructions</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Part II: R Tidyverse</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab5HelpDoc/Lab5HelpDoc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Vectorization Help Document</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab5/Lab5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Lab 5</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab6HelpDoc/Lab6HelpDoc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Help Document: Illustrate S3 System – U of I Women’s Basketball Team example</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Lab6/Lab6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Lab 6 – S3 for Workshop Participants Instruction</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Tibble/Tibble.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Introduction to Tidyverse and Tibbles</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Quiz14/Quiz14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Quiz 14 Instructions</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Part III: R Shiny</span></span>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#reading-assignments" id="toc-reading-assignments" class="nav-link active" data-scroll-target="#reading-assignments"><span class="header-section-number">24.1</span> Reading Assignments</a></li>
-  <li><a href="#importing-data-tables-example" id="toc-importing-data-tables-example" class="nav-link" data-scroll-target="#importing-data-tables-example"><span class="header-section-number">24.2</span> Importing Data Tables (Example)</a>
+  <li><a href="#import-and-export" id="toc-import-and-export" class="nav-link active" data-scroll-target="#import-and-export">Import and Export</a>
   <ul class="collapse">
-  <li><a href="#reading-space-sepearted-files" id="toc-reading-space-sepearted-files" class="nav-link" data-scroll-target="#reading-space-sepearted-files"><span class="header-section-number">24.2.1</span> Reading space-sepearted files</a></li>
-  </ul></li>
-  <li><a href="#importing-data-tables-exercise" id="toc-importing-data-tables-exercise" class="nav-link" data-scroll-target="#importing-data-tables-exercise"><span class="header-section-number">24.3</span> Importing Data Tables (Exercise)</a></li>
-  <li><a href="#importing-data-tables-reading-comma-seperated-files" id="toc-importing-data-tables-reading-comma-seperated-files" class="nav-link" data-scroll-target="#importing-data-tables-reading-comma-seperated-files"><span class="header-section-number">24.4</span> Importing Data Tables – Reading comma-seperated files</a>
+  <li><a href="#reading-assignments" id="toc-reading-assignments" class="nav-link" data-scroll-target="#reading-assignments">Reading Assignments</a></li>
+  <li><a href="#importing-data-tables-example" id="toc-importing-data-tables-example" class="nav-link" data-scroll-target="#importing-data-tables-example">Importing Data Tables (Example)</a>
   <ul class="collapse">
-  <li><a href="#read.csv-vs-read.csv2" id="toc-read.csv-vs-read.csv2" class="nav-link" data-scroll-target="#read.csv-vs-read.csv2"><span class="header-section-number">24.4.1</span> <code>read.csv()</code> vs <code>read.csv2()</code></a></li>
+  <li><a href="#reading-space-sepearted-files" id="toc-reading-space-sepearted-files" class="nav-link" data-scroll-target="#reading-space-sepearted-files">Reading space-sepearted files</a></li>
   </ul></li>
-  <li><a href="#exporting-tables" id="toc-exporting-tables" class="nav-link" data-scroll-target="#exporting-tables"><span class="header-section-number">24.5</span> Exporting Tables</a></li>
-  <li><a href="#exporting-text-non-tabular-data" id="toc-exporting-text-non-tabular-data" class="nav-link" data-scroll-target="#exporting-text-non-tabular-data"><span class="header-section-number">24.6</span> Exporting Text (non-tabular data)</a></li>
-  <li><a href="#sending-output-with-cat" id="toc-sending-output-with-cat" class="nav-link" data-scroll-target="#sending-output-with-cat"><span class="header-section-number">24.7</span> Sending output with <code>cat()</code></a></li>
-  <li><a href="#redirecting-output-with-sink" id="toc-redirecting-output-with-sink" class="nav-link" data-scroll-target="#redirecting-output-with-sink"><span class="header-section-number">24.8</span> Redirecting output with <code>sink()</code></a></li>
-  <li><a href="#other-exporting-in-r" id="toc-other-exporting-in-r" class="nav-link" data-scroll-target="#other-exporting-in-r"><span class="header-section-number">24.9</span> Other Exporting in R</a></li>
+  <li><a href="#importing-data-tables-exercise" id="toc-importing-data-tables-exercise" class="nav-link" data-scroll-target="#importing-data-tables-exercise">Importing Data Tables (Exercise)</a></li>
+  <li><a href="#importing-data-tables-reading-comma-seperated-files" id="toc-importing-data-tables-reading-comma-seperated-files" class="nav-link" data-scroll-target="#importing-data-tables-reading-comma-seperated-files">Importing Data Tables – Reading comma-seperated files</a>
+  <ul class="collapse">
+  <li><a href="#read.csv-vs-read.csv2" id="toc-read.csv-vs-read.csv2" class="nav-link" data-scroll-target="#read.csv-vs-read.csv2"><code>read.csv()</code> vs <code>read.csv2()</code></a></li>
+  </ul></li>
+  <li><a href="#exporting-tables" id="toc-exporting-tables" class="nav-link" data-scroll-target="#exporting-tables">Exporting Tables</a></li>
+  <li><a href="#exporting-text-non-tabular-data" id="toc-exporting-text-non-tabular-data" class="nav-link" data-scroll-target="#exporting-text-non-tabular-data">Exporting Text (non-tabular data)</a></li>
+  <li><a href="#sending-output-with-cat" id="toc-sending-output-with-cat" class="nav-link" data-scroll-target="#sending-output-with-cat">Sending output with <code>cat()</code></a></li>
+  <li><a href="#redirecting-output-with-sink" id="toc-redirecting-output-with-sink" class="nav-link" data-scroll-target="#redirecting-output-with-sink">Redirecting output with <code>sink()</code></a></li>
+  <li><a href="#other-exporting-in-r" id="toc-other-exporting-in-r" class="nav-link" data-scroll-target="#other-exporting-in-r">Other Exporting in R</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1-Intro/1-Intro.html">Part I: R Basic</a></li><li class="breadcrumb-item"><a href="../11-ImportExport/11-ImportExport.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Import and Export</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Import and Export</span></h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="reading-assignments" class="level2" data-number="24.1">
-<h2 data-number="24.1" class="anchored" data-anchor-id="reading-assignments"><span class="header-section-number">24.1</span> Reading Assignments</h2>
+<section id="import-and-export" class="level1">
+<h1>Import and Export</h1>
+<section id="reading-assignments" class="level2">
+<h2 class="anchored" data-anchor-id="reading-assignments">Reading Assignments</h2>
 <ul>
 <li><p>Please make sure you’ve read the following sections in the textbook: R Coding Basics, <a href="https://www.gastonsanchez.com/R-coding-basics/" class="uri">https://www.gastonsanchez.com/R-coding-basics/</a></p>
 <ul>
@@ -437,10 +196,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="importing-data-tables-example" class="level2" data-number="24.2">
-<h2 data-number="24.2" class="anchored" data-anchor-id="importing-data-tables-example"><span class="header-section-number">24.2</span> Importing Data Tables (Example)</h2>
-<section id="reading-space-sepearted-files" class="level3" data-number="24.2.1">
-<h3 data-number="24.2.1" class="anchored" data-anchor-id="reading-space-sepearted-files"><span class="header-section-number">24.2.1</span> Reading space-sepearted files</h3>
+<section id="importing-data-tables-example" class="level2">
+<h2 class="anchored" data-anchor-id="importing-data-tables-example">Importing Data Tables (Example)</h2>
+<section id="reading-space-sepearted-files" class="level3">
+<h3 class="anchored" data-anchor-id="reading-space-sepearted-files">Reading space-sepearted files</h3>
 <p>Please download the <a href="./accounts.txt">accounts.txt</a> file.</p>
 <p><strong>Example 1.</strong> Importing table in blank separated file</p>
 <div class="cell">
@@ -512,8 +271,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="importing-data-tables-exercise" class="level2" data-number="24.3">
-<h2 data-number="24.3" class="anchored" data-anchor-id="importing-data-tables-exercise"><span class="header-section-number">24.3</span> Importing Data Tables (Exercise)</h2>
+<section id="importing-data-tables-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="importing-data-tables-exercise">Importing Data Tables (Exercise)</h2>
 <p><strong>Exercise 1:</strong> Download any <code>.txt</code> data from the <a href="https://www.stat.auckland.ac.nz/~wild/data/Rdatasets/">weblink</a> and try the <code>read.table()</code> function and the arguments introduced above.</p>
 <p><strong>Exercise 2:</strong> Download <code>PlantGrowth.txt</code> data from the <a href="https://www.stat.auckland.ac.nz/~wild/data/Rdatasets/">weblink</a> and try the <code>read.table()</code> function and the <code>quote</code> arguments.</p>
 <div class="cell">
@@ -622,13 +381,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="importing-data-tables-reading-comma-seperated-files" class="level2" data-number="24.4">
-<h2 data-number="24.4" class="anchored" data-anchor-id="importing-data-tables-reading-comma-seperated-files"><span class="header-section-number">24.4</span> Importing Data Tables – Reading comma-seperated files</h2>
+<section id="importing-data-tables-reading-comma-seperated-files" class="level2">
+<h2 class="anchored" data-anchor-id="importing-data-tables-reading-comma-seperated-files">Importing Data Tables – Reading comma-seperated files</h2>
 <div style="height:30px;">
 
 </div>
-<section id="read.csv-vs-read.csv2" class="level3" data-number="24.4.1">
-<h3 data-number="24.4.1" class="anchored" data-anchor-id="read.csv-vs-read.csv2"><span class="header-section-number">24.4.1</span> <code>read.csv()</code> vs <code>read.csv2()</code></h3>
+<section id="read.csv-vs-read.csv2" class="level3">
+<h3 class="anchored" data-anchor-id="read.csv-vs-read.csv2"><code>read.csv()</code> vs <code>read.csv2()</code></h3>
 <ul>
 <li>Use read.csv() when the file uses a comma <code>,</code> as the field separator and a period <code>.</code> for decimals. That is, import <strong>comma</strong> separated values (US and many other countries).</li>
 <li>Use read.csv2() when the file uses a semicolon <code>;</code> as the field separator and a comma <code>,</code> for decimals. That is, import <strong>semicolon</strong> separated values (Europe).</li>
@@ -649,8 +408,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Exercise 1:</strong> Download any <code>.csv</code> data from the <a href="https://www.stat.auckland.ac.nz/~wild/data/Rdatasets/">weblink</a> and try the <code>read.csv()</code> function and the arguments introduced above.</p>
 </section>
 </section>
-<section id="exporting-tables" class="level2" data-number="24.5">
-<h2 data-number="24.5" class="anchored" data-anchor-id="exporting-tables"><span class="header-section-number">24.5</span> Exporting Tables</h2>
+<section id="exporting-tables" class="level2">
+<h2 class="anchored" data-anchor-id="exporting-tables">Exporting Tables</h2>
 <p><code>write.table()</code>, <code>write.csv()</code></p>
 <p><strong>Example:</strong></p>
 <div class="cell">
@@ -666,8 +425,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Exercise 1:</strong> What if <code>row.names = TRUE</code>, which is the default option for <code>write.table()</code> and <code>write.csv()</code>?</p>
 <p><strong>Exercise 2:</strong> Load any dataset from a R package. Write a csv file for the dataset.</p>
 </section>
-<section id="exporting-text-non-tabular-data" class="level2" data-number="24.6">
-<h2 data-number="24.6" class="anchored" data-anchor-id="exporting-text-non-tabular-data"><span class="header-section-number">24.6</span> Exporting Text (non-tabular data)</h2>
+<section id="exporting-text-non-tabular-data" class="level2">
+<h2 class="anchored" data-anchor-id="exporting-text-non-tabular-data">Exporting Text (non-tabular data)</h2>
 <p><strong>Example:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a connection to a file</span></span>
@@ -683,8 +442,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><strong>Note:</strong> Calling file() just creates the connection object but it does not open it. The function writeLines() is the one that opens the connection, writes the content to the file mytext.txt, and then closes the connection on exiting.</p>
 </section>
-<section id="sending-output-with-cat" class="level2" data-number="24.7">
-<h2 data-number="24.7" class="anchored" data-anchor-id="sending-output-with-cat"><span class="header-section-number">24.7</span> Sending output with <code>cat()</code></h2>
+<section id="sending-output-with-cat" class="level2">
+<h2 class="anchored" data-anchor-id="sending-output-with-cat">Sending output with <code>cat()</code></h2>
 <p>Recall <code>cat()</code> and <code>sprintf()</code> functions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary statistics of mpg</span></span>
@@ -727,8 +486,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Std Dev: %0.2f"</span>, mpg_sd), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="at">file =</span> outfile, <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="redirecting-output-with-sink" class="level2" data-number="24.8">
-<h2 data-number="24.8" class="anchored" data-anchor-id="redirecting-output-with-sink"><span class="header-section-number">24.8</span> Redirecting output with <code>sink()</code></h2>
+<section id="redirecting-output-with-sink" class="level2">
+<h2 class="anchored" data-anchor-id="redirecting-output-with-sink">Redirecting output with <code>sink()</code></h2>
 <p><code>sink()</code> function can export R output as it is displayed in R’s console.</p>
 <p><strong>Example:</strong></p>
 <p>Try the code below and get the output in R’s console.</p>
@@ -748,8 +507,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Do not forget to use <code>sink()</code> again, without specifying any arguments, to stop the sinking process.</p>
 </section>
-<section id="other-exporting-in-r" class="level2" data-number="24.9">
-<h2 data-number="24.9" class="anchored" data-anchor-id="other-exporting-in-r"><span class="header-section-number">24.9</span> Other Exporting in R</h2>
+<section id="other-exporting-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="other-exporting-in-r">Other Exporting in R</h2>
 <ul>
 <li>Exporting and importing R data – <code>save()</code> and <code>load()</code></li>
 </ul>
@@ -763,6 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -858,7 +618,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/ycjiaweijia\.github\.io\/F24STAT385\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1186,18 +946,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../Lab4/Lab4.html" class="pagination-link" aria-label="Lab 4">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lab 4</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../Quiz11/Quiz11.html" class="pagination-link" aria-label="Quiz 11 Instructions">
-        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Quiz 11 Instructions</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
