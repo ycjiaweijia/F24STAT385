@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>While Loop and More about Functions</title>
+<title>22&nbsp; While Loop and More about Functions – STAT 385 Statistical Programming Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,6 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../Lab4/Lab4.html" rel="next">
+<link href="../Quiz9/Quiz9.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,11 +75,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -132,39 +134,308 @@ window.Quarto = {
 
 </head>
 
-<body>
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">STAT 385 Statistical Programming Methods</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1-Intro/1-Intro.html">Part I: R Basic</a></li><li class="breadcrumb-item"><a href="../10-whileloop/10-whileloop.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">While Loop and More about Functions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: R Basic</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1-Intro/1-Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R, RStudio, and R Packages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab0/Lab0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lab 0 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz1/Quiz1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quiz 1 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2-Vector/2-Vector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vector Basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz2/Quiz2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quiz 2 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../3-MoreVectors/3-MoreVectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">More About Vectors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz3/Quiz3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quiz 3 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab1/Lab1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab 1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../4-Factors/4-Factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz4/Quiz4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quiz 4 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../5-Matrix/5-Matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrices and Arrays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz5/Quiz5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quiz 5 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab2/Lab2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Lab 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../6-Lists/6-Lists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7-Dataframes/7-Dataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Frames</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz7/Quiz7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quiz 7 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab3/Lab3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lab 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8-Functions_Expressions/8-Functions_Expressions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functions and Expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz8/Quiz8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quiz 8 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../9-Conditions_and_For_Loop/9-Conditions_and_For_Loop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Conditions and For Loop</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz9/Quiz9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quiz 9 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../10-whileloop/10-whileloop.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">While Loop and More about Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab4/Lab4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lab 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../11-ImportExport/11-ImportExport.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Import and Export</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz11/Quiz11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Quiz 11 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../12-BaseRGraphics/12-BaseRGraphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Functions for Base R Graphics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz12/Quiz12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Quiz 12 Instructions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Part II: R Tidyverse</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab5HelpDoc/Lab5HelpDoc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Vectorization Help Document</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab5/Lab5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Lab 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab6HelpDoc/Lab6HelpDoc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Help Document: Illustrate S3 System – U of I Women’s Basketball Team example</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab6/Lab6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Lab 6 – S3 for Workshop Participants Instruction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tibble/Tibble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Introduction to Tidyverse and Tibbles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz14/Quiz14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Quiz 14 Instructions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Part III: R Shiny</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#reading-assignments" id="toc-reading-assignments" class="nav-link active" data-scroll-target="#reading-assignments">Reading Assignments</a></li>
-  <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop">While Loop</a>
+  <li><a href="#reading-assignments" id="toc-reading-assignments" class="nav-link active" data-scroll-target="#reading-assignments"><span class="header-section-number">22.1</span> Reading Assignments</a></li>
+  <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop"><span class="header-section-number">22.2</span> While Loop</a>
   <ul class="collapse">
-  <li><a href="#cat-vs-print" id="toc-cat-vs-print" class="nav-link" data-scroll-target="#cat-vs-print"><code>cat</code> vs <code>print</code></a></li>
-  <li><a href="#sprintf" id="toc-sprintf" class="nav-link" data-scroll-target="#sprintf"><code>sprintf</code></a></li>
-  <li><a href="#the-next-and-break-statements" id="toc-the-next-and-break-statements" class="nav-link" data-scroll-target="#the-next-and-break-statements">The next and break statements</a></li>
+  <li><a href="#cat-vs-print" id="toc-cat-vs-print" class="nav-link" data-scroll-target="#cat-vs-print"><span class="header-section-number">22.2.1</span> <code>cat</code> vs <code>print</code></a></li>
+  <li><a href="#sprintf" id="toc-sprintf" class="nav-link" data-scroll-target="#sprintf"><span class="header-section-number">22.2.2</span> <code>sprintf</code></a></li>
+  <li><a href="#the-next-and-break-statements" id="toc-the-next-and-break-statements" class="nav-link" data-scroll-target="#the-next-and-break-statements"><span class="header-section-number">22.2.3</span> The next and break statements</a></li>
   </ul></li>
-  <li><a href="#loop-using-repeat" id="toc-loop-using-repeat" class="nav-link" data-scroll-target="#loop-using-repeat">Loop using <code>repeat</code></a></li>
-  <li><a href="#more-about-functions-nested-functions" id="toc-more-about-functions-nested-functions" class="nav-link" data-scroll-target="#more-about-functions-nested-functions">More About Functions: Nested Functions</a></li>
-  <li><a href="#more-about-functions-lexical-scoping" id="toc-more-about-functions-lexical-scoping" class="nav-link" data-scroll-target="#more-about-functions-lexical-scoping">More About Functions: Lexical Scoping</a>
+  <li><a href="#loop-using-repeat" id="toc-loop-using-repeat" class="nav-link" data-scroll-target="#loop-using-repeat"><span class="header-section-number">22.3</span> Loop using <code>repeat</code></a></li>
+  <li><a href="#more-about-functions-nested-functions" id="toc-more-about-functions-nested-functions" class="nav-link" data-scroll-target="#more-about-functions-nested-functions"><span class="header-section-number">22.4</span> More About Functions: Nested Functions</a></li>
+  <li><a href="#more-about-functions-lexical-scoping" id="toc-more-about-functions-lexical-scoping" class="nav-link" data-scroll-target="#more-about-functions-lexical-scoping"><span class="header-section-number">22.5</span> More About Functions: Lexical Scoping</a>
   <ul class="collapse">
-  <li><a href="#name-masking" id="toc-name-masking" class="nav-link" data-scroll-target="#name-masking">Name Masking</a></li>
-  <li><a href="#functions-versus-variables" id="toc-functions-versus-variables" class="nav-link" data-scroll-target="#functions-versus-variables">Functions versus variables</a></li>
-  <li><a href="#a-fresh-start" id="toc-a-fresh-start" class="nav-link" data-scroll-target="#a-fresh-start">A fresh start</a></li>
-  <li><a href="#dynamic-lookup" id="toc-dynamic-lookup" class="nav-link" data-scroll-target="#dynamic-lookup">Dynamic lookup</a></li>
+  <li><a href="#name-masking" id="toc-name-masking" class="nav-link" data-scroll-target="#name-masking"><span class="header-section-number">22.5.1</span> Name Masking</a></li>
+  <li><a href="#functions-versus-variables" id="toc-functions-versus-variables" class="nav-link" data-scroll-target="#functions-versus-variables"><span class="header-section-number">22.5.2</span> Functions versus variables</a></li>
+  <li><a href="#a-fresh-start" id="toc-a-fresh-start" class="nav-link" data-scroll-target="#a-fresh-start"><span class="header-section-number">22.5.3</span> A fresh start</a></li>
+  <li><a href="#dynamic-lookup" id="toc-dynamic-lookup" class="nav-link" data-scroll-target="#dynamic-lookup"><span class="header-section-number">22.5.4</span> Dynamic lookup</a></li>
   </ul></li>
-  <li><a href="#more-about-functions-signalling-conditions" id="toc-more-about-functions-signalling-conditions" class="nav-link" data-scroll-target="#more-about-functions-signalling-conditions">More About Functions: Signalling Conditions</a></li>
-  <li><a href="#more-about-functions-for-readable-codes" id="toc-more-about-functions-for-readable-codes" class="nav-link" data-scroll-target="#more-about-functions-for-readable-codes">More About Functions: For Readable Codes</a>
+  <li><a href="#more-about-functions-signalling-conditions" id="toc-more-about-functions-signalling-conditions" class="nav-link" data-scroll-target="#more-about-functions-signalling-conditions"><span class="header-section-number">22.6</span> More About Functions: Signalling Conditions</a></li>
+  <li><a href="#more-about-functions-for-readable-codes" id="toc-more-about-functions-for-readable-codes" class="nav-link" data-scroll-target="#more-about-functions-for-readable-codes"><span class="header-section-number">22.7</span> More About Functions: For Readable Codes</a>
   <ul class="collapse">
-  <li><a href="#white-spaces" id="toc-white-spaces" class="nav-link" data-scroll-target="#white-spaces">White Spaces</a></li>
-  <li><a href="#indention" id="toc-indention" class="nav-link" data-scroll-target="#indention">Indention</a></li>
+  <li><a href="#white-spaces" id="toc-white-spaces" class="nav-link" data-scroll-target="#white-spaces"><span class="header-section-number">22.7.1</span> White Spaces</a></li>
+  <li><a href="#indention" id="toc-indention" class="nav-link" data-scroll-target="#indention"><span class="header-section-number">22.7.2</span> Indention</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -172,9 +443,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1-Intro/1-Intro.html">Part I: R Basic</a></li><li class="breadcrumb-item"><a href="../10-whileloop/10-whileloop.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">While Loop and More about Functions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">While Loop and More about Functions</h1>
+<h1 class="title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">While Loop and More about Functions</span></h1>
 </div>
 
 
@@ -191,8 +462,8 @@ window.Quarto = {
 </header>
 
 
-<section id="reading-assignments" class="level2">
-<h2 class="anchored" data-anchor-id="reading-assignments">Reading Assignments</h2>
+<section id="reading-assignments" class="level2" data-number="22.1">
+<h2 data-number="22.1" class="anchored" data-anchor-id="reading-assignments"><span class="header-section-number">22.1</span> Reading Assignments</h2>
 <ul>
 <li><p>Please make sure you’ve read the following sections in the textbook: R Coding Basics, <a href="https://www.gastonsanchez.com/R-coding-basics/" class="uri">https://www.gastonsanchez.com/R-coding-basics/</a></p>
 <ul>
@@ -203,8 +474,8 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="while-loop" class="level2">
-<h2 class="anchored" data-anchor-id="while-loop">While Loop</h2>
+<section id="while-loop" class="level2" data-number="22.2">
+<h2 data-number="22.2" class="anchored" data-anchor-id="while-loop"><span class="header-section-number">22.2</span> While Loop</h2>
 <ul>
 <li>Use for loop – when you know how many times a given computation needs to be repeated.</li>
 <li>Use while loop – repeat a process without necessarily knowing how many times this repetition will take place</li>
@@ -240,8 +511,8 @@ window.Quarto = {
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="cat-vs-print" class="level3">
-<h3 class="anchored" data-anchor-id="cat-vs-print"><code>cat</code> vs <code>print</code></h3>
+<section id="cat-vs-print" class="level3" data-number="22.2.1">
+<h3 data-number="22.2.1" class="anchored" data-anchor-id="cat-vs-print"><span class="header-section-number">22.2.1</span> <code>cat</code> vs <code>print</code></h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"I will not buy this record.</span><span class="sc">\n</span><span class="st"> It is scratched.</span><span class="sc">\n</span><span class="st">"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "I will not buy this record.\n It is scratched.\n"</span></span>
@@ -250,8 +521,8 @@ window.Quarto = {
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  It is scratched.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sprintf" class="level3">
-<h3 class="anchored" data-anchor-id="sprintf"><code>sprintf</code></h3>
+<section id="sprintf" class="level3" data-number="22.2.2">
+<h3 data-number="22.2.2" class="anchored" data-anchor-id="sprintf"><span class="header-section-number">22.2.2</span> <code>sprintf</code></h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> letters[<span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -294,16 +565,16 @@ window.Quarto = {
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="the-next-and-break-statements" class="level3">
-<h3 class="anchored" data-anchor-id="the-next-and-break-statements">The next and break statements</h3>
+<section id="the-next-and-break-statements" class="level3" data-number="22.2.3">
+<h3 data-number="22.2.3" class="anchored" data-anchor-id="the-next-and-break-statements"><span class="header-section-number">22.2.3</span> The next and break statements</h3>
 <ul>
 <li><code>next</code> – skipping certain iterations</li>
 <li><code>break</code> – stop a loop from iterating</li>
 </ul>
 </section>
 </section>
-<section id="loop-using-repeat" class="level2">
-<h2 class="anchored" data-anchor-id="loop-using-repeat">Loop using <code>repeat</code></h2>
+<section id="loop-using-repeat" class="level2" data-number="22.3">
+<h2 data-number="22.3" class="anchored" data-anchor-id="loop-using-repeat"><span class="header-section-number">22.3</span> Loop using <code>repeat</code></h2>
 <p>Example of using <code>repeat</code> and <code>break</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">42</span></span>
@@ -336,8 +607,8 @@ window.Quarto = {
 <span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.1580579</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="more-about-functions-nested-functions" class="level2">
-<h2 class="anchored" data-anchor-id="more-about-functions-nested-functions">More About Functions: Nested Functions</h2>
+<section id="more-about-functions-nested-functions" class="level2" data-number="22.4">
+<h2 data-number="22.4" class="anchored" data-anchor-id="more-about-functions-nested-functions"><span class="header-section-number">22.4</span> More About Functions: Nested Functions</h2>
 <p>Example 15.1.2</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>getmax <span class="ot">=</span> <span class="cf">function</span>(a) {</span>
@@ -358,8 +629,8 @@ window.Quarto = {
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="more-about-functions-lexical-scoping" class="level2">
-<h2 class="anchored" data-anchor-id="more-about-functions-lexical-scoping">More About Functions: Lexical Scoping</h2>
+<section id="more-about-functions-lexical-scoping" class="level2" data-number="22.5">
+<h2 data-number="22.5" class="anchored" data-anchor-id="more-about-functions-lexical-scoping"><span class="header-section-number">22.5</span> More About Functions: Lexical Scoping</h2>
 <p>R’s lexical scoping follows four primary rules:</p>
 <ul>
 <li>Name masking</li>
@@ -367,8 +638,8 @@ window.Quarto = {
 <li>A fresh start</li>
 <li>Dynamic lookup</li>
 </ul>
-<section id="name-masking" class="level3">
-<h3 class="anchored" data-anchor-id="name-masking">Name Masking</h3>
+<section id="name-masking" class="level3" data-number="22.5.1">
+<h3 data-number="22.5.1" class="anchored" data-anchor-id="name-masking"><span class="header-section-number">22.5.1</span> Name Masking</h3>
 <ul>
 <li>Name defined inside a function mask names defined outside a function.</li>
 </ul>
@@ -400,8 +671,8 @@ window.Quarto = {
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="functions-versus-variables" class="level3">
-<h3 class="anchored" data-anchor-id="functions-versus-variables">Functions versus variables</h3>
+<section id="functions-versus-variables" class="level3" data-number="22.5.2">
+<h3 data-number="22.5.2" class="anchored" data-anchor-id="functions-versus-variables"><span class="header-section-number">22.5.2</span> Functions versus variables</h3>
 <ul>
 <li>Function_names defined inside a function mask function_names defined outside a function.</li>
 </ul>
@@ -427,8 +698,8 @@ window.Quarto = {
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 110</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="a-fresh-start" class="level3">
-<h3 class="anchored" data-anchor-id="a-fresh-start">A fresh start</h3>
+<section id="a-fresh-start" class="level3" data-number="22.5.3">
+<h3 data-number="22.5.3" class="anchored" data-anchor-id="a-fresh-start"><span class="header-section-number">22.5.3</span> A fresh start</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>g11 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">exists</span>(<span class="st">"a"</span>)) {</span>
@@ -445,8 +716,8 @@ window.Quarto = {
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="dynamic-lookup" class="level3">
-<h3 class="anchored" data-anchor-id="dynamic-lookup">Dynamic lookup</h3>
+<section id="dynamic-lookup" class="level3" data-number="22.5.4">
+<h3 data-number="22.5.4" class="anchored" data-anchor-id="dynamic-lookup"><span class="header-section-number">22.5.4</span> Dynamic lookup</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>g12 <span class="ot">&lt;-</span> <span class="cf">function</span>() x <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">15</span></span>
@@ -461,8 +732,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="more-about-functions-signalling-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="more-about-functions-signalling-conditions">More About Functions: Signalling Conditions</h2>
+<section id="more-about-functions-signalling-conditions" class="level2" data-number="22.6">
+<h2 data-number="22.6" class="anchored" data-anchor-id="more-about-functions-signalling-conditions"><span class="header-section-number">22.6</span> More About Functions: Signalling Conditions</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>is_even_or_odd <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.integer</span>(x)){</span>
@@ -509,8 +780,8 @@ window.Quarto = {
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3</span></span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="more-on-signalling-conditions" class="level4">
-<h4 class="anchored" data-anchor-id="more-on-signalling-conditions">More on signalling conditions</h4>
+<section id="more-on-signalling-conditions" class="level4" data-number="22.6.0.1">
+<h4 data-number="22.6.0.1" class="anchored" data-anchor-id="more-on-signalling-conditions"><span class="header-section-number">22.6.0.1</span> More on signalling conditions</h4>
 <ul>
 <li><p>There are three conditions that you can signal in code: errors, warnings, and messages.</p>
 <ul>
@@ -566,10 +837,10 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="more-about-functions-for-readable-codes" class="level2">
-<h2 class="anchored" data-anchor-id="more-about-functions-for-readable-codes">More About Functions: For Readable Codes</h2>
-<section id="white-spaces" class="level3">
-<h3 class="anchored" data-anchor-id="white-spaces">White Spaces</h3>
+<section id="more-about-functions-for-readable-codes" class="level2" data-number="22.7">
+<h2 data-number="22.7" class="anchored" data-anchor-id="more-about-functions-for-readable-codes"><span class="header-section-number">22.7</span> More About Functions: For Readable Codes</h2>
+<section id="white-spaces" class="level3" data-number="22.7.1">
+<h3 data-number="22.7.1" class="anchored" data-anchor-id="white-spaces"><span class="header-section-number">22.7.1</span> White Spaces</h3>
 <p>Example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.vector</span>(x)) {</span>
@@ -595,8 +866,8 @@ window.Quarto = {
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">read.table</span>(<span class="st">'data.csv'</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="indention" class="level3">
-<h3 class="anchored" data-anchor-id="indention">Indention</h3>
+<section id="indention" class="level3" data-number="22.7.2">
+<h3 data-number="22.7.2" class="anchored" data-anchor-id="indention"><span class="header-section-number">22.7.2</span> Indention</h3>
 <p>Example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># better with indentation</span></span>
@@ -714,7 +985,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/ycjiaweijia\.github\.io\/F24STAT385\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1042,6 +1313,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../Quiz9/Quiz9.html" class="pagination-link" aria-label="Quiz 9 Instructions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quiz 9 Instructions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../Lab4/Lab4.html" class="pagination-link" aria-label="Lab 4">
+        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lab 4</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Frames</title>
+<title>15&nbsp; Data Frames – STAT 385 Statistical Programming Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,6 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../Quiz7/Quiz7.html" rel="next">
+<link href="../6-Lists/6-Lists.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,11 +75,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -132,55 +134,324 @@ window.Quarto = {
 
 </head>
 
-<body>
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">STAT 385 Statistical Programming Methods</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1-Intro/1-Intro.html">Part I: R Basic</a></li><li class="breadcrumb-item"><a href="../7-Dataframes/7-Dataframes.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Frames</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part I: R Basic</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1-Intro/1-Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R, RStudio, and R Packages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab0/Lab0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lab 0 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz1/Quiz1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quiz 1 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2-Vector/2-Vector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vector Basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz2/Quiz2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quiz 2 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../3-MoreVectors/3-MoreVectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">More About Vectors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz3/Quiz3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quiz 3 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab1/Lab1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab 1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../4-Factors/4-Factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz4/Quiz4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quiz 4 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../5-Matrix/5-Matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrices and Arrays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz5/Quiz5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quiz 5 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab2/Lab2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Lab 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../6-Lists/6-Lists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7-Dataframes/7-Dataframes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Frames</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz7/Quiz7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quiz 7 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab3/Lab3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lab 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8-Functions_Expressions/8-Functions_Expressions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functions and Expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz8/Quiz8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quiz 8 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../9-Conditions_and_For_Loop/9-Conditions_and_For_Loop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Conditions and For Loop</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz9/Quiz9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quiz 9 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../10-whileloop/10-whileloop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">While Loop and More about Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab4/Lab4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lab 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../11-ImportExport/11-ImportExport.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Import and Export</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz11/Quiz11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Quiz 11 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../12-BaseRGraphics/12-BaseRGraphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Functions for Base R Graphics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz12/Quiz12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Quiz 12 Instructions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Part II: R Tidyverse</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab5HelpDoc/Lab5HelpDoc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Vectorization Help Document</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab5/Lab5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Lab 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab6HelpDoc/Lab6HelpDoc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Help Document: Illustrate S3 System – U of I Women’s Basketball Team example</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab6/Lab6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Lab 6 – S3 for Workshop Participants Instruction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tibble/Tibble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Introduction to Tidyverse and Tibbles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz14/Quiz14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Quiz 14 Instructions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Part III: R Shiny</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#reading-assignments" id="toc-reading-assignments" class="nav-link active" data-scroll-target="#reading-assignments">Reading Assignments</a></li>
-  <li><a href="#why-data-frames" id="toc-why-data-frames" class="nav-link" data-scroll-target="#why-data-frames">Why Data Frames?</a></li>
-  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames">Data Frames</a></li>
-  <li><a href="#dimension-of-data-frames" id="toc-dimension-of-data-frames" class="nav-link" data-scroll-target="#dimension-of-data-frames">Dimension of Data Frames</a></li>
-  <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure">Structure</a></li>
-  <li><a href="#names" id="toc-names" class="nav-link" data-scroll-target="#names">Names</a>
+  <li><a href="#reading-assignments" id="toc-reading-assignments" class="nav-link active" data-scroll-target="#reading-assignments"><span class="header-section-number">15.1</span> Reading Assignments</a></li>
+  <li><a href="#why-data-frames" id="toc-why-data-frames" class="nav-link" data-scroll-target="#why-data-frames"><span class="header-section-number">15.2</span> Why Data Frames?</a></li>
+  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames"><span class="header-section-number">15.3</span> Data Frames</a></li>
+  <li><a href="#dimension-of-data-frames" id="toc-dimension-of-data-frames" class="nav-link" data-scroll-target="#dimension-of-data-frames"><span class="header-section-number">15.4</span> Dimension of Data Frames</a></li>
+  <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure"><span class="header-section-number">15.5</span> Structure</a></li>
+  <li><a href="#names" id="toc-names" class="nav-link" data-scroll-target="#names"><span class="header-section-number">15.6</span> Names</a>
   <ul class="collapse">
-  <li><a href="#column-names" id="toc-column-names" class="nav-link" data-scroll-target="#column-names">Column Names</a></li>
-  <li><a href="#row-names" id="toc-row-names" class="nav-link" data-scroll-target="#row-names">Row Names</a></li>
-  <li><a href="#both-column-and-row-names" id="toc-both-column-and-row-names" class="nav-link" data-scroll-target="#both-column-and-row-names">Both Column and Row Names</a></li>
+  <li><a href="#column-names" id="toc-column-names" class="nav-link" data-scroll-target="#column-names"><span class="header-section-number">15.6.1</span> Column Names</a></li>
+  <li><a href="#row-names" id="toc-row-names" class="nav-link" data-scroll-target="#row-names"><span class="header-section-number">15.6.2</span> Row Names</a></li>
+  <li><a href="#both-column-and-row-names" id="toc-both-column-and-row-names" class="nav-link" data-scroll-target="#both-column-and-row-names"><span class="header-section-number">15.6.3</span> Both Column and Row Names</a></li>
   </ul></li>
-  <li><a href="#sample" id="toc-sample" class="nav-link" data-scroll-target="#sample">Sample</a></li>
-  <li><a href="#selecting-elements-in-data-frames" id="toc-selecting-elements-in-data-frames" class="nav-link" data-scroll-target="#selecting-elements-in-data-frames">Selecting elements in Data Frames</a>
+  <li><a href="#sample" id="toc-sample" class="nav-link" data-scroll-target="#sample"><span class="header-section-number">15.7</span> Sample</a></li>
+  <li><a href="#selecting-elements-in-data-frames" id="toc-selecting-elements-in-data-frames" class="nav-link" data-scroll-target="#selecting-elements-in-data-frames"><span class="header-section-number">15.8</span> Selecting elements in Data Frames</a>
   <ul class="collapse">
-  <li><a href="#select-cellrowcolumn-rightarrow-similar-to-matrix-operations" id="toc-select-cellrowcolumn-rightarrow-similar-to-matrix-operations" class="nav-link" data-scroll-target="#select-cellrowcolumn-rightarrow-similar-to-matrix-operations">Select Cell/Row/Column <span class="math inline">\(\Rightarrow\)</span> similar to matrix operations</a></li>
+  <li><a href="#select-cellrowcolumn-rightarrow-similar-to-matrix-operations" id="toc-select-cellrowcolumn-rightarrow-similar-to-matrix-operations" class="nav-link" data-scroll-target="#select-cellrowcolumn-rightarrow-similar-to-matrix-operations"><span class="header-section-number">15.8.1</span> Select Cell/Row/Column <span class="math inline">\(\Rightarrow\)</span> similar to matrix operations</a></li>
   </ul></li>
-  <li><a href="#modifying-data-frames" id="toc-modifying-data-frames" class="nav-link" data-scroll-target="#modifying-data-frames">Modifying Data Frames</a>
+  <li><a href="#modifying-data-frames" id="toc-modifying-data-frames" class="nav-link" data-scroll-target="#modifying-data-frames"><span class="header-section-number">15.9</span> Modifying Data Frames</a>
   <ul class="collapse">
-  <li><a href="#temporarily-vs-permanently-modifying-the-values" id="toc-temporarily-vs-permanently-modifying-the-values" class="nav-link" data-scroll-target="#temporarily-vs-permanently-modifying-the-values">Temporarily vs Permanently Modifying the Values</a></li>
+  <li><a href="#temporarily-vs-permanently-modifying-the-values" id="toc-temporarily-vs-permanently-modifying-the-values" class="nav-link" data-scroll-target="#temporarily-vs-permanently-modifying-the-values"><span class="header-section-number">15.9.1</span> Temporarily vs Permanently Modifying the Values</a></li>
   </ul></li>
-  <li><a href="#modifying-data-frames-continue" id="toc-modifying-data-frames-continue" class="nav-link" data-scroll-target="#modifying-data-frames-continue">Modifying Data Frames (continue)</a>
+  <li><a href="#modifying-data-frames-continue" id="toc-modifying-data-frames-continue" class="nav-link" data-scroll-target="#modifying-data-frames-continue"><span class="header-section-number">15.10</span> Modifying Data Frames (continue)</a>
   <ul class="collapse">
-  <li><a href="#addingdeleting-columns" id="toc-addingdeleting-columns" class="nav-link" data-scroll-target="#addingdeleting-columns">Adding/Deleting columns</a></li>
-  <li><a href="#renaming-a-column" id="toc-renaming-a-column" class="nav-link" data-scroll-target="#renaming-a-column">Renaming a column</a></li>
-  <li><a href="#moving-columnns" id="toc-moving-columnns" class="nav-link" data-scroll-target="#moving-columnns">Moving Columnns</a></li>
-  <li><a href="#transforming-columns" id="toc-transforming-columns" class="nav-link" data-scroll-target="#transforming-columns">Transforming Columns</a></li>
+  <li><a href="#addingdeleting-columns" id="toc-addingdeleting-columns" class="nav-link" data-scroll-target="#addingdeleting-columns"><span class="header-section-number">15.10.1</span> Adding/Deleting columns</a></li>
+  <li><a href="#renaming-a-column" id="toc-renaming-a-column" class="nav-link" data-scroll-target="#renaming-a-column"><span class="header-section-number">15.10.2</span> Renaming a column</a></li>
+  <li><a href="#moving-columnns" id="toc-moving-columnns" class="nav-link" data-scroll-target="#moving-columnns"><span class="header-section-number">15.10.3</span> Moving Columnns</a></li>
+  <li><a href="#transforming-columns" id="toc-transforming-columns" class="nav-link" data-scroll-target="#transforming-columns"><span class="header-section-number">15.10.4</span> Transforming Columns</a></li>
   </ul></li>
-  <li><a href="#creating-data-frames" id="toc-creating-data-frames" class="nav-link" data-scroll-target="#creating-data-frames">Creating Data Frames</a></li>
+  <li><a href="#creating-data-frames" id="toc-creating-data-frames" class="nav-link" data-scroll-target="#creating-data-frames"><span class="header-section-number">15.11</span> Creating Data Frames</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1-Intro/1-Intro.html">Part I: R Basic</a></li><li class="breadcrumb-item"><a href="../7-Dataframes/7-Dataframes.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Frames</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Data Frames</h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Frames</span></h1>
 </div>
 
 
@@ -197,8 +468,8 @@ window.Quarto = {
 </header>
 
 
-<section id="reading-assignments" class="level2">
-<h2 class="anchored" data-anchor-id="reading-assignments">Reading Assignments</h2>
+<section id="reading-assignments" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="reading-assignments"><span class="header-section-number">15.1</span> Reading Assignments</h2>
 <ul>
 <li><p>Please make sure you’ve read the following sections in the textbook: R Coding Basics, <a href="https://www.gastonsanchez.com/R-coding-basics/" class="uri">https://www.gastonsanchez.com/R-coding-basics/</a></p>
 <ul>
@@ -206,8 +477,8 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="why-data-frames" class="level2">
-<h2 class="anchored" data-anchor-id="why-data-frames">Why Data Frames?</h2>
+<section id="why-data-frames" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="why-data-frames"><span class="header-section-number">15.2</span> Why Data Frames?</h2>
 <ul>
 <li>Learning how to manipulate data frames is among the most important <em>data computing</em> skills in R.</li>
 <li>Two primary approaches for manipulating data frames:
@@ -217,8 +488,8 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="data-frames" class="level2">
-<h2 class="anchored" data-anchor-id="data-frames">Data Frames</h2>
+<section id="data-frames" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">15.3</span> Data Frames</h2>
 <ul>
 <li>A data frame is a special type of R <em>list</em>.</li>
 <li>In most cases, a data frame is internally stored as a list of vectors or factors, columnwise.</li>
@@ -260,8 +531,8 @@ window.Quarto = {
 #&gt; Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
 </div>
 </section>
-<section id="dimension-of-data-frames" class="level2">
-<h2 class="anchored" data-anchor-id="dimension-of-data-frames">Dimension of Data Frames</h2>
+<section id="dimension-of-data-frames" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="dimension-of-data-frames"><span class="header-section-number">15.4</span> Dimension of Data Frames</h2>
 <p>Check the Dimension of mtcars</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mtcars)</span>
@@ -273,8 +544,8 @@ window.Quarto = {
 </div>
 <p>There are 32 rows and 11 columns in <code>mtcars</code>.</p>
 </section>
-<section id="structure" class="level2">
-<h2 class="anchored" data-anchor-id="structure">Structure</h2>
+<section id="structure" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="structure"><span class="header-section-number">15.5</span> Structure</h2>
 <p>Show the structure or summary of <code>mtcars</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars)</span>
@@ -334,10 +605,10 @@ window.Quarto = {
 <span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "data.frame"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="names" class="level2">
-<h2 class="anchored" data-anchor-id="names">Names</h2>
-<section id="column-names" class="level3">
-<h3 class="anchored" data-anchor-id="column-names">Column Names</h3>
+<section id="names" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="names"><span class="header-section-number">15.6</span> Names</h2>
+<section id="column-names" class="level3" data-number="15.6.1">
+<h3 data-number="15.6.1" class="anchored" data-anchor-id="column-names"><span class="header-section-number">15.6.1</span> Column Names</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mtcars)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"</span></span>
@@ -347,8 +618,8 @@ window.Quarto = {
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] "carb"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="row-names" class="level3">
-<h3 class="anchored" data-anchor-id="row-names">Row Names</h3>
+<section id="row-names" class="level3" data-number="15.6.2">
+<h3 data-number="15.6.2" class="anchored" data-anchor-id="row-names"><span class="header-section-number">15.6.2</span> Row Names</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mtcars)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"         </span></span>
@@ -364,8 +635,8 @@ window.Quarto = {
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [31] "Maserati Bora"       "Volvo 142E"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="both-column-and-row-names" class="level3">
-<h3 class="anchored" data-anchor-id="both-column-and-row-names">Both Column and Row Names</h3>
+<section id="both-column-and-row-names" class="level3" data-number="15.6.3">
+<h3 data-number="15.6.3" class="anchored" data-anchor-id="both-column-and-row-names"><span class="header-section-number">15.6.3</span> Both Column and Row Names</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(mtcars)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
@@ -407,8 +678,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="sample" class="level2">
-<h2 class="anchored" data-anchor-id="sample">Sample</h2>
+<section id="sample" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="sample"><span class="header-section-number">15.7</span> Sample</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                    mpg cyl disp  hp drat    wt  qsec vs am gear carb</span></span>
@@ -444,8 +715,8 @@ window.Quarto = {
 <span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Volvo 142E    21.4   4  121 109 4.11 2.78 18.6  1  1    4    2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="selecting-elements-in-data-frames" class="level2">
-<h2 class="anchored" data-anchor-id="selecting-elements-in-data-frames">Selecting elements in Data Frames</h2>
+<section id="selecting-elements-in-data-frames" class="level2" data-number="15.8">
+<h2 data-number="15.8" class="anchored" data-anchor-id="selecting-elements-in-data-frames"><span class="header-section-number">15.8</span> Selecting elements in Data Frames</h2>
 <!-- Basic Operations with Data Frames -->
 <p>Use data.frame <code>dat</code> as an example below.</p>
 <div class="cell">
@@ -463,8 +734,8 @@ window.Quarto = {
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 Luke   male   1.72  TRUE</span></span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  Han   male   1.80 FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="select-cellrowcolumn-rightarrow-similar-to-matrix-operations" class="level3">
-<h3 class="anchored" data-anchor-id="select-cellrowcolumn-rightarrow-similar-to-matrix-operations">Select Cell/Row/Column <span class="math inline">\(\Rightarrow\)</span> similar to matrix operations</h3>
+<section id="select-cellrowcolumn-rightarrow-similar-to-matrix-operations" class="level3" data-number="15.8.1">
+<h3 data-number="15.8.1" class="anchored" data-anchor-id="select-cellrowcolumn-rightarrow-similar-to-matrix-operations"><span class="header-section-number">15.8.1</span> Select Cell/Row/Column <span class="math inline">\(\Rightarrow\)</span> similar to matrix operations</h3>
 <p><code>dataframe[RowIndex, ColIndex]</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select value in row 1 and column 1</span></span>
@@ -501,10 +772,10 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="modifying-data-frames" class="level2">
-<h2 class="anchored" data-anchor-id="modifying-data-frames">Modifying Data Frames</h2>
-<section id="temporarily-vs-permanently-modifying-the-values" class="level3">
-<h3 class="anchored" data-anchor-id="temporarily-vs-permanently-modifying-the-values">Temporarily vs Permanently Modifying the Values</h3>
+<section id="modifying-data-frames" class="level2" data-number="15.9">
+<h2 data-number="15.9" class="anchored" data-anchor-id="modifying-data-frames"><span class="header-section-number">15.9</span> Modifying Data Frames</h2>
+<section id="temporarily-vs-permanently-modifying-the-values" class="level3" data-number="15.9.1">
+<h3 data-number="15.9.1" class="anchored" data-anchor-id="temporarily-vs-permanently-modifying-the-values"><span class="header-section-number">15.9.1</span> Temporarily vs Permanently Modifying the Values</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>dat[, <span class="sc">-</span><span class="dv">1</span>]</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   gender height  jedi</span></span>
@@ -554,10 +825,10 @@ window.Quarto = {
 </section>
 </section>
 </section>
-<section id="modifying-data-frames-continue" class="level2">
-<h2 class="anchored" data-anchor-id="modifying-data-frames-continue">Modifying Data Frames (continue)</h2>
-<section id="addingdeleting-columns" class="level3">
-<h3 class="anchored" data-anchor-id="addingdeleting-columns">Adding/Deleting columns</h3>
+<section id="modifying-data-frames-continue" class="level2" data-number="15.10">
+<h2 data-number="15.10" class="anchored" data-anchor-id="modifying-data-frames-continue"><span class="header-section-number">15.10</span> Modifying Data Frames (continue)</h2>
+<section id="addingdeleting-columns" class="level3" data-number="15.10.1">
+<h3 data-number="15.10.1" class="anchored" data-anchor-id="addingdeleting-columns"><span class="header-section-number">15.10.1</span> Adding/Deleting columns</h3>
 <p><strong>Adding Columns Method I:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>new_column <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'a'</span>, <span class="st">'e'</span>, <span class="st">'i'</span>)</span>
@@ -586,8 +857,8 @@ window.Quarto = {
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="renaming-a-column" class="level3">
-<h3 class="anchored" data-anchor-id="renaming-a-column">Renaming a column</h3>
+<section id="renaming-a-column" class="level3" data-number="15.10.2">
+<h3 data-number="15.10.2" class="anchored" data-anchor-id="renaming-a-column"><span class="header-section-number">15.10.2</span> Renaming a column</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(dat)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "name"       "gender"     "height"     "jedi"       "weight"    </span></span>
@@ -604,8 +875,8 @@ window.Quarto = {
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#names(dat)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="moving-columnns" class="level3">
-<h3 class="anchored" data-anchor-id="moving-columnns">Moving Columnns</h3>
+<section id="moving-columnns" class="level3" data-number="15.10.3">
+<h3 data-number="15.10.3" class="anchored" data-anchor-id="moving-columnns"><span class="header-section-number">15.10.3</span> Moving Columnns</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>reordered_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"name"</span>, <span class="st">"jedi"</span>, <span class="st">"height"</span>, <span class="st">"weight"</span>, <span class="st">"sex"</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat[ ,reordered_names]</span>
@@ -616,8 +887,8 @@ window.Quarto = {
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  Han FALSE   1.80     85   male</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="transforming-columns" class="level3">
-<h3 class="anchored" data-anchor-id="transforming-columns">Transforming Columns</h3>
+<section id="transforming-columns" class="level3" data-number="15.10.4">
+<h3 data-number="15.10.4" class="anchored" data-anchor-id="transforming-columns"><span class="header-section-number">15.10.4</span> Transforming Columns</h3>
 <p>Recall 1 kg = 2.20462 pounds (i.e.&nbsp;1 pounds = 0.453592 kg)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>height <span class="ot">&lt;-</span> dat<span class="sc">$</span>height <span class="sc">*</span> <span class="dv">100</span> <span class="co"># converting height to centimeters</span></span>
@@ -628,8 +899,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="creating-data-frames" class="level2">
-<h2 class="anchored" data-anchor-id="creating-data-frames">Creating Data Frames</h2>
+<section id="creating-data-frames" class="level2" data-number="15.11">
+<h2 data-number="15.11" class="anchored" data-anchor-id="creating-data-frames"><span class="header-section-number">15.11</span> Creating Data Frames</h2>
 <p>Majority of the time, data frames are read from external data files, or are built-in data frames in R packages.</p>
 <p>From time to time, you need to create some data table manually.</p>
 <ul>
@@ -657,8 +928,8 @@ window.Quarto = {
 <span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ height: num  1.88 1.65 1.72 1.5</span></span>
 <span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ weight: num  84 45 77 49</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="for-comparison-purpose" class="level4">
-<h4 class="anchored" data-anchor-id="for-comparison-purpose">For comparison purpose</h4>
+<section id="for-comparison-purpose" class="level4" data-number="15.11.0.1">
+<h4 data-number="15.11.0.1" class="anchored" data-anchor-id="for-comparison-purpose"><span class="header-section-number">15.11.0.1</span> For comparison purpose</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># If stringsAsFactors = FALSE</span></span>
@@ -705,8 +976,8 @@ window.Quarto = {
 <span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ weight: num  84 45 77 49</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="stringsasfactors" class="level4">
-<h4 class="anchored" data-anchor-id="stringsasfactors"><code>stringsAsFactors</code></h4>
+<section id="stringsasfactors" class="level4" data-number="15.11.0.2">
+<h4 data-number="15.11.0.2" class="anchored" data-anchor-id="stringsasfactors"><span class="header-section-number">15.11.0.2</span> <code>stringsAsFactors</code></h4>
 <ul>
 <li><code>= TRUE</code>: Convert character vectors into factors <em>(default option in older R)</em></li>
 <li><code>= FALSE</code>: Prevent data.frame() from converting strings into factors <em>(default option in newer R)</em></li>
@@ -810,7 +1081,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/ycjiaweijia\.github\.io\/F24STAT385\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1138,6 +1409,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../6-Lists/6-Lists.html" class="pagination-link" aria-label="Lists">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Lists</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../Quiz7/Quiz7.html" class="pagination-link" aria-label="Quiz 7 Instructions">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quiz 7 Instructions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

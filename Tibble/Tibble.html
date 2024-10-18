@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Tidyverse and Tibbles</title>
+<title>32&nbsp; Introduction to Tidyverse and Tibbles – STAT 385 Statistical Programming Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,6 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../Quiz14/Quiz14.html" rel="next">
+<link href="../Lab6/Lab6.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,11 +75,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -132,76 +134,345 @@ window.Quarto = {
 
 </head>
 
-<body>
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">STAT 385 Statistical Programming Methods</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Lab5HelpDoc/Lab5HelpDoc.html">Part II: R Tidyverse</a></li><li class="breadcrumb-item"><a href="../Tibble/Tibble.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Introduction to Tidyverse and Tibbles</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Part I: R Basic</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1-Intro/1-Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R, RStudio, and R Packages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab0/Lab0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lab 0 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz1/Quiz1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quiz 1 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2-Vector/2-Vector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vector Basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz2/Quiz2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Quiz 2 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../3-MoreVectors/3-MoreVectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">More About Vectors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz3/Quiz3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Quiz 3 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab1/Lab1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab 1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../4-Factors/4-Factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Factors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz4/Quiz4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quiz 4 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../5-Matrix/5-Matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Matrices and Arrays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz5/Quiz5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quiz 5 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab2/Lab2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Lab 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../6-Lists/6-Lists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7-Dataframes/7-Dataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Data Frames</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz7/Quiz7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quiz 7 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab3/Lab3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Lab 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8-Functions_Expressions/8-Functions_Expressions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Functions and Expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz8/Quiz8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Quiz 8 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../9-Conditions_and_For_Loop/9-Conditions_and_For_Loop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Conditions and For Loop</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz9/Quiz9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quiz 9 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../10-whileloop/10-whileloop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">While Loop and More about Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab4/Lab4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lab 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../11-ImportExport/11-ImportExport.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Import and Export</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz11/Quiz11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Quiz 11 Instructions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../12-BaseRGraphics/12-BaseRGraphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Functions for Base R Graphics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz12/Quiz12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Quiz 12 Instructions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part II: R Tidyverse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab5HelpDoc/Lab5HelpDoc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Vectorization Help Document</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab5/Lab5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Lab 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab6HelpDoc/Lab6HelpDoc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">STAT 385 Lab 5 Help Document: Illustrate S3 System – U of I Women’s Basketball Team example</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Lab6/Lab6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Lab 6 – S3 for Workshop Participants Instruction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tibble/Tibble.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Introduction to Tidyverse and Tibbles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Quiz14/Quiz14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Quiz 14 Instructions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Part III: R Shiny</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction-to-tidyverse" id="toc-introduction-to-tidyverse" class="nav-link active" data-scroll-target="#introduction-to-tidyverse">Introduction to Tidyverse</a></li>
-  <li><a href="#install-and-load-tidyverse" id="toc-install-and-load-tidyverse" class="nav-link" data-scroll-target="#install-and-load-tidyverse">Install and Load Tidyverse</a></li>
-  <li><a href="#syntax-comparison-base-r-vs-tidyverse" id="toc-syntax-comparison-base-r-vs-tidyverse" class="nav-link" data-scroll-target="#syntax-comparison-base-r-vs-tidyverse">Syntax Comparison: Base R vs Tidyverse</a></li>
-  <li><a href="#syntax-comparison-base-r-vs-tidyverse-1" id="toc-syntax-comparison-base-r-vs-tidyverse-1" class="nav-link" data-scroll-target="#syntax-comparison-base-r-vs-tidyverse-1">Syntax Comparison: Base R vs Tidyverse</a>
+  <li><a href="#introduction-to-tidyverse" id="toc-introduction-to-tidyverse" class="nav-link active" data-scroll-target="#introduction-to-tidyverse"><span class="header-section-number">32.1</span> Introduction to Tidyverse</a></li>
+  <li><a href="#install-and-load-tidyverse" id="toc-install-and-load-tidyverse" class="nav-link" data-scroll-target="#install-and-load-tidyverse"><span class="header-section-number">32.2</span> Install and Load Tidyverse</a></li>
+  <li><a href="#syntax-comparison-base-r-vs-tidyverse" id="toc-syntax-comparison-base-r-vs-tidyverse" class="nav-link" data-scroll-target="#syntax-comparison-base-r-vs-tidyverse"><span class="header-section-number">32.3</span> Syntax Comparison: Base R vs Tidyverse</a></li>
+  <li><a href="#syntax-comparison-base-r-vs-tidyverse-1" id="toc-syntax-comparison-base-r-vs-tidyverse-1" class="nav-link" data-scroll-target="#syntax-comparison-base-r-vs-tidyverse-1"><span class="header-section-number">32.4</span> Syntax Comparison: Base R vs Tidyverse</a>
   <ul class="collapse">
-  <li><a href="#base-r-syntax" id="toc-base-r-syntax" class="nav-link" data-scroll-target="#base-r-syntax">Base R syntax</a></li>
-  <li><a href="#tidyverse-syntax" id="toc-tidyverse-syntax" class="nav-link" data-scroll-target="#tidyverse-syntax">Tidyverse syntax</a></li>
+  <li><a href="#base-r-syntax" id="toc-base-r-syntax" class="nav-link" data-scroll-target="#base-r-syntax"><span class="header-section-number">32.4.1</span> Base R syntax</a></li>
+  <li><a href="#tidyverse-syntax" id="toc-tidyverse-syntax" class="nav-link" data-scroll-target="#tidyverse-syntax"><span class="header-section-number">32.4.2</span> Tidyverse syntax</a></li>
   </ul></li>
-  <li><a href="#tidyverse-syntax-and-pipe-operator" id="toc-tidyverse-syntax-and-pipe-operator" class="nav-link" data-scroll-target="#tidyverse-syntax-and-pipe-operator">Tidyverse Syntax and Pipe Operator</a></li>
-  <li><a href="#check-missing-values" id="toc-check-missing-values" class="nav-link" data-scroll-target="#check-missing-values">Check Missing Values</a></li>
-  <li><a href="#wrangling-graphing-in-tidyverse" id="toc-wrangling-graphing-in-tidyverse" class="nav-link" data-scroll-target="#wrangling-graphing-in-tidyverse">Wrangling &amp; Graphing in Tidyverse</a>
+  <li><a href="#tidyverse-syntax-and-pipe-operator" id="toc-tidyverse-syntax-and-pipe-operator" class="nav-link" data-scroll-target="#tidyverse-syntax-and-pipe-operator"><span class="header-section-number">32.5</span> Tidyverse Syntax and Pipe Operator</a></li>
+  <li><a href="#check-missing-values" id="toc-check-missing-values" class="nav-link" data-scroll-target="#check-missing-values"><span class="header-section-number">32.6</span> Check Missing Values</a></li>
+  <li><a href="#wrangling-graphing-in-tidyverse" id="toc-wrangling-graphing-in-tidyverse" class="nav-link" data-scroll-target="#wrangling-graphing-in-tidyverse"><span class="header-section-number">32.7</span> Wrangling &amp; Graphing in Tidyverse</a>
   <ul class="collapse">
-  <li><a href="#or-equivalently" id="toc-or-equivalently" class="nav-link" data-scroll-target="#or-equivalently">Or equivalently,</a></li>
+  <li><a href="#or-equivalently" id="toc-or-equivalently" class="nav-link" data-scroll-target="#or-equivalently"><span class="header-section-number">32.7.1</span> Or equivalently,</a></li>
   </ul></li>
-  <li><a href="#tibbles" id="toc-tibbles" class="nav-link" data-scroll-target="#tibbles">Tibbles</a></li>
-  <li><a href="#tibble-vs-data-frame" id="toc-tibble-vs-data-frame" class="nav-link" data-scroll-target="#tibble-vs-data-frame">Tibble vs Data Frame</a></li>
-  <li><a href="#tibble-vs-data-frame-creating-import-a-csv-file" id="toc-tibble-vs-data-frame-creating-import-a-csv-file" class="nav-link" data-scroll-target="#tibble-vs-data-frame-creating-import-a-csv-file">Tibble vs Data Frame – Creating (Import a CSV File)</a></li>
-  <li><a href="#tibble-vs-data-frame-creating-construct-a-data-frame-by-columns" id="toc-tibble-vs-data-frame-creating-construct-a-data-frame-by-columns" class="nav-link" data-scroll-target="#tibble-vs-data-frame-creating-construct-a-data-frame-by-columns">Tibble vs Data Frame – Creating (Construct a Data Frame by Columns)</a>
+  <li><a href="#tibbles" id="toc-tibbles" class="nav-link" data-scroll-target="#tibbles"><span class="header-section-number">32.8</span> Tibbles</a></li>
+  <li><a href="#tibble-vs-data-frame" id="toc-tibble-vs-data-frame" class="nav-link" data-scroll-target="#tibble-vs-data-frame"><span class="header-section-number">32.9</span> Tibble vs Data Frame</a></li>
+  <li><a href="#tibble-vs-data-frame-creating-import-a-csv-file" id="toc-tibble-vs-data-frame-creating-import-a-csv-file" class="nav-link" data-scroll-target="#tibble-vs-data-frame-creating-import-a-csv-file"><span class="header-section-number">32.10</span> Tibble vs Data Frame – Creating (Import a CSV File)</a></li>
+  <li><a href="#tibble-vs-data-frame-creating-construct-a-data-frame-by-columns" id="toc-tibble-vs-data-frame-creating-construct-a-data-frame-by-columns" class="nav-link" data-scroll-target="#tibble-vs-data-frame-creating-construct-a-data-frame-by-columns"><span class="header-section-number">32.11</span> Tibble vs Data Frame – Creating (Construct a Data Frame by Columns)</a>
   <ul class="collapse">
-  <li><a href="#data-frame" id="toc-data-frame" class="nav-link" data-scroll-target="#data-frame">Data frame</a></li>
-  <li><a href="#tibble" id="toc-tibble" class="nav-link" data-scroll-target="#tibble">Tibble</a></li>
+  <li><a href="#data-frame" id="toc-data-frame" class="nav-link" data-scroll-target="#data-frame"><span class="header-section-number">32.11.1</span> Data frame</a></li>
+  <li><a href="#tibble" id="toc-tibble" class="nav-link" data-scroll-target="#tibble"><span class="header-section-number">32.11.2</span> Tibble</a></li>
   </ul></li>
-  <li><a href="#tibble-vs-data-frame-coercion" id="toc-tibble-vs-data-frame-coercion" class="nav-link" data-scroll-target="#tibble-vs-data-frame-coercion">Tibble vs Data Frame – Coercion</a>
+  <li><a href="#tibble-vs-data-frame-coercion" id="toc-tibble-vs-data-frame-coercion" class="nav-link" data-scroll-target="#tibble-vs-data-frame-coercion"><span class="header-section-number">32.12</span> Tibble vs Data Frame – Coercion</a>
   <ul class="collapse">
-  <li><a href="#data-frame-to-tibble" id="toc-data-frame-to-tibble" class="nav-link" data-scroll-target="#data-frame-to-tibble">Data Frame to Tibble</a></li>
-  <li><a href="#tibble-to-data-frame" id="toc-tibble-to-data-frame" class="nav-link" data-scroll-target="#tibble-to-data-frame">Tibble to Data Frame</a></li>
+  <li><a href="#data-frame-to-tibble" id="toc-data-frame-to-tibble" class="nav-link" data-scroll-target="#data-frame-to-tibble"><span class="header-section-number">32.12.1</span> Data Frame to Tibble</a></li>
+  <li><a href="#tibble-to-data-frame" id="toc-tibble-to-data-frame" class="nav-link" data-scroll-target="#tibble-to-data-frame"><span class="header-section-number">32.12.2</span> Tibble to Data Frame</a></li>
   </ul></li>
-  <li><a href="#tibble-vs-data-frame-printing" id="toc-tibble-vs-data-frame-printing" class="nav-link" data-scroll-target="#tibble-vs-data-frame-printing">Tibble vs Data Frame – printing</a>
+  <li><a href="#tibble-vs-data-frame-printing" id="toc-tibble-vs-data-frame-printing" class="nav-link" data-scroll-target="#tibble-vs-data-frame-printing"><span class="header-section-number">32.13</span> Tibble vs Data Frame – printing</a>
   <ul class="collapse">
-  <li><a href="#data-frame-1" id="toc-data-frame-1" class="nav-link" data-scroll-target="#data-frame-1">Data Frame</a></li>
-  <li><a href="#tibble-1" id="toc-tibble-1" class="nav-link" data-scroll-target="#tibble-1">Tibble</a></li>
+  <li><a href="#data-frame-1" id="toc-data-frame-1" class="nav-link" data-scroll-target="#data-frame-1"><span class="header-section-number">32.13.1</span> Data Frame</a></li>
+  <li><a href="#tibble-1" id="toc-tibble-1" class="nav-link" data-scroll-target="#tibble-1"><span class="header-section-number">32.13.2</span> Tibble</a></li>
   </ul></li>
-  <li><a href="#tibble-vs-data-frame-subsetting" id="toc-tibble-vs-data-frame-subsetting" class="nav-link" data-scroll-target="#tibble-vs-data-frame-subsetting">Tibble vs Data Frame – Subsetting</a>
+  <li><a href="#tibble-vs-data-frame-subsetting" id="toc-tibble-vs-data-frame-subsetting" class="nav-link" data-scroll-target="#tibble-vs-data-frame-subsetting"><span class="header-section-number">32.14</span> Tibble vs Data Frame – Subsetting</a>
   <ul class="collapse">
-  <li><a href="#recall-subsetting-in-data-frame" id="toc-recall-subsetting-in-data-frame" class="nav-link" data-scroll-target="#recall-subsetting-in-data-frame">Recall Subsetting in Data Frame</a></li>
-  <li><a href="#subsetting-in-tibble-distinguish-and-in-tibble" id="toc-subsetting-in-tibble-distinguish-and-in-tibble" class="nav-link" data-scroll-target="#subsetting-in-tibble-distinguish-and-in-tibble">Subsetting in tibble – distinguish [] and [[]] in tibble</a></li>
+  <li><a href="#recall-subsetting-in-data-frame" id="toc-recall-subsetting-in-data-frame" class="nav-link" data-scroll-target="#recall-subsetting-in-data-frame"><span class="header-section-number">32.14.1</span> Recall Subsetting in Data Frame</a></li>
+  <li><a href="#subsetting-in-tibble-distinguish-and-in-tibble" id="toc-subsetting-in-tibble-distinguish-and-in-tibble" class="nav-link" data-scroll-target="#subsetting-in-tibble-distinguish-and-in-tibble"><span class="header-section-number">32.14.2</span> Subsetting in tibble – distinguish [] and [[]] in tibble</a></li>
   </ul></li>
-  <li><a href="#tibble-vs-data-frame-recycling" id="toc-tibble-vs-data-frame-recycling" class="nav-link" data-scroll-target="#tibble-vs-data-frame-recycling">Tibble vs Data Frame – Recycling</a>
+  <li><a href="#tibble-vs-data-frame-recycling" id="toc-tibble-vs-data-frame-recycling" class="nav-link" data-scroll-target="#tibble-vs-data-frame-recycling"><span class="header-section-number">32.15</span> Tibble vs Data Frame – Recycling</a>
   <ul class="collapse">
-  <li><a href="#data-frames-recycling-rule-is-applied-automatically" id="toc-data-frames-recycling-rule-is-applied-automatically" class="nav-link" data-scroll-target="#data-frames-recycling-rule-is-applied-automatically">Data frames – recycling rule is applied automatically</a></li>
-  <li><a href="#tibble-only-values-of-length-1-are-recycled" id="toc-tibble-only-values-of-length-1-are-recycled" class="nav-link" data-scroll-target="#tibble-only-values-of-length-1-are-recycled">Tibble – only values of length 1 are recycled</a></li>
+  <li><a href="#data-frames-recycling-rule-is-applied-automatically" id="toc-data-frames-recycling-rule-is-applied-automatically" class="nav-link" data-scroll-target="#data-frames-recycling-rule-is-applied-automatically"><span class="header-section-number">32.15.1</span> Data frames – recycling rule is applied automatically</a></li>
+  <li><a href="#tibble-only-values-of-length-1-are-recycled" id="toc-tibble-only-values-of-length-1-are-recycled" class="nav-link" data-scroll-target="#tibble-only-values-of-length-1-are-recycled"><span class="header-section-number">32.15.2</span> Tibble – only values of length 1 are recycled</a></li>
   </ul></li>
-  <li><a href="#tibble-vs-data-frame-row-names" id="toc-tibble-vs-data-frame-row-names" class="nav-link" data-scroll-target="#tibble-vs-data-frame-row-names">Tibble vs Data Frame – Row Names</a>
+  <li><a href="#tibble-vs-data-frame-row-names" id="toc-tibble-vs-data-frame-row-names" class="nav-link" data-scroll-target="#tibble-vs-data-frame-row-names"><span class="header-section-number">32.16</span> Tibble vs Data Frame – Row Names</a>
   <ul class="collapse">
-  <li><a href="#data-frames-accept-assigned-row-names" id="toc-data-frames-accept-assigned-row-names" class="nav-link" data-scroll-target="#data-frames-accept-assigned-row-names">Data frames accept assigned row names</a></li>
-  <li><a href="#tibbles-dont-accept-assigned-row-names" id="toc-tibbles-dont-accept-assigned-row-names" class="nav-link" data-scroll-target="#tibbles-dont-accept-assigned-row-names">Tibbles don’t accept assigned row names</a></li>
+  <li><a href="#data-frames-accept-assigned-row-names" id="toc-data-frames-accept-assigned-row-names" class="nav-link" data-scroll-target="#data-frames-accept-assigned-row-names"><span class="header-section-number">32.16.1</span> Data frames accept assigned row names</a></li>
+  <li><a href="#tibbles-dont-accept-assigned-row-names" id="toc-tibbles-dont-accept-assigned-row-names" class="nav-link" data-scroll-target="#tibbles-dont-accept-assigned-row-names"><span class="header-section-number">32.16.2</span> Tibbles don’t accept assigned row names</a></li>
   </ul></li>
-  <li><a href="#more-motivation" id="toc-more-motivation" class="nav-link" data-scroll-target="#more-motivation">More motivation</a></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
+  <li><a href="#more-motivation" id="toc-more-motivation" class="nav-link" data-scroll-target="#more-motivation"><span class="header-section-number">32.17</span> More motivation</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">32.18</span> Reference</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Lab5HelpDoc/Lab5HelpDoc.html">Part II: R Tidyverse</a></li><li class="breadcrumb-item"><a href="../Tibble/Tibble.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Introduction to Tidyverse and Tibbles</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Introduction to Tidyverse and Tibbles</h1>
+<h1 class="title"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Introduction to Tidyverse and Tibbles</span></h1>
 </div>
 
 
@@ -218,8 +489,9 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction-to-tidyverse" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-to-tidyverse">Introduction to Tidyverse</h2>
+<hr>
+<section id="introduction-to-tidyverse" class="level2" data-number="32.1">
+<h2 data-number="32.1" class="anchored" data-anchor-id="introduction-to-tidyverse"><span class="header-section-number">32.1</span> Introduction to Tidyverse</h2>
 <ul>
 <li><p>Tidyverse is <strong>an collection of R packages</strong> designed for data science, including <strong>ggplot2</strong>, <strong>tibble</strong>, <strong>dplyr</strong>, <strong>tidyr</strong>, <strong>readr</strong>, <strong>stringr</strong>, etc.</p></li>
 <li><p>ggplot2 <span class="math inline">\(\rightarrow\)</span> for data visualization</p></li>
@@ -240,8 +512,8 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="install-and-load-tidyverse" class="level2">
-<h2 class="anchored" data-anchor-id="install-and-load-tidyverse">Install and Load Tidyverse</h2>
+<section id="install-and-load-tidyverse" class="level2" data-number="32.2">
+<h2 data-number="32.2" class="anchored" data-anchor-id="install-and-load-tidyverse"><span class="header-section-number">32.2</span> Install and Load Tidyverse</h2>
 <p>Please install and load the <code>tidyverse</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
@@ -254,58 +526,59 @@ window.Quarto = {
 </div>
 <p>Once you’re done, let’s start the journey!</p>
 </section>
-<section id="syntax-comparison-base-r-vs-tidyverse" class="level2">
-<h2 class="anchored" data-anchor-id="syntax-comparison-base-r-vs-tidyverse">Syntax Comparison: Base R vs Tidyverse</h2>
+<section id="syntax-comparison-base-r-vs-tidyverse" class="level2" data-number="32.3">
+<h2 data-number="32.3" class="anchored" data-anchor-id="syntax-comparison-base-r-vs-tidyverse"><span class="header-section-number">32.3</span> Syntax Comparison: Base R vs Tidyverse</h2>
 <p>Let’s use the <em>mpg</em> tibble in ggplot2. Please refer to <code>help(mpg)</code> for the variable definitions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package 'tidyverse' was built under R version 4.3.3</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ dplyr     1.1.4     ✔ readr     2.1.5</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.1</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ ggplot2   3.4.4     ✔ tibble    3.2.1</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ lubridate 1.9.3     ✔ tidyr     1.3.1</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ purrr     1.0.2     </span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mpg)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tibble [234 × 11] (S3: tbl_df/tbl/data.frame)</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ manufacturer: chr [1:234] "audi" "audi" "audi" "audi" ...</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ model       : chr [1:234] "a4" "a4" "a4" "a4" ...</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ trans       : chr [1:234] "auto(l5)" "manual(m5)" "manual(m6)" "auto(av)" ...</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ drv         : chr [1:234] "f" "f" "f" "f" ...</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ fl          : chr [1:234] "p" "p" "p" "p" ...</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ class       : chr [1:234] "compact" "compact" "compact" "compact" ...</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mpg) <span class="co"># glimpse() is the counterpart in dplyr of str()</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Rows: 234</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Columns: 11</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ manufacturer &lt;chr&gt; "audi", "audi", "audi", "audi", "audi", "audi", "audi", "…</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ model        &lt;chr&gt; "a4", "a4", "a4", "a4", "a4", "a4", "a4", "a4 quattro", "…</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ displ        &lt;dbl&gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.…</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ year         &lt;int&gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200…</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ cyl          &lt;int&gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, …</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ trans        &lt;chr&gt; "auto(l5)", "manual(m5)", "manual(m6)", "auto(av)", "auto…</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ drv          &lt;chr&gt; "f", "f", "f", "f", "f", "f", "f", "4", "4", "4", "4", "4…</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ cty          &lt;int&gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1…</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ hwy          &lt;int&gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2…</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ fl           &lt;chr&gt; "p", "p", "p", "p", "p", "p", "p", "p", "p", "p", "p", "p…</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ class        &lt;chr&gt; "compact", "compact", "compact", "compact", "compact", "c…</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: package 'ggplot2' was built under R version 4.3.3</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ dplyr     1.1.4     ✔ readr     2.1.5</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.1</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ ggplot2   3.5.1     ✔ tibble    3.2.1</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ lubridate 1.9.3     ✔ tidyr     1.3.1</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ purrr     1.0.2     </span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mpg)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; tibble [234 × 11] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ manufacturer: chr [1:234] "audi" "audi" "audi" "audi" ...</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ model       : chr [1:234] "a4" "a4" "a4" "a4" ...</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ trans       : chr [1:234] "auto(l5)" "manual(m5)" "manual(m6)" "auto(av)" ...</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ drv         : chr [1:234] "f" "f" "f" "f" ...</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ fl          : chr [1:234] "p" "p" "p" "p" ...</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ class       : chr [1:234] "compact" "compact" "compact" "compact" ...</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mpg) <span class="co"># glimpse() is the counterpart in dplyr of str()</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Rows: 234</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Columns: 11</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ manufacturer &lt;chr&gt; "audi", "audi", "audi", "audi", "audi", "audi", "audi", "…</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ model        &lt;chr&gt; "a4", "a4", "a4", "a4", "a4", "a4", "a4", "a4 quattro", "…</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ displ        &lt;dbl&gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.…</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ year         &lt;int&gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200…</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ cyl          &lt;int&gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, …</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ trans        &lt;chr&gt; "auto(l5)", "manual(m5)", "manual(m6)", "auto(av)", "auto…</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ drv          &lt;chr&gt; "f", "f", "f", "f", "f", "f", "f", "4", "4", "4", "4", "4…</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ cty          &lt;int&gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1…</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ hwy          &lt;int&gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2…</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ fl           &lt;chr&gt; "p", "p", "p", "p", "p", "p", "p", "p", "p", "p", "p", "p…</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ class        &lt;chr&gt; "compact", "compact", "compact", "compact", "compact", "c…</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span style="     color: rgba(22, 150, 210, 255) !important;">Example 1</span> What types of vehicles did <strong>dodge</strong> produce from the <em>mpg</em> data?</p>
 </section>
-<section id="syntax-comparison-base-r-vs-tidyverse-1" class="level2">
-<h2 class="anchored" data-anchor-id="syntax-comparison-base-r-vs-tidyverse-1">Syntax Comparison: Base R vs Tidyverse</h2>
+<section id="syntax-comparison-base-r-vs-tidyverse-1" class="level2" data-number="32.4">
+<h2 data-number="32.4" class="anchored" data-anchor-id="syntax-comparison-base-r-vs-tidyverse-1"><span class="header-section-number">32.4</span> Syntax Comparison: Base R vs Tidyverse</h2>
 <p><span style="     color: rgba(22, 150, 210, 255) !important;">Example 1</span> What types of vehicles did <strong>dodge</strong> produce from the <em>mpg</em> data?</p>
-<section id="base-r-syntax" class="level3">
-<h3 class="anchored" data-anchor-id="base-r-syntax">Base R syntax</h3>
+<section id="base-r-syntax" class="level3" data-number="32.4.1">
+<h3 data-number="32.4.1" class="anchored" data-anchor-id="base-r-syntax"><span class="header-section-number">32.4.1</span> Base R syntax</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(mpg[mpg<span class="sc">$</span>manufacturer <span class="sc">==</span> <span class="st">"dodge"</span>, <span class="st">"class"</span>])</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 1</span></span>
@@ -317,8 +590,8 @@ window.Quarto = {
 </div>
 <p>Fine, but a little awkward.</p>
 </section>
-<section id="tidyverse-syntax" class="level3">
-<h3 class="anchored" data-anchor-id="tidyverse-syntax">Tidyverse syntax</h3>
+<section id="tidyverse-syntax" class="level3" data-number="32.4.2">
+<h3 data-number="32.4.2" class="anchored" data-anchor-id="tidyverse-syntax"><span class="header-section-number">32.4.2</span> Tidyverse syntax</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">filter</span>(manufacturer <span class="sc">==</span> <span class="st">"dodge"</span>) <span class="sc">%&gt;%</span></span>
@@ -340,8 +613,8 @@ window.Quarto = {
 <!-- ``` -->
 </section>
 </section>
-<section id="tidyverse-syntax-and-pipe-operator" class="level2">
-<h2 class="anchored" data-anchor-id="tidyverse-syntax-and-pipe-operator">Tidyverse Syntax and Pipe Operator</h2>
+<section id="tidyverse-syntax-and-pipe-operator" class="level2" data-number="32.5">
+<h2 data-number="32.5" class="anchored" data-anchor-id="tidyverse-syntax-and-pipe-operator"><span class="header-section-number">32.5</span> Tidyverse Syntax and Pipe Operator</h2>
 <p>The <strong>pipe operator</strong> <code>%&gt;%</code> is used to build the pipeline.</p>
 <ul>
 <li><p>You could interpret <code>%&gt;%</code> as <em>then</em></p></li>
@@ -356,8 +629,8 @@ window.Quarto = {
 <li><code>%&gt;%</code> has to come at the end of the line, not the start.</li>
 </ul>
 </section>
-<section id="check-missing-values" class="level2">
-<h2 class="anchored" data-anchor-id="check-missing-values">Check Missing Values</h2>
+<section id="check-missing-values" class="level2" data-number="32.6">
+<h2 data-number="32.6" class="anchored" data-anchor-id="check-missing-values"><span class="header-section-number">32.6</span> Check Missing Values</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">everything</span>()) <span class="sc">%&gt;%</span> <span class="co"># use everything() to select all variables</span></span>
@@ -369,8 +642,8 @@ window.Quarto = {
 </div>
 <!-- ## Exercise 1 -->
 </section>
-<section id="wrangling-graphing-in-tidyverse" class="level2">
-<h2 class="anchored" data-anchor-id="wrangling-graphing-in-tidyverse">Wrangling &amp; Graphing in Tidyverse</h2>
+<section id="wrangling-graphing-in-tidyverse" class="level2" data-number="32.7">
+<h2 data-number="32.7" class="anchored" data-anchor-id="wrangling-graphing-in-tidyverse"><span class="header-section-number">32.7</span> Wrangling &amp; Graphing in Tidyverse</h2>
 <p>Chain the tidyverse pipeline into the <code>ggplot</code> function.</p>
 <!-- ```{r} -->
 <!-- summary(mpg) -->
@@ -390,8 +663,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<section id="or-equivalently" class="level3">
-<h3 class="anchored" data-anchor-id="or-equivalently">Or equivalently,</h3>
+<section id="or-equivalently" class="level3" data-number="32.7.1">
+<h3 data-number="32.7.1" class="anchored" data-anchor-id="or-equivalently"><span class="header-section-number">32.7.1</span> Or equivalently,</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Data wrangling part </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mpg_dodge <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
@@ -411,14 +684,14 @@ window.Quarto = {
 <!-- ## Exercise 2 -->
 </section>
 </section>
-<section id="tibbles" class="level2">
-<h2 class="anchored" data-anchor-id="tibbles">Tibbles</h2>
+<section id="tibbles" class="level2" data-number="32.8">
+<h2 data-number="32.8" class="anchored" data-anchor-id="tibbles"><span class="header-section-number">32.8</span> Tibbles</h2>
 <p><code>tidyverse</code> mainly deals with <code>tibble</code> instead of <code>data.frame</code>. Therefore this is where we start.</p>
 <p><code>tibble</code> is a <code>data.frame</code> with different attributes and requirements. The package <code>tibble</code> provides support for <code>tibble</code>. It is included in <code>tidyverse</code>.</p>
 <!-- All the following information is from `vignette("tibble")`. Refer to it for more details. -->
 </section>
-<section id="tibble-vs-data-frame" class="level2">
-<h2 class="anchored" data-anchor-id="tibble-vs-data-frame">Tibble vs Data Frame</h2>
+<section id="tibble-vs-data-frame" class="level2" data-number="32.9">
+<h2 data-number="32.9" class="anchored" data-anchor-id="tibble-vs-data-frame"><span class="header-section-number">32.9</span> Tibble vs Data Frame</h2>
 <ul>
 <li>Tibbles are enhanced data frames.</li>
 <li>Tibbles are a table format provided by the <strong>tibble</strong> package, part of the core tidyverse.</li>
@@ -434,10 +707,10 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="tibble-vs-data-frame-creating-import-a-csv-file" class="level2">
-<h2 class="anchored" data-anchor-id="tibble-vs-data-frame-creating-import-a-csv-file">Tibble vs Data Frame – Creating (Import a CSV File)</h2>
-<section id="import-data-as-a-data-frame" class="level4">
-<h4 class="anchored" data-anchor-id="import-data-as-a-data-frame">Import Data as a Data frame</h4>
+<section id="tibble-vs-data-frame-creating-import-a-csv-file" class="level2" data-number="32.10">
+<h2 data-number="32.10" class="anchored" data-anchor-id="tibble-vs-data-frame-creating-import-a-csv-file"><span class="header-section-number">32.10</span> Tibble vs Data Frame – Creating (Import a CSV File)</h2>
+<section id="import-data-as-a-data-frame" class="level4" data-number="32.10.0.1">
+<h4 data-number="32.10.0.1" class="anchored" data-anchor-id="import-data-as-a-data-frame"><span class="header-section-number">32.10.0.1</span> Import Data as a Data frame</h4>
 <p>Recall: use <code>read.csv()</code> to read the data frame.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_workshop <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"DS Workshop Participants List.csv"</span>)</span>
@@ -458,8 +731,8 @@ window.Quarto = {
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ DS.Years.of.Experience         : num  1 1 0 0 1 NA 2 0.5 0.5 NA ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="import-data-as-a-tibble" class="level4">
-<h4 class="anchored" data-anchor-id="import-data-as-a-tibble">Import Data as a Tibble</h4>
+<section id="import-data-as-a-tibble" class="level4" data-number="32.10.0.2">
+<h4 data-number="32.10.0.2" class="anchored" data-anchor-id="import-data-as-a-tibble"><span class="header-section-number">32.10.0.2</span> Import Data as a Tibble</h4>
 <ul>
 <li>Use <code>read_csv()</code> (from <code>readr</code> package) to read the tibble.</li>
 </ul>
@@ -492,10 +765,10 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="tibble-vs-data-frame-creating-construct-a-data-frame-by-columns" class="level2">
-<h2 class="anchored" data-anchor-id="tibble-vs-data-frame-creating-construct-a-data-frame-by-columns">Tibble vs Data Frame – Creating (Construct a Data Frame by Columns)</h2>
-<section id="data-frame" class="level3">
-<h3 class="anchored" data-anchor-id="data-frame">Data frame</h3>
+<section id="tibble-vs-data-frame-creating-construct-a-data-frame-by-columns" class="level2" data-number="32.11">
+<h2 data-number="32.11" class="anchored" data-anchor-id="tibble-vs-data-frame-creating-construct-a-data-frame-by-columns"><span class="header-section-number">32.11</span> Tibble vs Data Frame – Creating (Construct a Data Frame by Columns)</h2>
+<section id="data-frame" class="level3" data-number="32.11.1">
+<h3 data-number="32.11.1" class="anchored" data-anchor-id="data-frame"><span class="header-section-number">32.11.1</span> Data frame</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="st">'crazy name'</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">'not so crazy &amp; name'</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span>
@@ -508,8 +781,8 @@ window.Quarto = {
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in eval(expr, envir, enclos): object 'x' not found</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="tibble" class="level3">
-<h3 class="anchored" data-anchor-id="tibble">Tibble</h3>
+<section id="tibble" class="level3" data-number="32.11.2">
+<h3 data-number="32.11.2" class="anchored" data-anchor-id="tibble"><span class="header-section-number">32.11.2</span> Tibble</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="st">'crazy name'</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">'not so crazy &amp; name'</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)) </span>
@@ -531,10 +804,10 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="tibble-vs-data-frame-coercion" class="level2">
-<h2 class="anchored" data-anchor-id="tibble-vs-data-frame-coercion">Tibble vs Data Frame – Coercion</h2>
-<section id="data-frame-to-tibble" class="level3">
-<h3 class="anchored" data-anchor-id="data-frame-to-tibble">Data Frame to Tibble</h3>
+<section id="tibble-vs-data-frame-coercion" class="level2" data-number="32.12">
+<h2 data-number="32.12" class="anchored" data-anchor-id="tibble-vs-data-frame-coercion"><span class="header-section-number">32.12</span> Tibble vs Data Frame – Coercion</h2>
+<section id="data-frame-to-tibble" class="level3" data-number="32.12.1">
+<h3 data-number="32.12.1" class="anchored" data-anchor-id="data-frame-to-tibble"><span class="header-section-number">32.12.1</span> Data Frame to Tibble</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df_workshop)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "data.frame"</span></span>
@@ -543,8 +816,8 @@ window.Quarto = {
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "tbl_df"     "tbl"        "data.frame"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="tibble-to-data-frame" class="level3">
-<h3 class="anchored" data-anchor-id="tibble-to-data-frame">Tibble to Data Frame</h3>
+<section id="tibble-to-data-frame" class="level3" data-number="32.12.2">
+<h3 data-number="32.12.2" class="anchored" data-anchor-id="tibble-to-data-frame"><span class="header-section-number">32.12.2</span> Tibble to Data Frame</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tbl_workshop) </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame"</span></span>
@@ -571,10 +844,10 @@ window.Quarto = {
 <!-- ``` -->
 </section>
 </section>
-<section id="tibble-vs-data-frame-printing" class="level2">
-<h2 class="anchored" data-anchor-id="tibble-vs-data-frame-printing">Tibble vs Data Frame – printing</h2>
-<section id="data-frame-1" class="level3">
-<h3 class="anchored" data-anchor-id="data-frame-1">Data Frame</h3>
+<section id="tibble-vs-data-frame-printing" class="level2" data-number="32.13">
+<h2 data-number="32.13" class="anchored" data-anchor-id="tibble-vs-data-frame-printing"><span class="header-section-number">32.13</span> Tibble vs Data Frame – printing</h2>
+<section id="data-frame-1" class="level3" data-number="32.13.1">
+<h3 data-number="32.13.1" class="anchored" data-anchor-id="data-frame-1"><span class="header-section-number">32.13.1</span> Data Frame</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_workshop</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 Name Gender           Email.Address</span></span>
@@ -664,8 +937,8 @@ window.Quarto = {
 <span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16                    0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="tibble-1" class="level3">
-<h3 class="anchored" data-anchor-id="tibble-1">Tibble</h3>
+<section id="tibble-1" class="level3" data-number="32.13.2">
+<h3 data-number="32.13.2" class="anchored" data-anchor-id="tibble-1"><span class="header-section-number">32.13.2</span> Tibble</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tbl_workshop</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 16 × 11</span></span>
@@ -693,10 +966,10 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="tibble-vs-data-frame-subsetting" class="level2">
-<h2 class="anchored" data-anchor-id="tibble-vs-data-frame-subsetting">Tibble vs Data Frame – Subsetting</h2>
-<section id="recall-subsetting-in-data-frame" class="level3">
-<h3 class="anchored" data-anchor-id="recall-subsetting-in-data-frame">Recall Subsetting in Data Frame</h3>
+<section id="tibble-vs-data-frame-subsetting" class="level2" data-number="32.14">
+<h2 data-number="32.14" class="anchored" data-anchor-id="tibble-vs-data-frame-subsetting"><span class="header-section-number">32.14</span> Tibble vs Data Frame – Subsetting</h2>
+<section id="recall-subsetting-in-data-frame" class="level3" data-number="32.14.1">
+<h3 data-number="32.14.1" class="anchored" data-anchor-id="recall-subsetting-in-data-frame"><span class="header-section-number">32.14.1</span> Recall Subsetting in Data Frame</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_workshop<span class="sc">$</span>Major <span class="co"># Returns a vector</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] "Statistics"             "ECON"                   "Biology"               </span></span>
@@ -714,8 +987,8 @@ window.Quarto = {
 <span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [16] "EE"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="subsetting-in-tibble-distinguish-and-in-tibble" class="level3">
-<h3 class="anchored" data-anchor-id="subsetting-in-tibble-distinguish-and-in-tibble">Subsetting in tibble – distinguish [] and [[]] in tibble</h3>
+<section id="subsetting-in-tibble-distinguish-and-in-tibble" class="level3" data-number="32.14.2">
+<h3 data-number="32.14.2" class="anchored" data-anchor-id="subsetting-in-tibble-distinguish-and-in-tibble"><span class="header-section-number">32.14.2</span> Subsetting in tibble – distinguish [] and [[]] in tibble</h3>
 <ul>
 <li>Using [] returns a tibble</li>
 </ul>
@@ -782,10 +1055,10 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="tibble-vs-data-frame-recycling" class="level2">
-<h2 class="anchored" data-anchor-id="tibble-vs-data-frame-recycling">Tibble vs Data Frame – Recycling</h2>
-<section id="data-frames-recycling-rule-is-applied-automatically" class="level3">
-<h3 class="anchored" data-anchor-id="data-frames-recycling-rule-is-applied-automatically">Data frames – recycling rule is applied automatically</h3>
+<section id="tibble-vs-data-frame-recycling" class="level2" data-number="32.15">
+<h2 data-number="32.15" class="anchored" data-anchor-id="tibble-vs-data-frame-recycling"><span class="header-section-number">32.15</span> Tibble vs Data Frame – Recycling</h2>
+<section id="data-frames-recycling-rule-is-applied-automatically" class="level3" data-number="32.15.1">
+<h3 data-number="32.15.1" class="anchored" data-anchor-id="data-frames-recycling-rule-is-applied-automatically"><span class="header-section-number">32.15.1</span> Data frames – recycling rule is applied automatically</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">y =</span> <span class="st">"STAT"</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   x    y</span></span>
@@ -806,8 +1079,8 @@ window.Quarto = {
 <span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 6 STAT N</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="tibble-only-values-of-length-1-are-recycled" class="level3">
-<h3 class="anchored" data-anchor-id="tibble-only-values-of-length-1-are-recycled">Tibble – only values of length 1 are recycled</h3>
+<section id="tibble-only-values-of-length-1-are-recycled" class="level3" data-number="32.15.2">
+<h3 data-number="32.15.2" class="anchored" data-anchor-id="tibble-only-values-of-length-1-are-recycled"><span class="header-section-number">32.15.2</span> Tibble – only values of length 1 are recycled</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">y =</span> <span class="st">"STAT"</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 2</span></span>
@@ -841,10 +1114,10 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="tibble-vs-data-frame-row-names" class="level2">
-<h2 class="anchored" data-anchor-id="tibble-vs-data-frame-row-names">Tibble vs Data Frame – Row Names</h2>
-<section id="data-frames-accept-assigned-row-names" class="level3">
-<h3 class="anchored" data-anchor-id="data-frames-accept-assigned-row-names">Data frames accept assigned row names</h3>
+<section id="tibble-vs-data-frame-row-names" class="level2" data-number="32.16">
+<h2 data-number="32.16" class="anchored" data-anchor-id="tibble-vs-data-frame-row-names"><span class="header-section-number">32.16</span> Tibble vs Data Frame – Row Names</h2>
+<section id="data-frames-accept-assigned-row-names" class="level3" data-number="32.16.1">
+<h3 data-number="32.16.1" class="anchored" data-anchor-id="data-frames-accept-assigned-row-names"><span class="header-section-number">32.16.1</span> Data frames accept assigned row names</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(df_workshop) <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>]</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_workshop)</span>
@@ -878,8 +1151,8 @@ window.Quarto = {
 <span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; f                            &lt;NA&gt;                     NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="tibbles-dont-accept-assigned-row-names" class="level3">
-<h3 class="anchored" data-anchor-id="tibbles-dont-accept-assigned-row-names">Tibbles don’t accept assigned row names</h3>
+<section id="tibbles-dont-accept-assigned-row-names" class="level3" data-number="32.16.2">
+<h3 data-number="32.16.2" class="anchored" data-anchor-id="tibbles-dont-accept-assigned-row-names"><span class="header-section-number">32.16.2</span> Tibbles don’t accept assigned row names</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(tbl_workshop) <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>]</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: Setting row names on a tibble is deprecated.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -951,17 +1224,17 @@ window.Quarto = {
 <!-- ``` -->
 </section>
 </section>
-<section id="more-motivation" class="level2">
-<h2 class="anchored" data-anchor-id="more-motivation">More motivation</h2>
+<section id="more-motivation" class="level2" data-number="32.17">
+<h2 data-number="32.17" class="anchored" data-anchor-id="more-motivation"><span class="header-section-number">32.17</span> More motivation</h2>
 <ul>
 <li><p>The tidyverse has become the industry-standard in the R-using data science community.</p></li>
 <li><p>The tidyverse in R is comparable to the <code>numpy</code> and <code>pandas</code> packages in Python.</p></li>
 </ul>
 </section>
-<section id="reference" class="level2">
-<h2 class="anchored" data-anchor-id="reference">Reference</h2>
-<section id="reference-books" class="level4">
-<h4 class="anchored" data-anchor-id="reference-books">Reference books</h4>
+<section id="reference" class="level2" data-number="32.18">
+<h2 data-number="32.18" class="anchored" data-anchor-id="reference"><span class="header-section-number">32.18</span> Reference</h2>
+<section id="reference-books" class="level4" data-number="32.18.0.1">
+<h4 data-number="32.18.0.1" class="anchored" data-anchor-id="reference-books"><span class="header-section-number">32.18.0.1</span> Reference books</h4>
 <ul>
 <li>R for Data Science: https://r4ds.hadley.nz/</li>
 <li>Hands-on Programming with R: https://rstudio-education.github.io/hopr/</li>
@@ -1069,7 +1342,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/ycjiaweijia\.github\.io\/F24STAT385\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1397,6 +1670,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../Lab6/Lab6.html" class="pagination-link" aria-label="Lab 6 -- S3 for Workshop Participants Instruction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Lab 6 – S3 for Workshop Participants Instruction</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../Quiz14/Quiz14.html" class="pagination-link" aria-label="Quiz 14 Instructions">
+        <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Quiz 14 Instructions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
