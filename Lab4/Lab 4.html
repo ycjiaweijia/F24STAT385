@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>lab6</title>
+<title>lab-4</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,6 +101,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -156,12 +185,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lab-6-s3-for-workshop-participants-instruction" id="toc-lab-6-s3-for-workshop-participants-instruction" class="nav-link active" data-scroll-target="#lab-6-s3-for-workshop-participants-instruction">Lab 6 – S3 for Workshop Participants Instruction</a>
+  <li><a href="#lab-4" id="toc-lab-4" class="nav-link active" data-scroll-target="#lab-4">Lab 4</a>
   <ul class="collapse">
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
-  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
-  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-2-create-a-function-to-add-an-additional-row-to-the-anova-table-output." id="toc-question-2-create-a-function-to-add-an-additional-row-to-the-anova-table-output." class="nav-link" data-scroll-target="#question-2-create-a-function-to-add-an-additional-row-to-the-anova-table-output.">Question 2 Create a function to add an additional row to the ANOVA table output.</a>
+  <ul class="collapse">
+  <li><a href="#anova-output-for-pg.mod" id="toc-anova-output-for-pg.mod" class="nav-link" data-scroll-target="#anova-output-for-pg.mod">anova() output for PG.mod</a></li>
+  <li><a href="#anova_tab-output-for-pg.mod" id="toc-anova_tab-output-for-pg.mod" class="nav-link" data-scroll-target="#anova_tab-output-for-pg.mod">anova_tab() output for PG.mod</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -172,94 +203,189 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="lab-6-s3-for-workshop-participants-instruction" class="level1">
-<h1>Lab 6 – S3 for Workshop Participants Instruction</h1>
-<ul>
-<li>Please ensure you review the document <em>Illustrate S3 System – U of I Women’s Basketball Team example</em> on Canvas Module or visit the weblink <a href="https://ycjiaweijia.github.io/F24STAT385/Lab6HelpDoc/Lab6HelpDoc.html" class="uri">https://ycjiaweijia.github.io/F24STAT385/Lab6HelpDoc/Lab6HelpDoc.html</a> for helpful guidance on this lab.</li>
-<li>Please complete the following questions and submit your Lab 6 to Gradescope.</li>
-</ul>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>Suppose a university is hosting a campus-wide data science workshop with undergraduate and graduate student participants, along with many faculty members showing interest in the series of workshops. Develop S3 classes for students, faculty, etc., incorporating validators and necessary helper functions.</p>
-</section>
+<section id="lab-4" class="level1">
+<h1>Lab 4</h1>
 <section id="question-1" class="level2">
 <h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<p>Estimate the value of <span class="math inline">\(\pi\)</span> by using probability simulation.</p>
 <ol type="a">
-<li><p><strong>[10 pts]</strong> Create the constructor function <code>new_student()</code> to generate objects of the “student” class. Student participants provide the following information: <code>name</code>, <code>major</code>, <code>department</code>, <code>classYear</code> (Freshman, Sophomore, Junior, Senior, or Graduate), <code>UofI_email</code>, and <code>dsExperience</code> which represents years of experience in data science.</p></li>
-<li><p><strong>[10 pts]</strong> Create the validator function <code>validate_student()</code>. Below is a list of validations to include.</p></li>
+<li><strong>[20 pts]</strong> Use <code>set.seed(10)</code>. Please generate a set of <span class="math inline">\(n = 10,000\)</span> random points <span class="math inline">\((x_i, y_i)\)</span>, within the square defined by the Cartesian coordinates <span class="math inline">\([-1, 1] \times [-1, 1]\)</span> . For each point, check if it lies inside a circle with radius 1 centered at the origin. Store the <span class="math inline">\(x\)</span>- and <span class="math inline">\(y\)</span>-coordinates of points inside the circle in vectors <code>in_circle_x</code> and <code>in_circle_y</code>, respectively. Similarly, store the coordinates of points outside the circle in vectors <code>out_circle_x</code> and <code>out_circle_y</code>.</li>
 </ol>
-<p>Validations:</p>
-<ul>
-<li>If any of the information required above is missing, print a warning message.</li>
-<li>If <code>dsExperience</code> is not numeric, or the length is not 1, or the years is lower than 0 or greater than 20, print warning message that: The data science experience years information is not valid. Please use <code>||</code> for “or”.</li>
-<li>If <code>classYear</code> doesn’t belong in one of the five categories, print the warning message that: The student’s class information is invalid.</li>
-<li>If <code>UofI_email</code>provided is not character type, print the warning message: The student’s email information is invalid.</li>
-</ul>
-<ol start="3" type="a">
-<li><strong>[10 pts]</strong> Define a helper function to fill in or complete an email address. This is necessary because some students might only provide their NetID instead of a full email address. The <code>completeEmail()</code> function should take <code>UofI_email</code> as input and add <code>@illinois.edu</code> if needed. The output of <code>completeEmail()</code> function is saved as <code>Complete_UofI_email</code>.</li>
-</ol>
-<p>[Hint:</p>
+<p>[Hints:</p>
 <ol type="1">
-<li>Consider using an if-else statement to decide whether to append the domain.</li>
-<li>The regular expression <code>grepl("@illinois\\.edu", UofI_email)</code>, checking if <code>UofI_email</code> contains <code>@illinois.edu</code>, might be helpful. ]</li>
-</ol>
-</section>
-<section id="question-2" class="level2">
-<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
-<ol type="a">
-<li><p><strong>[10 pts]</strong> Create the constructor function <code>new_faculty()</code> to generate objects of the “faculty” class. Faculty participants have the following information: <code>name</code> and <code>department</code>.</p></li>
-<li><p><strong>[10 pts]</strong> Create the constructor function <code>new_other()</code> to generate objects of the “Other” class. Other participants have the following information: <code>name</code>.</p></li>
+<li>You may use <code>runif()</code> for taking the random points. Use <code>?runif()</code> if needed.</li>
+<li>You may use <strong>if…else</strong> statement and <strong>for</strong> loop for this question.]</li>
 </ol>
 <div style="height:10px;">
 
 </div>
-</section>
-<section id="question-3" class="level2">
-<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
-<p><strong>[30 pts]</strong> Define generic and methods using the constructors from Question 1 and 2 to create classes for student, faculty, and other participants. Implement a <code>participantInfo()</code> function that prints specific information based on the class of the object.</p>
-<p>For example,</p>
+<ol start="2" type="a">
+<li><strong>[10 pts]</strong> Draw the simulation points using <code>plot()</code> and <code>points()</code> by coloring the in-circle points <strong>blue</strong> and out-circle points <strong>orange</strong>.</li>
+</ol>
+<p>The plot should be resemble something like this with the required color.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Swift <span class="ot">&lt;-</span> <span class="fu">new_student</span>(<span class="at">x =</span> <span class="fu">list</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"Taylor Swift"</span>,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">major =</span> <span class="st">"Fisheries and Wildlife"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">department =</span> <span class="st">"Biological Sciences"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">classYear =</span> <span class="st">"Junior"</span>, </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">UofI_email =</span> <span class="st">"Tswift"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">dsExperience =</span> <span class="fl">1.5</span>))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">participantInfo</span>(Swift)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Ronaldo <span class="ot">&lt;-</span> <span class="fu">new_faculty</span>(<span class="at">x =</span> <span class="fu">list</span>(</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"Cristiano Ronaldo"</span>, </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">department =</span> <span class="st">"Applied Health Science"</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">participantInfo</span>(Ronaldo)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Someone <span class="ot">&lt;-</span> <span class="fu">new_other</span>(<span class="at">x =</span> <span class="fu">list</span>(</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"Someone Else"</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">participantInfo</span>(Someone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab-4_files/figure-html/unnamed-chunk-2-1.png" style="width:30.0%;height:30.0%" class="figure-img"></p>
+</figure>
 </div>
-<p>should show the following:</p>
+</div>
+</div>
+<p>[Hints:</p>
+<ol type="1">
+<li>Use <code>plot()</code> to draw points.</li>
+<li>Use <code>points()</code> to add points to the plot above.</li>
+<li>Use <code>col = "blue"</code> and <code>col = "orange"</code> for the colors. ]</li>
+</ol>
+<!-- ```{r, fig.width=4, fig.height=4} -->
+<!-- # Generate some data -->
+<!-- x = 1:10 -->
+<!-- y = 1 + x -->
+<!-- u = 1:10 -->
+<!-- v = 12 - u -->
+<!-- # Use plot() and points() -->
+<!-- plot(x, y, col = "blue") # Draw points with coordinates (x, y) -->
+<!-- points(u, v, col = "orange") # Add points to the plot above. -->
+<!-- ``` -->
+<div style="height:10px;">
+
+</div>
+<ol start="3" type="a">
+<li><strong>[10 pts]</strong> Complete the blanks below.</li>
+</ol>
+<!-- for calculating the probability of a point falling within the circle. -->
+<p>There are two different ways to calculate the probability of points fall in the circle.</p>
+<p>: The probability <span class="math inline">\(= \frac{\text{Number of points in the in\_circle\_x (or in\_circle\_y)}}{\text{Total number of points in x (or y)}}\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Use R code to find the probability using Method I</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>: The probability <span class="math inline">\(=\frac{\text{Area of circle}}{\text{Area of square}} = \frac{   }{   }\)</span>. [Hint: The radius of the circle is 1, and the side-length of the square is <span class="math inline">\(1-(-1) = 2\)</span>. ]</p>
+<div style="height:10px;">
+
+</div>
+<ol start="4" type="a">
+<li><strong>[5 pts]</strong> Based on the result in (c), estimate the value of <span class="math inline">\(\pi\)</span>.</li>
+</ol>
+<div style="height:30px;">
+
+</div>
+</section>
+<section id="question-2-create-a-function-to-add-an-additional-row-to-the-anova-table-output." class="level2">
+<h2 class="anchored" data-anchor-id="question-2-create-a-function-to-add-an-additional-row-to-the-anova-table-output.">Question 2 Create a function to add an additional row to the ANOVA table output.</h2>
+<p>Below are the codes you’ll learn in STAT 425. But we will set aside the interpretation of the codes and results for now. In this question, we’ll only focus on adding an additional row to the ANOVA Table output.</p>
+<p>To be specific, in this question, we will work on defining a new function called <code>anova_tab()</code>. So that, compare to the default <code>anova()</code> below, <code>anova_tab()</code> can have the additional row needed. Please complete this task by addressing the following subquestions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PG.mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> PlantGrowth) <span class="co"># PG.mod is an lm object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="anova-output-for-pg.mod" class="level3">
+<h3 class="anchored" data-anchor-id="anova-output-for-pg.mod">anova() output for PG.mod</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PG.mod_aov <span class="ot">&lt;-</span> <span class="fu">anova</span>(PG.mod)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>PG.mod_aov</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Analysis of Variance Table</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Response: weight</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Df  Sum Sq Mean Sq F value  Pr(&gt;F)  </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; group      2  3.7663  1.8832  4.8461 0.01591 *</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residuals 27 10.4921  0.3886                  </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="anova_tab-output-for-pg.mod" class="level3">
+<h3 class="anchored" data-anchor-id="anova_tab-output-for-pg.mod">anova_tab() output for PG.mod</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova_tab</span>(PG.mod)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Analysis of Variance Table</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Response: weight</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Df  Sum Sq Mean Sq F value  Pr(&gt;F)  </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; group      2  3.7663  1.8832  4.8461 0.01591 *</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residuals 27 10.4921  0.3886                  </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Total     29 14.2584                          </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="a">
+<li><strong>[5 pts]</strong> Check if <code>PG.mod_aov</code> is a list. Then check if <code>PG.mod_aov</code> is a data frame. If the object is a data frame, determine its dimension (i.e., the number of rows and columns).</li>
+</ol>
+<ol start="2" type="a">
+<li><strong>[10 pts]</strong> Add the third row to <code>PG.mod_aov</code> where</li>
+</ol>
 <ul>
-<li>For student
-<ul>
-<li>Example: “Taylor Swift is a Fisheries And Wildlife major. The email address is Tswift@illinois.edu. The student has 1.5 years of experience in data science.”</li>
-</ul></li>
-<li>For faculty
-<ul>
-<li>Example: “Cristiano Ronaldo is from the Applied Health Science Department.”</li>
-</ul></li>
-<li>For other people
-<ul>
-<li>Example: “Someone Else is neither a faculty member nor a student.”</li>
-</ul></li>
+<li>the first element is the sum of the <em>two</em> “DF” values,</li>
+<li>the second element is the sum of the <em>two</em> “Sum Sq” values,</li>
+<li>the remaining three elements are NA,</li>
+<li>and name this new row “Total”.</li>
 </ul>
+<ol start="3" type="a">
+<li><strong>[10 pts]</strong> Another regression example using <code>mtcars</code>,</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mt.mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> hp <span class="sc">+</span> wt, <span class="at">data =</span> mtcars) <span class="co"># mt.mod is an lm object</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mt.mod_aov <span class="ot">&lt;-</span> <span class="fu">anova</span>(mt.mod)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mt.mod_aov</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Analysis of Variance Table</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Response: mpg</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Df Sum Sq Mean Sq F value    Pr(&gt;F)    </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; hp         1 678.37  678.37 100.862 5.987e-11 ***</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; wt         1 252.63  252.63  37.561 1.120e-06 ***</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residuals 29 195.05    6.73                      </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Add a <strong>fourth</strong> row to <code>mt.mod_aov</code> where</p>
+<ul>
+<li>the first element is the sum of the <em>three</em> “DF” values,</li>
+<li>the second element is the sum of the <em>three</em> “Sum Sq” values,</li>
+<li>the remaining three elements are NA,</li>
+<li>and name this new row “Total”.</li>
+</ul>
+<p>[Hint: To make the code more generalizable, you may use <code>sum(mt.mod_aov[1:3, 1])</code>, instead of <code>mt.mod_aov[1, 1] + mt.mod_aov[2, 1] + mt.mod_aov[3, 1]</code>.]</p>
+<ol start="4" type="a">
+<li><strong>[10 pts]</strong> Part (b) and (c) provide concrete examples. Please create a function called <code>anova_tab()</code> that takes any <code>lm</code> object (such as <code>PG.mod</code>, <code>mt.mod</code> in this question) as input and displays the ANOVA summary table, including the additional “Total” row. Then use <code>anova_tab(PG.mod)</code> and <code>anova_tab(mt.mod)</code> to test the function. Then use <code>anova_tab(att.mod)</code> below to test the <code>anova_tab()</code> function.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>att.mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(rating <span class="sc">~</span> complaints <span class="sc">+</span> privileges <span class="sc">+</span> learning <span class="sc">+</span> raises, <span class="at">data =</span> attitude)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- ## Question 2 Central Limit Theorem Simulation -->
+<!-- The Central Limit Theorem (CLT) is one of the most important concepts in statistics. It states that for any population distribution with a mean $\mu$ and standard deviation $\sigma$, if we randomly select a sufficiently large sample (sample size $n$), calculate its mean, and repeat this process a large number of times ($t$ times), the distribution of these sample means will approximate a normal distribution centered around $\mu$. The standard deviation of this distribution, known as the Standard Error, will be $\frac{\sigma}{\sqrt{n}}$.  -->
+<!-- Please execute the following code to obtain the `waiting.time` vector, which contains the waiting times (in minutes) for *Pirates of the Caribbean* at Disney World. We will use the 5168 waiting time values as the population data. -->
+<!-- ```{r} -->
+<!-- if(!require("devtools", character.only = TRUE)) install.packages("devtools") -->
+<!-- library(devtools) -->
+<!-- if(!require("touringplans", character.only = TRUE)){ -->
+<!--   devtools::install_github("LucyMcGowan/touringplans") -->
+<!-- }  -->
+<!-- library(touringplans) -->
+<!-- waiting.time =  -->
+<!--   na.omit(touringplans_2018$wait_minutes_posted_avg -->
+<!--           [touringplans_2018$attraction_name ==  "Pirates of the Caribbean"]) -->
+<!-- hist(waiting.time) -->
+<!-- set.seed(1)  # for replication purposes -->
+<!-- ``` -->
+<!-- (a) **[5 pts]** Is the distribution above left-skewed? Right-skewed? Or symmetric? Find the population mean waiting time $\mu$ and population standard deviation $\sigma$. -->
+<!-- ::: {style="height:10px;"} -->
+<!-- ::: -->
+<!-- (b) **[10 pts]** Let the sample size $n = 2$. In other words,  -->
+<!-- * Step 1: Take a random sample of *two* waiting times **with replacement** from the `waiting.time` vector each time. You may use `sample(..., replace = TRUE)` for this step.  -->
+<!-- * Step 2: Find the average of the two sampled waiting times.  -->
+<!--   Repeat Step 1 and 2 for $t = 1000$ times and save the means as the vector `sample.mean`. Then use `hist()` to draw the histogram of `sample.mean`. Is the distribution left-skewed, right-skewed, or symmetric? -->
+<!-- ::: {style="height:10px;"} -->
+<!-- ::: -->
+<!-- (c) **[5 pts]** Continue with part (b). Calculate the mean and standard deviation of `sample.mean` vector. Are these values close to $\mu$ and $\frac{\sigma}{\sqrt{n}}$, where $\mu$ and $\sigma$ are from part (a), respectively?  -->
+<!-- [Please note that the values do not need to be exact the same; being close enough is sufficient.] -->
+<!-- ::: {style="height:10px;"} -->
+<!-- ::: -->
+<!-- (d) **[20 pts]** Write a function named `sample.mean.n.t` for a given $n$ and $t$, get the `sample.mean` vector of the means. Try the function with $n = 50$ and $t = 2000$. Use `hist()` to draw the histogram of the $2000$ means. Is the distribution left skewed, right skewed, or symmetric? -->
+<!-- ::: {style="height:10px;"} -->
+<!-- ::: -->
+<!-- (e) **[5 pts]** Continue with part (d). Find the mean and standard deviation of `sample.mean`. Are these values close to $\mu$ and  $\frac{\sigma}{\sqrt{n}}$, where $\mu$ and $\sigma$ are from part (a)? -->
 
 
+</section>
 </section>
 </section>
 
