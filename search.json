@@ -1066,21 +1066,21 @@
   {
     "objectID": "05. lablist.html",
     "href": "05. lablist.html",
-    "title": "Labs",
+    "title": "",
     "section": "",
     "text": "Labs\n\nLab 0\nLab 1\nLab 2\nLab 3\nLab 4\nLab 5 Vectorization Help Document\nLab 5\nLab 6 Help Document: Illustrate S3 System – U of I Women’s Basketball Team example\nLab 6"
   },
   {
     "objectID": "03. part3.html",
     "href": "03. part3.html",
-    "title": "Part III: R Shiny Lecture Notes",
+    "title": "",
     "section": "",
     "text": "Part III: R Shiny Lecture Notes\nRead Part 1: “Introduction” from Mastering Shiny by Hadley Wickham.\n\nYour first Shiny app\nBasic UI\nBasic reactivity\nCase study: ER injuries"
   },
   {
     "objectID": "01. part1.html",
     "href": "01. part1.html",
-    "title": "Part I: R Basic Lecture Notes",
+    "title": "",
     "section": "",
     "text": "Part I: R Basic Lecture Notes\n\nR, RStudio, and R Packages\nVector Basics\nMore About Vectors\nFactors\nMatrices and Arrays\nLists\nData Frames\nFunctions and Expressions\nConditions and For Loop\nWhile Loop and More about Functions\nImport and Export\nFunctions for Base R Graphics"
   },
@@ -1101,7 +1101,7 @@
   {
     "objectID": "02. part2.html",
     "href": "02. part2.html",
-    "title": "Part II: R Tidyverse Lecture Notes",
+    "title": "",
     "section": "",
     "text": "Part II: R Tidyverse Lecture Notes\n\nIntroduction to Tidyverse and Tibbles\nData Visualization with ggplot2\nData Manipulation with dplyr\nData Transformation with Pivot, Separate, Unite, and Join\nFactors using forcats package\nManaging Dates and Times with Lubridate"
   },
