@@ -1887,7 +1887,7 @@
     "href": "part3.html",
     "title": "Part III: R Shiny Lecture Notes",
     "section": "",
-    "text": "Part III: R Shiny Lecture Notes\nRead the book Mastering Shiny (by Hadley Wickham).\n\nYour first Shiny app\nBasic UI\nBasic reactivity\nCase study: ER injuries"
+    "text": "Part III: R Shiny Lecture Notes\nRead part 1: Introduction from the book Mastering Shiny (by Hadley Wickham).\n\nYour first Shiny app\nBasic UI\nBasic reactivity\nCase study: ER injuries"
   },
   {
     "objectID": "Quiz11/Quiz11.html",
