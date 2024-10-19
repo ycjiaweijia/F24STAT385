@@ -188,7 +188,11 @@ window.Quarto = {
   <li><a href="#lab-4" id="toc-lab-4" class="nav-link active" data-scroll-target="#lab-4">Lab 4</a>
   <ul class="collapse">
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
-  <li><a href="#question-2-central-limit-theorem-simulation" id="toc-question-2-central-limit-theorem-simulation" class="nav-link" data-scroll-target="#question-2-central-limit-theorem-simulation">Question 2 Central Limit Theorem Simulation</a></li>
+  <li><a href="#question-2-create-a-function-to-add-an-additional-row-to-the-anova-table-output." id="toc-question-2-create-a-function-to-add-an-additional-row-to-the-anova-table-output." class="nav-link" data-scroll-target="#question-2-create-a-function-to-add-an-additional-row-to-the-anova-table-output.">Question 2 Create a function to add an additional row to the ANOVA table output.</a>
+  <ul class="collapse">
+  <li><a href="#anova-output-for-pg.mod" id="toc-anova-output-for-pg.mod" class="nav-link" data-scroll-target="#anova-output-for-pg.mod">anova() output for PG.mod</a></li>
+  <li><a href="#anova_tab-output-for-pg.mod" id="toc-anova_tab-output-for-pg.mod" class="nav-link" data-scroll-target="#anova_tab-output-for-pg.mod">anova_tab() output for PG.mod</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -203,14 +207,14 @@ window.Quarto = {
 <h1>Lab 4</h1>
 <section id="question-1" class="level2">
 <h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
-<p>Estimate the value of <span class="math inline">\(\pi\)</span> by using probability simulation</p>
+<p>Estimate the value of <span class="math inline">\(\pi\)</span> by using probability simulation.</p>
 <ol type="a">
-<li><strong>[20 pts]</strong> Please take random <span class="math inline">\(n\)</span> points (say, <span class="math inline">\(n=10000\)</span>) with in the [0, 1] * [0, 1] square in the Cartesian coordinate system. Then determine if the point is in the upper right quarter circle centered at the origin of radius 1. Calculate the probability of fall in the quarter-circle, which should be close to <span class="math inline">\(\frac{\pi}{4}\)</span>.</li>
+<li><strong>[20 pts]</strong> Use <code>set.seed(10)</code>. Please generate a set of <span class="math inline">\(n = 10,000\)</span> random points <span class="math inline">\((x_i, y_i)\)</span>, within the square defined by the Cartesian coordinates <span class="math inline">\([-1, 1] \times [-1, 1]\)</span> . For each point, check if it lies inside a circle with radius 1 centered at the origin. Store the <span class="math inline">\(x\)</span>- and <span class="math inline">\(y\)</span>-coordinates of points inside the circle in vectors <code>in_circle_x</code> and <code>in_circle_y</code>, respectively. Similarly, store the coordinates of points outside the circle in vectors <code>out_circle_x</code> and <code>out_circle_y</code>.</li>
 </ol>
 <p>[Hints:</p>
 <ol type="1">
-<li>You may use <code>runif()</code> for taking the random points.</li>
-<li>You may use <strong>if…else</strong> statement and <strong>for</strong> loop.]</li>
+<li>You may use <code>runif()</code> for taking the random points. Use <code>?runif()</code> if needed.</li>
+<li>You may use <strong>if…else</strong> statement and <strong>for</strong> loop for this question.]</li>
 </ol>
 <div style="height:10px;">
 
@@ -218,7 +222,7 @@ window.Quarto = {
 <ol start="2" type="a">
 <li><strong>[10 pts]</strong> Draw the simulation points using <code>plot()</code> and <code>points()</code> by coloring the in-circle points <strong>blue</strong> and out-circle points <strong>orange</strong>.</li>
 </ol>
-<p>The plot should be something looks like</p>
+<p>The plot should be resemble something like this with the required color.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -228,96 +232,160 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>[Hint: The following example might be helpful.]</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate some data</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">1</span> <span class="sc">+</span> x</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>v <span class="ot">=</span> <span class="dv">12</span> <span class="sc">-</span> u</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Use plot() and points()</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">col =</span> <span class="st">"blue"</span>) <span class="co"># Draw points with coordinates (x, y)</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(u, v, <span class="at">col =</span> <span class="st">"orange"</span>) <span class="co"># Add points to the plot above.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Lab4_files/figure-html/unnamed-chunk-3-1.png" style="width:30.0%;height:30.0%" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+<p>[Hints:</p>
+<ol type="1">
+<li>Use <code>plot()</code> to draw points.</li>
+<li>Use <code>points()</code> to add points to the plot above.</li>
+<li>Use <code>col = "blue"</code> and <code>col = "orange"</code> for the colors. ]</li>
+</ol>
+<!-- ```{r, fig.width=4, fig.height=4} -->
+<!-- # Generate some data -->
+<!-- x = 1:10 -->
+<!-- y = 1 + x -->
+<!-- u = 1:10 -->
+<!-- v = 12 - u -->
+<!-- # Use plot() and points() -->
+<!-- plot(x, y, col = "blue") # Draw points with coordinates (x, y) -->
+<!-- points(u, v, col = "orange") # Add points to the plot above. -->
+<!-- ``` -->
 <div style="height:10px;">
 
 </div>
 <ol start="3" type="a">
-<li><strong>[5 pts]</strong> Based on the probability calculated in (a), estimate the value of <span class="math inline">\(\pi\)</span>.</li>
+<li><strong>[10 pts]</strong> Complete the blanks below.</li>
+</ol>
+<!-- for calculating the probability of a point falling within the circle. -->
+<p>There are two different ways to calculate the probability of points fall in the circle.</p>
+<p>: The probability <span class="math inline">\(= \frac{\text{Number of points in the in\_circle\_x (or in\_circle\_y)}}{\text{Total number of points in x (or y)}}\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Use R code to find the probability using Method I</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>: The probability <span class="math inline">\(=\frac{\text{Area of circle}}{\text{Area of square}} = \frac{   }{   }\)</span>. [Hint: The radius of the circle is 1, and the side-length of the square is <span class="math inline">\(1-(-1) = 2\)</span>. ]</p>
+<div style="height:10px;">
+
+</div>
+<ol start="4" type="a">
+<li><strong>[5 pts]</strong> Based on the result in (c), estimate the value of <span class="math inline">\(\pi\)</span>.</li>
 </ol>
 <div style="height:30px;">
 
 </div>
 </section>
-<section id="question-2-central-limit-theorem-simulation" class="level2">
-<h2 class="anchored" data-anchor-id="question-2-central-limit-theorem-simulation">Question 2 Central Limit Theorem Simulation</h2>
-<p>The Central Limit Theorem (CLT) is one of the most important concepts in statistics. It states that for any population distribution with a mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>, if we randomly select a sufficiently large sample (sample size <span class="math inline">\(n\)</span>), calculate its mean, and repeat this process a large number of times (<span class="math inline">\(t\)</span> times), the distribution of these sample means will approximate a normal distribution centered around <span class="math inline">\(\mu\)</span>. The standard deviation of this distribution, known as the Standard Error, will be <span class="math inline">\(\frac{\sigma}{\sqrt{n}}\)</span>.</p>
-<p>Please execute the following code to obtain the <code>waiting.time</code> vector, which contains the waiting times (in minutes) for <em>Pirates of the Caribbean</em> at Disney World. We will use the 5168 waiting time values as the population data.</p>
+<section id="question-2-create-a-function-to-add-an-additional-row-to-the-anova-table-output." class="level2">
+<h2 class="anchored" data-anchor-id="question-2-create-a-function-to-add-an-additional-row-to-the-anova-table-output.">Question 2 Create a function to add an additional row to the ANOVA table output.</h2>
+<p>Below are the codes you’ll learn in STAT 425. But we will set aside the interpretation of the codes and results for now. In this question, we’ll only focus on adding an additional row to the ANOVA Table output.</p>
+<p>To be specific, in this question, we will work on defining a new function called <code>anova_tab()</code>. So that, compare to the default <code>anova()</code> below, <code>anova_tab()</code> can have the additional row needed. Please complete this task by addressing the following subquestions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"devtools"</span>, <span class="at">character.only =</span> <span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"touringplans"</span>, <span class="at">character.only =</span> <span class="cn">TRUE</span>)){</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"LucyMcGowan/touringplans"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>} </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(touringplans)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>waiting.time <span class="ot">=</span> </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>(touringplans_2018<span class="sc">$</span>wait_minutes_posted_avg</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>          [touringplans_2018<span class="sc">$</span>attraction_name <span class="sc">==</span>  <span class="st">"Pirates of the Caribbean"</span>])</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(waiting.time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Lab4_files/figure-html/unnamed-chunk-4-1.png" style="width:30.0%;height:30.0%" class="figure-img"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PG.mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> group, <span class="at">data =</span> PlantGrowth) <span class="co"># PG.mod is an lm object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="anova-output-for-pg.mod" class="level3">
+<h3 class="anchored" data-anchor-id="anova-output-for-pg.mod">anova() output for PG.mod</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>PG.mod_aov <span class="ot">&lt;-</span> <span class="fu">anova</span>(PG.mod)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>PG.mod_aov</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Analysis of Variance Table</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Response: weight</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Df  Sum Sq Mean Sq F value  Pr(&gt;F)  </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; group      2  3.7663  1.8832  4.8461 0.01591 *</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residuals 27 10.4921  0.3886                  </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)  <span class="co"># for replication purposes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="anova_tab-output-for-pg.mod" class="level3">
+<h3 class="anchored" data-anchor-id="anova_tab-output-for-pg.mod">anova_tab() output for PG.mod</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova_tab</span>(PG.mod)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Analysis of Variance Table</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Response: weight</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Df  Sum Sq Mean Sq F value  Pr(&gt;F)  </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; group      2  3.7663  1.8832  4.8461 0.01591 *</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residuals 27 10.4921  0.3886                  </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Total     29 14.2584                          </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="a">
-<li><strong>[5 pts]</strong> Is the distribution above left-skewed? Right-skewed? Or symmetric? Find the population mean waiting time <span class="math inline">\(\mu\)</span> and population standard deviation <span class="math inline">\(\sigma\)</span>.</li>
+<li><strong>[5 pts]</strong> Check if <code>PG.mod_aov</code> is a list. Then check if <code>PG.mod_aov</code> is a data frame. If the object is a data frame, determine its dimension (i.e., the number of rows and columns).</li>
 </ol>
-<div style="height:10px;">
-
-</div>
 <ol start="2" type="a">
-<li><strong>[10 pts]</strong> Let the sample size <span class="math inline">\(n = 2\)</span>. In other words,</li>
+<li><strong>[10 pts]</strong> Add the third row to <code>PG.mod_aov</code> where</li>
 </ol>
 <ul>
-<li><p>Step 1: Take a random sample of <em>two</em> waiting times <strong>with replacement</strong> from the <code>waiting.time</code> vector each time. You may use <code>sample(..., replace = TRUE)</code> for this step.</p></li>
-<li><p>Step 2: Find the average of the two sampled waiting times.</p>
-<p>Repeat Step 1 and 2 for <span class="math inline">\(t = 1000\)</span> times and save the means as the vector <code>sample.mean</code>. Then use <code>hist()</code> to draw the histogram of <code>sample.mean</code>. Is the distribution left-skewed, right-skewed, or symmetric?</p></li>
+<li>the first element is the sum of the <em>two</em> “DF” values,</li>
+<li>the second element is the sum of the <em>two</em> “Sum Sq” values,</li>
+<li>the remaining three elements are NA,</li>
+<li>and name this new row “Total”.</li>
 </ul>
-<div style="height:10px;">
-
-</div>
 <ol start="3" type="a">
-<li><strong>[5 pts]</strong> Continue with part (b). Calculate the mean and standard deviation of <code>sample.mean</code> vector. Are these values close to <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\frac{\sigma}{\sqrt{n}}\)</span>, where <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are from part (a), respectively? [Please note that the values do not need to be exact the same; being close enough is sufficient.]</li>
+<li><strong>[10 pts]</strong> Another regression example using <code>mtcars</code>,</li>
 </ol>
-<div style="height:10px;">
-
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mt.mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> hp <span class="sc">+</span> wt, <span class="at">data =</span> mtcars) <span class="co"># mt.mod is an lm object</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mt.mod_aov <span class="ot">&lt;-</span> <span class="fu">anova</span>(mt.mod)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mt.mod_aov</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Analysis of Variance Table</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Response: mpg</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Df Sum Sq Mean Sq F value    Pr(&gt;F)    </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; hp         1 678.37  678.37 100.862 5.987e-11 ***</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; wt         1 252.63  252.63  37.561 1.120e-06 ***</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residuals 29 195.05    6.73                      </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Add a <strong>fourth</strong> row to <code>mt.mod_aov</code> where</p>
+<ul>
+<li>the first element is the sum of the <em>three</em> “DF” values,</li>
+<li>the second element is the sum of the <em>three</em> “Sum Sq” values,</li>
+<li>the remaining three elements are NA,</li>
+<li>and name this new row “Total”.</li>
+</ul>
+<p>[Hint: To make the code more generalizable, you may use <code>sum(mt.mod_aov[1:3, 1])</code>, instead of <code>mt.mod_aov[1, 1] + mt.mod_aov[2, 1] + mt.mod_aov[3, 1]</code>.]</p>
 <ol start="4" type="a">
-<li><strong>[20 pts]</strong> Write a function named <code>sample.mean.n.t</code> for a given <span class="math inline">\(n\)</span> and <span class="math inline">\(t\)</span>, get the <code>sample.mean</code> vector of the means. Try the function with <span class="math inline">\(n = 50\)</span> and <span class="math inline">\(t = 2000\)</span>. Use <code>hist()</code> to draw the histogram of the <span class="math inline">\(2000\)</span> means. Is the distribution left skewed, right skewed, or symmetric?</li>
+<li><strong>[10 pts]</strong> Part (b) and (c) provide concrete examples. Please create a function called <code>anova_tab()</code> that takes any <code>lm</code> object (such as <code>PG.mod</code>, <code>mt.mod</code> in this question) as input and displays the ANOVA summary table, including the additional “Total” row. Then use <code>anova_tab(PG.mod)</code> and <code>anova_tab(mt.mod)</code> to test the function. Then use <code>anova_tab(att.mod)</code> below to test the <code>anova_tab()</code> function.</li>
 </ol>
-<div style="height:10px;">
-
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>att.mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(rating <span class="sc">~</span> complaints <span class="sc">+</span> privileges <span class="sc">+</span> learning <span class="sc">+</span> raises, <span class="at">data =</span> attitude)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="5" type="a">
-<li><strong>[5 pts]</strong> Continue with part (d). Find the mean and standard deviation of <code>sample.mean</code>. Are these values close to <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\frac{\sigma}{\sqrt{n}}\)</span>, where <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are from part (a)?</li>
-</ol>
+<!-- ## Question 2 Central Limit Theorem Simulation -->
+<!-- The Central Limit Theorem (CLT) is one of the most important concepts in statistics. It states that for any population distribution with a mean $\mu$ and standard deviation $\sigma$, if we randomly select a sufficiently large sample (sample size $n$), calculate its mean, and repeat this process a large number of times ($t$ times), the distribution of these sample means will approximate a normal distribution centered around $\mu$. The standard deviation of this distribution, known as the Standard Error, will be $\frac{\sigma}{\sqrt{n}}$.  -->
+<!-- Please execute the following code to obtain the `waiting.time` vector, which contains the waiting times (in minutes) for *Pirates of the Caribbean* at Disney World. We will use the 5168 waiting time values as the population data. -->
+<!-- ```{r} -->
+<!-- if(!require("devtools", character.only = TRUE)) install.packages("devtools") -->
+<!-- library(devtools) -->
+<!-- if(!require("touringplans", character.only = TRUE)){ -->
+<!--   devtools::install_github("LucyMcGowan/touringplans") -->
+<!-- }  -->
+<!-- library(touringplans) -->
+<!-- waiting.time =  -->
+<!--   na.omit(touringplans_2018$wait_minutes_posted_avg -->
+<!--           [touringplans_2018$attraction_name ==  "Pirates of the Caribbean"]) -->
+<!-- hist(waiting.time) -->
+<!-- set.seed(1)  # for replication purposes -->
+<!-- ``` -->
+<!-- (a) **[5 pts]** Is the distribution above left-skewed? Right-skewed? Or symmetric? Find the population mean waiting time $\mu$ and population standard deviation $\sigma$. -->
+<!-- ::: {style="height:10px;"} -->
+<!-- ::: -->
+<!-- (b) **[10 pts]** Let the sample size $n = 2$. In other words,  -->
+<!-- * Step 1: Take a random sample of *two* waiting times **with replacement** from the `waiting.time` vector each time. You may use `sample(..., replace = TRUE)` for this step.  -->
+<!-- * Step 2: Find the average of the two sampled waiting times.  -->
+<!--   Repeat Step 1 and 2 for $t = 1000$ times and save the means as the vector `sample.mean`. Then use `hist()` to draw the histogram of `sample.mean`. Is the distribution left-skewed, right-skewed, or symmetric? -->
+<!-- ::: {style="height:10px;"} -->
+<!-- ::: -->
+<!-- (c) **[5 pts]** Continue with part (b). Calculate the mean and standard deviation of `sample.mean` vector. Are these values close to $\mu$ and $\frac{\sigma}{\sqrt{n}}$, where $\mu$ and $\sigma$ are from part (a), respectively?  -->
+<!-- [Please note that the values do not need to be exact the same; being close enough is sufficient.] -->
+<!-- ::: {style="height:10px;"} -->
+<!-- ::: -->
+<!-- (d) **[20 pts]** Write a function named `sample.mean.n.t` for a given $n$ and $t$, get the `sample.mean` vector of the means. Try the function with $n = 50$ and $t = 2000$. Use `hist()` to draw the histogram of the $2000$ means. Is the distribution left skewed, right skewed, or symmetric? -->
+<!-- ::: {style="height:10px;"} -->
+<!-- ::: -->
+<!-- (e) **[5 pts]** Continue with part (d). Find the mean and standard deviation of `sample.mean`. Are these values close to $\mu$ and  $\frac{\sigma}{\sqrt{n}}$, where $\mu$ and $\sigma$ are from part (a)? -->
 
 
+</section>
 </section>
 </section>
 
@@ -414,7 +482,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/ycjiaweijia\.github\.io\/F24STAT385\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
