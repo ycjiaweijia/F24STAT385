@@ -236,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">height_inches =</span> x<span class="sc">$</span>height,</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">position =</span> <span class="fu">str_to_title</span>(x<span class="sc">$</span>position),</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">studentclass =</span> <span class="fu">str_to_title</span>(x<span class="sc">$</span>class), </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">heightcm =</span> <span class="fu">convertHeightToCm</span>(x<span class="sc">$</span>height) <span class="co"># Helper function, defined below</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">height_cm =</span> <span class="fu">convertHeightToCm</span>(x<span class="sc">$</span>height) <span class="co"># Helper function, defined below</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>         ),</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">class =</span> <span class="st">"player"</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  )</span>
@@ -363,19 +363,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>print_profile.player <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(x<span class="sc">$</span>firstname, <span class="st">" "</span>, x<span class="sc">$</span>lastname, <span class="st">" is a player on the U of I Women's Basketball Team. Her jersey number is "</span>, x<span class="sc">$</span>jersey, <span class="st">".</span><span class="sc">\n</span><span class="st">"</span>,  x<span class="sc">$</span>firstname, <span class="st">" is a student in her "</span>, x<span class="sc">$</span>studentclass, <span class="st">" year. She is "</span>, x<span class="sc">$</span>height_inches, <span class="st">" tall ("</span>, x<span class="sc">$</span>heightcm,<span class="st">" cm). Her position is "</span>, x<span class="sc">$</span>position, <span class="st">"."</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>               )</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>print_profile.staff <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(x<span class="sc">$</span>name, <span class="st">" is "</span>, x<span class="sc">$</span>role_with_article, </span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>               <span class="st">" of the U of I Women's Basketball Team."</span> ))</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>print_profile.default <span class="ot">=</span> <span class="cf">function</span>(x){</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(x<span class="sc">$</span>name, <span class="st">" is neither a player nor a staff member."</span>))</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(x<span class="sc">$</span>firstname, <span class="st">" "</span>, x<span class="sc">$</span>lastname, <span class="st">" is a player on the U of I Women's Basketball Team.</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="st">             Her jersey number is "</span>, x<span class="sc">$</span>jersey, <span class="st">".</span><span class="sc">\n</span><span class="st">"</span>,  x<span class="sc">$</span>firstname, <span class="st">" is a student in her "</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>             x<span class="sc">$</span>studentclass, <span class="st">" year. She is "</span>, x<span class="sc">$</span>height_inches, <span class="st">" tall ("</span>, x<span class="sc">$</span>height_cm,<span class="st">" cm).</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="st">             Her position is "</span>, x<span class="sc">$</span>position, <span class="st">"."</span> </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>               )</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>print_profile.staff <span class="ot">=</span> <span class="cf">function</span>(x){</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(x<span class="sc">$</span>name, <span class="st">" is "</span>, x<span class="sc">$</span>role_with_article,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>             <span class="st">" of the U of I Women's Basketball Team."</span> ))</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>print_profile.default <span class="ot">=</span> <span class="cf">function</span>(x){</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(x<span class="sc">$</span>name, <span class="st">" is neither a player nor a staff member."</span>))</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="test" class="level2">
@@ -433,17 +436,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"Weijia Jia"</span></span>
 <span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>  ))</span>
 <span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a><span class="fu">print_profile</span>(Mckenzie)</span>
-<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Adalia Mckenzie is a player on the U of I Women's Basketball Team. Her jersey number is 24.</span></span>
-<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Adalia is a student in her Senior year. She is 5-10 tall (177.8 cm). Her position is Guard.</span></span>
-<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a><span class="fu">print_profile</span>(Bryant)</span>
-<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Genesis Bryant is a player on the U of I Women's Basketball Team. Her jersey number is 1.</span></span>
-<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Genesis is a student in her Fifth year. She is 5-6 tall (167.64 cm). Her position is Guard.</span></span>
-<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a><span class="fu">print_profile</span>(Green)</span>
-<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Shauna Green is the Head Coach of the U of I Women's Basketball Team.</span></span>
-<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a><span class="fu">print_profile</span>(Solomon)</span>
-<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Maya Solomon is a staff member of the U of I Women's Basketball Team.</span></span>
-<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a><span class="fu">print_profile</span>(Jia)</span>
-<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Weijia Jia is neither a player nor a staff member.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Adalia Mckenzie is a player on the U of I Women's Basketball Team.</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              Her jersey number is 24.</span></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Adalia is a student in her Senior year. She is 5-10 tall (177.8 cm).</span></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              Her position is Guard.</span></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a><span class="fu">print_profile</span>(Bryant)</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Genesis Bryant is a player on the U of I Women's Basketball Team.</span></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              Her jersey number is 1.</span></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Genesis is a student in her Fifth year. She is 5-6 tall (167.64 cm).</span></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              Her position is Guard.</span></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a><span class="fu">print_profile</span>(Green)</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Shauna Green is the Head Coach of the U of I Women's Basketball Team.</span></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a><span class="fu">print_profile</span>(Solomon)</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Maya Solomon is a staff member of the U of I Women's Basketball Team.</span></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a><span class="fu">print_profile</span>(Jia)</span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Weijia Jia is neither a player nor a staff member.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
