@@ -226,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>airline_safety</code> is another data frame in <code>fivethirtyeight</code> package containing information on different airline companies’ safety records.</p>
 <p>This data was originally reported on the data journalism website, FiveThirtyEight.com, in Nate Silver’s article, “Should Travelers Avoid Flying Airlines That Have Had Crashes in the Past?”.</p>
 <ol type="a">
-<li><p><strong>[2 pts]</strong> Create the tibble <code>df_fatalities</code> with the columns: <code>airline</code>, and all columns starts with <em>fatalities</em>. [Hint: You may use <code>start_with("fatalities")</code>.]</p></li>
+<li><p><strong>[2 pts]</strong> Create the tibble <code>df_fatalities</code> with the columns: <code>airline</code>, and all columns starts with <em>fatalities</em>. [Hint: You may use <code>starts_with("fatalities")</code>.]</p></li>
 <li><p><strong>[2 pts]</strong> Convert <code>df_fatalities</code> to <strong>tidy</strong> format as shown below and save the tidy tibble as <code>df_fatalities_tidy</code>. In this process, you need to</p></li>
 </ol>
 <ul>
@@ -251,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt; # ℹ 102 more rows</code></pre>
 </div>
 <ol start="3" type="a">
-<li><strong>[2 pts]</strong> Visualize the <code>df_fatalities_tidy</code> tibble by creating a bar-graph with <code>x = airline, y = count</code>, and color the bars using variable <code>year</code> for the airlines “United / Continental”, “Delta / Northwest”, and “American”. You may use <code>position = "dodge"</code> to place the bars side by side. Save the plot as <code>PlotQ2.png</code> using <code>ggsave("PlotQ2.png", width = 10, height = 8, dpi = 300)</code>.</li>
+<li><strong>[2 pts]</strong> Visualize the <code>df_fatalities_tidy</code> tibble by creating a bar-graph with <code>x = airline, y = count</code>, and color the bars using variable <code>year</code> for the airlines <code>"United / Continental", "Delta / Northwest"</code>, and <code>"American"</code>. You may use <code>position = "dodge"</code> to place the bars side by side. Save the plot as <code>PlotQ2.png</code> using <code>ggsave("PlotQ2.png", width = 10, height = 8, dpi = 300)</code>.</li>
 </ol>
 
 

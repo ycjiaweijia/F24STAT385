@@ -263,8 +263,9 @@ window.Quarto = {
 
 </div>
 <ol start="2" type="a">
-<li><strong>[2 pts]</strong> Using function in <code>GGally</code>, draw a <strong>scatterplot matrices</strong> of variables <em>dep_time, sched_dep_time, dep_delay, arr_time, sched_arr_time, arr_delay</em> in the data frame <code>alaska_flights</code>. Save the created plot as <code>PlotQ1b.png</code>.</li>
+<li><strong>[2 pts]</strong> Using <code>ggpairs()</code> function in package <code>GGally</code>, draw a <strong>scatterplot matrices</strong> of variables <em>dep_time, sched_dep_time, dep_delay, arr_time, sched_arr_time, arr_delay</em> in the data frame <code>alaska_flights</code>. Save the created plot as <code>PlotQ1b.png</code>.</li>
 </ol>
+<p><em>To ensure that <code>ggsave()</code> works correctly for saving scatterplot matrices created with <code>ggpairs()</code>, you are recommended to first assign the plot to a named object (e.g., plot1b). Then, save it by specifying the plot object in <code>ggsave()</code> like this:<code>ggsave(..., plot = plot1b, ...)</code>.</em></p>
 <div style="height:30px;">
 
 </div>
@@ -285,12 +286,13 @@ window.Quarto = {
 </section>
 <section id="question-4" class="level2">
 <h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
-<p><strong>[2 pts]</strong> Using <code>ggplot</code> and <code>grid.arrange</code>, draw the two plot side by side (i.e.&nbsp;1 row and 2 columns).</p>
+<p><strong>[2 pts]</strong> Using <code>ggplot</code> and <code>grid.arrange</code> (from the <code>gridExtra</code> package), draw the two plot side by side (i.e.&nbsp;1 row and 2 columns).</p>
 <ul>
 <li>Plot 1: Draw a vertical boxplot of the variable <code>temp</code> in the data frame <code>weather</code>.</li>
 <li>Plot 2: Draw a vertical boxplot of <code>temp</code> vs <code>month</code> of the data frame <code>weather</code>. (You may need as.factor() to convert <code>month</code> to factor type.)</li>
 </ul>
 <p>Save the created plot as <code>PlotQ4.png</code>.</p>
+<p><em>To ensure that <code>ggsave()</code> works correctly for saving the plot created with <code>grid.arrange()</code>, you are recommended to first assign the plot to a named object (e.g., plot4). Then, save it by specifying the plot object in <code>ggsave()</code> like this:<code>ggsave(..., plot = plot4, ...)</code>.</em></p>
 <div style="height:30px;">
 
 </div>

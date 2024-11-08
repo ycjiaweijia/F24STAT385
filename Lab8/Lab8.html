@@ -188,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="lab-8-instruction" class="level2">
 <h2 class="anchored" data-anchor-id="lab-8-instruction">Lab 8 Instruction</h2>
 <ul>
-<li>It is strongly recommended to follow the method demonstrated in the lecture video “Projects in R Video – Female Life Expectancy Project” to create an R project and complete this lab.</li>
+<li>It is highly recommended to follow the method demonstrated in class for the Female Life Expectancy Project by creating an R project to complete this lab.</li>
 <li>As usual, you are only required to submit the PDF file generated to Gradescope.</li>
 </ul>
 </section>
@@ -216,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Input.device"</span>, <span class="st">"Device.OS"</span>, <span class="st">"WiFi.stable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
-<li><p>Technically, it’s impossible to have a Reaction Time less than or equal to 100 milliseconds. Remove the observations with <code>Reaction.time</code> less than or equal to 100. [<em>Notes: In reality, we contacted the students to confirm or update their submissions.</em>]</p></li>
+<li><p>Technically, it’s impossible to have a Reaction Time less than or equal to 100 milliseconds. Remove the observations with <code>Reaction.time</code> less than or equal to 100. [<em>Notes: In practice, we reached out to the students to confirm or update their submissions.</em>]</p></li>
 <li><p>You may use <code>separate_wider_delim()</code> to clean up the <code>Visual.acuity</code> so that the variable becomes a <strong>factor</strong> with the following levels: “Very Poor”, “Poor”, “Average”, “Good”, “Excellent”.</p></li>
 </ol>
 <p>(Use <code>levels = c("Very Poor", "Poor", "Average", "Good", "Excellent")</code>)</p>
@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="question-iii-explore-the-data-survey_student" class="level2">
 <h2 class="anchored" data-anchor-id="question-iii-explore-the-data-survey_student">Question III: Explore the Data <code>survey_student</code></h2>
 <p><strong>[30 pts]</strong> Create data visualizations or tables to uncover interesting insights from the data. Please list at least three notable findings.</p>
-<p>Hint: You may find it’s helpful to combine some categories into fewer, more concise categories. Here is one example,</p>
+<p>Hint: You may find it’s helpful to combine some categories into fewer, more concise categories. Below is one example. For more information about the <code>case_when</code> function, you can run <code>?case_when</code> in R console.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>survey_student <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fatigue.3 =</span> <span class="fu">case_when</span>(</span>
