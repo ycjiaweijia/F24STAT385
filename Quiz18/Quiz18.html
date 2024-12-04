@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -156,8 +122,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quiz-19-instructions" id="toc-quiz-19-instructions" class="nav-link active" data-scroll-target="#quiz-19-instructions">Quiz 19 Instructions</a></li>
-  <li><a href="#summary-statistics-shiny-app-design" id="toc-summary-statistics-shiny-app-design" class="nav-link" data-scroll-target="#summary-statistics-shiny-app-design">Summary Statistics Shiny App Design</a></li>
+  <li><a href="#quiz-18-instructions" id="toc-quiz-18-instructions" class="nav-link active" data-scroll-target="#quiz-18-instructions">Quiz 18 Instructions</a></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">Data Source:</a></li>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
   </ul>
 </nav>
     </div>
@@ -167,60 +136,127 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="quiz-19-instructions" class="level2">
-<h2 class="anchored" data-anchor-id="quiz-19-instructions">Quiz 19 Instructions</h2>
-<p>Please complete the following questions and submit a file named <strong>app.R</strong> to <a href="https://www.gradescope.com/login">Gradescope</a> for autograding. <strong>[Please note this update! For the Shiny app quizzes, submit only the “app.R” only.]</strong></p>
+<section id="quiz-18-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="quiz-18-instructions">Quiz 18 Instructions</h2>
+<p>Please complete the following questions and submit a file named <strong>Quiz18.R</strong> to <a href="https://www.gradescope.com/login">Gradescope</a> for autograding.</p>
 <p><strong>Remember:</strong></p>
-<!-- -   Do not rename external data files or edit them in any way. In other words, don't modify *data.csv*. Your code won't work properly on my version of that data set, if you do. -->
 <ul>
-<li>Do not use global paths in you script. Instead, use <em>setwd()</em> interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope’s virtual machines.</li>
-<li>Do not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.</li>
-<li>Check to make sure you do not have any syntax errors. Code that doesn’t run will get a very bad grade.</li>
-<li>Make sure to name your submission <strong>app.R</strong></li>
+<li><p>Do not rename external data files or edit them in any way. In other words, don’t modify <em>Urbana Police Incidents Data (2020-2023).csv</em>. Your code won’t work properly on my version of that data set, if you do.</p></li>
+<li><p>Do not use global paths in you script. Instead, use <em>setwd()</em> interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope’s virtual machines.</p></li>
+<li><p>Do not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.</p></li>
+<li><p>Check to make sure you do not have any syntax errors. Code that doesn’t run will get a very bad grade.</p></li>
+<li><p>Make sure to name your submission <strong>Quiz18.R</strong></p></li>
+<li><p><span style="font-size: 22px;"> <strong>Don’t forget to use <code>library(tidyverse)</code>at the beginning of Quiz18.R.</strong></span></p></li>
 </ul>
 <p><strong>Tip:</strong> before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="do">### We'll use some functions from stringr.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="data-source" class="level2">
+<h2 class="anchored" data-anchor-id="data-source">Data Source:</h2>
+<p>The Urbana Open Data website <a href="https://data.urbanaillinois.us/Police/Police-Incidents-from-1988-Feb-2023/uj4k-8xe8/about_data">Urbana Police Incidents Dataset Link</a> contains police incident data from 1988 up until February 2023, which is when the Urbana Police began using a new computer system.</p>
+<!-- Records before 1988 are incomplete - and could be data entry errors.  -->
+<p><strong>In this quiz, we use data exclusively from 2020 to 2023 <a href="Urbana Police Incidents Data (2020-2023).csv">Urbana Police Incidents Data (2020-2023).csv</a> and concentrate only on the columns related to date and time.</strong></p>
+</section>
+<section id="question-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<ol type="a">
+<li><strong>[1 pt]</strong> Read in the CSV data as tibble <code>incidents</code> and select the columns from <code>DATE.OCCURRED</code> to <code>TIME.ARRIVED</code> only (8 columns).</li>
+</ol>
+<!-- ```{r, message = FALSE, warning = FALSE} -->
+<!-- # Solution -->
+<!-- library(tidyverse) -->
+<!-- incidents <- read_csv("Urbana Police Incidents Data (2020-2023).csv") -->
+<!-- incidents <- incidents %>% select(DATE.OCCURRED:TIME.ARRIVED) -->
+<!-- ``` -->
+<ol start="2" type="a">
+<li><strong>[2 pts]</strong> Select the appropriate <code>lubridate</code> function to convert the variables <code>DATE.OCCURRED</code>, <code>DATE.REPORTED</code>, and <code>DATE.ARRIVED</code> from <strong>character</strong> to <strong>date</strong> type.</li>
+</ol>
+<!-- ```{r} -->
+<!-- incidents <- incidents %>%  -->
+<!--   mutate(DATE.OCCURRED = mdy(DATE.OCCURRED), -->
+<!--          DATE.REPORTED = mdy(DATE.REPORTED), -->
+<!--          DATE.ARRIVED = mdy(DATE.ARRIVED) -->
+<!--   )  -->
+<!-- ``` -->
+<ol start="3" type="a">
+<li><strong>[2 pts]</strong> Parse the day of the month the incidents occurred. Save the result as a vector named <code>DAY</code>.</li>
+</ol>
+<!-- ```{r} -->
+<!-- DAY <- day(incidents$DATE.OCCURRED) -->
+<!-- ``` -->
+<div style="height:30px;">
+
 </div>
 </section>
-<section id="summary-statistics-shiny-app-design" class="level2">
-<h2 class="anchored" data-anchor-id="summary-statistics-shiny-app-design">Summary Statistics Shiny App Design</h2>
-<p>Please create a Shiny app that calculate the summary statistics of any input vector, which may contain missing values. Please use the following functions (<em>from Quiz 8, slightly modified</em>) for the design. When you design the app,</p>
-<ol type="1">
-<li><strong>[1 pt]</strong> Please use <code>textInput()</code> for the vector input (inputID: <code>vec_Input</code>). Please set the initial value as “1, 2, 3, 4, 5”.</li>
-<li><strong>[1 pt]</strong> Please add an actionButton (inputID: <code>calculate</code>).</li>
-<li><strong>[3 pt]</strong> Please create an output using <code>verbatimTextOutput()</code> with the outputID: <code>summary_statistic</code> in the mainPanel of the page.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>squared_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(x)){</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Input vector must be numeric!"</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  stats <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">length</span>(x),</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">median =</span> <span class="fu">median</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">min =</span> <span class="fu">min</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">max =</span> <span class="fu">max</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q1 =</span> <span class="fu">unname</span>(<span class="fu">quantile</span>(x, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q3 =</span> <span class="fu">unname</span>(<span class="fu">quantile</span>(x, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">sq.sum =</span> <span class="fu">squared_sum</span>(x),</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">num.missing =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(x))</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(stats)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">unlist</span>(<span class="fu">strsplit</span>(input<span class="sc">$</span>vec_Input, <span class="st">","</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="question-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<p><strong>[3 pts]</strong> Please</p>
+<ul>
+<li>combine the <code>DATE.OCCURRED</code> and <code>TIME.OCCURRED</code> as <code>DATETIME.OCCURRED</code>;</li>
+<li>combine the <code>DATE.REPORTED</code> and <code>TIME.REPORTED</code> as <code>DATETIME.REPORTED</code>;</li>
+<li>combine the <code>DATE.ARRIVED</code> and <code>TIME.ARRIVED</code> as <code>DATETIME.ARRIVED</code>.</li>
+</ul>
+<p>[Hint: We can combine the date “2022-01-04” and time “16:00:00” in the following way:</p>
+<p><code>ymd_hms(paste("2022-01-04", "16:00:00"), tz = "America/Chicago")</code> ]</p>
+<!-- ```{r} -->
+<!-- incidents <- incidents %>%  -->
+<!--   mutate(DATETIME.OCCURRED = ymd_hms(paste(DATE.OCCURRED, TIME.OCCURRED), tz = "America/Chicago"), -->
+<!--          DATETIME.REPORTED = ymd_hms(paste(DATE.REPORTED, TIME.REPORTED), tz = "America/Chicago"), -->
+<!--          DATETIME.ARRIVED = ymd_hms(paste(DATE.ARRIVED, TIME.ARRIVED), tz = "America/Chicago") -->
+<!--          )  -->
+<!-- ``` -->
+<div style="height:30px;">
+
 </div>
+</section>
+<section id="question-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<ol type="a">
+<li><strong>[2 pts]</strong> Identify the top 5 incidents with the largest time difference between the <em>time reported</em> and the <em>time occurred</em> (i.e.&nbsp;<code>DATETIME.REPORTED - DATETIME.OCCURRED</code> or <code>diff(DATETIME.REPORTED, DATETIME.OCCURRED)</code>). Please make sure to use <code>as.duration()</code> to convert the <code>difftime()</code> object to a <code>Duration</code> object for easier interpretation. Name this difference variable <code>report_occur_diff</code>, and save the subset as a tibble named <code>top5_rodiff</code>.</li>
+</ol>
+<p>[Hint: You may use <code>arrange()</code> and <code>head()</code> or <code>slice_head()</code> functions.]</p>
+<!-- ```{r} -->
+<!-- top5_rodiff <- incidents %>%  -->
+<!--   mutate(report_occur_diff = -->
+<!--            as.duration(DATETIME.REPORTED - DATETIME.OCCURRED)) %>%  -->
+<!--   arrange(desc(report_occur_diff)) %>%  -->
+<!--   slice_head(., n = 5) -->
+<!-- ``` -->
+<ol start="2" type="a">
+<li><strong>[2 pts]</strong> Identify the top 5 incidents with the largest time difference between the <em>time arrived</em> and the <em>time reported</em> (i.e.&nbsp;<code>DATETIME.ARRIVED - DATETIME.REPORTED</code> or <code>diff(DATETIME.ARRIVED, DATETIME.REPORTED)</code>). Name this difference variable <code>arrive_report_diff</code>, and save the subset as a tibble named <code>top5_ardiff</code>.</li>
+</ol>
+<!-- ```{r} -->
+<!-- top5_ardiff <- incidents %>%  -->
+<!--   mutate(arrive_report_diff =  -->
+<!--            as.duration(DATETIME.ARRIVED - DATETIME.REPORTED)) %>%  -->
+<!--   arrange(desc(arrive_report_diff)) %>%  -->
+<!--   slice_head(., n = 5)  -->
+<!-- ``` -->
+<!-- ```{r, echo = FALSE, eval = FALSE} -->
+<!-- # incidents %>%  -->
+<!-- #   mutate(occur_report_diff = -->
+<!-- #            as.duration(difftime(DATETIME.REPORTED,DATETIME.OCCURRED)), -->
+<!-- #          report_arrive_diff =  -->
+<!-- #            as.duration(difftime(DATETIME.ARRIVED,DATETIME.REPORTED))) %>%  -->
+<!-- #   arrange(occur_report_diff) %>%  -->
+<!-- #   head(., n=10) -->
+<!-- #  -->
+<!-- # incidents %>%  -->
+<!-- #   mutate(occur_report_diff = -->
+<!-- #            as.duration(difftime(DATETIME.REPORTED,DATETIME.OCCURRED)), -->
+<!-- #          report_arrive_diff =  -->
+<!-- #            as.duration(difftime(DATETIME.ARRIVED,DATETIME.REPORTED))) %>%  -->
+<!-- #   arrange(report_arrive_diff) %>%  -->
+<!-- #   head(., n=10)%>% print(width = Inf) -->
+<!-- ``` -->
+<!-- ## Question 4 -->
+<!-- ```{r} -->
+<!-- incidents %>%  -->
+<!--   mutate(occur_report_diff = -->
+<!--            as.duration(difftime(DATETIME.REPORTED, DATETIME.OCCURRED)), -->
+<!--          report_arrive_diff =  -->
+<!--            as.duration(difftime(DATETIME.ARRIVED,DATETIME.REPORTED))) %>% ggplot(aes(x=report_arrive_diff))+ -->
+<!--   geom_histogram() -->
+<!-- ``` -->
 
 
 </section>

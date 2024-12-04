@@ -137,21 +137,42 @@
     "href": "Quiz18/Quiz18.html",
     "title": "",
     "section": "",
-    "text": "Please complete the following questions and submit a file named app.R to Gradescope for autograding. [Please note this update! For the Shiny app quizzes, submit only the “app.R” only.]\nRemember:\n\n\nDo not use global paths in you script. Instead, use setwd() interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope’s virtual machines.\nDo not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.\nCheck to make sure you do not have any syntax errors. Code that doesn’t run will get a very bad grade.\nMake sure to name your submission app.R\n\nTip: before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.\n\nlibrary(tidyverse) ### We'll use some functions from stringr."
+    "text": "Please complete the following questions and submit a file named Quiz18.R to Gradescope for autograding.\nRemember:\n\nDo not rename external data files or edit them in any way. In other words, don’t modify Urbana Police Incidents Data (2020-2023).csv. Your code won’t work properly on my version of that data set, if you do.\nDo not use global paths in you script. Instead, use setwd() interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope’s virtual machines.\nDo not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.\nCheck to make sure you do not have any syntax errors. Code that doesn’t run will get a very bad grade.\nMake sure to name your submission Quiz18.R\n Don’t forget to use library(tidyverse)at the beginning of Quiz18.R.\n\nTip: before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs."
   },
   {
-    "objectID": "Quiz18/Quiz18.html#quiz-19-instructions",
-    "href": "Quiz18/Quiz18.html#quiz-19-instructions",
+    "objectID": "Quiz18/Quiz18.html#quiz-18-instructions",
+    "href": "Quiz18/Quiz18.html#quiz-18-instructions",
     "title": "",
     "section": "",
-    "text": "Please complete the following questions and submit a file named app.R to Gradescope for autograding. [Please note this update! For the Shiny app quizzes, submit only the “app.R” only.]\nRemember:\n\n\nDo not use global paths in you script. Instead, use setwd() interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope’s virtual machines.\nDo not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.\nCheck to make sure you do not have any syntax errors. Code that doesn’t run will get a very bad grade.\nMake sure to name your submission app.R\n\nTip: before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.\n\nlibrary(tidyverse) ### We'll use some functions from stringr."
+    "text": "Please complete the following questions and submit a file named Quiz18.R to Gradescope for autograding.\nRemember:\n\nDo not rename external data files or edit them in any way. In other words, don’t modify Urbana Police Incidents Data (2020-2023).csv. Your code won’t work properly on my version of that data set, if you do.\nDo not use global paths in you script. Instead, use setwd() interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope’s virtual machines.\nDo not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.\nCheck to make sure you do not have any syntax errors. Code that doesn’t run will get a very bad grade.\nMake sure to name your submission Quiz18.R\n Don’t forget to use library(tidyverse)at the beginning of Quiz18.R.\n\nTip: before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs."
   },
   {
-    "objectID": "Quiz18/Quiz18.html#summary-statistics-shiny-app-design",
-    "href": "Quiz18/Quiz18.html#summary-statistics-shiny-app-design",
+    "objectID": "Quiz18/Quiz18.html#data-source",
+    "href": "Quiz18/Quiz18.html#data-source",
     "title": "",
-    "section": "Summary Statistics Shiny App Design",
-    "text": "Summary Statistics Shiny App Design\nPlease create a Shiny app that calculate the summary statistics of any input vector, which may contain missing values. Please use the following functions (from Quiz 8, slightly modified) for the design. When you design the app,\n\n[1 pt] Please use textInput() for the vector input (inputID: vec_Input). Please set the initial value as “1, 2, 3, 4, 5”.\n[1 pt] Please add an actionButton (inputID: calculate).\n[3 pt] Please create an output using verbatimTextOutput() with the outputID: summary_statistic in the mainPanel of the page.\n\n\nsquared_sum &lt;- function(x){\n  return(sum(x^2, na.rm=TRUE))\n}\n\n\nsummary_stats &lt;- function(x){\n  if (!is.numeric(x)){\n    stop(\"Input vector must be numeric!\")\n  }\n  \n  stats &lt;- list(\n    n = length(x),\n    mean = mean(x, na.rm = TRUE),\n    median = median(x, na.rm = TRUE),\n    sd = sd(x, na.rm = TRUE),\n    min = min(x, na.rm = TRUE),\n    max = max(x, na.rm = TRUE),\n    Q1 = unname(quantile(x, 0.25, na.rm = TRUE)),\n    Q3 = unname(quantile(x, 0.75, na.rm = TRUE)),\n    sq.sum = squared_sum(x),\n    num.missing = sum(is.na(x))\n  )\n  return(stats)\n}\n\n\n\nas.numeric(unlist(strsplit(input$vec_Input, \",\")))"
+    "section": "Data Source:",
+    "text": "Data Source:\nThe Urbana Open Data website Urbana Police Incidents Dataset Link contains police incident data from 1988 up until February 2023, which is when the Urbana Police began using a new computer system.\n\nIn this quiz, we use data exclusively from 2020 to 2023 Urbana Police Incidents Data (2020-2023).csv and concentrate only on the columns related to date and time."
+  },
+  {
+    "objectID": "Quiz18/Quiz18.html#question-1",
+    "href": "Quiz18/Quiz18.html#question-1",
+    "title": "",
+    "section": "Question 1",
+    "text": "Question 1\n\n[1 pt] Read in the CSV data as tibble incidents and select the columns from DATE.OCCURRED to TIME.ARRIVED only (8 columns).\n\n\n\n\n\n\n\n\n[2 pts] Select the appropriate lubridate function to convert the variables DATE.OCCURRED, DATE.REPORTED, and DATE.ARRIVED from character to date type.\n\n\n\n\n\n\n\n\n\n[2 pts] Parse the day of the month the incidents occurred. Save the result as a vector named DAY."
+  },
+  {
+    "objectID": "Quiz18/Quiz18.html#question-2",
+    "href": "Quiz18/Quiz18.html#question-2",
+    "title": "",
+    "section": "Question 2",
+    "text": "Question 2\n[3 pts] Please\n\ncombine the DATE.OCCURRED and TIME.OCCURRED as DATETIME.OCCURRED;\ncombine the DATE.REPORTED and TIME.REPORTED as DATETIME.REPORTED;\ncombine the DATE.ARRIVED and TIME.ARRIVED as DATETIME.ARRIVED.\n\n[Hint: We can combine the date “2022-01-04” and time “16:00:00” in the following way:\nymd_hms(paste(\"2022-01-04\", \"16:00:00\"), tz = \"America/Chicago\") ]"
+  },
+  {
+    "objectID": "Quiz18/Quiz18.html#question-3",
+    "href": "Quiz18/Quiz18.html#question-3",
+    "title": "",
+    "section": "Question 3",
+    "text": "Question 3\n\n[2 pts] Identify the top 5 incidents with the largest time difference between the time reported and the time occurred (i.e. DATETIME.REPORTED - DATETIME.OCCURRED or diff(DATETIME.REPORTED, DATETIME.OCCURRED)). Please make sure to use as.duration() to convert the difftime() object to a Duration object for easier interpretation. Name this difference variable report_occur_diff, and save the subset as a tibble named top5_rodiff.\n\n[Hint: You may use arrange() and head() or slice_head() functions.]\n\n\n\n\n\n\n\n\n[2 pts] Identify the top 5 incidents with the largest time difference between the time arrived and the time reported (i.e. DATETIME.ARRIVED - DATETIME.REPORTED or diff(DATETIME.ARRIVED, DATETIME.REPORTED)). Name this difference variable arrive_report_diff, and save the subset as a tibble named top5_ardiff."
   },
   {
     "objectID": "Quiz16/Quiz16.html",
@@ -2356,42 +2377,21 @@
     "href": "Quiz19/Quiz19.html",
     "title": "",
     "section": "",
-    "text": "Please complete the following questions and submit a file named Quiz18.R to Gradescope for autograding.\nRemember:\n\nDo not rename external data files or edit them in any way. In other words, don’t modify Urbana Police Incidents Data (2020-2023).csv. Your code won’t work properly on my version of that data set, if you do.\nDo not use global paths in you script. Instead, use setwd() interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope’s virtual machines.\nDo not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.\nCheck to make sure you do not have any syntax errors. Code that doesn’t run will get a very bad grade.\nMake sure to name your submission Quiz18.R\n Don’t forget to use library(tidyverse)at the beginning of Quiz18.R.\n\nTip: before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs."
+    "text": "Please complete the following questions and submit a file named app.R to Gradescope for autograding. [Please note this update! For the Shiny app quizzes, submit only the “app.R” only.]\nRemember:\n\n\nDo not use global paths in you script. Instead, use setwd() interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope’s virtual machines.\nDo not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.\nCheck to make sure you do not have any syntax errors. Code that doesn’t run will get a very bad grade.\nMake sure to name your submission app.R\n\nTip: before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.\n\nlibrary(tidyverse) ### We'll use some functions from stringr."
   },
   {
-    "objectID": "Quiz19/Quiz19.html#quiz-18-instructions",
-    "href": "Quiz19/Quiz19.html#quiz-18-instructions",
+    "objectID": "Quiz19/Quiz19.html#quiz-19-instructions",
+    "href": "Quiz19/Quiz19.html#quiz-19-instructions",
     "title": "",
     "section": "",
-    "text": "Please complete the following questions and submit a file named Quiz18.R to Gradescope for autograding.\nRemember:\n\nDo not rename external data files or edit them in any way. In other words, don’t modify Urbana Police Incidents Data (2020-2023).csv. Your code won’t work properly on my version of that data set, if you do.\nDo not use global paths in you script. Instead, use setwd() interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope’s virtual machines.\nDo not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.\nCheck to make sure you do not have any syntax errors. Code that doesn’t run will get a very bad grade.\nMake sure to name your submission Quiz18.R\n Don’t forget to use library(tidyverse)at the beginning of Quiz18.R.\n\nTip: before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs."
+    "text": "Please complete the following questions and submit a file named app.R to Gradescope for autograding. [Please note this update! For the Shiny app quizzes, submit only the “app.R” only.]\nRemember:\n\n\nDo not use global paths in you script. Instead, use setwd() interactively in the console, but do not forget to remove or comment out this part of the code before you submit. The directory structure of your machine is not the same as the one on Gradescope’s virtual machines.\nDo not destroy or overwrite any variables in your program. I check them only after I have run your entire program from start to finish.\nCheck to make sure you do not have any syntax errors. Code that doesn’t run will get a very bad grade.\nMake sure to name your submission app.R\n\nTip: before submitting, it might help to clear all the objects from your workspace, and then source your file before you submit it. This will often uncover bugs.\n\nlibrary(tidyverse) ### We'll use some functions from stringr."
   },
   {
-    "objectID": "Quiz19/Quiz19.html#data-source",
-    "href": "Quiz19/Quiz19.html#data-source",
+    "objectID": "Quiz19/Quiz19.html#summary-statistics-shiny-app-design",
+    "href": "Quiz19/Quiz19.html#summary-statistics-shiny-app-design",
     "title": "",
-    "section": "Data Source:",
-    "text": "Data Source:\nThe Urbana Open Data website Urbana Police Incidents Dataset Link contains police incident data from 1988 up until February 2023, which is when the Urbana Police began using a new computer system.\n\nIn this quiz, we use data exclusively from 2020 to 2023 Urbana Police Incidents Data (2020-2023).csv and concentrate only on the columns related to date and time."
-  },
-  {
-    "objectID": "Quiz19/Quiz19.html#question-1",
-    "href": "Quiz19/Quiz19.html#question-1",
-    "title": "",
-    "section": "Question 1",
-    "text": "Question 1\n\n[1 pt] Read in the CSV data as tibble incidents and select the columns from DATE.OCCURRED to TIME.ARRIVED only (8 columns).\n\n\n\n\n\n\n\n\n[2 pts] Select the appropriate lubridate function to convert the variables DATE.OCCURRED, DATE.REPORTED, and DATE.ARRIVED from character to date type.\n\n\n\n\n\n\n\n\n\n[2 pts] Parse the day of the month the incidents occurred. Save the result as a vector named DAY."
-  },
-  {
-    "objectID": "Quiz19/Quiz19.html#question-2",
-    "href": "Quiz19/Quiz19.html#question-2",
-    "title": "",
-    "section": "Question 2",
-    "text": "Question 2\n[3 pts] Please\n\ncombine the DATE.OCCURRED and TIME.OCCURRED as DATETIME.OCCURRED;\ncombine the DATE.REPORTED and TIME.REPORTED as DATETIME.REPORTED;\ncombine the DATE.ARRIVED and TIME.ARRIVED as DATETIME.ARRIVED.\n\n[Hint: We can combine the date “2022-01-04” and time “16:00:00” in the following way:\nymd_hms(paste(\"2022-01-04\", \"16:00:00\"), tz = \"America/Chicago\") ]"
-  },
-  {
-    "objectID": "Quiz19/Quiz19.html#question-3",
-    "href": "Quiz19/Quiz19.html#question-3",
-    "title": "",
-    "section": "Question 3",
-    "text": "Question 3\n\n[2 pts] Identify the top 5 incidents with the largest time difference between the time reported and the time occurred (i.e. DATETIME.REPORTED - DATETIME.OCCURRED or diff(DATETIME.REPORTED, DATETIME.OCCURRED)). Please make sure to use as.duration() to convert the difftime() object to a Duration object for easier interpretation. Name this difference variable report_occur_diff, and save the subset as a tibble named top5_rodiff.\n\n[Hint: You may use arrange() and head() or slice_head() functions.]\n\n\n\n\n\n\n\n\n[2 pts] Identify the top 5 incidents with the largest time difference between the time arrived and the time reported (i.e. DATETIME.ARRIVED - DATETIME.REPORTED or diff(DATETIME.ARRIVED, DATETIME.REPORTED)). Name this difference variable arrive_report_diff, and save the subset as a tibble named top5_ardiff."
+    "section": "Summary Statistics Shiny App Design",
+    "text": "Summary Statistics Shiny App Design\nPlease create a Shiny app that calculate the summary statistics of any input vector, which may contain missing values. Please use the following functions (from Quiz 8, slightly modified) for the design. When you design the app,\n\n[1 pt] Please use textInput() for the vector input (inputID: vec_Input). Please set the initial value as “1, 2, 3, 4, 5”.\n[1 pt] Please add an actionButton (inputID: calculate).\n[3 pt] Please create an output using verbatimTextOutput() with the outputID: summary_statistic in the mainPanel of the page.\n\n\nsquared_sum &lt;- function(x){\n  return(sum(x^2, na.rm=TRUE))\n}\n\n\nsummary_stats &lt;- function(x){\n  if (!is.numeric(x)){\n    stop(\"Input vector must be numeric!\")\n  }\n  \n  stats &lt;- list(\n    n = length(x),\n    mean = mean(x, na.rm = TRUE),\n    median = median(x, na.rm = TRUE),\n    sd = sd(x, na.rm = TRUE),\n    min = min(x, na.rm = TRUE),\n    max = max(x, na.rm = TRUE),\n    Q1 = unname(quantile(x, 0.25, na.rm = TRUE)),\n    Q3 = unname(quantile(x, 0.75, na.rm = TRUE)),\n    sq.sum = squared_sum(x),\n    num.missing = sum(is.na(x))\n  )\n  return(stats)\n}\n\n\n\nas.numeric(unlist(strsplit(input$vec_Input, \",\")))"
   },
   {
     "objectID": "Quiz3/Quiz3.html",
