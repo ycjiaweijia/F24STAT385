@@ -211,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="question-3" class="level2">
 <h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
 <ol type="a">
-<li><strong>[2 pts]</strong> Identify the top 5 incidents with the largest time difference between the <em>time reported</em> and the <em>time occurred</em> (i.e.&nbsp;<code>DATETIME.REPORTED - DATETIME.OCCURRED</code> or <code>diff(DATETIME.REPORTED, DATETIME.OCCURRED)</code>). Please make sure to use <code>as.duration()</code> to convert the <code>difftime()</code> object to a <code>Duration</code> object for easier interpretation. Name this difference variable <code>report_occur_diff</code>, and save the subset as a tibble named <code>top5_rodiff</code>.</li>
+<li><strong>[2 pts]</strong> Identify the top 5 incidents with the largest time difference between the <em>time reported</em> and the <em>time occurred</em> (i.e.&nbsp;<code>DATETIME.REPORTED - DATETIME.OCCURRED</code> or <code>difftime(DATETIME.REPORTED, DATETIME.OCCURRED)</code>). Please make sure to use <code>as.duration()</code> to convert the <code>difftime()</code> object to a <code>Duration</code> object for easier interpretation. Name this difference variable <code>report_occur_diff</code>, and save the subset as a tibble named <code>top5_rodiff</code>.</li>
 </ol>
 <p>[Hint: You may use <code>arrange()</code> and <code>head()</code> or <code>slice_head()</code> functions.]</p>
 <!-- ```{r} -->
@@ -222,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
 <!--   slice_head(., n = 5) -->
 <!-- ``` -->
 <ol start="2" type="a">
-<li><strong>[2 pts]</strong> Identify the top 5 incidents with the largest time difference between the <em>time arrived</em> and the <em>time reported</em> (i.e.&nbsp;<code>DATETIME.ARRIVED - DATETIME.REPORTED</code> or <code>diff(DATETIME.ARRIVED, DATETIME.REPORTED)</code>). Name this difference variable <code>arrive_report_diff</code>, and save the subset as a tibble named <code>top5_ardiff</code>.</li>
+<li><strong>[2 pts]</strong> Identify the top 5 incidents with the largest time difference between the <em>time arrived</em> and the <em>time reported</em> (i.e.&nbsp;<code>DATETIME.ARRIVED - DATETIME.REPORTED</code> or <code>difftime(DATETIME.ARRIVED, DATETIME.REPORTED)</code>). Name this difference variable <code>arrive_report_diff</code>, and save the subset as a tibble named <code>top5_ardiff</code>.</li>
 </ol>
 <!-- ```{r} -->
 <!-- top5_ardiff <- incidents %>%  -->
