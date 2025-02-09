@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Frames</title>
+<title>dataframes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -73,11 +74,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -132,11 +133,51 @@ window.Quarto = {
 
 </head>
 
-<body>
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../00. index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../01. part1.html"> 
+<span class="menu-text">Part I: R Basic Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../02. part2.html"> 
+<span class="menu-text">Part II: R Tidyverse Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../03. part3.html"> 
+<span class="menu-text">Part III: R Shiny Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../04. quizlist.html"> 
+<span class="menu-text">Quizzes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../05. lablist.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -144,9 +185,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#reading-assignments" id="toc-reading-assignments" class="nav-link active" data-scroll-target="#reading-assignments">Reading Assignments</a></li>
+  <li><a href="#data-frames" id="toc-data-frames" class="nav-link active" data-scroll-target="#data-frames">Data Frames</a>
+  <ul class="collapse">
+  <li><a href="#reading-assignments" id="toc-reading-assignments" class="nav-link" data-scroll-target="#reading-assignments">Reading Assignments</a></li>
   <li><a href="#why-data-frames" id="toc-why-data-frames" class="nav-link" data-scroll-target="#why-data-frames">Why Data Frames?</a></li>
-  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames">Data Frames</a></li>
+  <li><a href="#data-frames-1" id="toc-data-frames-1" class="nav-link" data-scroll-target="#data-frames-1">Data Frames</a></li>
   <li><a href="#dimension-of-data-frames" id="toc-dimension-of-data-frames" class="nav-link" data-scroll-target="#dimension-of-data-frames">Dimension of Data Frames</a></li>
   <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure">Structure</a></li>
   <li><a href="#names" id="toc-names" class="nav-link" data-scroll-target="#names">Names</a>
@@ -172,35 +215,22 @@ window.Quarto = {
   <li><a href="#transforming-columns" id="toc-transforming-columns" class="nav-link" data-scroll-target="#transforming-columns">Transforming Columns</a></li>
   </ul></li>
   <li><a href="#creating-data-frames" id="toc-creating-data-frames" class="nav-link" data-scroll-target="#creating-data-frames">Creating Data Frames</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Data Frames</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<section id="data-frames" class="level1">
+<h1>Data Frames</h1>
 <section id="reading-assignments" class="level2">
 <h2 class="anchored" data-anchor-id="reading-assignments">Reading Assignments</h2>
 <ul>
-<li><p>Please make sure you’ve read the following sections in the textbook: R Coding Basics, <a href="https://www.gastonsanchez.com/R-coding-basics/" class="uri">https://www.gastonsanchez.com/R-coding-basics/</a></p>
+<li><p>Make sure to read the following sections in the textbook: R Coding Basics, <a href="https://www.gastonsanchez.com/R-coding-basics/" class="uri">https://www.gastonsanchez.com/R-coding-basics/</a></p>
 <ul>
 <li><a href="https://www.gastonsanchez.com/R-coding-basics/4-02-data-frames.html">Section 9. Data Frames</a></li>
 </ul></li>
@@ -217,8 +247,8 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="data-frames" class="level2">
-<h2 class="anchored" data-anchor-id="data-frames">Data Frames</h2>
+<section id="data-frames-1" class="level2">
+<h2 class="anchored" data-anchor-id="data-frames-1">Data Frames</h2>
 <ul>
 <li>A data frame is a special type of R <em>list</em>.</li>
 <li>In most cases, a data frame is internally stored as a list of vectors or factors, columnwise.</li>
@@ -714,6 +744,7 @@ window.Quarto = {
 </ul>
 
 
+</section>
 </section>
 </section>
 

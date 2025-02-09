@@ -20,29 +20,11 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -58,11 +40,11 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -88,11 +70,51 @@ div.csl-indent {
 
 </head>
 
-<body>
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./01. part1.html"> 
+<span class="menu-text">Part I: R Basic Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./02. part2.html"> 
+<span class="menu-text">Part II: R Tidyverse Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./03. part3.html"> 
+<span class="menu-text">Part III: R Shiny Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./04. quizlist.html"> 
+<span class="menu-text">Quizzes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./05. lablist.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -102,7 +124,7 @@ div.csl-indent {
   <ul>
   <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
   <ul class="collapse">
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#class-material" id="toc-class-material" class="nav-link" data-scroll-target="#class-material">Class Material</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -115,12 +137,24 @@ div.csl-indent {
 
 <section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">Preface</h1>
-<p>These are the assignments for STAT 385: Statistics Programming Methods, offered in the Fall of 2024 at UIUC. If you have any comments/suggestions/concerns about the notes please contact me at <a href="mailto:wjia@illinois.edu" class="email">wjia@illinois.edu</a>.</p>
-<section id="references" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
-<div id="refs" role="list">
-
-</div>
+<p>The website contains lecture notes, quizzes, and lab materials for STAT 385: Statistical Programming Methods, offered in Fall 2024 at the University of Illinois Urbana-Champaign (UIUC). For any comments, suggestions, or concerns regarding the notes, please feel free to contact me at <a href="mailto:wjia@illinois.edu" class="email">wjia@illinois.edu</a>.</p>
+<section id="class-material" class="level2">
+<h2 class="anchored" data-anchor-id="class-material">Class Material</h2>
+<p>All the textbooks are open-source and freely accessible online for everyone.</p>
+<ul>
+<li><a href="https://www.gastonsanchez.com/R-coding-basics">R Coding Basics (by Gaston Sanchez)</a></li>
+<li><a href="https://deepr.gagolewski.com/index.html">Deep R Programming (by Marek Gagolewski)</a></li>
+<li><a href="https://adv-r.hadley.nz/index.html">Advanced R (by Hadley Wickham)</a></li>
+<li><a href="https://jjallaire.github.io/hopr/">Hands-On Programming with R (Garrett Grolemund)</a></li>
+<li><a href="https://book.stat385.org/">Atomic R (by David Dalpiaz)</a></li>
+<li><a href="https://r4ds.hadley.nz/">R for Data Science (by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund)</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide (by Yihui Xie, J. J. Allaire, Garrett Grolemund)</a></li>
+<li><a href="https://mastering-shiny.org/index.html">Mastering Shiny (by Hadley Wickham)</a></li>
+<li><a href="https://rstudio.github.io/cheatsheets/">Posit Cheatsheets</a></li>
+</ul>
+<!-- ## References {.unnumbered} -->
+<!-- ::: {#refs} -->
+<!-- ::: -->
 
 
 </section>

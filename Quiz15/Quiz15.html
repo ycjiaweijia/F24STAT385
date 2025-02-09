@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -73,11 +74,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -132,11 +133,51 @@ window.Quarto = {
 
 </head>
 
-<body>
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../00. index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../01. part1.html"> 
+<span class="menu-text">Part I: R Basic Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../02. part2.html"> 
+<span class="menu-text">Part II: R Tidyverse Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../03. part3.html"> 
+<span class="menu-text">Part III: R Shiny Lecture Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../04. quizlist.html"> 
+<span class="menu-text">Quizzes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../05. lablist.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -162,7 +203,7 @@ window.Quarto = {
 
 <section id="quiz-15-instructions" class="level2">
 <h2 class="anchored" data-anchor-id="quiz-15-instructions">Quiz 15 Instructions</h2>
-<p>Please complete the following questions <strong>using ggplot.</strong> And submit a file named <strong>Quiz15.R</strong>.</p>
+<p>Please complete the following questions <strong>using ggplot.</strong> And submit a file named <strong>Quiz15.R</strong> to <a href="https://www.gradescope.com/login">Gradescope</a> for autograding.</p>
 <p><strong>Remember:</strong></p>
 <!-- -   Do not rename external data files or edit them in any way. In other words, don't modify *data.csv*. Your code won't work properly on my version of that data set, if you do. -->
 <ul>
@@ -222,8 +263,9 @@ window.Quarto = {
 
 </div>
 <ol start="2" type="a">
-<li><strong>[2 pts]</strong> Using function in <code>GGally</code>, draw a <strong>scatterplot matrices</strong> of variables <em>dep_time, sched_dep_time, dep_delay, arr_time, sched_arr_time, arr_delay</em> in the data frame <code>alaska_flights</code>. Save the created plot as <code>PlotQ1b.png</code>.</li>
+<li><strong>[2 pts]</strong> Using <code>ggpairs()</code> function in package <code>GGally</code>, draw a <strong>scatterplot matrices</strong> of variables <em>dep_time, sched_dep_time, dep_delay, arr_time, sched_arr_time, arr_delay</em> in the data frame <code>alaska_flights</code>. Save the created plot as <code>PlotQ1b.png</code>.</li>
 </ol>
+<p><em>To ensure that <code>ggsave()</code> works correctly for saving scatterplot matrices created with <code>ggpairs()</code>, you are recommended to first assign the plot to a named object (e.g., plot1b). Then, save it by specifying the plot object in <code>ggsave()</code> like this:<code>ggsave(..., plot = plot1b, ...)</code>.</em></p>
 <div style="height:30px;">
 
 </div>
@@ -244,12 +286,13 @@ window.Quarto = {
 </section>
 <section id="question-4" class="level2">
 <h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
-<p><strong>[2 pts]</strong> Using <code>ggplot</code> and <code>grid.arrange</code>, draw the two plot side by side (i.e.&nbsp;1 row and 2 columns).</p>
+<p><strong>[2 pts]</strong> Using <code>ggplot</code> and <code>grid.arrange</code> (from the <code>gridExtra</code> package), draw the two plot side by side (i.e.&nbsp;1 row and 2 columns).</p>
 <ul>
 <li>Plot 1: Draw a vertical boxplot of the variable <code>temp</code> in the data frame <code>weather</code>.</li>
 <li>Plot 2: Draw a vertical boxplot of <code>temp</code> vs <code>month</code> of the data frame <code>weather</code>. (You may need as.factor() to convert <code>month</code> to factor type.)</li>
 </ul>
 <p>Save the created plot as <code>PlotQ4.png</code>.</p>
+<p><em>To ensure that <code>ggsave()</code> works correctly for saving the plot created with <code>grid.arrange()</code>, you are recommended to first assign the plot to a named object (e.g., plot4). Then, save it by specifying the plot object in <code>ggsave()</code> like this:<code>ggsave(..., plot = plot4, ...)</code>.</em></p>
 <div style="height:30px;">
 
 </div>
