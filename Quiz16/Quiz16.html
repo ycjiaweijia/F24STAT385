@@ -58,7 +58,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -74,11 +73,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -104,51 +103,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed">
+<body>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../00. index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../01. part1.html"> 
-<span class="menu-text">Part I: R Basic Lecture Notes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../02. part2.html"> 
-<span class="menu-text">Part II: R Tidyverse Lecture Notes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../03. part3.html"> 
-<span class="menu-text">Part III: R Shiny Lecture Notes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../04. quizlist.html"> 
-<span class="menu-text">Quizzes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../05. lablist.html"> 
-<span class="menu-text">Labs</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -171,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="quiz-16-instructions" class="level2">
 <h2 class="anchored" data-anchor-id="quiz-16-instructions">Quiz 16 Instructions</h2>
-<p>Please complete the following questions and submit a file named <strong>Quiz16.R</strong> to <a href="https://www.gradescope.com/login">Gradescope</a> for autograding.</p>
+<p>Please complete the following questions and submit a file named <strong>Quiz16.R</strong>.</p>
 <p><strong>Remember:</strong></p>
 <!-- -   Do not rename external data files or edit them in any way. In other words, don't modify *data.csv*. Your code won't work properly on my version of that data set, if you do. -->
 <ul>
@@ -226,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>airline_safety</code> is another data frame in <code>fivethirtyeight</code> package containing information on different airline companies’ safety records.</p>
 <p>This data was originally reported on the data journalism website, FiveThirtyEight.com, in Nate Silver’s article, “Should Travelers Avoid Flying Airlines That Have Had Crashes in the Past?”.</p>
 <ol type="a">
-<li><p><strong>[2 pts]</strong> Create the tibble <code>df_fatalities</code> with the columns: <code>airline</code>, and all columns starts with <em>fatalities</em>. [Hint: You may use <code>starts_with("fatalities")</code>.]</p></li>
+<li><p><strong>[2 pts]</strong> Create the tibble <code>df_fatalities</code> with the columns: <code>airline</code>, and all columns starts with <em>fatalities</em>. [Hint: You may use <code>start_with("fatalities")</code>.]</p></li>
 <li><p><strong>[2 pts]</strong> Convert <code>df_fatalities</code> to <strong>tidy</strong> format as shown below and save the tidy tibble as <code>df_fatalities_tidy</code>. In this process, you need to</p></li>
 </ol>
 <ul>
@@ -251,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt; # ℹ 102 more rows</code></pre>
 </div>
 <ol start="3" type="a">
-<li><strong>[2 pts]</strong> Visualize the <code>df_fatalities_tidy</code> tibble by creating a bar-graph with <code>x = airline, y = count</code>, and color the bars using variable <code>year</code> for the airlines <code>"United / Continental", "Delta / Northwest"</code>, and <code>"American"</code>. You may use <code>position = "dodge"</code> to place the bars side by side. Save the plot as <code>PlotQ2.png</code> using <code>ggsave("PlotQ2.png", width = 10, height = 8, dpi = 300)</code>.</li>
+<li><strong>[2 pts]</strong> Visualize the <code>df_fatalities_tidy</code> tibble by creating a bar-graph with <code>x = airline, y = count</code>, and color the bars using variable <code>year</code> for the airlines “United / Continental”, “Delta / Northwest”, and “American”. You may use <code>position = "dodge"</code> to place the bars side by side. Save the plot as <code>PlotQ2.png</code> using <code>ggsave("PlotQ2.png", width = 10, height = 8, dpi = 300)</code>.</li>
 </ol>
 
 

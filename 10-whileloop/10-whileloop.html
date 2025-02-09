@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>whileloop</title>
+<title>While Loop and More about Functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,7 +58,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -74,11 +73,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -133,51 +132,11 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed">
+<body>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../00. index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../01. part1.html"> 
-<span class="menu-text">Part I: R Basic Lecture Notes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../02. part2.html"> 
-<span class="menu-text">Part II: R Tidyverse Lecture Notes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../03. part3.html"> 
-<span class="menu-text">Part III: R Shiny Lecture Notes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../04. quizlist.html"> 
-<span class="menu-text">Quizzes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../05. lablist.html"> 
-<span class="menu-text">Labs</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -185,9 +144,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#while-loop-and-more-about-functions" id="toc-while-loop-and-more-about-functions" class="nav-link active" data-scroll-target="#while-loop-and-more-about-functions">While Loop and More about Functions</a>
-  <ul class="collapse">
-  <li><a href="#reading-assignments" id="toc-reading-assignments" class="nav-link" data-scroll-target="#reading-assignments">Reading Assignments</a></li>
+  <li><a href="#reading-assignments" id="toc-reading-assignments" class="nav-link active" data-scroll-target="#reading-assignments">Reading Assignments</a></li>
   <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop">While Loop</a>
   <ul class="collapse">
   <li><a href="#cat-vs-print" id="toc-cat-vs-print" class="nav-link" data-scroll-target="#cat-vs-print"><code>cat</code> vs <code>print</code></a></li>
@@ -209,22 +166,35 @@ window.Quarto = {
   <li><a href="#white-spaces" id="toc-white-spaces" class="nav-link" data-scroll-target="#white-spaces">White Spaces</a></li>
   <li><a href="#indention" id="toc-indention" class="nav-link" data-scroll-target="#indention">Indention</a></li>
   </ul></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">While Loop and More about Functions</h1>
+</div>
 
 
 
-<section id="while-loop-and-more-about-functions" class="level1">
-<h1>While Loop and More about Functions</h1>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <section id="reading-assignments" class="level2">
 <h2 class="anchored" data-anchor-id="reading-assignments">Reading Assignments</h2>
 <ul>
-<li><p>Make sure to read the following sections in the textbook: R Coding Basics, <a href="https://www.gastonsanchez.com/R-coding-basics/" class="uri">https://www.gastonsanchez.com/R-coding-basics/</a></p>
+<li><p>Please make sure you’ve read the following sections in the textbook: R Coding Basics, <a href="https://www.gastonsanchez.com/R-coding-basics/" class="uri">https://www.gastonsanchez.com/R-coding-basics/</a></p>
 <ul>
 <li><a href="https://www.gastonsanchez.com/R-coding-basics/5-05-while-loop.html">Section 14. Iterations: While Loop</a></li>
 <li><a href="https://deepr.gagolewski.com/chapter/160-character.html">Section 6.1.4. <code>sprintf</code></a></li>
@@ -648,7 +618,6 @@ window.Quarto = {
 <p>Section 15.3.2 Syntax: Parentheses <a href="https://www.gastonsanchez.com/R-coding-basics/5-06-more-functions.html#syntax-parentheses" class="uri">https://www.gastonsanchez.com/R-coding-basics/5-06-more-functions.html#syntax-parentheses</a></p>
 
 
-</section>
 </section>
 </section>
 

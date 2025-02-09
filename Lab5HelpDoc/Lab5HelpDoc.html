@@ -58,7 +58,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -74,11 +73,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -133,51 +132,11 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed">
+<body>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../00. index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../01. part1.html"> 
-<span class="menu-text">Part I: R Basic Lecture Notes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../02. part2.html"> 
-<span class="menu-text">Part II: R Tidyverse Lecture Notes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../03. part3.html"> 
-<span class="menu-text">Part III: R Shiny Lecture Notes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../04. quizlist.html"> 
-<span class="menu-text">Quizzes</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../05. lablist.html"> 
-<span class="menu-text">Labs</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -185,8 +144,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#stat-385-lab-5-vectorization-help-document" id="toc-stat-385-lab-5-vectorization-help-document" class="nav-link active" data-scroll-target="#stat-385-lab-5-vectorization-help-document">STAT 385 Lab 5 Vectorization Help Document</a>
-  <ul class="collapse">
+  <li><a href="#stat-385-lab-5-vectorization-help-document" id="toc-stat-385-lab-5-vectorization-help-document" class="nav-link active" data-scroll-target="#stat-385-lab-5-vectorization-help-document">STAT 385 Lab 5 Vectorization Help Document</a></li>
   <li><a href="#why-vectorization" id="toc-why-vectorization" class="nav-link" data-scroll-target="#why-vectorization">Why Vectorization?</a></li>
   <li><a href="#kronecker-product" id="toc-kronecker-product" class="nav-link" data-scroll-target="#kronecker-product">Kronecker Product</a></li>
   <li><a href="#mathemetical-definition-of-kronecker-product" id="toc-mathemetical-definition-of-kronecker-product" class="nav-link" data-scroll-target="#mathemetical-definition-of-kronecker-product">Mathemetical Definition of Kronecker Product</a></li>
@@ -204,7 +162,6 @@ window.Quarto = {
   </ul></li>
   <li><a href="#compare-the-cpu-times-that-expressions-used" id="toc-compare-the-cpu-times-that-expressions-used" class="nav-link" data-scroll-target="#compare-the-cpu-times-that-expressions-used">Compare the CPU Times that Expressions Used</a></li>
   <li><a href="#what-if-a-and-b-are-not-2-times-2-matrices" id="toc-what-if-a-and-b-are-not-2-times-2-matrices" class="nav-link" data-scroll-target="#what-if-a-and-b-are-not-2-times-2-matrices">What if A and B are not <span class="math inline">\(2 \times 2\)</span> matrices?</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -214,8 +171,9 @@ window.Quarto = {
 
 
 
-<section id="stat-385-lab-5-vectorization-help-document" class="level1">
-<h1>STAT 385 Lab 5 Vectorization Help Document</h1>
+<section id="stat-385-lab-5-vectorization-help-document" class="level2">
+<h2 class="anchored" data-anchor-id="stat-385-lab-5-vectorization-help-document">STAT 385 Lab 5 Vectorization Help Document</h2>
+</section>
 <section id="why-vectorization" class="level2">
 <h2 class="anchored" data-anchor-id="why-vectorization">Why Vectorization?</h2>
 <ul>
@@ -453,10 +411,10 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">times=</span><span class="dv">10000</span>L</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Unit: microseconds</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                           expr  min   lq     mean median uq    max neval</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  vectorization_kronecker(A, B)  2.8  3.4  6.40591    5.9  7 5157.1 10000</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                kronecker(A, B) 23.2 24.9 44.00815   50.5 54 2498.2 10000</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        forloop_kronecker(A, B)  4.7  5.4  9.86099   10.4 12 2148.8 10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                           expr  min   lq     mean median   uq    max neval</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  vectorization_kronecker(A, B)  1.6  1.7  2.13267    1.8  2.0 1529.2 10000</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                kronecker(A, B) 13.0 13.5 14.83488   13.8 14.1 1851.8 10000</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        forloop_kronecker(A, B)  2.6  2.9  3.42294    3.0  3.1 1089.3 10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="what-if-a-and-b-are-not-2-times-2-matrices" class="level2">
@@ -482,10 +440,10 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">times=</span><span class="dv">10000</span>L</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Unit: microseconds</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                             expr  min   lq     mean median   uq     max neval</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  vectorization_kronecker(A1, B1)  7.9  9.3 13.88071    9.9 16.8  4753.6 10000</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                kronecker(A1, B1) 24.7 27.9 43.97730   29.8 58.7  3307.9 10000</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        forloop_kronecker(A1, B1) 36.7 41.2 61.62278   43.3 76.1 18219.7 10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                             expr  min   lq     mean median   uq    max neval</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  vectorization_kronecker(A1, B1)  4.6  5.0  7.19271    5.2  5.6 2886.1 10000</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                kronecker(A1, B1) 14.1 15.0 20.32112   15.5 16.7 3078.7 10000</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        forloop_kronecker(A1, B1) 21.3 22.6 28.31769   23.1 24.6 6007.3 10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Compare the CPU Times that Expressions Used for <code>A2</code> and <code>B2</code></li>
@@ -500,14 +458,13 @@ a_{m1}b_{p1}&amp;  a_{m1}b_{p2} &amp; \cdots &amp; a_{m1}b_{pq}&amp; \cdots&amp;
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">times=</span><span class="dv">10000</span>L</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Unit: microseconds</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                             expr  min    lq      mean median    uq    max neval</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  vectorization_kronecker(A2, B2) 14.5  18.9  31.77746  24.90  38.4 6298.2 10000</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                kronecker(A2, B2) 29.3  45.1  82.59700  64.45 102.9 6145.0 10000</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        forloop_kronecker(A2, B2) 79.8 100.3 164.87652 120.70 206.4 9142.7 10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                             expr  min   lq     mean median   uq    max neval</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  vectorization_kronecker(A2, B2)  9.6 10.5 12.92770   10.9 11.6 3163.3 10000</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                kronecker(A2, B2) 19.6 24.2 31.80210   26.9 29.7 3245.6 10000</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        forloop_kronecker(A2, B2) 53.6 56.3 70.64404   57.8 61.1 4751.6 10000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
