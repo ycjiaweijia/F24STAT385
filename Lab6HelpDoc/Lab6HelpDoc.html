@@ -175,7 +175,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#create-spectator-class" id="toc-create-spectator-class" class="nav-link" data-scroll-target="#create-spectator-class">Create Spectator Class</a></li>
   <li><a href="#generic-and-methods" id="toc-generic-and-methods" class="nav-link" data-scroll-target="#generic-and-methods">Generic and Methods</a></li>
-  <li><a href="#test" id="toc-test" class="nav-link" data-scroll-target="#test">Test</a></li>
+  <li><a href="#test" id="toc-test" class="nav-link" data-scroll-target="#test">Test</a>
+  <ul class="collapse">
+  <li><a href="#define-objects" id="toc-define-objects" class="nav-link" data-scroll-target="#define-objects">Define Objects</a></li>
+  <li><a href="#display-information" id="toc-display-information" class="nav-link" data-scroll-target="#display-information">Display Information</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -195,14 +199,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><a href="https://adv-r.hadley.nz/s3.html#s3-classes" class="uri">https://adv-r.hadley.nz/s3.html#s3-classes</a></li>
 </ul></li>
-<li>S3 is R’s first and simplest OO system.</li>
-<li>S3 vs S4 vs R6
-<ul>
-<li>S3 is used for simple, lightweight OOP (e.g., tidyverse packages)</li>
-<li>S4 is used for formal, structured OOP (e.g., Bioconductor packages)</li>
-<li>R6 is used for more complex systems (e.g., Shiny app)</li>
-</ul>
-<img src="combined_image.png" class="img-fluid"></li>
 <li>In the R ecosystem, S3 is the most popular object-oriented programming (OOP) system.</li>
 <li>The main components of S3: <strong>classes, generics, and methods</strong></li>
 <li>To create a new S3 class, three functions are used in most classes:
@@ -442,6 +438,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="test" class="level2">
 <h2 class="anchored" data-anchor-id="test">Test</h2>
+<section id="define-objects" class="level3">
+<h3 class="anchored" data-anchor-id="define-objects">Define Objects</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Player</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -491,30 +489,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>Jia <span class="ot">&lt;-</span> <span class="fu">new_spectator</span>(</span>
 <span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"Weijia Jia"</span></span>
-<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Mckenzie)</span>
-<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Adalia Mckenzie is a player on the U of I Women's Basketball Team. Her jersey number is 24. Adalia is a student in her Senior year. She is 5-10 tall (177.8 cm). Her position is Guard.</span></span>
-<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>Mckenzie</span>
-<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Adalia Mckenzie is a player on the U of I Women's Basketball Team. Her jersey number is 24. Adalia is a student in her Senior year. She is 5-10 tall (177.8 cm). Her position is Guard.</span></span>
-<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Bryant)</span>
-<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Genesis Bryant is a player on the U of I Women's Basketball Team. Her jersey number is 1. Genesis is a student in her Fifth year. She is 5-6 tall (167.64 cm). Her position is Guard.</span></span>
-<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>Bryant</span>
-<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Genesis Bryant is a player on the U of I Women's Basketball Team. Her jersey number is 1. Genesis is a student in her Fifth year. She is 5-6 tall (167.64 cm). Her position is Guard.</span></span>
-<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Green)</span>
-<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Shauna Green is the Head Coach of the U of I Women's Basketball Team.</span></span>
-<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>Green</span>
-<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Shauna Green is the Head Coach of the U of I Women's Basketball Team.</span></span>
-<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Solomon)</span>
-<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Maya Solomon is a staff member of the U of I Women's Basketball Team.</span></span>
-<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>Solomon</span>
-<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Maya Solomon is a staff member of the U of I Women's Basketball Team.</span></span>
-<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Jia)</span>
-<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Weijia Jia is neither a player nor a staff member.</span></span>
-<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>Jia</span>
-<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Weijia Jia is neither a player nor a staff member.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="display-information" class="level3">
+<h3 class="anchored" data-anchor-id="display-information">Display Information</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Mckenzie)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Adalia Mckenzie is a player on the U of I Women's Basketball Team. Her jersey number is 24. Adalia is a student in her Senior year. She is 5-10 tall (177.8 cm). Her position is Guard.</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Mckenzie</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Adalia Mckenzie is a player on the U of I Women's Basketball Team. Her jersey number is 24. Adalia is a student in her Senior year. She is 5-10 tall (177.8 cm). Her position is Guard.</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Bryant)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Genesis Bryant is a player on the U of I Women's Basketball Team. Her jersey number is 1. Genesis is a student in her Fifth year. She is 5-6 tall (167.64 cm). Her position is Guard.</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>Bryant</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Genesis Bryant is a player on the U of I Women's Basketball Team. Her jersey number is 1. Genesis is a student in her Fifth year. She is 5-6 tall (167.64 cm). Her position is Guard.</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Green)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Shauna Green is the Head Coach of the U of I Women's Basketball Team.</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>Green</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Shauna Green is the Head Coach of the U of I Women's Basketball Team.</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Solomon)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Maya Solomon is a staff member of the U of I Women's Basketball Team.</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>Solomon</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Maya Solomon is a staff member of the U of I Women's Basketball Team.</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Jia)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Weijia Jia is neither a player nor a staff member.</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>Jia</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Weijia Jia is neither a player nor a staff member.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
