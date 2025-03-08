@@ -198,7 +198,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#transpose-of-a-data-frame" id="toc-transpose-of-a-data-frame" class="nav-link" data-scroll-target="#transpose-of-a-data-frame">Transpose of a data frame</a></li>
   </ul></li>
-  <li><a href="#base-type" id="toc-base-type" class="nav-link" data-scroll-target="#base-type">Base Type</a></li>
+  <li><a href="#base-type" id="toc-base-type" class="nav-link" data-scroll-target="#base-type">Base Type</a>
+  <ul class="collapse">
+  <li><a href="#base-type-summary" id="toc-base-type-summary" class="nav-link" data-scroll-target="#base-type-summary">Base type summary</a></li>
+  </ul></li>
   <li><a href="#factors-are-built-on-top-of-integers" id="toc-factors-are-built-on-top-of-integers" class="nav-link" data-scroll-target="#factors-are-built-on-top-of-integers">Factors are built on top of integers</a></li>
   <li><a href="#dates-are-built-on-top-of-doubles" id="toc-dates-are-built-on-top-of-doubles" class="nav-link" data-scroll-target="#dates-are-built-on-top-of-doubles"><em>Dates</em> are built on top of <em>doubles</em></a></li>
   <li><a href="#difftimes-are-built-on-top-of-doubles" id="toc-difftimes-are-built-on-top-of-doubles" class="nav-link" data-scroll-target="#difftimes-are-built-on-top-of-doubles"><em>Difftimes</em> are built on top of <em>doubles</em></a></li>
@@ -402,6 +405,31 @@ window.Quarto = {
 <li>An S3 object often stores additional information in other attributes (e.g.&nbsp;the <em>levels</em> attribute).</li>
 </ul>
 <!-- , which means it will behave differently from a regular vector when passes to a generic function.  -->
+<section id="base-type-summary" class="level3">
+<h3 class="anchored" data-anchor-id="base-type-summary">Base type summary</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Factor</th>
+<th>POSIXct</th>
+<th>Date</th>
+<th>Data Frame</th>
+<th>Tibble</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Base Type</td>
+<td>Integer</td>
+<td>Double</td>
+<td>Double</td>
+<td>List</td>
+<td>List</td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="factors-are-built-on-top-of-integers" class="level2">
 <h2 class="anchored" data-anchor-id="factors-are-built-on-top-of-integers">Factors are built on top of integers</h2>
